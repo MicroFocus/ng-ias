@@ -2,17 +2,16 @@
     <div class="mf-app-bar">
         <h3 class="mf-heading" ng-bind="app.projectName"></h3>
         <span class="mf-fill"></span>
-        <button class="mf-icon-button"
-                title="Toggle display direction"
+        <mf-button class="mf-icon-button"
                 ng-click="app.toggleDisplayDirection()"
-                ng-switch="app.displayDirection">
-            <i class="mf-icon mf-icon-back_left_thick" ng-switch-when="ltr"></i>
-            <i class="mf-icon mf-icon-forward_right_thick" ng-switch-when="rtl"></i>
-        </button>
-        <button class="mf-icon-button" ng-click="app.toggleTheme()" title="Toggle theme">
-            <i class="mf-icon mf-icon-favorite_outline_thin" ng-if="app.isDefaultTheme()"></i>
-            <i class="mf-icon mf-icon-favorite_fill" ng-if="!app.isDefaultTheme()"></i>
-        </button>
+                title="Toggle display direction">
+            <mf-icon icon="(app.displayDirection === 'ltr') ? 'back_left_thick' : 'forward_right_thick'"></mf-icon>
+        </mf-button>
+        <mf-button class="mf-icon-button"
+                ng-click="app.toggleTheme()"
+                title="Toggle theme">
+            <mf-icon icon="(app.isDefaultTheme()) ? 'favorite_outline_thin' : 'favorite_fill'"></mf-icon>
+        </mf-button>
     </div>
     <div class="mf-nav">
         <a ui-sref="app.project" ui-sref-active="mf-active" class="mf-button">Project</a>

@@ -11,8 +11,6 @@
     ],
     "types": [
       "angular",
-      "angular-mocks",
-      "jasmine",
       "jquery",
       "node"
     ]

@@ -1,7 +1,7 @@
 import { module } from 'angular';
-import AppBarComponent from './components/app-bar.component';
-import ButtonComponent from './components/button.component';
+import ButtonComponent from './components/button/button.component';
+import IconComponent from './components/icon/icon.component';
 
 module('ng-mfux', [])
-    .component('mfAppBar', AppBarComponent)
-    .component('mfButton', ButtonComponent);
+    .component('mfButton', ButtonComponent)
+    .component('mfIcon', IconComponent);

@@ -1,28 +1,30 @@
 var async = require('async');
 var fs = require('fs');
 var gulp = require('gulp');
-var gulpAutoprefixer = require('gulp-autoprefixer');
+// var gulpAutoprefixer = require('gulp-autoprefixer');
 var gulpClean = require('gulp-clean');
 var gulpConnect = require('gulp-connect');
 var gulpJscs = require('gulp-jscs');
-var gulpRename = require('gulp-rename');
-var gulpReplace = require('gulp-replace');
-var gulpSass = require('gulp-sass');
-var gulpSourceMaps = require('gulp-sourcemaps');
+// var gulpRename = require('gulp-rename');
+// var gulpReplace = require('gulp-replace');
+// var gulpSass = require('gulp-sass');
+// var gulpSourceMaps = require('gulp-sourcemaps');
 var gulpWatch = require('gulp-watch');
+var gulpWebpack = require('webpack-stream');
 
 var docsDirectory = './docs/';
 var docsFiles = './docs/**/*';
 var docsJs = './docs/**/*.js';
 var outputDirectory = './dist/';
-var sassFiles = './src/**/*.scss';
-var sassManifestFiles = [ './src/mfux.scss', './src/mfux_dark.scss' ] ;
-var pkg = JSON.parse(fs.readFileSync('./package.json'));
+var srcFiles = './src/**/*';
+// var sassFiles = './src/**/*.scss';
+// var sassManifestFiles = [ './src/mfux.scss', './src/mfux_dark.scss' ] ;
+// var pkg = JSON.parse(fs.readFileSync('./package.json'));
 
 
 gulp.task('build-docs', ['jscs', 'copy-vendor', 'copy-mfux', 'copy-docs']);
 
-gulp.task('build-src', []);
+gulp.task('build-src', ['webpack']);
 
 gulp.task('clean', function() {
     return gulp.src(outputDirectory)
@@ -68,27 +70,27 @@ gulp.task('jscs', function() {
         .pipe(gulpJscs.reporter());
 });
 
-gulp.task('default', ['build-src', 'watch-src']);
+gulp.task('default', ['build-src']);
 
-gulp.task('docs', ['build-src', 'build-docs', 'connect', 'watch-docs']);
+gulp.task('docs', ['build-src', 'build-docs', 'connect', 'watch-src', 'watch-docs']);
 
-gulp.task('sass', function() {
-    return processSass(sassManifestFiles, { outputStyle: 'expanded' })
-        .pipe(gulpConnect.reload())
-        .pipe(gulp.dest(outputDirectory));
-});
-
-gulp.task('sass-minified', function() {
-    return processSass(sassManifestFiles, { outputStyle: 'compressed' })
-        .pipe(gulpRename({ suffix: '.min' }))
-        .pipe(gulp.dest(outputDirectory));
-});
+// gulp.task('sass', function() {
+//     return processSass(sassManifestFiles, { outputStyle: 'expanded' })
+//         .pipe(gulpConnect.reload())
+//         .pipe(gulp.dest(outputDirectory));
+// });
+//
+// gulp.task('sass-minified', function() {
+//     return processSass(sassManifestFiles, { outputStyle: 'compressed' })
+//         .pipe(gulpRename({ suffix: '.min' }))
+//         .pipe(gulp.dest(outputDirectory));
+// });
 
 gulp.task('watch-docs', function() {
-    gulpWatch(sassFiles, function() {
-        gulp.start('sass');
-        gulp.start('sass-minified');
-    });
+    // gulpWatch(sassFiles, function() {
+    //     gulp.start('sass');
+    //     gulp.start('sass-minified');
+    // });
     gulpWatch(docsJs, function() {
         gulp.start('jscs');
     });
@@ -98,21 +100,28 @@ gulp.task('watch-docs', function() {
 });
 
 gulp.task('watch-src', function() {
-    gulpWatch(sassFiles, function() {
-        gulp.start('sass');
-        gulp.start('sass-minified');
+    gulpWatch(srcFiles, function() {
+        gulp.start('webpack');
     });
 });
 
-function processSass(filePattern, sassOptions) {
-    sassOptions = sassOptions || {};
+gulp.task('webpack', function() {
+    return gulp
+        .src('src/ng-mfux.module.ts')
+        .pipe(gulpWebpack(require('./webpack.config')))
+        .pipe(gulpConnect.reload())
+        .pipe(gulp.dest(outputDirectory));
+});
 
-    return gulp.src(filePattern)
-        .pipe(gulpSourceMaps.init())
-        .pipe(gulpReplace('%VERSION%', pkg.version))
-        .pipe(gulpSass(sassOptions).on('error', gulpSass.logError))
-        .pipe(gulpAutoprefixer({
-            browsers: ['last 2 versions']
-        }))
-        .pipe(gulpSourceMaps.write('./'));
-}
+// function processSass(filePattern, sassOptions) {
+//     sassOptions = sassOptions || {};
+//
+//     return gulp.src(filePattern)
+//         .pipe(gulpSourceMaps.init())
+//         .pipe(gulpReplace('%VERSION%', pkg.version))
+//         .pipe(gulpSass(sassOptions).on('error', gulpSass.logError))
+//         .pipe(gulpAutoprefixer({
+//             browsers: ['last 2 versions']
+//         }))
+//         .pipe(gulpSourceMaps.write('./'));
+// }

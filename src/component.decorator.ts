@@ -10,7 +10,7 @@ export function Component(options: {
     controllerAs?: string,
     template?: (string | any[] | IContentTemplateFunction),
     templateUrl?: string,
-    transclude?: boolean,
+    transclude?: (boolean | string),
     stylesheetUrl?: string
 }) {
     return (controller: Function) => extend(options, { controller: controller });
