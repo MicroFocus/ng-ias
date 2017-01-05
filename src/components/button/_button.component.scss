@@ -1,0 +1,47 @@
+mf-button,
+.mf-button {
+  background-color: $button-bg-color;
+  border: $button-border-width solid transparent;
+  border-radius: $border-radius;
+  color: $button-text-color;
+  display: inline-block;
+  height: $button-height;
+  line-height: $button-height;
+  padding: 0 $spacing;
+
+  &:hover {
+    background-color: $button-bg-color-hover;
+    border-color: $button-border-color-hover;
+    color: $button-text-color-hover;
+    cursor: pointer;
+  }
+
+  &[disabled],
+  &.mf-disabled {
+    background-color: $button-bg-color-disabled;
+    border-color: $button-border-color-disabled;
+    color: $button-text-color-disabled;
+
+    &:hover {
+      background-color: $button-bg-color-disabled;
+      border-color: $button-border-color-disabled;
+      color: $button-text-color-disabled;
+      cursor: default;
+    }
+  }
+
+  &.mf-icon-button {
+    @include square($icon-button-size);
+
+    background-color: transparent;
+    padding: 0;
+
+    mf-icon {
+      font-size: inherit;
+    }
+  }
+
+  > .mf-button-content {
+    height: 100%;
+  }
+}

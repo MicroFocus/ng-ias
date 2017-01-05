@@ -1,0 +1,48 @@
+mf-app-bar {
+  background: $app-bar-bg-fallback;
+  background: $app-bar-bg;
+  color: $app-bar-text-color;
+  display: block;
+  height: $app-bar-height-small;
+
+  > .mf-app-bar-content {
+    align-items: center;
+    display: flex;
+    flex-flow: row nowrap;
+    height: 100%;
+    padding-right: $body-spacing-small;
+
+    > .mf-title {
+      margin-left: $body-spacing-small;
+    }
+
+    button,
+    mf-button {
+      border: none;
+      color: inherit;
+    }
+
+    .mf-icon-button {
+      margin-left: $spacing;
+    }
+  }
+}
+
+[dir="rtl"] {
+  mf-app-bar {
+    > .mf-app-bar-content {
+      padding-left: $body-spacing-small;
+      padding-right: initial;
+
+      > .mf-title {
+        margin-left: initial;
+        margin-right: $body-spacing-small;
+      }
+
+      .mf-icon-button {
+        margin-left: initial;
+        margin-right: $spacing;
+      }
+    }
+  }
+}

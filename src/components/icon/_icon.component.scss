@@ -1,0 +1,13 @@
+mf-icon {
+  @include square($icon-size-small);
+
+  display: inline-block;
+  text-align: center;
+
+  &.mf-large { @include square($icon-size-large); }
+  &.mf-medium { @include square($icon-size-medium); }
+}
+
+.mf-icon {
+  @include same-size-as-parent;
+}
