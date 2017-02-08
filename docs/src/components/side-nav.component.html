@@ -1,1 +1,117 @@
 <h2>Side Nav</h2>
+
+<div class="demo-section">
+    <div class="side-nav-demo">
+        <mf-side-nav name="sideNav1">
+            <a href="">Link 1</a>
+            <a href="">Link 2</a>
+            <a href="">Link 3</a>
+            <a href="">Link 4</a>
+            <a href="">Link 5</a>
+            <a href="">Link 6</a>
+            <a href="">Link 7</a>
+            <a href="">Link 8</a>
+        </mf-side-nav>
+        <div class="side-nav-demo-content mf-content-padding">
+            <mf-button mf-toggle="sideNav1">Click here</mf-button>
+            <table>
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Title</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <mf-icon icon="'favorite_outline_thin'"></mf-icon>
+                        <a href="#">Lynn Christensen</a>
+                    </td>
+                    <td>UX Director</td>
+                </tr>
+                <tr>
+                    <td>
+                        <mf-icon icon="'favorite_outline_thin'"></mf-icon>
+                        <a href="#">Joe Hawkins</a>
+                    </td>
+                    <td>Assistant to the UX Director</td>
+                </tr>
+                <tr>
+                    <td>
+                        <mf-icon icon="'favorite_outline_thin'"></mf-icon>
+                        <a href="#">Joseph White</a>
+                    </td>
+                    <td>Secret assistant to the UX Director</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <code>
+        &lt;mf-button mf-toggle=&quot;sideNav1&quot;&gt;Click here&lt;/mf-button&gt;<br>
+        &lt;mf-side-nav name=&quot;sideNav1&quot;&gt;<br>
+        &nbsp;&nbsp;&lt;a href=&quot;#&quot;&gt;Link 1&lt;/a&gt;<br>
+        &nbsp;&nbsp;&lt;a href=&quot;#&quot;&gt;Link 2&lt;/a&gt;<br>
+        &nbsp;&nbsp;...<br>
+        &lt;/mf-side-nav&gt;
+    </code>
+</div>
+
+<div class="demo-section">
+    <h4>.mf-locked</h4>
+
+    <div class="side-nav-demo">
+        <mf-side-nav name="sideNav2" class="mf-locked">
+            <a href="">Link 1</a>
+            <a href="">Link 2</a>
+            <a href="">Link 3</a>
+            <a href="">Link 4</a>
+            <a href="">Link 5</a>
+            <a href="">Link 6</a>
+            <a href="">Link 7</a>
+            <a href="">Link 8</a>
+        </mf-side-nav>
+        <div class="side-nav-demo-content mf-content-padding">
+            <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Title</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <mf-icon icon="'favorite_outline_thin'"></mf-icon>
+                    <a href="#">Lynn Christensen</a>
+                </td>
+                <td>UX Director</td>
+            </tr>
+            <tr>
+                <td>
+                    <mf-icon icon="'favorite_outline_thin'"></mf-icon>
+                    <a href="#">Joe Hawkins</a>
+                </td>
+                <td>Assistant to the UX Director</td>
+            </tr>
+            <tr>
+                <td>
+                    <mf-icon icon="'favorite_outline_thin'"></mf-icon>
+                    <a href="#">Joseph White</a>
+                </td>
+                <td>Secret assistant to the UX Director</td>
+            </tr>
+            </tbody>
+        </table>
+        </div>
+    </div>
+
+    <code>
+        &lt;mf-side-nav name=&quot;sideNav2&quot; class=&quot;mf-locked&quot;&gt;<br>
+        &nbsp;&nbsp;&lt;a href=&quot;&quot;&gt;Link 1&lt;/a&gt;<br>
+        &nbsp;&nbsp;&lt;a href=&quot;&quot;&gt;Link 2&lt;/a&gt;<br>
+        &nbsp;&nbsp;...<br>
+        &lt;/mf-side-nav&gt;
+    </code>
+</div>

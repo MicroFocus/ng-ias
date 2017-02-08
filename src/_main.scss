@@ -1,3 +1,4 @@
+@import 'style/animations';
 @import 'style/text';
 @import 'style/layout';
 @import 'style/size';
@@ -5,11 +6,20 @@
 @import 'style/type';
 
 @import 'components/app-bar/app-bar.component';
+@import 'components/avatar/avatar.component';
 @import 'components/button/button.component';
+@import 'components/dialog/dialog.component';
 @import 'components/icon/icon.component';
+@import 'components/input/input.component';
 @import 'components/link/link.component';
+@import 'components/list/list.component';
+@import 'components/menu/menu.component';
 @import 'components/nav/nav.component';
+@import 'components/search-box/search-box.component';
 @import 'components/side-nav/side-nav.component';
+@import 'components/table/table.component';
+@import 'components/tile/tile.component';
+@import 'components/tile-grid/tile-grid.component';
 
 body {
   background-color: $body-bg-color;

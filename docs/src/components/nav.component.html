@@ -1,1 +1,89 @@
 <h2>Nav</h2>
+
+<div class="demo-section">
+    <mf-nav>
+        <a href="#">Link 1</a>
+        <a href="#">Link 2</a>
+    </mf-nav>
+
+    <code>
+        &lt;mf-nav&gt;<br>
+        &nbsp;&nbsp;&lt;a href=&quot;#&quot;&gt;Link 1&lt;/a&gt;<br>
+        &nbsp;&nbsp;&lt;a href=&quot;#&quot;&gt;Link 2&lt;/a&gt;<br>
+        &lt;/mf-nav&gt;
+    </code>
+</div>
+
+<div class="demo-section">
+    <h4>.mf-disabled</h4>
+
+    <mf-nav>
+        <a href="#">Link 1</a>
+        <a class="mf-disabled">Link 2</a>
+    </mf-nav>
+
+    <code>
+        &lt;mf-nav&gt;<br>
+        &nbsp;&nbsp;&lt;a href=&quot;#&quot;&gt;Link 1&lt;/a&gt;<br>
+        &nbsp;&nbsp;&lt;a class=&quot;mf-disabled&quot;&gt;Link 2&lt;/a&gt;<br>
+        &lt;/mf-nav&gt;
+    </code>
+</div>
+
+<div class="demo-section">
+    <h4>.mf-active</h4>
+
+    <mf-nav>
+        <a href="#">Link 1</a>
+        <a href="#" class="mf-active">Link 2</a>
+        <a href="#">Link 3</a>
+    </mf-nav>
+
+    <code>
+        &lt;mf-nav&gt;<br>
+        &nbsp;&nbsp;&lt;a href=&quot;#&quot;&gt;Link 1&lt;/a&gt;<br>
+        &nbsp;&nbsp;&lt;a href=&quot;#&quot; class=&quot;mf-active&quot;&gt;Link 2&lt;/a&gt;<br>
+        &nbsp;&nbsp;&lt;a href=&quot;#&quot;&gt;Link 3&lt;/a&gt;<br>
+        &lt;/mf-nav&gt;
+    </code>
+</div>
+
+<div class="demo-section">
+    <h4>Complex</h4>
+
+    <mf-nav>
+        <mf-button class="mf-icon-button">
+            <mf-icon icon="'search_thick'"></mf-icon>
+        </mf-button>
+
+        <a href="#">Link 1</a>
+        <a href="#" class="mf-active">Link 2</a>
+        <a class="mf-disabled">Link 3</a>
+
+        <span class="mf-fill"></span>
+
+        <mf-button mf-toggle="menu1">Menu <mf-icon icon="'down_thick'"></mf-icon></mf-button>
+        <mf-menu name="menu1">
+            <mf-button>Button 1</mf-button>
+            <mf-button>Button 2</mf-button>
+        </mf-menu>
+
+    </mf-nav>
+
+    <code>
+        &lt;mf-nav&gt;<br>
+        &nbsp;&nbsp;&lt;mf-button class=&quot;mf-icon-button&quot;&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-icon icon=&quot;'search_thick'&quot;&gt;&lt;/mf-icon&gt;<br>
+        &nbsp;&nbsp;&lt;/mf-button&gt;<br><br>
+        &nbsp;&nbsp;&lt;a href=&quot;#&quot;&gt;Link 1&lt;/a&gt;<br>
+        &nbsp;&nbsp;&lt;a href=&quot;#&quot; class=&quot;mf-active&quot;&gt;Link 2&lt;/a&gt;<br>
+        &nbsp;&nbsp;&lt;a class=&quot;mf-disabled&quot;&gt;Link 3&lt;/a&gt;<br><br>
+        &nbsp;&nbsp;&lt;span class=&quot;mf-fill&quot;&gt;&lt;/span&gt;<br><br>
+        &nbsp;&nbsp;&lt;mf-button mf-toggle=&quot;menu1&quot;&gt;Menu &lt;mf-icon icon=&quot;'down_thick'&quot;&gt;&lt;/mf-icon&gt;&lt;/mf-button&gt;<br>
+        &nbsp;&nbsp;&lt;mf-menu name=&quot;menu1&quot;&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-button&gt;Button 1&lt;/mf-button&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-button&gt;Button 2&lt;/mf-button&gt;<br>
+        &nbsp;&nbsp;&lt;/mf-menu&gt;<br>
+        &lt;/mf-nav&gt;
+    </code>
+</div>

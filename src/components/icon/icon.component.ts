@@ -6,4 +6,12 @@ import { Component } from '../../component.decorator';
     },
     templateUrl: require('./icon.component.html')
 })
-export default class IconComponent {}
+export default class IconComponent {
+    constructor() {
+
+    }
+
+    $onChanges() {
+
+    }
+}

@@ -1,0 +1,11 @@
+<div class="mf-search-box-content">
+    <input type="text"
+           autocomplete="false"
+           ng-model="$ctrl.value"
+           ng-attr-placeholder="{{$ctrl.placeholder}}"
+           ng-keydown="$ctrl.onInputKeyDown($event)" />
+    <mf-icon icon="'search_thick'"></mf-icon>
+    <mf-button class="mf-icon-button" ng-click="$ctrl.clearInput()">
+        <mf-icon icon="'close_thick'"></mf-icon>
+    </mf-button>
+</div>

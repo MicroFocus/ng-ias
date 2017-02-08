@@ -3,27 +3,42 @@ mf-app-bar {
   background: $app-bar-bg;
   color: $app-bar-text-color;
   display: block;
-  height: $app-bar-height-small;
+  font-size: $app-bar-font-size;
 
   > .mf-app-bar-content {
     align-items: center;
     display: flex;
     flex-flow: row nowrap;
     height: 100%;
+    min-height: $app-bar-height-small;
     padding-right: $body-spacing-small;
+    overflow: hidden;
+
+    > .mf-logo {
+      display: block;
+      max-height: $app-bar-height-small;
+    }
 
     > .mf-title {
       margin-left: $body-spacing-small;
     }
 
-    button,
     mf-button {
+      background-color: transparent;
       border: none;
       color: inherit;
+      font-size: inherit;
+      padding: 0;
+
+      &:hover {
+        background-color: transparent;
+        color: inherit;
+      }
     }
 
     .mf-icon-button {
       margin-left: $spacing;
+      font-size: $app-bar-icon-size;
     }
   }
 }
@@ -42,6 +57,46 @@ mf-app-bar {
       .mf-icon-button {
         margin-left: initial;
         margin-right: $spacing;
+      }
+    }
+  }
+}
+
+@media (min-width: $large-display) {
+  mf-app-bar {
+    > .mf-app-bar-content {
+      > .mf-logo {
+        max-height: $app-bar-height-large;
+      }
+    }
+
+    &.mf-large {
+      height: $app-bar-height-large;
+
+      > .mf-app-bar-content {
+        padding: 0 $body-spacing-large 0 0;
+
+        > .mf-title {
+          margin-left: $body-spacing-large;
+        }
+
+        .mf-icon-button {
+          margin-left: $spacing;
+          font-size: $icon-size-small;
+        }
+      }
+    }
+  }
+
+  [dir="rtl"] {
+    mf-app-bar {
+      padding: 0 0 0 $body-spacing-large;
+
+      > .mf-app-bar-content {
+        > .mf-title {
+          margin-left: initial;
+          margin-right: $body-spacing-large;
+        }
       }
     }
   }

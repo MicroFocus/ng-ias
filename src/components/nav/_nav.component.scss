@@ -10,13 +10,14 @@ mf-nav {
     height: 100%;
     padding: 0 $body-spacing-small;
 
-    > a {
+    > a,
+    > mf-button {
       background-color: transparent;
       border: $nav-item-border-width solid transparent;
       border-bottom-width: $nav-item-border-width-active;
       border-radius: 0;
       color: $nav-text-color;
-      height: $nav-height - $nav-item-border-width-active - $nav-item-border-width;
+      height: $nav-item-height;
       line-height: $nav-height;
       padding: 0 $spacing;
       text-align: center;
@@ -26,22 +27,50 @@ mf-nav {
         background-color: $nav-item-bg-color-disabled;
         border-color: $nav-item-border-color-disabled;
         color: $text-color-disabled;
-      }
 
-      &:not([disabled]):not(.mf-disabled):not(.mf-icon) {
         &:hover {
-          background-color: $nav-item-bg-color-hover;
-          border-color: $nav-item-border-color-hover;
-          color: $nav-item-color-hover;
-        }
-
-        &.mf-active {
-          border-bottom-color: $nav-item-border-bottom-color-active;
-          border-left-color: $nav-item-border-color-active;
-          border-right-color: $nav-item-border-color-active;
-          color: $nav-item-color-active;
+          background-color: $nav-item-bg-color-disabled;
+          border-color: $nav-item-border-color-disabled;
+          color: $text-color-disabled;
         }
       }
+
+      &.mf-active {
+        border-bottom-color: $nav-item-border-bottom-color-active;
+        border-left-color: $nav-item-border-color-active;
+        border-right-color: $nav-item-border-color-active;
+        color: $nav-item-color-active;
+      }
+
+      &:hover {
+        background-color: $nav-item-bg-color-hover;
+        border-color: $nav-item-border-color-hover;
+        color: $nav-item-color-hover;
+      }
+
+      &:focus {
+        background-color: $nav-item-bg-color-focus;
+        border-color: $nav-item-border-color-focus;
+        color: $nav-item-border-color-focus;
+      }
+    }
+
+    > .mf-icon-button {
+      font-size: $nav-icon-size;
+      padding: 0 $nav-icon-padding;
+
+      mf-icon {
+        height: $nav-item-height;
+        line-height: $nav-item-height;
+      }
+    }
+  }
+}
+
+@media (min-width: $large-display) {
+  mf-nav {
+    > .mf-nav-content {
+      padding: 0 $body-spacing-large;
     }
   }
 }

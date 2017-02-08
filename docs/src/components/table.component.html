@@ -1,1 +1,171 @@
 <h2>Table</h2>
+
+<div class="demo-section">
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Title</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <mf-button class="mf-icon-button">
+                        <mf-icon icon="'search_thick'"></mf-icon>
+                    </mf-button>
+                </td>
+                <td><a href="#">Lynn Christensen</a></td>
+                <td>UX Director</td>
+            </tr>
+            <tr>
+                <td>
+                    <mf-button class="mf-icon-button">
+                        <mf-icon icon="'search_thick'"></mf-icon>
+                    </mf-button>
+                </td>
+                <td><a href="#">Joe Hawkins</a></td>
+                <td>Assistant to the UX Director</td>
+            </tr>
+            <tr>
+                <td>
+                    <mf-button class="mf-icon-button">
+                        <mf-icon icon="'search_thick'"></mf-icon>
+                    </mf-button>
+                </td>
+                <td><a href="#">Joseph White</a></td>
+                <td>Secret assistant to the UX Director</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <code>
+        &lt;table&gt;<br>
+        &nbsp;&nbsp;&lt;thead&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;&lt;/th&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Name&lt;/th&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Title&lt;/th&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br>
+        &nbsp;&nbsp;&lt;/thead&gt;<br>
+        &nbsp;&nbsp;&lt;tbody&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-button class=&quot;mf-icon-button&quot;&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-icon icon=&quot;'search_thick'&quot;&gt;&lt;/mf-icon&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/mf-button&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;&lt;a href=&quot;#&quot;&gt;Lynn Christensen&lt;/a&gt;&lt;/td&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;UX Director&lt;/td&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br>
+        &nbsp;&nbsp;&lt;/tbody&gt;<br>
+        &lt;/table&gt;
+    </code>
+</div>
+
+<div class="demo-section">
+    <h4>Inline mf-icon</h4>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Title</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <mf-icon icon="'favorite_outline_thin'"></mf-icon>
+                    <a href="#">Lynn Christensen</a>
+                </td>
+                <td>UX Director</td>
+            </tr>
+            <tr>
+                <td>
+                    <mf-icon icon="'favorite_outline_thin'"></mf-icon>
+                    <a href="#">Joe Hawkins</a>
+                </td>
+                <td>Assistant to the UX Director</td>
+            </tr>
+            <tr>
+                <td>
+                    <mf-icon icon="'favorite_outline_thin'"></mf-icon>
+                    <a href="#">Joseph White</a>
+                </td>
+                <td>Secret assistant to the UX Director</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <code>
+        &lt;table&gt;<br>
+        &nbsp;&nbsp;&lt;thead&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Name&lt;/th&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Title&lt;/th&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br>
+        &nbsp;&nbsp;&lt;/thead&gt;<br>
+        &nbsp;&nbsp;&lt;tbody&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-icon icon=&quot;'favorite_outline_thin'&quot;&gt;&lt;/mf-icon&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href=&quot;#&quot;&gt;Lynn Christensen&lt;/a&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;UX Director&lt;/td&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br>
+        &nbsp;&nbsp;&lt;/tbody&gt;<br>
+        &lt;/table&gt;
+    </code>
+</div>
+
+<div class="demo-section">
+    <h4>Sorting</h4>
+
+    <table mf-sort="$ctrl.sort"
+           ng-init="$ctrl.people=[
+            {name: 'Lynn Christensen', title: 'UX Director'},
+            {name: 'Joseph White', title: 'Assistant to the UX Director'},
+            {name: 'Joe Hawkins', title: 'Secret assistant to the UX Director'}]">
+        <thead>
+            <tr>
+                <th mf-sort-on="'name'">Name</th>
+                <th mf-sort-on="'title'">Title</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="person in $ctrl.people | orderBy:$ctrl.sort">
+                <td>
+                    <mf-icon icon="'favorite_outline_thin'"></mf-icon>
+                    <a href="#">{{person.name}}</a>
+                </td>
+                <td>{{person.title}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <code>
+        &lt;table mf-sort=&quot;$ctrl.sort&quot;<br>
+        &nbsp;&nbsp;ng-init=&quot;$ctrl.people=[<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;{name: 'Lynn Christensen', title: 'UX Director'},<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;{name: 'Joseph White', title: 'Assistant to the UX Director'},<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;{name: 'Joe Hawkins', title: 'Secret assistant to the UX Director'}]&quot;&gt;<br>
+        &nbsp;&nbsp;&lt;thead&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th mf-sort-on=&quot;'name'&quot;&gt;Name&lt;/th&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th mf-sort-on=&quot;'title'&quot;&gt;Title&lt;/th&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br>
+        &nbsp;&nbsp;&lt;/thead&gt;<br>
+        &nbsp;&nbsp;&lt;tbody&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;tr ng-repeat=&quot;person in $ctrl.people | orderBy:$ctrl.sort&quot;&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-icon icon=&quot;'favorite_outline_thin'&quot;&gt;&lt;/mf-icon&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href=&quot;#&quot;&gt;{{person.name}}&lt;/a&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;{{person.title}}&lt;/td&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br>
+        &nbsp;&nbsp;&lt;/tbody&gt;<br>
+        &lt;/table&gt;
+    </code>
+</div>

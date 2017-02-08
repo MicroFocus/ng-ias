@@ -6,4 +6,32 @@ a {
   font-size: inherit;
   padding: $link-padding;
   text-decoration: none;
+
+  &.mf-disabled {
+    background-color: $link-bg-color-disabled;
+    color: $link-text-color-disabled;
+    cursor: default;
+
+    &:focus {
+      background-color: $link-bg-color-disabled;
+      color: $link-text-color-disabled;
+      cursor: default;
+    }
+
+    &:hover {
+      background-color: $link-bg-color-disabled;
+      color: $link-text-color-disabled;
+      cursor: default;
+    }
+  }
+
+
+  &:focus {
+    @include focus-state;
+  }
+
+  &:hover {
+    background-color: $link-bg-color-hover;
+    color: $link-text-color-hover;
+  }
 }

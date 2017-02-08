@@ -1,0 +1,49 @@
+input,
+select,
+textarea {
+  background-color: $input-bg-color;
+  border: $input-border;
+  border-radius: $border-radius;
+  color: inherit;
+  padding: $input-padding;
+
+  &::-ms-clear {
+    display: none;
+  }
+
+  &:focus {
+    //@include focus-state;
+  }
+
+  &[disabled] {
+    @include disabled-state;
+  }
+}
+
+label {
+  @include disable-text-selection;
+
+  color: $input-label-text-color;
+  display: block;
+  font-size: $input-label-font-size;
+  margin: $input-label-margin;
+  vertical-align: middle;
+}
+
+mf-input-container {
+  display: block;
+  margin-bottom: $spacing;
+
+  &.mf-inline {
+    display: inline-block;
+
+    &:not(:last-of-type) {
+      margin-right: $spacing;
+    }
+
+    > label {
+      display: inline-block;
+      margin: auto;
+    }
+  }
+}

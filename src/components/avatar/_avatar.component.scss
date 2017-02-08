@@ -1,0 +1,21 @@
+mf-avatar {
+  @include square($avatar-size-small);
+
+  display: inline-block;
+
+  &.mf-medium {
+    @include square($avatar-size-medium);
+  }
+
+  &.mf-large {
+    @include square($avatar-size-large);
+  }
+
+  > .mf-avatar-content {
+    @include same-size-as-parent;
+
+    background: no-repeat center center;
+    background-size: contain;
+    border-radius: $border-radius;
+  }
+}

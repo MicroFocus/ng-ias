@@ -8,6 +8,7 @@ export function Component(options: {
     bindings?: any,
     bindToController?: boolean,
     controllerAs?: string,
+    require?: any;
     template?: (string | any[] | IContentTemplateFunction),
     templateUrl?: string,
     transclude?: (boolean | string),

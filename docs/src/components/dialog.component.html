@@ -1,1 +1,81 @@
 <h2>Dialog</h2>
+
+<div class="demo-section">
+    <h4>Alert Dialog</h4>
+
+    <mf-button ng-click="$ctrl.openAlertDialog()">Click</mf-button>
+
+    <code>
+        // HTML<br>
+        &lt;mf-button ng-click=&quot;$ctrl.openAlertDialog()&quot;&gt;Click&lt;/mf-button&gt;<br><br>
+        // JS<br>
+        this.openAlertDialog = function() {<br>
+        &nbsp;&nbsp;MfDialogService<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;.alert({<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;textContent: 'You opened an alert dialog.',<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title: 'Alert!'<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;})<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;.then(<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function() {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log('resolved');<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function() {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log('rejected');<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});<br>
+        };
+    </code>
+</div>
+
+<div class="demo-section">
+    <h4>Confirmation Dialog</h4>
+
+    <mf-button ng-click="$ctrl.openConfirmationDialog()">Click</mf-button>
+
+    <code>
+        // HTML<br>
+        &lt;mf-button ng-click=&quot;$ctrl.openConfirmationDialog()&quot;&gt;Click&lt;/mf-button&gt;<br><br>
+        // JS<br>
+        this.openConfirmationDialog = function() {<br>
+        &nbsp;&nbsp;MfDialogService<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;.confirm({<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;textContent: 'Are you sure?',<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title: 'Confirmation'<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;})<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;.then(<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function() {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log('confirmed');<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function() {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log('declined');<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});<br>
+        };
+    </code>
+</div>
+
+<div class="demo-section">
+    <h4>Prompt Dialog</h4>
+
+    <mf-button ng-click="$ctrl.openPromptDialog()">Click</mf-button>
+
+    <code>
+        // HTML<br>
+        &lt;mf-button ng-click=&quot;$ctrl.openPromptDialog()&quot;&gt;Click&lt;/mf-button&gt;<br><br>
+        // JS<br>
+        this.openPromptDialog = function() {<br>
+        &nbsp;&nbsp;MfDialogService<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;.prompt({<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cancel: 'Cancel',<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ok: 'OK',<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;textContent: 'What do you want to say?',<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;title: 'Prompt!'<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;})<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;.then(<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function(result) {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(result);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function() {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log('rejected');<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});<br>
+        };
+    </code>
+</div>

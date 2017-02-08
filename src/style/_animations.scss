@@ -1,0 +1,9 @@
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slidein {
+  from { left: -100%; }
+  to   { left: 0; }
+}

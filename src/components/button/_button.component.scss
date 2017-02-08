@@ -1,13 +1,15 @@
-mf-button,
-.mf-button {
+mf-button {
+  @include disable-text-selection;
+
   background-color: $button-bg-color;
-  border: $button-border-width solid transparent;
+  border: 1px solid $button-border-color;
   border-radius: $border-radius;
   color: $button-text-color;
   display: inline-block;
   height: $button-height;
   line-height: $button-height;
   padding: 0 $spacing;
+  vertical-align: middle;
 
   &:hover {
     background-color: $button-bg-color-hover;
@@ -34,14 +36,35 @@ mf-button,
     @include square($icon-button-size);
 
     background-color: transparent;
+    border-color: transparent;
     padding: 0;
+
+    &:hover {
+      background-color: $button-bg-color-hover;
+      border-color: $button-border-color-hover;
+      color: $button-text-color-hover;
+      cursor: pointer;
+    }
 
     mf-icon {
       font-size: inherit;
     }
   }
 
+  &:not(.mf-icon-button) {
+    > .mf-button-content {
+      mf-icon {
+        color: inherit;
+        font-size: $button-inline-icon-size;
+        margin-left: $button-inline-icon-padding;
+        vertical-align: middle;
+      }
+    }
+  }
+
   > .mf-button-content {
+    @include single-line;
+
     height: 100%;
   }
 }

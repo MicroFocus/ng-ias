@@ -1,0 +1,12 @@
+mf-tile-grid {
+  display: flex;
+  flex-flow: row wrap;
+
+  > mf-tile {
+    flex-grow: 0;
+    flex-shrink: 0;
+    margin-right: $tile-margin;
+    margin-bottom: $tile-margin;
+    vertical-align: top;
+  }
+}

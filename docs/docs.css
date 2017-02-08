@@ -28,4 +28,33 @@ body > [ui-view] > main > [ui-view] {
 
 body > [ui-view] > main > [ui-view] > [ui-view] {
     overflow: auto;
+    flex: 1 1;
+}
+
+.demo-section {
+    margin-bottom: 24px;
+    width: 100%;
+}
+
+.demo-section code {
+    background-color: #59656a;
+    border-radius: 3px;
+    color: white;
+    display: block;
+    margin-top: 8px;
+    padding: 16px;
+}
+
+.mf-tile-actions { color: #007cd0; }
+.tiles mf-tile {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.side-nav-demo {
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .12);
+    display: flex;
+    flex-flow: row nowrap;
+    height: 300px;
+    position: relative;
 }

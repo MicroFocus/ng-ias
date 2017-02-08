@@ -42,9 +42,9 @@ $title-text-transform: uppercase;
 $large-display: 769px;
 
 // SPACING
-$body-spacing-small: 10px;
-$body-spacing-large: 24px;
-$content-padding: 20px;
+$body-spacing-small: 15px;
+$body-spacing-large: 25px;
+$content-padding: 25px;
 $spacing: 10px;
 
 //STATES
@@ -65,6 +65,10 @@ $app-bar-height-small: 48px;
 $app-bar-height-large: 72px;
 $app-bar-icon-size: 20px;
 $app-bar-text-color: $color-gray-1;
+
+$avatar-size-small: 25px;
+$avatar-size-medium: 50px;
+$avatar-size-large: 100px;
 
 $body-bg-color: $color-gray-8;
 
@@ -152,11 +156,12 @@ $nav-item-border-width-active: 2px;
 $nav-item-color-active: $text-color;
 $nav-item-color-hover: $color-gray-2;
 $nav-height: 32px;
+$nav-item-height: $nav-height - $nav-item-border-width-active - $nav-item-border-width;
 $nav-text-color: $color-gray-2;
-$nav-item-bg-color-focus: $nav-item-bg-color-hover;
-$nav-item-border-color-focus: transparent;
-$nav-item-border-bottom-color-focus: $nav-item-border-bottom-color-active;
-$nav-item-text-color-focus: inherit;
+$nav-item-bg-color-focus: $focus-bg-color;
+$nav-item-border-color-focus: $focus-border-color;
+$nav-item-border-bottom-color-focus: $focus-border-color;
+$nav-item-text-color-focus: $focus-text-color;
 
 $panel-bg-color: $color-gray-6;
 $panel-height: $button-height + (2 * $button-border-width);
@@ -171,9 +176,10 @@ $side-nav-header-text-color: $menu-header-text-color;
 $side-nav-header-font-size: $menu-header-font-size;
 $side-nav-header-font-weight: $menu-header-font-weight;
 $side-nav-header-text-transform: $menu-header-text-transform;
+$side-nav-item-height: 28px;
 $side-nav-max-width: 85%;
 $side-nav-padding: $spacing;
-$side-nav-scrim-bg-color: rgba(0, 0, 0, .50);
+$side-nav-scrim-color: rgba(0, 0, 0, .50);
 $side-nav-text-color: inherit;
 $side-nav-width: 240px;
 
@@ -196,8 +202,7 @@ $tile-text-color: $color-gray-1;
 $tile-title-font-size-large: 15px;
 $tile-title-font-size-medium: 15px;
 $tile-title-font-size-small: 20px;
-$tile-title-margin-bottom-large: 5px;
-$tile-title-margin-bottom-medium: 5px;
+$tile-text-margin-top: 5px;
 
 $tile-avatar-size-large: 100px;
 $tile-height-large:
@@ -205,17 +210,17 @@ $tile-height-large:
         (3 * ($tile-description-line-height + $tile-padding)) +
         (2 * $tile-border-width) +
         $tile-title-font-size-large +
-        $tile-title-margin-bottom-large;
+        $tile-text-margin-top;
 $tile-height-medium:
         (2 * ($tile-description-line-height + $tile-padding + $tile-border-width)) +
         $tile-title-font-size-medium +
-        $tile-title-margin-bottom-medium;
+        $tile-text-margin-top;
 $tile-height-small: $tile-height-medium;
 $tile-height-tiny: $tile-height-medium;
 $tile-avatar-size-medium:
         (2 * $tile-description-line-height) +
         $tile-title-font-size-medium +
-        $tile-title-margin-bottom-medium;
+        $tile-text-margin-top;
 $tile-avatar-size-small: $tile-height-small - (2 * ($tile-padding + $tile-border-width));
 $tile-avatar-size-tiny: $tile-height-tiny - (2 * ($tile-padding + $tile-border-width));
 $tile-width-large: 160px;

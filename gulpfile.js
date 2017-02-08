@@ -16,7 +16,8 @@ var docsDirectory = './docs/';
 var docsFiles = './docs/**/*';
 var docsJs = './docs/**/*.js';
 var outputDirectory = './dist/';
-var srcFiles = './src/**/*';
+var srcFiles = './src/**/*.ts';
+var srcHtmlFiles = './src/**/*.html';
 var sassFiles = './src/**/*.scss';
 var sassManifestFiles = [ './src/ng-mfux.scss', './src/ng-mfux_dark.scss' ] ;
 var pkg = JSON.parse(fs.readFileSync('./package.json'));
@@ -72,7 +73,7 @@ gulp.task('jscs', function() {
 
 gulp.task('default', ['build-src']);
 
-gulp.task('docs', ['build-src', 'build-docs', 'connect', 'watch-src', 'watch-docs']);
+gulp.task('docs', ['build-src', 'build-docs', 'connect', 'watch-sass', 'watch-src', 'watch-docs']);
 
 gulp.task('sass', function() {
     return processSass(sassManifestFiles, { outputStyle: 'expanded' })
@@ -99,8 +100,14 @@ gulp.task('watch-docs', function() {
     });
 });
 
+gulp.task('watch-sass', function() {
+    gulpWatch(sassFiles, function() {
+        gulp.start('sass');
+    });
+});
+
 gulp.task('watch-src', function() {
-    gulpWatch(srcFiles, function() {
+    gulpWatch([ srcFiles, srcHtmlFiles] , function() {
         gulp.start('webpack');
     });
 });
