@@ -36,8 +36,13 @@ mf-app-bar {
       }
     }
 
+    mf-button {
+      &:not(:last-of-type) {
+        margin-right: $spacing;
+      }
+    }
+
     .mf-icon-button {
-      margin-left: $spacing;
       font-size: $app-bar-icon-size;
     }
   }
@@ -65,6 +70,12 @@ mf-app-bar {
 @media (min-width: $large-display) {
   mf-app-bar {
     > .mf-app-bar-content {
+      padding: 0 $body-spacing-large 0 0;
+
+      > .mf-title {
+        margin-left: $body-spacing-large;
+      }
+
       > .mf-logo {
         max-height: $app-bar-height-large;
       }
@@ -74,14 +85,7 @@ mf-app-bar {
       height: $app-bar-height-large;
 
       > .mf-app-bar-content {
-        padding: 0 $body-spacing-large 0 0;
-
-        > .mf-title {
-          margin-left: $body-spacing-large;
-        }
-
         .mf-icon-button {
-          margin-left: $spacing;
           font-size: $icon-size-small;
         }
       }

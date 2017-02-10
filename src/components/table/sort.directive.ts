@@ -55,8 +55,8 @@ export function SortOnDirective($compile: ICompileService): IDirective {
 
             // Add sort icons
             let iconHtml =
-                '<mf-icon icon="\'down_thick\'" ng-if="getSortExpression() == \'' + scope.sortOn + '\'"></mf-icon>' +
-                '<mf-icon icon="\'up_thick\'" ng-if="getSortExpression() == \'-' + scope.sortOn + '\'"></mf-icon>';
+                '<mf-icon icon="down_thick" ng-if="getSortExpression() == \'' + scope.sortOn + '\'"></mf-icon>' +
+                '<mf-icon icon="up_thick" ng-if="getSortExpression() == \'-' + scope.sortOn + '\'"></mf-icon>';
             let iconElement = $compile(iconHtml)(scope);
             element.append(iconElement);
 

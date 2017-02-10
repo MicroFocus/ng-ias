@@ -5,12 +5,14 @@
         <mf-button class="mf-icon-button"
                 ng-click="app.toggleDisplayDirection()"
                 title="Toggle display direction">
-            <mf-icon icon="(app.displayDirection === 'ltr') ? 'back_left_thick' : 'forward_right_thick'"></mf-icon>
+            <mf-icon ng-if="app.displayDirection === 'ltr'" icon="back_left_thick"></mf-icon>
+            <mf-icon ng-if="app.displayDirection !== 'ltr'" icon="forward_right_thick"></mf-icon>
         </mf-button>
         <mf-button class="mf-icon-button"
                 ng-click="app.toggleTheme()"
                 title="Toggle theme">
-            <mf-icon icon="(app.isDefaultTheme()) ? 'favorite_outline_thin' : 'favorite_fill'"></mf-icon>
+            <mf-icon ng-if="app.isDefaultTheme()" icon="favorite_outline_thin"></mf-icon>
+            <mf-icon ng-if="!app.isDefaultTheme()" icon="favorite_fill"></mf-icon>
         </mf-button>
     </mf-app-bar>
     <mf-nav>

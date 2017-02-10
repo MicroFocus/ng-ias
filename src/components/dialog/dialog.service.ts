@@ -65,7 +65,7 @@ export default class DialogService {
             '          <mf-button ng-if="!!cancelText" ng-click="cancel()">{{cancelText}}</mf-button>' +
             '       </div>' +
             '       <mf-button class="mf-icon-button mf-dialog-close-button" ng-click="cancel()">' +
-            '           <mf-icon icon="\'close_thick\'"></mf-icon>' +
+            '           <mf-icon icon="close_thick"></mf-icon>' +
             '       </mf-button>' +
             '   </mf-dialog-content>' +
             '</mf-dialog>';

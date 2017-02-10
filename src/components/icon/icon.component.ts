@@ -2,7 +2,7 @@ import { Component } from '../../component.decorator';
 
 @Component({
     bindings: {
-        iconName: '<icon'
+        icon: '@'
     },
     templateUrl: require('./icon.component.html')
 })

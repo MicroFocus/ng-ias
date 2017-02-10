@@ -16,7 +16,7 @@
         <mf-tile class="mf-tiny" ng-repeat="app in $ctrl.apps" ng-attr-title="{{app.name}}">
             <mf-avatar src="app.image"></mf-avatar>
             <div class="mf-tile-actions">
-                <mf-icon ng-if="app.favorite" icon="'favorite_fill'"></mf-icon>
+                <mf-icon ng-if="app.favorite" icon="favorite_fill"></mf-icon>
             </div>
         </mf-tile>
     </mf-tile-grid>
@@ -26,7 +26,7 @@
         &nbsp;&nbsp;&lt;mf-tile class=&quot;mf-tiny&quot; ng-repeat=&quot;app in $ctrl.apps&quot; ng-attr-title=&quot;{{app.name}}&quot;&gt;<br>
         &nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-avatar src=&quot;app.image&quot;&gt;&lt;/mf-avatar&gt;<br>
         &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class=&quot;mf-tile-actions&quot;&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-icon ng-if=&quot;app.favorite&quot; icon=&quot;'favorite_fill'&quot;&gt;&lt;/mf-icon&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-icon ng-if=&quot;app.favorite&quot; icon=&quot;favorite_fill&quot;&gt;&lt;/mf-icon&gt;<br>
         &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
         &nbsp;&nbsp;&lt;/mf-tile&gt;<br>
         &lt;/mf-tile-grid&gt;
@@ -43,7 +43,7 @@
                 <h3>{{app.name}}</h3>
             </div>
             <div class="mf-tile-actions">
-                <mf-icon ng-if="app.favorite" icon="'favorite_fill'"></mf-icon>
+                <mf-icon ng-if="app.favorite" icon="favorite_fill"></mf-icon>
             </div>
         </mf-tile>
     </mf-tile-grid>
@@ -60,7 +60,7 @@
                 <p>0 lines show on tiny and small, 2 lines on medium, and three on large</p>
             </div>
             <div class="mf-tile-actions">
-                <mf-icon ng-if="app.favorite" icon="'favorite_fill'"></mf-icon>
+                <mf-icon ng-if="app.favorite" icon="favorite_fill"></mf-icon>
             </div>
         </mf-tile>
     </mf-tile-grid>
@@ -77,8 +77,23 @@
                 <p>0 lines show on tiny and small, 2 lines on medium, and three on large</p>
             </div>
             <div class="mf-tile-actions">
-                <mf-icon ng-if="app.favorite" icon="'favorite_fill'"></mf-icon>
+                <mf-icon ng-if="app.favorite" icon="favorite_fill"></mf-icon>
             </div>
         </mf-tile>
     </mf-tile-grid>
+
+    <code>
+        &lt;mf-tile-grid&gt;<br>
+        &nbsp;&nbsp;&lt;mf-tile class=&quot;mf-large&quot; ng-repeat=&quot;app in $ctrl.apps&quot;&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-avatar src=&quot;app.image&quot;&gt;&lt;/mf-avatar&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class=&quot;mf-tile-body&quot;&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h3&gt;{{app.name}}&lt;/h3&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;0 lines show on tiny and small, 2 lines on medium, and three on large&lt;/p&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class=&quot;mf-tile-actions&quot;&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-icon ng-if=&quot;app.favorite&quot; icon=&quot;favorite_fill&quot;&gt;&lt;/mf-icon&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+        &nbsp;&nbsp;&lt;/mf-tile&gt;<br>
+        &lt;/mf-tile-grid&gt;
+    </code>
 </div>

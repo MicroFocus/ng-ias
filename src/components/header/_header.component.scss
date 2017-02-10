@@ -1,0 +1,27 @@
+mf-header {
+  align-items: center;
+  display: flex;
+  flex-flow: row wrap;
+  margin-bottom: $content-padding;
+  padding-top: $spacing;
+
+  > .mf-header-title {
+    font-size: 24px;
+  }
+
+  > .mf-header-sub-title {
+    color: #808080;
+    flex: 0 0 100%;
+    font-size: 15px;
+    order: 1;
+  }
+
+  > .mf-fill {
+    flex-grow: 1;
+    flex-basis: 0;
+  }
+
+  > .mf-icon-button {
+    margin-left: $spacing;
+  }
+}
