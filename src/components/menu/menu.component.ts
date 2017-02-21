@@ -20,7 +20,7 @@ export class MenuComponent implements IToggleable {
                 private toggleService: ToggleService) {
         this.open = false;
         $element.detach();
-        element($document[0].body).append($element);
+        element($document.find('body')).append($element);
 
         $element.on('click', this.hide.bind(this));
     }

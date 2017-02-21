@@ -11,7 +11,7 @@ export default class ButtonComponent {
     }
 
     $doCheck() {
-        let disabled = this.$element.prop('disabled') == true;
+        let disabled = this.$element.prop('disabled') === true;
         this.$element.attr('tabindex', disabled ? -1 : 0);
     }
 }

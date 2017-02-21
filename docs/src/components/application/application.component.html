@@ -1,0 +1,28 @@
+<header>
+    <mf-app-bar class="mf-large">
+        <h3 class="mf-title" ng-bind="$ctrl.projectName"></h3>
+        <span class="mf-fill"></span>
+        <mf-button class="mf-icon-button"
+                   ng-click="$ctrl.toggleDisplayDirection()"
+                   title="Toggle display direction">
+            <mf-icon ng-if="$ctrl.displayDirection === 'ltr'" icon="back_left_thick"></mf-icon>
+            <mf-icon ng-if="$ctrl.displayDirection !== 'ltr'" icon="forward_right_thick"></mf-icon>
+        </mf-button>
+        <mf-button class="mf-icon-button"
+                   ng-click="$ctrl.toggleTheme()"
+                   title="Toggle theme">
+            <mf-icon ng-if="$ctrl.isDefaultTheme()" icon="favorite_outline_thin"></mf-icon>
+            <mf-icon ng-if="!$ctrl.isDefaultTheme()" icon="favorite_fill"></mf-icon>
+        </mf-button>
+    </mf-app-bar>
+    <mf-nav>
+        <a ui-sref="app.project" ui-sref-active="mf-active">Project</a>
+        <a ui-sref="app.component" ui-sref-active="mf-active" ng-click="$ctrl.goToComponentsView($event)">Components</a>
+        <a ui-sref="app.layout" ui-sref-active="mf-active" class="mf-disabled" title="Coming soon">Layout</a>
+        <a ui-sref="app.themes" ui-sref-active="mf-active" class="mf-disabled" title="Coming soon">Themes</a>
+    </mf-nav>
+</header>
+
+<main>
+    <div ui-view></div>
+</main>
