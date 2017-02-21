@@ -3,25 +3,26 @@
     "baseUrl": "./",
     "experimentalDecorators": true,
     "module": "commonjs",
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "removeComments": true,
     "sourceMap": true,
     "target": "es5",
     "typeRoots": [
-      "node_modules/@types"
+      "../node_modules/@types"
     ],
     "types": [
       "angular",
+      "angular-ui-router",
       "jquery",
       "node"
     ]
   },
   "files": [
-    "src/ng-mfux.module.ts"
+    "src/main.ts"
   ],
   "exclude": [
-    "dist",
-    "node_modules"
+    "../dist",
+    "../node_modules"
   ]
 }

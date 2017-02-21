@@ -1,134 +1,26 @@
-var async = require('async');
-var fs = require('fs');
 var gulp = require('gulp');
-var gulpAutoprefixer = require('gulp-autoprefixer');
-var gulpClean = require('gulp-clean');
-var gulpConnect = require('gulp-connect');
-var gulpJscs = require('gulp-jscs');
-var gulpRename = require('gulp-rename');
-var gulpReplace = require('gulp-replace');
-var gulpSass = require('gulp-sass');
-var gulpSourceMaps = require('gulp-sourcemaps');
-var gulpWatch = require('gulp-watch');
-var gulpWebpack = require('webpack-stream');
+var ngGulp = require('ng-gulp');
+var path = require('path');
 
-var docsDirectory = './docs/';
-var docsFiles = './docs/**/*';
-var docsJs = './docs/**/*.js';
-var outputDirectory = './dist/';
-var srcFiles = './src/**/*.ts';
-var srcHtmlFiles = './src/**/*.html';
-var sassFiles = './src/**/*.scss';
-var sassManifestFiles = [ './src/ng-mfux.scss', './src/ng-mfux_dark.scss' ] ;
-var pkg = JSON.parse(fs.readFileSync('./package.json'));
+var cwd = process.cwd();
 
-
-gulp.task('build-docs', ['jscs', 'copy-vendor', 'copy-mfux', 'copy-docs']);
-
-gulp.task('build-src', ['webpack', 'sass', 'sass-minified']);
-
-gulp.task('clean', function() {
-    return gulp.src(outputDirectory)
-        .pipe(gulpClean());
+ngGulp(gulp, {
+    cssBasename: 'ng-mfux',
+    devServer: false,
+    jsBasename: 'ng-mfux',
+    externals: {
+        'angular-ui-router': 'window["angular-ui-router"]'
+    },
+    files: {
+        sassManifest: path.resolve(cwd, 'src/ng-mfux.scss'),
+        typescriptMainDevelopment: path.resolve(cwd, 'src/ng-mfux.module.ts'),
+        typescriptMainProduction: path.resolve(cwd, 'src/ng-mfux.module.ts'),
+        vendorDevelopment: [
+            path.resolve(cwd, '../node_modules/angular/angular.js'),
+            path.resolve(cwd, '../node_modules/angular-ui-router/release/angular-ui-router.js')
+        ],
+        vendorProduction: [
+            // TODO: add production dependencies to vendor bundle
+        ]
+    }
 });
-
-gulp.task('connect', function() {
-    gulpConnect.server({
-        livereload: true,
-        port: 8081,
-        root: outputDirectory
-    });
-});
-
-gulp.task('copy-docs', function() {
-    return gulp
-        .src(docsDirectory + '**/*')
-        .pipe(gulpConnect.reload())
-        .pipe(gulp.dest(outputDirectory + 'docs/'));
-});
-
-gulp.task('copy-mfux', function() {
-    return gulp
-        .src([
-            'node_modules/mfux/dist/**/*'
-        ])
-        .pipe(gulp.dest(outputDirectory + 'docs/vendor/mfux'))
-});
-
-gulp.task('copy-vendor', function() {
-    return gulp
-        .src([
-            'node_modules/angular/angular.js',
-            'node_modules/angular-ui-router/release/angular-ui-router.js'
-        ])
-        .pipe(gulp.dest(outputDirectory + 'docs/vendor/'));
-});
-
-gulp.task('jscs', function() {
-    return gulp
-        .src(docsJs)
-        .pipe(gulpJscs())
-        .pipe(gulpJscs.reporter());
-});
-
-gulp.task('default', ['build-src']);
-
-gulp.task('docs', ['build-src', 'build-docs', 'connect', 'watch-sass', 'watch-src', 'watch-docs']);
-
-gulp.task('sass', function() {
-    return processSass(sassManifestFiles, { outputStyle: 'expanded' })
-        .pipe(gulpConnect.reload())
-        .pipe(gulp.dest(outputDirectory));
-});
-
-gulp.task('sass-minified', function() {
-    return processSass(sassManifestFiles, { outputStyle: 'compressed' })
-        .pipe(gulpRename({ suffix: '.min' }))
-        .pipe(gulp.dest(outputDirectory));
-});
-
-gulp.task('watch-docs', function() {
-    gulpWatch(sassFiles, function() {
-        gulp.start('sass');
-        gulp.start('sass-minified');
-    });
-    gulpWatch(docsJs, function() {
-        gulp.start('jscs');
-    });
-    gulpWatch(docsFiles, function() {
-        gulp.start('copy-docs');
-    });
-});
-
-gulp.task('watch-sass', function() {
-    gulpWatch(sassFiles, function() {
-        gulp.start('sass');
-    });
-});
-
-gulp.task('watch-src', function() {
-    gulpWatch([ srcFiles, srcHtmlFiles] , function() {
-        gulp.start('webpack');
-    });
-});
-
-gulp.task('webpack', function() {
-    return gulp
-        .src('src/ng-mfux.module.ts')
-        .pipe(gulpWebpack(require('./webpack.config')))
-        .pipe(gulpConnect.reload())
-        .pipe(gulp.dest(outputDirectory));
-});
-
-function processSass(filePattern, sassOptions) {
-    sassOptions = sassOptions || {};
-
-    return gulp.src(filePattern)
-        .pipe(gulpSourceMaps.init())
-        .pipe(gulpReplace('%VERSION%', pkg.version))
-        .pipe(gulpSass(sassOptions).on('error', gulpSass.logError))
-        .pipe(gulpAutoprefixer({
-            browsers: ['last 2 versions']
-        }))
-        .pipe(gulpSourceMaps.write('./'));
-}

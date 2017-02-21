@@ -8,7 +8,7 @@ import {
     IRootScopeService,
     ITemplateCacheService } from 'angular';
 
-class DialogOptions {
+interface DialogOptions {
     cancel: string;
     ok: string;
     prompt: boolean;
@@ -96,7 +96,7 @@ export default class DialogService {
         let compiledDialogElement = this.$compile(dialogHtml)(scope);
 
         // Insert element into DOM
-        element(this.$document[0].body).append(compiledDialogElement);
+        element(this.$document.find('body')).append(compiledDialogElement);
 
         return deferred.promise;
     }
