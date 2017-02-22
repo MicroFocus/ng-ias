@@ -23,6 +23,6 @@
     "angular": "1.6.0",
     "angular-ui-router": "1.0.0-beta.3",
     "gulp": "3.9.1",
-    "ng-gulp": "git@github.com:jedwardhawkins/ng-gulp#v0.2.1"
+    "ng-gulp": "git@github.com:jedwardhawkins/ng-gulp#v0.3.0"
   }
 }

@@ -5,6 +5,7 @@ var path = require('path');
 var cwd = process.cwd();
 
 ngGulp(gulp, {
+    devServerPort: 8081,
     directories: {
         nodeModules: path.resolve(cwd, '../node_modules'),
         output: path.resolve(cwd, '../dist/docs'),
