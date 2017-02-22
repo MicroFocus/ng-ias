@@ -24,4 +24,10 @@ mf-header {
   > .mf-icon-button {
     margin-left: $spacing;
   }
+
+  > mf-button {
+    &:not(:last-child) {
+      margin-right: 5px;
+    }
+  }
 }
