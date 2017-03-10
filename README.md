@@ -1,19 +1,46 @@
 # ng-mfux
 
-`$ npm install -g gulp-cli`
-`$ npm install`
+## Usage
+### Installation
+1. `<link href="dist/ng-mfux.css" rel="stylesheet">`
+1. `<script src="dist/ng-mfux.js">`
+2. `angular.module('app', ['ng-mfux'])`
+ 
+After the initial setup, copy code/examples from the [docs app](#DocsApp) into your project.
+ 
+### Icons
+mf-icons is required. To install mf-icons:
+1. `git clone https://JHawkins@secmgmtgit.provo.novell.com:8443/scm/~jhawkins/mf-icons.git`
+2. `cd mf-icons/`
+3. `npm link`
+4. `cd [YOUR_APP_DIRECTORY]`
+5. `npm link mf-icons`
+6. Add `<link href="node_modules/mf-icons/dist/mf-icons.css" rel="stylesheet">` to index.html
 
-## Building
-`$ gulp`
-
-## Starting docs server
-`$ gulp docs`
+mf-icons requires that mf-icons/dist/fonts be located in the same directory as mf-icons/dist/mf-icons.css
 
 ## Development
-Using a development version of mfux:
-1. git clone git@github.com:jedwardhawkins/mfux.git
-2. `$ npm i`
-3. `$ gulp`
-4. `$ npm link`
-5. `$ cd [ng-mfux]`
-5. `$ npm link mfux` (This will add your development version of mfux into ng-mfux/node_modules)
+1. `npm install -g gulp-cli`
+1. `npm install`
+
+### Development Environment
+To build the code for development, run
+1. `gulp build:development`
+
+To start a development environment for the code under src/ run
+1. `gulp`
+
+### Docs App
+In another terminal 
+1. `cd docs/`
+2. `gulp`
+
+Navigate to http://localhost:8081 to see the documentation web site
+
+### Production builds
+To build the code for production, run
+1. `gulp build:production`
+
+### Building the docs app
+1. `cd docs/`
+2. `gulp build:production`
