@@ -18,6 +18,7 @@ ngGulp(gulp, {
         'angular-ui-router': 'window["angular-ui-router"]'
     },
     files: {
+        indexProduction: 'src/index.production.html',
         sassManifest: [
             path.resolve(cwd, 'src/app.scss'),
             path.resolve(cwd, 'src/app_dark.scss')
@@ -30,7 +31,16 @@ ngGulp(gulp, {
             path.resolve(cwd, '../dist/ng-mfux.js')
         ],
         vendorProduction: [
-            // TODO: add production dependencies to vendor bundle
+            path.resolve(cwd, '../node_modules/angular/angular.js'),
+            path.resolve(cwd, '../node_modules/angular-ui-router/release/angular-ui-router.js'),
+            path.resolve(cwd, '../node_modules/mf-icons/dist/**/*'),
+            path.resolve(cwd, '../dist/ng-mfux.js')
+        ],
+        vendorTest: [
+            path.resolve(cwd, '../node_modules/angular/angular.js'),
+            path.resolve(cwd, '../node_modules/angular-mocks/angular-mocks.js'),
+            path.resolve(cwd, '../node_modules/angular-ui-router/release/angular-ui-router.js'),
+            path.resolve(cwd, '../dist/ng-mfux.js')
         ]
     }
 });

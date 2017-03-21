@@ -18,12 +18,16 @@ ngGulp(gulp, {
         ],
         typescriptMainDevelopment: path.resolve(cwd, 'src/ng-mfux.module.ts'),
         typescriptMainProduction: path.resolve(cwd, 'src/ng-mfux.module.ts'),
+        typescriptMainTest: path.resolve(cwd, 'src/ng-mfux.module.ts'),
         vendorDevelopment: [
-            path.resolve(cwd, '../node_modules/angular/angular.js'),
-            path.resolve(cwd, '../node_modules/angular-ui-router/release/angular-ui-router.js')
+            // There should not be any vendor dependencies in this library
         ],
         vendorProduction: [
-            // TODO: add production dependencies to vendor bundle
+            // There should not be any vendor dependencies in this library
+        ],
+        vendorTest: [
+            path.resolve(cwd, 'node_modules/angular/angular.js'),
+            path.resolve(cwd, 'node_modules/angular-mocks/angular-mocks.js')
         ]
     }
 });

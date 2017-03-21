@@ -45,6 +45,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
+	Object.defineProperty(exports, "__esModule", { value: true });
 	var angular_1 = __webpack_require__(1);
 	var app_bar_component_1 = __webpack_require__(2);
 	var avatar_component_1 = __webpack_require__(5);
@@ -107,19 +108,19 @@
 	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
 	    return c > 3 && r && Object.defineProperty(target, key, r), r;
 	};
+	Object.defineProperty(exports, "__esModule", { value: true });
 	var component_decorator_1 = __webpack_require__(3);
 	var AppBarComponent = (function () {
 	    function AppBarComponent() {
 	    }
-	    AppBarComponent = __decorate([
-	        component_decorator_1.Component({
-	            templateUrl: __webpack_require__(4),
-	            transclude: true
-	        })
-	    ], AppBarComponent);
 	    return AppBarComponent;
 	}());
-	Object.defineProperty(exports, "__esModule", { value: true });
+	AppBarComponent = __decorate([
+	    component_decorator_1.Component({
+	        templateUrl: __webpack_require__(4),
+	        transclude: true
+	    })
+	], AppBarComponent);
 	exports.default = AppBarComponent;
 
 
@@ -128,6 +129,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
+	Object.defineProperty(exports, "__esModule", { value: true });
 	var angular_1 = __webpack_require__(1);
 	function Component(options) {
 	    return function (controller) { return angular_1.extend(options, { controller: controller }); };
@@ -155,21 +157,21 @@
 	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
 	    return c > 3 && r && Object.defineProperty(target, key, r), r;
 	};
+	Object.defineProperty(exports, "__esModule", { value: true });
 	var component_decorator_1 = __webpack_require__(3);
 	var AvatarComponent = (function () {
 	    function AvatarComponent() {
 	    }
-	    AvatarComponent = __decorate([
-	        component_decorator_1.Component({
-	            bindings: {
-	                'src': '<'
-	            },
-	            templateUrl: __webpack_require__(6)
-	        })
-	    ], AvatarComponent);
 	    return AvatarComponent;
 	}());
-	Object.defineProperty(exports, "__esModule", { value: true });
+	AvatarComponent = __decorate([
+	    component_decorator_1.Component({
+	        bindings: {
+	            'src': '<'
+	        },
+	        templateUrl: __webpack_require__(6)
+	    })
+	], AvatarComponent);
 	exports.default = AvatarComponent;
 
 
@@ -193,6 +195,7 @@
 	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
 	    return c > 3 && r && Object.defineProperty(target, key, r), r;
 	};
+	Object.defineProperty(exports, "__esModule", { value: true });
 	var component_decorator_1 = __webpack_require__(3);
 	var ButtonComponent = (function () {
 	    function ButtonComponent($element) {
@@ -202,16 +205,15 @@
 	        var disabled = this.$element.prop('disabled') === true;
 	        this.$element.attr('tabindex', disabled ? -1 : 0);
 	    };
-	    ButtonComponent.$inject = ['$element'];
-	    ButtonComponent = __decorate([
-	        component_decorator_1.Component({
-	            templateUrl: __webpack_require__(8),
-	            transclude: true
-	        })
-	    ], ButtonComponent);
 	    return ButtonComponent;
 	}());
-	Object.defineProperty(exports, "__esModule", { value: true });
+	ButtonComponent.$inject = ['$element'];
+	ButtonComponent = __decorate([
+	    component_decorator_1.Component({
+	        templateUrl: __webpack_require__(8),
+	        transclude: true
+	    })
+	], ButtonComponent);
 	exports.default = ButtonComponent;
 
 
@@ -235,6 +237,7 @@
 	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
 	    return c > 3 && r && Object.defineProperty(target, key, r), r;
 	};
+	Object.defineProperty(exports, "__esModule", { value: true });
 	var component_decorator_1 = __webpack_require__(3);
 	var DialogComponent = (function () {
 	    function DialogComponent($element, $transclude) {
@@ -242,15 +245,14 @@
 	            $element.append(clone);
 	        });
 	    }
-	    DialogComponent.$inject = ['$element', '$transclude'];
-	    DialogComponent = __decorate([
-	        component_decorator_1.Component({
-	            transclude: true
-	        })
-	    ], DialogComponent);
 	    return DialogComponent;
 	}());
-	Object.defineProperty(exports, "__esModule", { value: true });
+	DialogComponent.$inject = ['$element', '$transclude'];
+	DialogComponent = __decorate([
+	    component_decorator_1.Component({
+	        transclude: true
+	    })
+	], DialogComponent);
 	exports.default = DialogComponent;
 
 
@@ -259,6 +261,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
+	Object.defineProperty(exports, "__esModule", { value: true });
 	var angular_1 = __webpack_require__(1);
 	var DialogService = (function () {
 	    function DialogService($compile, $controller, $document, $q, $rootScope, $templateCache) {
@@ -334,10 +337,9 @@
 	        options.prompt = true;
 	        return this.open(options);
 	    };
-	    DialogService.$inject = ['$compile', '$controller', '$document', '$q', '$rootScope', '$templateCache'];
 	    return DialogService;
 	}());
-	Object.defineProperty(exports, "__esModule", { value: true });
+	DialogService.$inject = ['$compile', '$controller', '$document', '$q', '$rootScope', '$templateCache'];
 	exports.default = DialogService;
 
 
@@ -352,6 +354,7 @@
 	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
 	    return c > 3 && r && Object.defineProperty(target, key, r), r;
 	};
+	Object.defineProperty(exports, "__esModule", { value: true });
 	var component_decorator_1 = __webpack_require__(3);
 	var HeaderComponent = (function () {
 	    function HeaderComponent($element, $transclude) {
@@ -359,15 +362,14 @@
 	            $element.append(clone);
 	        });
 	    }
-	    HeaderComponent.$inject = ['$element', '$transclude'];
-	    HeaderComponent = __decorate([
-	        component_decorator_1.Component({
-	            transclude: true
-	        })
-	    ], HeaderComponent);
 	    return HeaderComponent;
 	}());
-	Object.defineProperty(exports, "__esModule", { value: true });
+	HeaderComponent.$inject = ['$element', '$transclude'];
+	HeaderComponent = __decorate([
+	    component_decorator_1.Component({
+	        transclude: true
+	    })
+	], HeaderComponent);
 	exports.default = HeaderComponent;
 
 
@@ -382,23 +384,23 @@
 	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
 	    return c > 3 && r && Object.defineProperty(target, key, r), r;
 	};
+	Object.defineProperty(exports, "__esModule", { value: true });
 	var component_decorator_1 = __webpack_require__(3);
 	var IconComponent = (function () {
 	    function IconComponent() {
 	    }
 	    IconComponent.prototype.$onChanges = function () {
 	    };
-	    IconComponent = __decorate([
-	        component_decorator_1.Component({
-	            bindings: {
-	                icon: '@'
-	            },
-	            templateUrl: __webpack_require__(13)
-	        })
-	    ], IconComponent);
 	    return IconComponent;
 	}());
-	Object.defineProperty(exports, "__esModule", { value: true });
+	IconComponent = __decorate([
+	    component_decorator_1.Component({
+	        bindings: {
+	            icon: '@'
+	        },
+	        templateUrl: __webpack_require__(13)
+	    })
+	], IconComponent);
 	exports.default = IconComponent;
 
 
@@ -422,6 +424,7 @@
 	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
 	    return c > 3 && r && Object.defineProperty(target, key, r), r;
 	};
+	Object.defineProperty(exports, "__esModule", { value: true });
 	var component_decorator_1 = __webpack_require__(3);
 	var InputContainerComponent = (function () {
 	    function InputContainerComponent($element, $transclude) {
@@ -429,16 +432,15 @@
 	            $element.append(clone);
 	        });
 	    }
-	    InputContainerComponent.$inject = ['$element', '$transclude'];
-	    InputContainerComponent = __decorate([
-	        component_decorator_1.Component({
-	            templateUrl: __webpack_require__(15),
-	            transclude: true
-	        })
-	    ], InputContainerComponent);
 	    return InputContainerComponent;
 	}());
-	Object.defineProperty(exports, "__esModule", { value: true });
+	InputContainerComponent.$inject = ['$element', '$transclude'];
+	InputContainerComponent = __decorate([
+	    component_decorator_1.Component({
+	        templateUrl: __webpack_require__(15),
+	        transclude: true
+	    })
+	], InputContainerComponent);
 	exports.default = InputContainerComponent;
 
 
@@ -462,6 +464,7 @@
 	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
 	    return c > 3 && r && Object.defineProperty(target, key, r), r;
 	};
+	Object.defineProperty(exports, "__esModule", { value: true });
 	var component_decorator_1 = __webpack_require__(3);
 	var ListComponent = (function () {
 	    function ListComponent($element, $transclude) {
@@ -469,15 +472,15 @@
 	            $element.append(clone);
 	        });
 	    }
-	    ListComponent.$inject = ['$element', '$transclude'];
-	    ListComponent = __decorate([
-	        component_decorator_1.Component({
-	            templateUrl: __webpack_require__(17),
-	            transclude: true
-	        })
-	    ], ListComponent);
 	    return ListComponent;
 	}());
+	ListComponent.$inject = ['$element', '$transclude'];
+	ListComponent = __decorate([
+	    component_decorator_1.Component({
+	        templateUrl: __webpack_require__(17),
+	        transclude: true
+	    })
+	], ListComponent);
 	exports.ListComponent = ListComponent;
 	var ListHeaderComponent = (function () {
 	    function ListHeaderComponent($element, $transclude) {
@@ -485,14 +488,14 @@
 	            $element.append(clone);
 	        });
 	    }
-	    ListHeaderComponent.$inject = ['$element', '$transclude'];
-	    ListHeaderComponent = __decorate([
-	        component_decorator_1.Component({
-	            transclude: true
-	        })
-	    ], ListHeaderComponent);
 	    return ListHeaderComponent;
 	}());
+	ListHeaderComponent.$inject = ['$element', '$transclude'];
+	ListHeaderComponent = __decorate([
+	    component_decorator_1.Component({
+	        transclude: true
+	    })
+	], ListHeaderComponent);
 	exports.ListHeaderComponent = ListHeaderComponent;
 	var ListItemComponent = (function () {
 	    function ListItemComponent($element, $transclude) {
@@ -500,14 +503,14 @@
 	            $element.append(clone);
 	        });
 	    }
-	    ListItemComponent.$inject = ['$element', '$transclude'];
-	    ListItemComponent = __decorate([
-	        component_decorator_1.Component({
-	            transclude: true
-	        })
-	    ], ListItemComponent);
 	    return ListItemComponent;
 	}());
+	ListItemComponent.$inject = ['$element', '$transclude'];
+	ListItemComponent = __decorate([
+	    component_decorator_1.Component({
+	        transclude: true
+	    })
+	], ListItemComponent);
 	exports.ListItemComponent = ListItemComponent;
 
 
@@ -531,6 +534,7 @@
 	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
 	    return c > 3 && r && Object.defineProperty(target, key, r), r;
 	};
+	Object.defineProperty(exports, "__esModule", { value: true });
 	var component_decorator_1 = __webpack_require__(3);
 	var angular_1 = __webpack_require__(1);
 	var MenuComponent = (function () {
@@ -560,18 +564,18 @@
 	        this.$element.find('mf-menu-content')[0].style.top = boundingClientRect.bottom + 'px';
 	        this.$element.addClass('mf-open');
 	    };
-	    MenuComponent.$inject = ['$document', '$element', 'MfToggleService'];
-	    MenuComponent = __decorate([
-	        component_decorator_1.Component({
-	            bindings: {
-	                name: '@'
-	            },
-	            templateUrl: __webpack_require__(19),
-	            transclude: true
-	        })
-	    ], MenuComponent);
 	    return MenuComponent;
 	}());
+	MenuComponent.$inject = ['$document', '$element', 'MfToggleService'];
+	MenuComponent = __decorate([
+	    component_decorator_1.Component({
+	        bindings: {
+	            name: '@'
+	        },
+	        templateUrl: __webpack_require__(19),
+	        transclude: true
+	    })
+	], MenuComponent);
 	exports.MenuComponent = MenuComponent;
 	var MenuFooterComponent = (function () {
 	    function MenuFooterComponent($element, $transclude) {
@@ -579,14 +583,14 @@
 	            $element.append(clone);
 	        });
 	    }
-	    MenuFooterComponent.$inject = ['$element', '$transclude'];
-	    MenuFooterComponent = __decorate([
-	        component_decorator_1.Component({
-	            transclude: true
-	        })
-	    ], MenuFooterComponent);
 	    return MenuFooterComponent;
 	}());
+	MenuFooterComponent.$inject = ['$element', '$transclude'];
+	MenuFooterComponent = __decorate([
+	    component_decorator_1.Component({
+	        transclude: true
+	    })
+	], MenuFooterComponent);
 	exports.MenuFooterComponent = MenuFooterComponent;
 	var MenuHeaderComponent = (function () {
 	    function MenuHeaderComponent($element, $transclude) {
@@ -594,14 +598,14 @@
 	            $element.append(clone);
 	        });
 	    }
-	    MenuHeaderComponent.$inject = ['$element', '$transclude'];
-	    MenuHeaderComponent = __decorate([
-	        component_decorator_1.Component({
-	            transclude: true
-	        })
-	    ], MenuHeaderComponent);
 	    return MenuHeaderComponent;
 	}());
+	MenuHeaderComponent.$inject = ['$element', '$transclude'];
+	MenuHeaderComponent = __decorate([
+	    component_decorator_1.Component({
+	        transclude: true
+	    })
+	], MenuHeaderComponent);
 	exports.MenuHeaderComponent = MenuHeaderComponent;
 
 
@@ -625,19 +629,19 @@
 	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
 	    return c > 3 && r && Object.defineProperty(target, key, r), r;
 	};
+	Object.defineProperty(exports, "__esModule", { value: true });
 	var component_decorator_1 = __webpack_require__(3);
 	var NavComponent = (function () {
 	    function NavComponent() {
 	    }
-	    NavComponent = __decorate([
-	        component_decorator_1.Component({
-	            templateUrl: __webpack_require__(21),
-	            transclude: true
-	        })
-	    ], NavComponent);
 	    return NavComponent;
 	}());
-	Object.defineProperty(exports, "__esModule", { value: true });
+	NavComponent = __decorate([
+	    component_decorator_1.Component({
+	        templateUrl: __webpack_require__(21),
+	        transclude: true
+	    })
+	], NavComponent);
 	exports.default = NavComponent;
 
 
@@ -661,6 +665,7 @@
 	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
 	    return c > 3 && r && Object.defineProperty(target, key, r), r;
 	};
+	Object.defineProperty(exports, "__esModule", { value: true });
 	var component_decorator_1 = __webpack_require__(3);
 	var SearchBoxComponent = (function () {
 	    function SearchBoxComponent($element, $scope) {
@@ -689,21 +694,20 @@
 	                break;
 	        }
 	    };
-	    SearchBoxComponent.$inject = ['$element', '$scope'];
-	    SearchBoxComponent = __decorate([
-	        component_decorator_1.Component({
-	            bindings: {
-	                placeholder: '@'
-	            },
-	            require: {
-	                ngModel: '^ngModel'
-	            },
-	            templateUrl: __webpack_require__(23)
-	        })
-	    ], SearchBoxComponent);
 	    return SearchBoxComponent;
 	}());
-	Object.defineProperty(exports, "__esModule", { value: true });
+	SearchBoxComponent.$inject = ['$element', '$scope'];
+	SearchBoxComponent = __decorate([
+	    component_decorator_1.Component({
+	        bindings: {
+	            placeholder: '@'
+	        },
+	        require: {
+	            ngModel: '^ngModel'
+	        },
+	        templateUrl: __webpack_require__(23)
+	    })
+	], SearchBoxComponent);
 	exports.default = SearchBoxComponent;
 
 
@@ -727,6 +731,7 @@
 	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
 	    return c > 3 && r && Object.defineProperty(target, key, r), r;
 	};
+	Object.defineProperty(exports, "__esModule", { value: true });
 	var component_decorator_1 = __webpack_require__(3);
 	var SideNavComponent = (function () {
 	    function SideNavComponent($element, toggleService) {
@@ -746,19 +751,18 @@
 	    SideNavComponent.prototype.show = function () {
 	        this.$element.addClass('mf-open');
 	    };
-	    SideNavComponent.$inject = ['$element', 'MfToggleService'];
-	    SideNavComponent = __decorate([
-	        component_decorator_1.Component({
-	            bindings: {
-	                name: '@'
-	            },
-	            templateUrl: __webpack_require__(25),
-	            transclude: true
-	        })
-	    ], SideNavComponent);
 	    return SideNavComponent;
 	}());
-	Object.defineProperty(exports, "__esModule", { value: true });
+	SideNavComponent.$inject = ['$element', 'MfToggleService'];
+	SideNavComponent = __decorate([
+	    component_decorator_1.Component({
+	        bindings: {
+	            name: '@'
+	        },
+	        templateUrl: __webpack_require__(25),
+	        transclude: true
+	    })
+	], SideNavComponent);
 	exports.default = SideNavComponent;
 
 
@@ -782,21 +786,21 @@
 	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
 	    return c > 3 && r && Object.defineProperty(target, key, r), r;
 	};
+	Object.defineProperty(exports, "__esModule", { value: true });
 	var component_decorator_1 = __webpack_require__(3);
 	var TileComponent = (function () {
 	    function TileComponent($element) {
 	        $element.attr('tabindex', 0);
 	    }
-	    TileComponent.$inject = ['$element'];
-	    TileComponent = __decorate([
-	        component_decorator_1.Component({
-	            templateUrl: __webpack_require__(27),
-	            transclude: true
-	        })
-	    ], TileComponent);
 	    return TileComponent;
 	}());
-	Object.defineProperty(exports, "__esModule", { value: true });
+	TileComponent.$inject = ['$element'];
+	TileComponent = __decorate([
+	    component_decorator_1.Component({
+	        templateUrl: __webpack_require__(27),
+	        transclude: true
+	    })
+	], TileComponent);
 	exports.default = TileComponent;
 
 
@@ -820,6 +824,7 @@
 	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
 	    return c > 3 && r && Object.defineProperty(target, key, r), r;
 	};
+	Object.defineProperty(exports, "__esModule", { value: true });
 	var component_decorator_1 = __webpack_require__(3);
 	var TileGridComponent = (function () {
 	    function TileGridComponent($element, $transclude) {
@@ -827,15 +832,14 @@
 	            $element.append(clone);
 	        });
 	    }
-	    TileGridComponent.$inject = ['$element', '$transclude'];
-	    TileGridComponent = __decorate([
-	        component_decorator_1.Component({
-	            transclude: true
-	        })
-	    ], TileGridComponent);
 	    return TileGridComponent;
 	}());
-	Object.defineProperty(exports, "__esModule", { value: true });
+	TileGridComponent.$inject = ['$element', '$transclude'];
+	TileGridComponent = __decorate([
+	    component_decorator_1.Component({
+	        transclude: true
+	    })
+	], TileGridComponent);
 	exports.default = TileGridComponent;
 
 
@@ -844,6 +848,7 @@
 /***/ function(module, exports) {
 
 	"use strict";
+	Object.defineProperty(exports, "__esModule", { value: true });
 	var SortDirectiveController = (function () {
 	    function SortDirectiveController($scope) {
 	        this.$scope = $scope;
@@ -857,9 +862,9 @@
 	        }
 	        this.$scope.$eval(this.sortBinding + '="' + this.sortExpression + '"');
 	    };
-	    SortDirectiveController.$inject = ['$scope'];
 	    return SortDirectiveController;
 	}());
+	SortDirectiveController.$inject = ['$scope'];
 	exports.SortDirectiveController = SortDirectiveController;
 	function SortDirective() {
 	    return {
@@ -904,6 +909,7 @@
 /***/ function(module, exports) {
 
 	"use strict";
+	Object.defineProperty(exports, "__esModule", { value: true });
 	function ToggleDirective(toggleService) {
 	    return {
 	        link: function (scope, element, attrs) {
@@ -921,6 +927,7 @@
 /***/ function(module, exports) {
 
 	"use strict";
+	Object.defineProperty(exports, "__esModule", { value: true });
 	var ToggleService = (function () {
 	    function ToggleService() {
 	        this.toggleableComponents = {};
@@ -942,7 +949,6 @@
 	    };
 	    return ToggleService;
 	}());
-	Object.defineProperty(exports, "__esModule", { value: true });
 	exports.default = ToggleService;
 
 

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node node_modules/gulp/bin/gulp test"
   },
   "repository": {
     "type": "git",
@@ -17,10 +17,12 @@
   },
   "homepage": "https://github.com/jedwardhawkins/ng-mfux#readme",
   "devDependencies": {
-    "@types/angular": "1.5.8",
+    "@types/angular": "1.6.0",
+    "@types/angular-mocks": "1.5.8",
     "@types/angular-ui-router": "1.1.36",
     "@types/node": "6.0.45",
     "angular": "1.6.0",
+    "angular-mocks": "1.5.8",
     "angular-ui-router": "1.0.0-beta.3",
     "gulp": "3.9.1",
     "ng-gulp": "jedwardhawkins/ng-gulp#v0.6.2",
