@@ -1,6 +1,6 @@
 # Logs
 logs
-*.log
+**/*.log
 npm-debug.log*
 
 # Runtime data
@@ -37,6 +37,7 @@ jspm_packages
 .node_repl_history
 
 dist/docs
+dist/**/*.gz
 
 # WebStorm
 .idea
