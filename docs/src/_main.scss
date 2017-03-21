@@ -1,3 +1,4 @@
+@import '../../node_modules/ng-prism/dist/vendor/vendor';
 @import './components/application/application.component';
 @import './components/components/components.component';
 
@@ -18,7 +19,7 @@ body > [ui-view] {
     width: 100%;
 }
 
-.demo-section code {
+.demo-section code:not(.language-markup) {
     background-color: #59656a;
     border-radius: 3px;
     color: white;

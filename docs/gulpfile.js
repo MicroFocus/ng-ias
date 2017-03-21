@@ -14,6 +14,7 @@ ngGulp(gulp, {
     },
     externals: {
         'ng-mfux': 'window["ng-mfux"]',
+        'ng-prism': 'window["ng-prism"]',
         'angular-ui-router': 'window["angular-ui-router"]'
     },
     files: {
@@ -24,6 +25,7 @@ ngGulp(gulp, {
         vendorDevelopment: [
             path.resolve(cwd, '../node_modules/angular/angular.js'),
             path.resolve(cwd, '../node_modules/angular-ui-router/release/angular-ui-router.js'),
+            path.resolve(cwd, '../node_modules/ng-prism/dist/ng-prism.js'),
             path.resolve(cwd, '../node_modules/mf-icons/dist/**/*'),
             path.resolve(cwd, '../dist/ng-mfux.js')
         ],

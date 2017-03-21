@@ -26,9 +26,9 @@ import TableComponent from './components/docs/table/table.component';
 import TileComponent from './components/docs/tile/tile.component';
 import TileGridComponent from './components/docs/tile-grid/tile-grid.component';
 
-
 module('app', [
     'ng-mfux',
+    'ng-prism',
     'ui.router'
 ])
     .config(routes)

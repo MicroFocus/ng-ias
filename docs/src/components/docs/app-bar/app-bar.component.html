@@ -1,21 +1,15 @@
 <h2>App Bar</h2>
 
 <div class="demo-section">
-    <mf-app-bar>
+    <mf-app-bar repeat-as-code>
         <h3 class="mf-title" title="App Bar Title">App Bar Title</h3>
     </mf-app-bar>
-
-    <code>
-        &lt;mf-app-bar&gt;<br>
-        &nbsp;&nbsp;&lt;h3 class=&quot;mf-title&quot; title=&quot;App Bar Title&quot;&gt;App Bar Title&lt;/h3&gt;<br>
-        &lt;/mf-app-bar&gt;<br>
-    </code>
 </div>
 
 <div class="demo-section">
     <h4>w/ mf-menu</h4>
 
-    <mf-app-bar>
+    <mf-app-bar repeat-as-code>
         <h3 class="mf-title" title="App Bar Title">App Bar Title</h3>
         <span class="mf-fill"></span>
         <mf-button mf-toggle="accountMenu" title="Descriptive Title">user@email.com
@@ -26,26 +20,12 @@
             <mf-button>Sign Out</mf-button>
         </mf-menu>
     </mf-app-bar>
-
-    <code>
-        &lt;mf-app-bar&gt;<br>
-        &nbsp;&nbsp;&lt;h3 class=&quot;mf-title&quot; title=&quot;App Bar Title&quot;&gt;App Bar Title&lt;/h3&gt;<br>
-        &nbsp;&nbsp;&lt;span class=&quot;mf-fill&quot;&gt;&lt;/span&gt;<br>
-        &nbsp;&nbsp;&lt;mf-button mf-toggle=&quot;accountMenu&quot; title=&quot;Descriptive Title&quot;&gt;user@email.com<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-icon icon=&quot;down_thick&quot;&gt;&lt;/mf-icon&gt;<br>
-        &nbsp;&nbsp;&lt;/mf-button&gt;<br>
-        &nbsp;&nbsp;&lt;mf-menu name=&quot;accountMenu&quot;&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-button&gt;Settings&lt;/mf-button&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-button&gt;Sign Out&lt;/mf-button&gt;<br>
-        &nbsp;&nbsp;&lt;/mf-menu&gt;<br>
-        &lt;/mf-app-bar&gt;
-    </code>
 </div>
 
 <div class="demo-section">
     <h4>w/ .mf-icon-button</h4>
 
-    <mf-app-bar>
+    <mf-app-bar repeat-as-code>
         <h3 class="mf-title" title="App Bar Title">App Bar Title</h3>
         <span class="mf-fill"></span>
         <mf-button class="mf-icon-button" title="Descriptive Title">
@@ -55,25 +35,12 @@
             <mf-icon icon="close_thick"></mf-icon>
         </mf-button>
     </mf-app-bar>
-
-    <code>
-        &lt;mf-app-bar&gt;<br>
-        &nbsp;&nbsp;&lt;h3 class=&quot;mf-title&quot; title=&quot;App Bar Title&quot;&gt;App Bar Title&lt;/h3&gt;<br>
-        &nbsp;&nbsp;&lt;span class=&quot;mf-fill&quot;&gt;&lt;/span&gt;<br>
-        &nbsp;&nbsp;&lt;mf-button class=&quot;mf-icon-button&quot; title=&quot;Descriptive Title&quot;&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-icon icon=&quot;search_thick&quot;&gt;&lt;/mf-icon&gt;<br>
-        &nbsp;&nbsp;&lt;/mf-button&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-button class=&quot;mf-icon-button&quot; title=&quot;Descriptive Title&quot;&gt;<br>
-        &nbsp;&nbsp;&lt;mf-icon icon=&quot;close_thick&quot;&gt;&lt;/mf-icon&gt;<br>
-        &nbsp;&nbsp;&lt;/mf-button&gt;<br>
-        &lt;/mf-app-bar&gt;
-    </code>
 </div>
 
 <div class="demo-section">
     <h4>w/ .mf-logo</h4>
 
-    <mf-app-bar>
+    <mf-app-bar repeat-as-code>
         <img src="images/appbar_logo.png" alt="Logo" class="mf-logo">
         <h3 class="mf-title" title="App Bar Title">App Bar Title</h3>
         <span class="mf-fill"></span>
@@ -84,26 +51,12 @@
             <mf-icon icon="close_thick"></mf-icon>
         </mf-button>
     </mf-app-bar>
-
-    <code>
-        &lt;mf-app-bar&gt;<br>
-        &nbsp;&nbsp;&lt;img src=&quot;images/appbar_logo.png&quot; alt=&quot;Logo&quot; class=&quot;mf-logo&quot;&gt;<br>
-        &nbsp;&nbsp;&lt;h3 class=&quot;mf-title&quot; title=&quot;App Bar Title&quot;&gt;App Bar Title&lt;/h3&gt;<br>
-        &nbsp;&nbsp;&lt;span class=&quot;mf-fill&quot;&gt;&lt;/span&gt;<br>
-        &nbsp;&nbsp;&lt;mf-button class=&quot;mf-icon-button&quot; title=&quot;Descriptive Title&quot;&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-icon icon=&quot;search_thick&quot;&gt;&lt;/mf-icon&gt;<br>
-        &nbsp;&nbsp;&lt;/mf-button&gt;<br>
-        &nbsp;&nbsp;&lt;mf-button class=&quot;mf-icon-button&quot; title=&quot;Descriptive Title&quot;&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-icon icon=&quot;close_thick&quot;&gt;&lt;/mf-icon&gt;<br>
-        &nbsp;&nbsp;&lt;/mf-button&gt;<br>
-        &lt;/mf-app-bar&gt;
-    </code>
 </div>
 
 <div class="demo-section">
     <h4>.mf-large</h4>
 
-    <mf-app-bar class="mf-large">
+    <mf-app-bar class="mf-large" repeat-as-code>
         <h3 class="mf-title" title="App Bar Title">App Bar Title</h3>
         <span class="mf-fill"></span>
         <mf-button class="mf-icon-button" title="Descriptive Title">
@@ -113,17 +66,4 @@
             <mf-icon icon="close_thick"></mf-icon>
         </mf-button>
     </mf-app-bar>
-
-    <code>
-        &lt;mf-app-bar class=&quot;mf-large&quot;&gt;<br>
-        &nbsp;&nbsp;&lt;h3 class=&quot;mf-title&quot; title=&quot;App Bar Title&quot;&gt;App Bar Title&lt;/h3&gt;<br>
-        &nbsp;&nbsp;&lt;span class=&quot;mf-fill&quot;&gt;&lt;/span&gt;<br>
-        &nbsp;&nbsp;&lt;mf-button class=&quot;mf-icon-button&quot; title=&quot;Descriptive Title&quot;&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-icon icon=&quot;search_thick&quot;&gt;&lt;/mf-icon&gt;<br>
-        &nbsp;&nbsp;&lt;/mf-button&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-button class=&quot;mf-icon-button&quot; title=&quot;Descriptive Title&quot;&gt;<br>
-        &nbsp;&nbsp;&lt;mf-icon icon=&quot;close_thick&quot;&gt;&lt;/mf-icon&gt;<br>
-        &nbsp;&nbsp;&lt;/mf-button&gt;<br>
-        &lt;/mf-app-bar&gt;
-    </code>
 </div>
