@@ -1,6 +1,6 @@
 {
   "name": "ng-mfux",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -23,6 +23,6 @@
     "angular": "1.6.0",
     "angular-ui-router": "1.0.0-beta.3",
     "gulp": "3.9.1",
-    "ng-gulp": "jedwardhawkins/ng-gulp#v0.5.0"
+    "ng-gulp": "jedwardhawkins/ng-gulp#v0.6.2"
   }
 }

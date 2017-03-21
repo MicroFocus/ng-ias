@@ -17,12 +17,15 @@ ngGulp(gulp, {
         'angular-ui-router': 'window["angular-ui-router"]'
     },
     files: {
+        sassManifest: [
+            path.resolve(cwd, 'src/app.scss'),
+            path.resolve(cwd, 'src/app_dark.scss')
+        ],
         vendorDevelopment: [
             path.resolve(cwd, '../node_modules/angular/angular.js'),
             path.resolve(cwd, '../node_modules/angular-ui-router/release/angular-ui-router.js'),
             path.resolve(cwd, '../node_modules/mf-icons/dist/**/*'),
-            path.resolve(cwd, '../dist/ng-mfux.js'),
-            path.resolve(cwd, '../dist/ng-mfux.css')
+            path.resolve(cwd, '../dist/ng-mfux.js')
         ],
         vendorProduction: [
             // TODO: add production dependencies to vendor bundle

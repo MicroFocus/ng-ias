@@ -12,7 +12,10 @@ ngGulp(gulp, {
         'angular-ui-router': 'window["angular-ui-router"]'
     },
     files: {
-        sassManifest: path.resolve(cwd, 'src/ng-mfux.scss'),
+        sassManifest: [
+            path.resolve(cwd, 'src/ng-mfux.scss'),
+            path.resolve(cwd, 'src/ng-mfux_dark.scss')
+        ],
         typescriptMainDevelopment: path.resolve(cwd, 'src/ng-mfux.module.ts'),
         typescriptMainProduction: path.resolve(cwd, 'src/ng-mfux.module.ts'),
         vendorDevelopment: [
