@@ -1,7 +1,7 @@
 <h2>Table</h2>
 
 <div class="demo-section">
-    <table>
+    <table repeat-as-code="">
         <thead>
             <tr>
                 <th></th>
@@ -39,35 +39,12 @@
             </tr>
         </tbody>
     </table>
-
-    <code>
-        &lt;table&gt;<br>
-        &nbsp;&nbsp;&lt;thead&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;&lt;/th&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Name&lt;/th&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Title&lt;/th&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br>
-        &nbsp;&nbsp;&lt;/thead&gt;<br>
-        &nbsp;&nbsp;&lt;tbody&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-button class=&quot;mf-icon-button&quot;&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-icon icon=&quot;search_thick&quot;&gt;&lt;/mf-icon&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/mf-button&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;&lt;a href=&quot;#&quot;&gt;Lynn Christensen&lt;/a&gt;&lt;/td&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;UX Director&lt;/td&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br>
-        &nbsp;&nbsp;&lt;/tbody&gt;<br>
-        &lt;/table&gt;
-    </code>
 </div>
 
 <div class="demo-section">
     <h4>Inline mf-icon</h4>
 
-    <table>
+    <table repeat-as-code="">
         <thead>
             <tr>
                 <th>Name</th>
@@ -98,32 +75,12 @@
             </tr>
         </tbody>
     </table>
-
-    <code>
-        &lt;table&gt;<br>
-        &nbsp;&nbsp;&lt;thead&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Name&lt;/th&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Title&lt;/th&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br>
-        &nbsp;&nbsp;&lt;/thead&gt;<br>
-        &nbsp;&nbsp;&lt;tbody&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-icon icon=&quot;favorite_outline_thin&quot;&gt;&lt;/mf-icon&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href=&quot;#&quot;&gt;Lynn Christensen&lt;/a&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;UX Director&lt;/td&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br>
-        &nbsp;&nbsp;&lt;/tbody&gt;<br>
-        &lt;/table&gt;
-    </code>
 </div>
 
 <div class="demo-section">
     <h4>Sorting</h4>
 
-    <table mf-sort="$ctrl.sort"
+    <table mf-sort="$ctrl.sort" repeat-as-code=""
            ng-init="$ctrl.people=[
             {name: 'Lynn Christensen', title: 'UX Director'},
             {name: 'Joseph White', title: 'Assistant to the UX Director'},
@@ -144,28 +101,4 @@
             </tr>
         </tbody>
     </table>
-
-    <code>
-        &lt;table mf-sort=&quot;$ctrl.sort&quot;<br>
-        &nbsp;&nbsp;ng-init=&quot;$ctrl.people=[<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;{name: 'Lynn Christensen', title: 'UX Director'},<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;{name: 'Joseph White', title: 'Assistant to the UX Director'},<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;{name: 'Joe Hawkins', title: 'Secret assistant to the UX Director'}]&quot;&gt;<br>
-        &nbsp;&nbsp;&lt;thead&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th mf-sort-on=&quot;'name'&quot;&gt;Name&lt;/th&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th mf-sort-on=&quot;'title'&quot;&gt;Title&lt;/th&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br>
-        &nbsp;&nbsp;&lt;/thead&gt;<br>
-        &nbsp;&nbsp;&lt;tbody&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&lt;tr ng-repeat=&quot;person in $ctrl.people | orderBy:$ctrl.sort&quot;&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-icon icon=&quot;favorite_outline_thin&quot;&gt;&lt;/mf-icon&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href=&quot;#&quot;&gt;{{person.name}}&lt;/a&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/td&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;{{person.title}}&lt;/td&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br>
-        &nbsp;&nbsp;&lt;/tbody&gt;<br>
-        &lt;/table&gt;
-    </code>
 </div>

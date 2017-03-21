@@ -26,6 +26,6 @@
     "angular-ui-router": "1.0.0-beta.3",
     "gulp": "3.9.1",
     "ng-gulp": "jedwardhawkins/ng-gulp#v0.6.2",
-    "ng-prism": "github:joswhite/ng-prism#v1.0.7"
+    "ng-prism": "github:joswhite/ng-prism#v1.1.0"
   }
 }

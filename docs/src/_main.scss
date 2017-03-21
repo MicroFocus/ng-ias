@@ -1,4 +1,4 @@
-@import '../../node_modules/ng-prism/dist/vendor/vendor';
+@import '../../node_modules/ng-prism/dist/ng-prism';
 @import './components/application/application.component';
 @import './components/components/components.component';
 
@@ -17,15 +17,6 @@ body > [ui-view] {
 .demo-section {
     margin-bottom: 24px;
     width: 100%;
-}
-
-.demo-section code:not(.language-markup) {
-    background-color: #59656a;
-    border-radius: 3px;
-    color: white;
-    display: block;
-    margin-top: 8px;
-    padding: 16px;
 }
 
 .mf-tile-actions { color: #007cd0; }

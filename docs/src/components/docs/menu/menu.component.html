@@ -2,27 +2,18 @@
 
 <div class="demo-section">
     <mf-button mf-toggle="menu1">Button Toggle</mf-button>
-    <mf-menu name="menu1">
+    <mf-menu name="menu1" repeat-as-code="">
         <mf-button>Menu Item 1</mf-button>
         <mf-button>Menu Item 2</mf-button>
         <mf-button>Menu Item 3</mf-button>
     </mf-menu>
-
-    <code>
-        &lt;mf-button mf-toggle=&quot;menu1&quot;&gt;Button Toggle&lt;/mf-button&gt;<br>
-        &lt;mf-menu name=&quot;menu1&quot;&gt;<br>
-        &nbsp;&nbsp;&lt;mf-button&gt;Menu Item 1&lt;/mf-button&gt;<br>
-        &nbsp;&nbsp;&lt;mf-button&gt;Menu Item 2&lt;/mf-button&gt;<br>
-        &nbsp;&nbsp;&lt;mf-button&gt;Menu Item 3&lt;/mf-button&gt;<br>
-        &lt;/mf-menu&gt;
-    </code>
 </div>
 
 <div class="demo-section">
     <h4>Complex Menu</h4>
 
     <mf-button mf-toggle="complexMenu">Button Toggle</mf-button>
-    <mf-menu name="complexMenu">
+    <mf-menu name="complexMenu" repeat-as-code="">
         <div class="mf-row mf-border-bottom">
             <div class="mf-column mf-border-end">
                 <div class="mf-row mf-border-bottom">
@@ -77,72 +68,13 @@
             </div>
         </div>
     </mf-menu>
-
-    <code>
-        &lt;mf-button mf-toggle=&quot;complexMenu&quot;&gt;Button Toggle&lt;/mf-button&gt;<br>
-        &lt;mf-menu name=&quot;complexMenu&quot;&gt;<br>
-        &nbsp;&nbsp;&lt;div class=&quot;mf-row mf-border-bottom&quot;&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class=&quot;mf-column mf-border-end&quot;&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class=&quot;mf-row mf-border-bottom&quot;&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class=&quot;mf-column&quot;&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-menu-header&gt;First Section&lt;/mf-menu-header&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-button&gt;View My Devices&lt;/mf-button&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-button&gt;Help Me...(end-user)&lt;/mf-button&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-button&gt;Request impersonate session...(HelpDesk)&lt;/mf-button&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class=&quot;mf-row mf-border-bottom&quot;&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class=&quot;mf-column&quot;&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-menu-header class=&quot;mf-menu-header&quot;&gt;Second Section&lt;/mf-menu-header&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-button&gt;Button 4&lt;/mf-button&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-button&gt;An Interesting Link&lt;/mf-button&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-button&gt;Button 6&lt;/mf-button&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-button&gt;Button 7&lt;/mf-button&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-button&gt;Request Support&lt;/mf-button&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-button&gt;Button 9&lt;/mf-button&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class=&quot;mf-row&quot;&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div class=&quot;mf-column&quot;&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-button type=&quot;button&quot;&gt;Button 10&lt;/mf-button&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class=&quot;mf-column mf-align-end&quot;&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-menu-header class=&quot;mf-menu-header&quot;&gt;User Section&lt;/mf-menu-header&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-button&gt;Help&lt;/mf-button&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-button&gt;Settings&lt;/mf-button&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-button&gt;Log Out&lt;/mf-button&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
-        &nbsp;&nbsp;&lt;/div&gt;<br>
-        &nbsp;&nbsp;&lt;div class=&quot;mf-row&quot;&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class=&quot;mf-column&quot;&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-menu-header class=&quot;mf-menu-header&quot;&gt;Big Section&lt;/mf-menu-header&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-button&gt;IDM Prototype&lt;/mf-button&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-button&gt;Add Users&lt;/mf-button&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-button&gt;Button 13&lt;/mf-button&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-button&gt;A Button That Extends Well Beyond the Column Immediately Above It&lt;/mf-button&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-button&gt;Button 15&lt;/mf-button&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-button&gt;MicroFocus Branded Sign&lt;/mf-button&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
-        &nbsp;&nbsp;&lt;/div&gt;<br>
-        &nbsp;&nbsp;&lt;div class=&quot;mf-row mf-border-top&quot;&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class=&quot;mf-column&quot;&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-menu-footer class=&quot;mf-menu-footer&quot;&gt;VERSION 2.0&lt;/mf-menu-footer&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&lt;div class=&quot;mf-column&quot;&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-menu-footer class=&quot;mf-menu-footer&quot;&gt;BUILD 123456&lt;/mf-menu-footer&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
-        &nbsp;&nbsp;&lt;/div&gt;<br>
-        &lt;/mf-menu&gt;
-    </code>
 </div>
 
 <div class="demo-section">
     <h4>w/ mf-list</h4>
 
     <mf-button mf-toggle="listMenu">Button Toggle</mf-button>
-    <mf-menu name="listMenu">
+    <mf-menu name="listMenu" repeat-as-code="">
         <mf-list>
             <mf-list-header>List</mf-list-header>
             <mf-list-item>
@@ -163,29 +95,4 @@
             </mf-list-item>
         </mf-list>
     </mf-menu>
-
-    <code>
-        &lt;mf-button mf-toggle=&quot;listMenu&quot;&gt;Button Toggle&lt;/mf-button&gt;<br>
-        &lt;mf-menu name=&quot;listMenu&quot;&gt;<br>
-        &nbsp;&nbsp;&lt;mf-list&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-list-header&gt;List&lt;/mf-list-header&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-list-item&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-avatar src=&quot;'images/appmark_box.png'&quot; title=&quot;Box&quot;&gt;&lt;/mf-avatar&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span&gt;Box&lt;/span&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/mf-list-item&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-list-item&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-avatar src=&quot;'images/appmark_clarity.png'&quot; title=&quot;Clarity&quot;&gt;&lt;/mf-avatar&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span&gt;Clarity&lt;/span&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/mf-list-item&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-list-item&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-avatar src=&quot;'images/appmark_geeko.png'&quot; title=&quot;Geeko&quot;&gt;&lt;/mf-avatar&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span&gt;Geeko&lt;/span&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/mf-list-item&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-list-item&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;mf-avatar src=&quot;'images/appmark_googledocs.png'&quot; title=&quot;Google Docs&quot;&gt;&lt;/mf-avatar&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;span&gt;Google Docs&lt;/span&gt;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/mf-list-item&gt;<br>
-        &nbsp;&nbsp;&lt;/mf-list&gt;<br>
-        &lt;/mf-menu&gt;
-    </code>
 </div>
