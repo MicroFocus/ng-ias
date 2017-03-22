@@ -33,7 +33,8 @@ ngGulp(gulp, {
         vendorProduction: [
             path.resolve(cwd, '../node_modules/angular/angular.js'),
             path.resolve(cwd, '../node_modules/angular-ui-router/release/angular-ui-router.js'),
-            path.resolve(cwd, '../node_modules/mf-icons/dist/**/*'),
+			path.resolve(cwd, '../node_modules/ng-prism/dist/ng-prism.js'),
+			path.resolve(cwd, '../node_modules/mf-icons/dist/**/*'),
             path.resolve(cwd, '../dist/ng-mfux.js')
         ],
         vendorTest: [
