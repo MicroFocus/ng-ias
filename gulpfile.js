@@ -5,6 +5,7 @@ var path = require('path');
 var cwd = process.cwd();
 
 ngGulp(gulp, {
+    autoTest: true,
     cssBasename: 'ng-mfux',
     devServer: false,
     jsBasename: 'ng-mfux',
