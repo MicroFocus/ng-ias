@@ -1,12 +1,16 @@
 // BORDERS
 $border-radius: 3px;
+$border-radius-small: 2px;
 
 // COLORS
+$color-black-1: #000;
+$color-black-2: #1f1f1f;
+
 $color-gray-1: #f6f9f8;
 $color-gray-2: #eef2f2;
 $color-gray-3: #dae1e1;
 $color-gray-4: #808080;
-$color-gray-5: #626e72;
+$color-gray-5: #6a6f71;
 $color-gray-6: #59656a;
 $color-gray-7: #434c50;
 $color-gray-8: #2c2c2c;
@@ -19,11 +23,24 @@ $color-primary-5: #01a9e7;
 
 $color-accent-1: #ffd92d;
 $color-accent-2: #fff6ce;
+$color-accent-3: #f17e12;
+$color-accent-4: #dc233f;
+
+$disabled-opacity: .3;
+
+// Font size variants
+$font-size-xsmall:	11px;
+$font-size-small:	13px;
+$font-size-base:	15px;
+$font-size-medium:	18px;
+$font-size-large:	21px;
+$font-size-xlarge:	24px;
 
 // TYPOGRAPHY
-$font-family: 'Helvetica Neue Thin', 'Helvetica Neue', Helvetica, Arial, san-serif;
+$font-family: 'Helvetica Neue Thin', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $font-size: 14px;
 $font-weight: 400;
+$font-weight-medium: 500;
 
 $heading-text-color: inherit;
 $heading-font-size: 22px;
@@ -42,7 +59,9 @@ $title-text-transform: uppercase;
 $large-display: 769px;
 
 // SPACING
-$body-spacing-small: 15px;
+$body-spacing-xsmall: 5px;
+$body-spacing-small: 10px;
+$body-spacing-medium: 15px;
 $body-spacing-large: 25px;
 $content-padding: 25px;
 $spacing: 10px;
@@ -61,14 +80,10 @@ $app-bar-bg-fallback: $color-primary-2;
 $app-bar-bg: linear-gradient(to right, $color-primary-5, $color-primary-2);
 $app-bar-bg-rtl: linear-gradient(to left, $color-primary-5, $color-primary-2);
 $app-bar-font-size: 12px;
-$app-bar-height-small: 48px;
-$app-bar-height-large: 72px;
+$app-bar-height-small: 50px;
+$app-bar-height-large: 100px;
 $app-bar-icon-size: 20px;
 $app-bar-text-color: $color-gray-1;
-
-$avatar-size-small: 25px;
-$avatar-size-medium: 50px;
-$avatar-size-large: 100px;
 
 $body-bg-color: $color-gray-8;
 
@@ -85,8 +100,8 @@ $button-cta-bg-color: $color-gray-1;
 $button-cta-color: $color-gray-7;
 $button-font-size: $font-size;
 $button-height: 28px;
-$button-inline-icon-size: .85em;
-$button-inline-icon-padding: .5em;
+$button-inline-icon-size: $font-size-small;
+$button-inline-icon-padding: $body-spacing-xsmall;
 $button-min-width: 42px;
 $button-text-color: $text-color;
 $button-text-color-disabled: $button-border-color-disabled;
@@ -94,11 +109,15 @@ $button-text-color-hover: $color-primary-2;
 $button-text-transform: none;
 
 $dialog-bg-color: $color-gray-7;
+$dialog-label-color: $color-gray-4;
 $dialog-padding: 20px;
-$dialog-scrim-color: rgba(0, 0, 0, .50);
+$dialog-scrim-color: rgba(106, 111, 113, .8);
+$dialog-content-color: $color-gray-8;
 
 $icon-button-border-width: 1px;
-$icon-button-size: 24px;
+$icon-button-color: $color-gray-4;
+$icon-button-size: 25px;
+$icon-button-size-large: 28px;
 
 $icon-size-small: 25px;
 $icon-size-medium: 50px;
@@ -156,12 +175,11 @@ $nav-item-border-width-active: 2px;
 $nav-item-color-active: $text-color;
 $nav-item-color-hover: $color-gray-2;
 $nav-height: 32px;
-$nav-item-height: $nav-height - $nav-item-border-width-active - $nav-item-border-width;
 $nav-text-color: $color-gray-2;
-$nav-item-bg-color-focus: $focus-bg-color;
-$nav-item-border-color-focus: $focus-border-color;
-$nav-item-border-bottom-color-focus: $focus-border-color;
-$nav-item-text-color-focus: $focus-text-color;
+$nav-item-bg-color-focus: $nav-item-bg-color-hover;
+$nav-item-border-color-focus: transparent;
+$nav-item-border-bottom-color-focus: $nav-item-border-bottom-color-active;
+$nav-item-text-color-focus: inherit;
 
 $panel-bg-color: $color-gray-6;
 $panel-height: $button-height + (2 * $button-border-width);
@@ -176,12 +194,11 @@ $side-nav-header-text-color: $menu-header-text-color;
 $side-nav-header-font-size: $menu-header-font-size;
 $side-nav-header-font-weight: $menu-header-font-weight;
 $side-nav-header-text-transform: $menu-header-text-transform;
-$side-nav-item-height: 28px;
 $side-nav-max-width: 85%;
 $side-nav-padding: $spacing;
-$side-nav-scrim-color: rgba(0, 0, 0, .50);
+$side-nav-scrim-bg-color: rgba(0, 0, 0, .50);
 $side-nav-text-color: inherit;
-$side-nav-width: 240px;
+$side-nav-width: 220px;
 
 $table-header-border-color: $color-gray-5;
 $table-header-font-size: 12px;
@@ -202,7 +219,8 @@ $tile-text-color: $color-gray-1;
 $tile-title-font-size-large: 15px;
 $tile-title-font-size-medium: 15px;
 $tile-title-font-size-small: 20px;
-$tile-text-margin-top: 5px;
+$tile-title-margin-bottom-large: 5px;
+$tile-title-margin-bottom-medium: 5px;
 
 $tile-avatar-size-large: 100px;
 $tile-height-large:
@@ -210,17 +228,17 @@ $tile-height-large:
         (3 * ($tile-description-line-height + $tile-padding)) +
         (2 * $tile-border-width) +
         $tile-title-font-size-large +
-        $tile-text-margin-top;
+        $tile-title-margin-bottom-large;
 $tile-height-medium:
         (2 * ($tile-description-line-height + $tile-padding + $tile-border-width)) +
         $tile-title-font-size-medium +
-        $tile-text-margin-top;
+        $tile-title-margin-bottom-medium;
 $tile-height-small: $tile-height-medium;
 $tile-height-tiny: $tile-height-medium;
 $tile-avatar-size-medium:
         (2 * $tile-description-line-height) +
         $tile-title-font-size-medium +
-        $tile-text-margin-top;
+        $tile-title-margin-bottom-medium;
 $tile-avatar-size-small: $tile-height-small - (2 * ($tile-padding + $tile-border-width));
 $tile-avatar-size-tiny: $tile-height-tiny - (2 * ($tile-padding + $tile-border-width));
 $tile-width-large: 160px;
