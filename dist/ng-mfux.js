@@ -537,6 +537,12 @@
 	Object.defineProperty(exports, "__esModule", { value: true });
 	var component_decorator_1 = __webpack_require__(3);
 	var angular_1 = __webpack_require__(1);
+	var MenuAlignment;
+	(function (MenuAlignment) {
+	    MenuAlignment[MenuAlignment["start"] = 0] = "start";
+	    MenuAlignment[MenuAlignment["center"] = 1] = "center";
+	    MenuAlignment[MenuAlignment["end"] = 2] = "end";
+	})(MenuAlignment = exports.MenuAlignment || (exports.MenuAlignment = {}));
 	var MenuComponent = (function () {
 	    function MenuComponent($document, $element, toggleService) {
 	        this.$document = $document;
@@ -546,6 +552,15 @@
 	        $element.detach();
 	        angular_1.element($document.find('body')).append($element);
 	        $element.on('click', this.hide.bind(this));
+	        this.horizontalAlignment = MenuAlignment.start;
+	        this.verticalAlignment = MenuAlignment.start;
+	        if (this.align) {
+	            var tokens = this.align.split(' ');
+	            var horizontalAlignment = MenuAlignment[tokens[0]];
+	            var verticalAlignment = MenuAlignment[tokens[1]];
+	            this.horizontalAlignment = horizontalAlignment || MenuAlignment.start;
+	            this.verticalAlignment = verticalAlignment || MenuAlignment.start;
+	        }
 	    }
 	    MenuComponent.prototype.$onDestroy = function () {
 	        this.$element.off('click');
@@ -570,6 +585,7 @@
 	MenuComponent = __decorate([
 	    component_decorator_1.Component({
 	        bindings: {
+	            align: '@',
 	            name: '@'
 	        },
 	        templateUrl: __webpack_require__(19),
