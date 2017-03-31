@@ -105,6 +105,7 @@ export class MenuComponent implements IToggleable {
             right: number = null,
             top: number = null;
 
+        // If menu content is wider than menu container, constrain width to menu container
         if (menuContentBoundingBox.width > menuBoundingBox.width) {
             left = 0;
             right = 0;
@@ -145,6 +146,7 @@ export class MenuComponent implements IToggleable {
             }
         }
 
+        // If menu content is taller than menu container, constrain height to menu container
         if (menuContentBoundingBox.height > menuBoundingBox.height) {
             top = 0;
             bottom = 0;
