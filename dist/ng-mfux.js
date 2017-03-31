@@ -537,55 +537,141 @@
 	Object.defineProperty(exports, "__esModule", { value: true });
 	var component_decorator_1 = __webpack_require__(3);
 	var angular_1 = __webpack_require__(1);
-	var MenuAlignment;
-	(function (MenuAlignment) {
-	    MenuAlignment[MenuAlignment["start"] = 0] = "start";
-	    MenuAlignment[MenuAlignment["center"] = 1] = "center";
-	    MenuAlignment[MenuAlignment["end"] = 2] = "end";
-	})(MenuAlignment = exports.MenuAlignment || (exports.MenuAlignment = {}));
+	var HorizontalAlignment;
+	(function (HorizontalAlignment) {
+	    HorizontalAlignment[HorizontalAlignment["start"] = 0] = "start";
+	    HorizontalAlignment[HorizontalAlignment["center"] = 1] = "center";
+	    HorizontalAlignment[HorizontalAlignment["end"] = 2] = "end";
+	})(HorizontalAlignment = exports.HorizontalAlignment || (exports.HorizontalAlignment = {}));
+	var VerticalAlignment;
+	(function (VerticalAlignment) {
+	    VerticalAlignment[VerticalAlignment["top"] = 0] = "top";
+	    VerticalAlignment[VerticalAlignment["center"] = 1] = "center";
+	    VerticalAlignment[VerticalAlignment["bottom"] = 2] = "bottom";
+	})(VerticalAlignment = exports.VerticalAlignment || (exports.VerticalAlignment = {}));
 	var MenuComponent = (function () {
-	    function MenuComponent($document, $element, toggleService) {
+	    function MenuComponent($document, $element, $window, toggleService) {
 	        this.$document = $document;
 	        this.$element = $element;
+	        this.$window = $window;
 	        this.toggleService = toggleService;
 	        this.open = false;
 	        $element.detach();
 	        angular_1.element($document.find('body')).append($element);
 	        $element.on('click', this.hide.bind(this));
-	        this.horizontalAlignment = MenuAlignment.start;
-	        this.verticalAlignment = MenuAlignment.start;
-	        if (this.align) {
-	            var tokens = this.align.split(' ');
-	            var horizontalAlignment = MenuAlignment[tokens[0]];
-	            var verticalAlignment = MenuAlignment[tokens[1]];
-	            this.horizontalAlignment = horizontalAlignment || MenuAlignment.start;
-	            this.verticalAlignment = verticalAlignment || MenuAlignment.start;
-	        }
+	        this.horizontalAlignment = HorizontalAlignment.start;
+	        this.verticalAlignment = VerticalAlignment.top;
 	    }
 	    MenuComponent.prototype.$onDestroy = function () {
 	        this.$element.off('click');
 	    };
 	    MenuComponent.prototype.$onInit = function () {
+	        if (this.align) {
+	            var tokens = this.align.split(' ');
+	            var horizontalAlignment = HorizontalAlignment[tokens[0]];
+	            var verticalAlignment = VerticalAlignment[tokens[1]];
+	            this.horizontalAlignment = horizontalAlignment || HorizontalAlignment.start;
+	            this.verticalAlignment = verticalAlignment || VerticalAlignment.top;
+	        }
 	        this.toggleService.register(this);
 	    };
 	    MenuComponent.prototype.hide = function () {
 	        this.open = false;
 	        this.$element.removeClass('mf-open');
 	    };
-	    MenuComponent.prototype.show = function (el) {
+	    MenuComponent.prototype.show = function (targetElement) {
 	        this.open = true;
-	        var boundingClientRect = el[0].getBoundingClientRect();
-	        this.$element.find('mf-menu-content')[0].style.left = boundingClientRect.left + 'px';
-	        this.$element.find('mf-menu-content')[0].style.top = boundingClientRect.bottom + 'px';
 	        this.$element.addClass('mf-open');
+	        this.showMenuContent(targetElement[0]);
+	    };
+	    MenuComponent.prototype.getLayoutDirection = function () {
+	        return window.getComputedStyle(this.$element[0], null).getPropertyValue('direction');
+	    };
+	    MenuComponent.prototype.numberToPixels = function (num) {
+	        return (num === null) ? null : num + 'px';
+	    };
+	    MenuComponent.prototype.showMenuContent = function (targetElement) {
+	        var menuContentElement = this.$element.find('mf-menu-content')[0];
+	        var isLtrLayout = this.getLayoutDirection() !== 'rtl';
+	        menuContentElement.style.bottom =
+	            menuContentElement.style.left =
+	                menuContentElement.style.right =
+	                    menuContentElement.style.top = null;
+	        var menuBoundingBox = this.$element[0].getBoundingClientRect();
+	        var menuContentBoundingBox = menuContentElement.getBoundingClientRect();
+	        var targetElementBoundingBox = targetElement.getBoundingClientRect();
+	        var bottom = null, left = null, right = null, top = null;
+	        if (menuContentBoundingBox.width > menuBoundingBox.width) {
+	            left = 0;
+	            right = 0;
+	        }
+	        else {
+	            switch (this.horizontalAlignment) {
+	                case HorizontalAlignment.start:
+	                    if (isLtrLayout) {
+	                        left = targetElementBoundingBox.left;
+	                    }
+	                    else {
+	                        left = targetElementBoundingBox.right - menuContentBoundingBox.width;
+	                    }
+	                    break;
+	                case HorizontalAlignment.center:
+	                    left = targetElementBoundingBox.left +
+	                        ((targetElementBoundingBox.width - menuContentBoundingBox.width) / 2);
+	                    break;
+	                case HorizontalAlignment.end:
+	                    if (isLtrLayout) {
+	                        left = targetElementBoundingBox.left +
+	                            (targetElementBoundingBox.width - menuContentBoundingBox.width);
+	                    }
+	                    else {
+	                        left = targetElementBoundingBox.left;
+	                    }
+	                    break;
+	            }
+	            left -= menuBoundingBox.left;
+	            left = Math.max(left, 0);
+	            if (left + menuContentBoundingBox.width > menuBoundingBox.width) {
+	                left = null;
+	                right = 0;
+	            }
+	        }
+	        if (menuContentBoundingBox.height > menuBoundingBox.height) {
+	            top = 0;
+	            bottom = 0;
+	        }
+	        else {
+	            switch (this.verticalAlignment) {
+	                case VerticalAlignment.top:
+	                    top = targetElementBoundingBox.bottom;
+	                    break;
+	                case VerticalAlignment.center:
+	                    top = targetElementBoundingBox.top +
+	                        ((targetElementBoundingBox.height - menuContentBoundingBox.height) / 2);
+	                    break;
+	                case VerticalAlignment.bottom:
+	                    top = (targetElementBoundingBox.top - menuContentBoundingBox.height);
+	                    break;
+	            }
+	            top -= menuBoundingBox.top;
+	            top = Math.max(top, 0);
+	            if (top + menuContentBoundingBox.height > menuBoundingBox.height) {
+	                top = null;
+	                bottom = 0;
+	            }
+	        }
+	        menuContentElement.style.left = this.numberToPixels(left);
+	        menuContentElement.style.top = this.numberToPixels(top);
+	        menuContentElement.style.bottom = this.numberToPixels(bottom);
+	        menuContentElement.style.right = this.numberToPixels(right);
 	    };
 	    return MenuComponent;
 	}());
-	MenuComponent.$inject = ['$document', '$element', 'MfToggleService'];
+	MenuComponent.$inject = ['$document', '$element', '$window', 'MfToggleService'];
 	MenuComponent = __decorate([
 	    component_decorator_1.Component({
 	        bindings: {
-	            align: '@',
+	            align: '@mfAlign',
 	            name: '@'
 	        },
 	        templateUrl: __webpack_require__(19),

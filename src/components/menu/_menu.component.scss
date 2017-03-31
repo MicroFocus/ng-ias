@@ -34,7 +34,7 @@ mf-menu-content {
   color: $menu-text-color;
   display: block;
   font-size: $menu-content-font-size;
-  overflow: hidden;
+  overflow: auto;
   padding: $spacing;
   position: absolute;
   z-index: 1;

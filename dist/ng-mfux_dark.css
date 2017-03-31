@@ -661,7 +661,7 @@ mf-menu-content {
   color: #f6f9f8;
   display: block;
   font-size: 14px;
-  overflow: hidden;
+  overflow: auto;
   padding: 10px;
   position: absolute;
   z-index: 1;

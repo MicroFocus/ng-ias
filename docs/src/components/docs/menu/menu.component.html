@@ -96,3 +96,18 @@
         </mf-list>
     </mf-menu>
 </div>
+
+<div class="demo-section">
+    <h4>Positioning w/ [mf-align]</h4>
+    <p>The mf-align attribute has the form mf-align="[H_ALIGN] [V_ALIGN]?" where H_ALIGN is one of [start, center, end] and
+        V_ALIGN is one of [top, center, bottom] and V_ALIGN is optional. The default is mf-align="start top". start and end
+        depend on the layout of the containing element. The default and when nested under [dir="ltr"], start is on the left
+        and end is on the right. When nested under [dir="rtl"], start is on the right and end is on the left.</p>
+
+    <mf-button mf-toggle="menu2">Button Toggle</mf-button>
+    <mf-menu name="menu2" mf-align="start center" repeat-as-code="">
+        <mf-button>Menu Item 1</mf-button>
+        <mf-button>Menu Item 2</mf-button>
+        <mf-button>Menu Item 3</mf-button>
+    </mf-menu>
+</div>
