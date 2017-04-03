@@ -32,6 +32,7 @@ ngGulp(gulp, {
             path.resolve(__dirname, '../node_modules/angular-ui-router/release/angular-ui-router.js'),
             path.resolve(__dirname, '../node_modules/ng-prism/dist/ng-prism.js'),
             path.resolve(__dirname, '../node_modules/mf-icons/dist/**/*'),
+			'!' + path.resolve(__dirname, '../node_modules/mf-icons/dist/mf-icons.min.css'),
             path.resolve(__dirname, '../dist/ng-mfux.js')
         ],
         vendorProduction: [
@@ -39,6 +40,7 @@ ngGulp(gulp, {
             path.resolve(__dirname, '../node_modules/angular-ui-router/release/angular-ui-router.js'),
 			path.resolve(__dirname, '../node_modules/ng-prism/dist/ng-prism.js'),
 			path.resolve(__dirname, '../node_modules/mf-icons/dist/**/*'),
+			'!' + path.resolve(__dirname, '../node_modules/mf-icons/dist/mf-icons.min.css'),
             path.resolve(__dirname, '../dist/ng-mfux.js')
         ],
         vendorTest: [
