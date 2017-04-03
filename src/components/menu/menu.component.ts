@@ -3,14 +3,24 @@ import ToggleService from '../toggle/toggle.service';
 import { element, IAugmentedJQuery, IDocumentService, ITranscludeFunction } from 'angular';
 import { IToggleable } from '../toggle/toggle.directive';
 
+export enum MenuAlignment {
+    start,
+    center,
+    end
+}
+
 @Component({
     bindings: {
+        align: '@',
         name: '@'
     },
     templateUrl: require('./menu.component.html'),
     transclude: true
 })
 export class MenuComponent implements IToggleable {
+    align: string;
+    horizontalAlignment: MenuAlignment;
+    verticalAlignment: MenuAlignment;
     name: string;
     open: boolean;
 
@@ -23,6 +33,19 @@ export class MenuComponent implements IToggleable {
         element($document.find('body')).append($element);
 
         $element.on('click', this.hide.bind(this));
+
+        this.horizontalAlignment = MenuAlignment.start;
+        this.verticalAlignment = MenuAlignment.start;
+
+        if (this.align) {
+            let tokens = this.align.split(' ');
+
+            let horizontalAlignment = MenuAlignment[tokens[0]];
+            let verticalAlignment = MenuAlignment[tokens[1]];
+
+            this.horizontalAlignment = horizontalAlignment || MenuAlignment.start;
+            this.verticalAlignment = verticalAlignment || MenuAlignment.start;
+        }
     }
 
     $onDestroy(): void {
