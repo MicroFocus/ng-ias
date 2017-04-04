@@ -5,8 +5,8 @@ var path = require('path');
 ngGulp(gulp, {
     devServer: {
         root: [
-            path.resolve(__dirname, '..\\dist'),
-            path.resolve(__dirname, '..\\dist\\docs')
+            path.resolve(__dirname, '../dist'),
+            path.resolve(__dirname, '../dist/docs')
         ]
     },
     devServerPort: 8081,
@@ -51,8 +51,8 @@ ngGulp(gulp, {
     },
     productionServer: {
         root: [
-            path.resolve(__dirname, '..\\dist'),
-            path.resolve(__dirname, '..\\dist\\docs')
+            path.resolve(__dirname, '../dist'),
+            path.resolve(__dirname, '../dist/docs')
         ]
     }
 });
