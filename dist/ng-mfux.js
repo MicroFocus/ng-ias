@@ -68,7 +68,7 @@
 	angular_1.module('ng-mfux', [])
 	    .component('mfAppBar', app_bar_component_1.default)
 	    .component('mfAvatar', avatar_component_1.default)
-	    .component('mfButton', button_component_1.default)
+	    .directive('mfButton', button_component_1.default)
 	    .component('mfDialog', dialog_component_1.default)
 	    .component('mfHeader', header_component_1.default)
 	    .component('mfIcon', icon_component_1.default)
@@ -189,32 +189,29 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
 	Object.defineProperty(exports, "__esModule", { value: true });
-	var component_decorator_1 = __webpack_require__(3);
-	var ButtonComponent = (function () {
-	    function ButtonComponent($element) {
-	        this.$element = $element;
+	var templateUrl = __webpack_require__(8);
+	var ButtonController = (function () {
+	    function ButtonController($scope) {
+	        this.$scope = $scope;
 	    }
-	    ButtonComponent.prototype.$doCheck = function () {
-	        var disabled = this.$element.prop('disabled') === true;
-	        this.$element.attr('tabindex', disabled ? -1 : 0);
-	    };
-	    return ButtonComponent;
+	    return ButtonController;
 	}());
-	ButtonComponent.$inject = ['$element'];
-	ButtonComponent = __decorate([
-	    component_decorator_1.Component({
-	        templateUrl: __webpack_require__(8),
-	        transclude: true
-	    })
-	], ButtonComponent);
-	exports.default = ButtonComponent;
+	ButtonController.$inject = ['$scope'];
+	exports.ButtonController = ButtonController;
+	function ButtonDirective() {
+	    return {
+	        controller: ButtonController,
+	        restrict: 'E',
+	        templateUrl: templateUrl,
+	        transclude: true,
+	        replace: true,
+	        link: function (scope, element, attributes, controller) {
+	        }
+	    };
+	}
+	exports.default = ButtonDirective;
+	ButtonDirective.$inject = ['$compile'];
 
 
 /***/ },
@@ -222,7 +219,7 @@
 /***/ function(module, exports) {
 
 	var path = 'components/button/button.component.html';
-	var html = "<div class=\"mf-button-content\" ng-transclude></div>";
+	var html = "<button class=\"mf-button\" ng-transclude>\n</button>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
@@ -732,7 +729,7 @@
 /***/ function(module, exports) {
 
 	var path = 'components/search-box/search-box.component.html';
-	var html = "<div class=\"mf-search-box-content\">\r\n    <input type=\"text\"\r\n           autocomplete=\"false\"\r\n           ng-model=\"$ctrl.value\"\r\n           ng-attr-placeholder=\"{{$ctrl.placeholder}}\"\r\n           ng-keydown=\"$ctrl.onInputKeyDown($event)\" />\r\n    <mf-icon icon=\"search_thick\"></mf-icon>\r\n    <mf-button class=\"mf-icon-button\" ng-click=\"$ctrl.clearInput()\">\r\n        <mf-icon icon=\"close_thick\"></mf-icon>\r\n    </mf-button>\r\n</div>";
+	var html = "<div class=\"mf-search-box-content\">\n    <input type=\"text\"\n           autocomplete=\"false\"\n           ng-model=\"$ctrl.value\"\n           ng-attr-placeholder=\"{{$ctrl.placeholder}}\"\n           ng-keydown=\"$ctrl.onInputKeyDown($event)\" />\n    <mf-icon icon=\"search_thick\"></mf-icon>\n    <mf-button class=\"mf-icon-button\" ng-click=\"$ctrl.clearInput()\">\n        <mf-icon icon=\"close_thick\"></mf-icon>\n    </mf-button>\n</div>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
@@ -787,7 +784,7 @@
 /***/ function(module, exports) {
 
 	var path = 'components/side-nav/side-nav.component.html';
-	var html = "<div class=\"mf-scrim\" ng-click=\"$ctrl.hide()\"></div>\r\n<div class=\"mf-side-nav-content\" ng-transclude></div>";
+	var html = "<div class=\"mf-scrim\" ng-click=\"$ctrl.hide()\"></div>\n<div class=\"mf-side-nav-content\" ng-transclude></div>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 

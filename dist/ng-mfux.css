@@ -268,7 +268,7 @@ mf-avatar > .mf-avatar-content {
   border-radius: 3px;
 }
 
-mf-button {
+button.mf-button {
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -278,33 +278,34 @@ mf-button {
   border-radius: 3px;
   color: #434c50;
   display: inline-block;
+  font-size: 14px;
   height: 28px;
   line-height: 28px;
   padding: 0 10px;
   vertical-align: middle;
 }
 
-mf-button:hover {
+button.mf-button:hover {
   background-color: #f6f9f8;
   border-color: #007cd0;
   color: #007cd0;
   cursor: pointer;
 }
 
-mf-button[disabled], mf-button.mf-disabled {
+button.mf-button[disabled], button.mf-button.mf-disabled {
   background-color: #f6f9f8;
   border-color: #dae1e1;
   color: #dae1e1;
 }
 
-mf-button[disabled]:hover, mf-button.mf-disabled:hover {
+button.mf-button[disabled]:hover, button.mf-button.mf-disabled:hover {
   background-color: #f6f9f8;
   border-color: #dae1e1;
   color: #dae1e1;
   cursor: default;
 }
 
-mf-button.mf-icon-button {
+button.mf-button.mf-icon-button {
   font-size: 24px;
   height: 1em;
   line-height: 1em;
@@ -314,25 +315,25 @@ mf-button.mf-icon-button {
   padding: 0;
 }
 
-mf-button.mf-icon-button:hover {
+button.mf-button.mf-icon-button:hover {
   background-color: #f6f9f8;
   border-color: #007cd0;
   color: #007cd0;
   cursor: pointer;
 }
 
-mf-button.mf-icon-button mf-icon {
+button.mf-button.mf-icon-button mf-icon {
   font-size: inherit;
 }
 
-mf-button:not(.mf-icon-button) > .mf-button-content mf-icon {
+button.mf-button:not(.mf-icon-button) > .mf-button-content mf-icon {
   color: inherit;
   font-size: 0.85em;
   margin-left: 0.5em;
   vertical-align: middle;
 }
 
-mf-button > .mf-button-content {
+button.mf-button > .mf-button-content {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;

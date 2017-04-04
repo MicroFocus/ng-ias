@@ -1,26 +1,42 @@
 <h2>Button</h2>
 
+<p>
+    The basic button provides simple interaction and styling to a standard HTML button.
+</p>
+
+<p ng-if="$ctrl.alerts.length > 0">
+    <div uib-alert ng-repeat="alert in $ctrl.alerts" ng-class="'alert-' + (alert.type || 'warning')" close="closeAlert($index)">{{alert.msg}}</div>
+</p>
+
 <div class="demo-section">
     <div repeat-as-code="inner">
-        <mf-button>Button 1</mf-button>
+        <mf-button ng-click="$ctrl.simpleButton()">Simple button</mf-button>
 
-        <mf-button disabled="disabled">Disabled</mf-button>
+        <mf-button ng-click="$ctrl.simpleButton()" disabled="disabled">Disabled button</mf-button>
     </div>
 </div>
 
 <div class="demo-section">
-    <h4>.mf-icon-button</h4>
+    <h4>Icon button</h4>
+    
+    <p>
+        Icon buttons show an icon without a border instead of a button.
+    </p>
 
     <div repeat-as-code="inner">
-        <mf-button class="mf-icon-button" title="Descriptive Title">
+        <mf-button class="mf-icon-button" title="Help button">
+            <mf-icon icon="help_thick"></mf-icon>
+        </mf-button>
+        
+        <mf-button class="mf-icon-button" title="Favorite button">
             <mf-icon icon="favorite_outline_thin"></mf-icon>
         </mf-button>
 
-        <mf-button class="mf-icon-button" title="Descriptive Title">
+        <mf-button class="mf-icon-button" title="Search button">
             <mf-icon icon="search_thick"></mf-icon>
         </mf-button>
 
-        <mf-button class="mf-icon-button" title="Descriptive Title">
+        <mf-button class="mf-icon-button" title="Close button">
             <mf-icon icon="close_thick"></mf-icon>
         </mf-button>
     </div>
