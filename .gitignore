@@ -41,3 +41,6 @@ dist/**/*.gz
 
 # WebStorm
 .idea
+
+#.DS_Store files that Macs add
+**/.DS_Store
