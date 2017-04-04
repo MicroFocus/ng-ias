@@ -21,15 +21,15 @@ This will bring in the icons projects, which includes icons and CSS, and the MFU
 
 Once you have added these project dependencies you can add the NG-MFUX library to your Angular project by adding the following to your application HTML page:
 
-```<link href="node_modules/mf-icons/dist/mf-icons.css" rel="stylesheet">
+```
+<link href="node_modules/mf-icons/dist/mf-icons.css" rel="stylesheet">
 <link href="dist/ng-mfux.css" rel="stylesheet">
 <script src="dist/ng-mfux.js">
 ```
 
 ...and the following module dependency to your Angular app declaration:
 
-```angular.module('app', ['ng-mfux'])
-```
+`angular.module('app', ['ng-mfux'])`
  
 After this initial setup you can copy code/examples from the [docs app](#DocsApp) into your project.
  
@@ -47,8 +47,10 @@ Once you have cloned the project you need to install the build tools. The NG-MFU
 
 Once gulp.js is installed use these commands to add all of the other project dependencies locally:
 
-```cd ng-mfux
-npm install```
+```
+cd ng-mfux
+npm install
+```
 
 These two steps are only needed the first time you set up your development environment.
 
@@ -65,8 +67,10 @@ This service does not start a server, it just makes changes in the core availabl
 
 To start the docs app open a second terminal and go to your NG-MFUX working copy.  Then run the following commands:
 
-```cd docs/```
-```gulp```
+```
+cd docs/
+gulp
+```
 
 Now you have started the docs app and a listener service to update changes from the core project.  View your local build at [localhost:8081](http://localhost:8081).
 
@@ -75,7 +79,8 @@ Now you have started the docs app and a listener service to update changes from 
 
 Before committing any changes you must run the production build to update the files in the `dist` directory.  Stop all instances of gulp.js and run the following commands from the root of the project:
 
-```gulp build:production
+```
+gulp build:production
 cd docs
 gulp build:production
 ```
