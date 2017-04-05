@@ -1,7 +1,7 @@
 import { module } from 'angular';
 import AppBarComponent from './components/app-bar/app-bar.component';
 import AvatarComponent from './components/avatar/avatar.component';
-import ButtonComponent from './components/button/button.component';
+import ButtonDirective from './components/button/button.component';
 import DialogComponent from './components/dialog/dialog.component';
 import DialogService from './components/dialog/dialog.service';
 import HeaderComponent from './components/header/header.component';
@@ -21,7 +21,7 @@ import ToggleService from './components/toggle/toggle.service';
 module('ng-mfux', [])
     .component('mfAppBar', AppBarComponent)
     .component('mfAvatar', AvatarComponent)
-    .component('mfButton', ButtonComponent)
+    .directive('mfButton', ButtonDirective)
     .component('mfDialog', DialogComponent)
     .component('mfHeader', HeaderComponent)
     .component('mfIcon', IconComponent)

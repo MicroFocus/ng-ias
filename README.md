@@ -45,7 +45,32 @@ Once you have cloned the project you need to install the build tools. The NG-MFU
 
 `npm install -g gulp-cli`
 
-Once gulp.js is installed use these commands to add all of the other project dependencies locally:
+Once gulp.js is installed you can add the icons project.
+
+The mf-icons project contains the CSS and icon font which supports this project.  Open a new terminal, go to a new directory, and clone the icons repository with a command like this:
+
+`git clone https://ZGrossbart@secmgmtgit.provo.novell.com:8443/scm/~jhawkins/mf-icons.git`
+
+Once again you will need to get the correct command from the BitBucket server.
+
+Then build the icons with the following commands:
+
+```
+cd mf-icons
+npm install
+gulp
+gulp icons
+```
+
+Now you need to add a simlink for the icons project into this project.  In the mf-icons directory run this command:
+
+`npm link`
+
+Now in the ng-mfux directory run this command:
+
+`npm link mf-icons`
+
+Now you can add all of your other project dependencies with commands:
 
 ```
 cd ng-mfux

@@ -1,17 +1,26 @@
-import { Component } from '../../component.decorator';
-import { IAugmentedJQuery } from 'angular';
+import { IAugmentedJQuery, ICompileService, IDirective, IScope, IAttributes } from 'angular';
+let templateUrl = require('components/button/button.component.html');
 
-@Component({
-    templateUrl: require('./button.component.html'),
-    transclude: true
-})
-export default class ButtonComponent {
-    static $inject = [ '$element' ];
-    constructor(private $element: IAugmentedJQuery) {
+export class ButtonController {
+    static $inject = ['$scope'];
+    constructor(private $scope: IScope) {
     }
 
-    $doCheck() {
-        let disabled = this.$element.prop('disabled') === true;
-        this.$element.attr('tabindex', disabled ? -1 : 0);
-    }
 }
+
+export default function ButtonDirective(): IDirective {
+    return {
+        controller: ButtonController,
+        restrict: 'E',
+        templateUrl: templateUrl,
+        transclude: true,
+        replace: true,
+        link: (scope: IScope,
+               element: IAugmentedJQuery,
+               attributes: IAttributes,
+               controller: ButtonController) => {
+        }
+    };
+}
+
+ButtonDirective.$inject = ['$compile'];
