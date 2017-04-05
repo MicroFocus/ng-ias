@@ -55,20 +55,22 @@
 	var header_component_1 = __webpack_require__(11);
 	var icon_component_1 = __webpack_require__(12);
 	var input_component_1 = __webpack_require__(14);
-	var list_component_1 = __webpack_require__(16);
-	var menu_component_1 = __webpack_require__(18);
-	var nav_component_1 = __webpack_require__(20);
-	var search_box_component_1 = __webpack_require__(22);
-	var side_nav_component_1 = __webpack_require__(24);
-	var tile_component_1 = __webpack_require__(26);
-	var tile_grid_component_1 = __webpack_require__(28);
-	var sort_directive_1 = __webpack_require__(29);
-	var toggle_directive_1 = __webpack_require__(30);
-	var toggle_service_1 = __webpack_require__(31);
+	var int_input_component_1 = __webpack_require__(16);
+	var list_component_1 = __webpack_require__(18);
+	var menu_component_1 = __webpack_require__(20);
+	var nav_component_1 = __webpack_require__(22);
+	var search_box_component_1 = __webpack_require__(24);
+	var side_nav_component_1 = __webpack_require__(26);
+	var tile_component_1 = __webpack_require__(28);
+	var tile_grid_component_1 = __webpack_require__(30);
+	var sort_directive_1 = __webpack_require__(31);
+	var toggle_directive_1 = __webpack_require__(32);
+	var toggle_service_1 = __webpack_require__(33);
 	angular_1.module('ng-mfux', [])
 	    .component('mfAppBar', app_bar_component_1.default)
 	    .component('mfAvatar', avatar_component_1.default)
 	    .directive('mfButton', button_component_1.default)
+	    .directive('mfIntInput', int_input_component_1.default)
 	    .component('mfDialog', dialog_component_1.default)
 	    .component('mfHeader', header_component_1.default)
 	    .component('mfIcon', icon_component_1.default)
@@ -455,6 +457,79 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
+	Object.defineProperty(exports, "__esModule", { value: true });
+	var templateUrl = __webpack_require__(17);
+	var IntInputController = (function () {
+	    function IntInputController($scope) {
+	        this.$scope = $scope;
+	    }
+	    return IntInputController;
+	}());
+	IntInputController.$inject = ['$scope'];
+	exports.IntInputController = IntInputController;
+	function IntInputDirective() {
+	    return {
+	        controller: IntInputController,
+	        restrict: 'E',
+	        templateUrl: templateUrl,
+	        transclude: true,
+	        replace: true,
+	        scope: {
+	            model: '=ngModel',
+	            min: '=',
+	            max: '='
+	        },
+	        link: function (scope, element, attributes, controller) {
+	            if (!controller) {
+	                return;
+	            }
+	            var isValid = function (val) {
+	                if ('undefined' === typeof val || val === '') {
+	                    element.removeClass('inputError');
+	                    return;
+	                }
+	                if (isNaN(Number(val))) {
+	                    element.addClass('inputError');
+	                }
+	                else {
+	                    if (scope.max && val > scope.max) {
+	                        element.addClass('inputError');
+	                        return;
+	                    }
+	                    else if (scope.min && val < scope.min) {
+	                        element.addClass('inputError');
+	                        return;
+	                    }
+	                    element.removeClass('inputError');
+	                }
+	            };
+	            scope.$watch('model', function (newValue, oldValue) {
+	                isValid(newValue);
+	            });
+	            element.bind('input', function (event) {
+	                isValid(element.val());
+	            });
+	        }
+	    };
+	}
+	exports.default = IntInputDirective;
+	IntInputController.$inject = ['$compile'];
+
+
+/***/ },
+/* 17 */
+/***/ function(module, exports) {
+
+	var path = 'components/input/int.input.component.html';
+	var html = "<input type=\"text\" class=\"mfIntInput\" ng-transclude>\n</input>";
+	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
+	module.exports = path;
+
+/***/ },
+/* 18 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -474,7 +549,7 @@
 	ListComponent.$inject = ['$element', '$transclude'];
 	ListComponent = __decorate([
 	    component_decorator_1.Component({
-	        templateUrl: __webpack_require__(17),
+	        templateUrl: __webpack_require__(19),
 	        transclude: true
 	    })
 	], ListComponent);
@@ -512,7 +587,7 @@
 
 
 /***/ },
-/* 17 */
+/* 19 */
 /***/ function(module, exports) {
 
 	var path = 'components/list/list.component.html';
@@ -521,7 +596,7 @@
 	module.exports = path;
 
 /***/ },
-/* 18 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -585,7 +660,7 @@
 	            align: '@',
 	            name: '@'
 	        },
-	        templateUrl: __webpack_require__(19),
+	        templateUrl: __webpack_require__(21),
 	        transclude: true
 	    })
 	], MenuComponent);
@@ -623,7 +698,7 @@
 
 
 /***/ },
-/* 19 */
+/* 21 */
 /***/ function(module, exports) {
 
 	var path = 'components/menu/menu.component.html';
@@ -632,7 +707,7 @@
 	module.exports = path;
 
 /***/ },
-/* 20 */
+/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -651,7 +726,7 @@
 	}());
 	NavComponent = __decorate([
 	    component_decorator_1.Component({
-	        templateUrl: __webpack_require__(21),
+	        templateUrl: __webpack_require__(23),
 	        transclude: true
 	    })
 	], NavComponent);
@@ -659,7 +734,7 @@
 
 
 /***/ },
-/* 21 */
+/* 23 */
 /***/ function(module, exports) {
 
 	var path = 'components/nav/nav.component.html';
@@ -668,7 +743,7 @@
 	module.exports = path;
 
 /***/ },
-/* 22 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -718,14 +793,14 @@
 	        require: {
 	            ngModel: '^ngModel'
 	        },
-	        templateUrl: __webpack_require__(23)
+	        templateUrl: __webpack_require__(25)
 	    })
 	], SearchBoxComponent);
 	exports.default = SearchBoxComponent;
 
 
 /***/ },
-/* 23 */
+/* 25 */
 /***/ function(module, exports) {
 
 	var path = 'components/search-box/search-box.component.html';
@@ -734,7 +809,7 @@
 	module.exports = path;
 
 /***/ },
-/* 24 */
+/* 26 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -772,7 +847,7 @@
 	        bindings: {
 	            name: '@'
 	        },
-	        templateUrl: __webpack_require__(25),
+	        templateUrl: __webpack_require__(27),
 	        transclude: true
 	    })
 	], SideNavComponent);
@@ -780,7 +855,7 @@
 
 
 /***/ },
-/* 25 */
+/* 27 */
 /***/ function(module, exports) {
 
 	var path = 'components/side-nav/side-nav.component.html';
@@ -789,7 +864,7 @@
 	module.exports = path;
 
 /***/ },
-/* 26 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -810,7 +885,7 @@
 	TileComponent.$inject = ['$element'];
 	TileComponent = __decorate([
 	    component_decorator_1.Component({
-	        templateUrl: __webpack_require__(27),
+	        templateUrl: __webpack_require__(29),
 	        transclude: true
 	    })
 	], TileComponent);
@@ -818,7 +893,7 @@
 
 
 /***/ },
-/* 27 */
+/* 29 */
 /***/ function(module, exports) {
 
 	var path = 'components/tile/tile.component.html';
@@ -827,7 +902,7 @@
 	module.exports = path;
 
 /***/ },
-/* 28 */
+/* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -857,7 +932,7 @@
 
 
 /***/ },
-/* 29 */
+/* 31 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -918,7 +993,7 @@
 
 
 /***/ },
-/* 30 */
+/* 32 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -936,7 +1011,7 @@
 
 
 /***/ },
-/* 31 */
+/* 33 */
 /***/ function(module, exports) {
 
 	"use strict";

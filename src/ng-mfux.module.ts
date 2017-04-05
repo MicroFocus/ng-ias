@@ -7,6 +7,7 @@ import DialogService from './components/dialog/dialog.service';
 import HeaderComponent from './components/header/header.component';
 import IconComponent from './components/icon/icon.component';
 import InputContainerComponent from './components/input/input.component';
+import IntInput from './components/input/int.input.component';
 import { ListComponent, ListHeaderComponent, ListItemComponent } from './components/list/list.component';
 import { MenuComponent, MenuFooterComponent, MenuHeaderComponent } from './components/menu/menu.component';
 import NavComponent from './components/nav/nav.component';
@@ -22,6 +23,7 @@ module('ng-mfux', [])
     .component('mfAppBar', AppBarComponent)
     .component('mfAvatar', AvatarComponent)
     .directive('mfButton', ButtonDirective)
+    .directive('mfIntInput', IntInput)
     .component('mfDialog', DialogComponent)
     .component('mfHeader', HeaderComponent)
     .component('mfIcon', IconComponent)
