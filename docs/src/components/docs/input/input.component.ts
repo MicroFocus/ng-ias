@@ -8,6 +8,8 @@ export default class InputComponent {
     private selectListModel1: Object;
     private selectListModel2: Object;
 
+    private myInt = 11;
+
     constructor() {
         this.selectListOptions.push({
             name: 'Option One',

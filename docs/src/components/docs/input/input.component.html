@@ -7,7 +7,7 @@ Input components cover the functionality and styling of text boxes, password tex
 
     <div repeat-as-code="inner">
         <mf-input-container>
-            <input id="username1" name="username1" type="text" placeholder="Text placeholder">
+            <input id="username1" name="username1" type="text" placeholder="Text placeholder" format="currency">
         </mf-input-container>
         <mf-input-container>
             <input id="password1" name="password1" type="password" placeholder="Password placeholder">
@@ -127,6 +127,26 @@ Input components cover the functionality and styling of text boxes, password tex
                 <input type="checkbox" value="3" id="checkbox3">
                 <label class="label-large-dark" for="checkbox3">Three</label>
             </div>
+        </mf-input-container>
+    </div>
+</div>
+
+<div class="demo-section">
+    <h4>Integer only input</h4>
+    
+    <p>
+        Integer only input fields show an error style if the value isn't a valid number.  The input field also supports a <code>min</code> and <code>max</code> attribute to set the allowable minimum and maximum values.
+    </p>
+    
+    <div repeat-as-code="inner">
+        <mf-input-container>
+            <label for="int1">An integer only text field</label>
+            <mf-int-input id="int1"></mf-int-input>
+        </mf-input-container>
+        
+        <mf-input-container>
+            <label for="int1">An integer only text field which only allows values between 10 and 20</label>
+            <mf-int-input id="int1" min="10" max="20" ng-model="$ctrl.myInt"></mf-int-input>
         </mf-input-container>
     </div>
 </div>

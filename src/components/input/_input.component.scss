@@ -23,7 +23,19 @@ mf-input-container textarea {
   }
 }
 
-label {
+mf-input-container input.inputError,
+mf-input-container textarea.inputError,
+mf-input-container input.inputError:focus,
+mf-input-container textarea.inputError:focus {
+  border-color: $error-border-color;
+}
+
+mf-input-container input.mfIntInput {
+    min-width: 50px;
+    width: 50px;
+}
+
+mf-input-container label {
   @include disable-text-selection;
 
   color: $input-label-text-color;
