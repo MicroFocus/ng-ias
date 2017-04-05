@@ -1,15 +1,14 @@
-input,
-select,
-textarea {
+mf-input-container input,
+mf-input-container select,
+mf-input-container textarea {
   background-color: $input-bg-color;
   border: $input-border;
   border-radius: $border-radius;
   color: inherit;
   padding: $input-padding;
 
-  &:not([type="checkbox"]){
-    min-width: 169px;
-  }
+  min-width: 250px;
+  font-size: 15px;
 
   &::-ms-clear {
     display: none;
@@ -45,9 +44,9 @@ mf-input-container {
       margin-right: $spacing;
     }
 
-    > label {
+    label {
       display: inline-block;
-      margin: auto;
+      margin-right: $spacing;
     }
   }
 }

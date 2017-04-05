@@ -1,20 +1,22 @@
 <h2>Input</h2>
 
+Input components cover the functionality and styling of text boxes, password text boxes, text areas, select lists, radio buttons, and checkboxes.
+
 <div class="demo-section">
-    <h4>Default</h4>
+    <h4>Text and password</h4>
 
     <div repeat-as-code="inner">
         <mf-input-container>
-            <input id="username1" name="username1" type="text" placeholder="Placeholder">
+            <input id="username1" name="username1" type="text" placeholder="Text placeholder">
         </mf-input-container>
         <mf-input-container>
-            <input id="password1" name="password1" type="password" placeholder="Password">
+            <input id="password1" name="password1" type="password" placeholder="Password placeholder">
         </mf-input-container>
     </div>
 </div>
 
 <div class="demo-section">
-    <h4>w/ label</h4>
+    <h4>Text and password inputs with labels</h4>
 
     <div repeat-as-code="inner">
         <mf-input-container>
@@ -29,21 +31,21 @@
 </div>
 
 <div class="demo-section">
-    <h4>[disabled]</h4>
+    <h4>Disabled text and password inputs</h4>
 
     <div repeat-as-code="inner">
         <mf-input-container>
-            <input type="text" placeholder="Placeholder" disabled="disabled">
+            <input type="text" placeholder="Disabled text field" disabled="disabled">
         </mf-input-container>
         <mf-input-container>
-            <label for="username3">Username</label>
+            <label for="username3">Disabled text field with label</label>
             <input id="username3" name="username3" type="text" disabled="disabled">
         </mf-input-container>
     </div>
 </div>
 
 <div class="demo-section">
-    <h4>.mf-inline</h4>
+    <h4>Text fields with inline labels</h4>
 
     <div repeat-as-code="inner">
         <mf-input-container class="mf-inline">
@@ -53,6 +55,78 @@
         <mf-input-container class="mf-inline">
             <label for="password3">Password</label>
             <input id="password3" name="password3" type="password">
+        </mf-input-container>
+    </div>
+</div>
+
+<div class="demo-section">
+    <h4>Text area</h4>
+
+    <div repeat-as-code="inner">
+        <mf-input-container>
+            <textarea placeholder="Text area with placeholder"></textarea>
+        </mf-input-container>
+        <mf-input-container>
+            <label for="textarea1">Text area with label</label>
+            <textarea id="textarea1" name="textarea1"></textarea>
+        </mf-input-container>
+    </div>
+</div>
+
+<div class="demo-section">
+    <h4>Select list</h4>
+
+    <div repeat-as-code="inner">
+        <mf-input-container>
+            <select name="select1" data-ng-options="selectedItem as selectedItem.name for selectedItem in $ctrl.selectListOptions" data-ng-model="$ctrl.selectListModel1">
+            </select>
+        </mf-input-container>
+        <mf-input-container>
+            <label for="select2">Select list with label</label>
+            <select name="select2" data-ng-options="selectedItem as selectedItem.name for selectedItem in $ctrl.selectListOptions" data-ng-model="$ctrl.selectListModel2">
+            </select>
+        </mf-input-container>
+    </div>
+</div>
+
+<div class="demo-section">
+    <h4>Radio buttons</h4>
+
+    <div repeat-as-code="inner">
+        <mf-input-container class="mf-inline">
+            <span class="title-pre">
+                <input type="radio" value="1" name="radio1" id="radio1-1">
+                <label class="label-large-dark" for="radio1-1">One</label>
+            </span>
+            <span class="title-pre">
+                <input type="radio" value="2" name="radio1" id="radio1-2">
+                <label class="label-large-dark" for="radio1-2">Two</label>
+            </span>
+            <span class="title-pre">
+                <input type="radio" value="3" name="radio1" id="radio1-3">
+                <label class="label-large-dark" for="radio1-3">Three</label>
+            </span>
+        </mf-input-container>
+    </div>
+</div>
+
+<div class="demo-section">
+    <h4>Check boxes</h4>
+
+    <div repeat-as-code="inner">
+        <mf-input-container class="mf-inline">
+            <div class="title-pre">
+                <input type="checkbox" value="1" id="checkbox1">
+                <label class="label-large-dark" for="checkbox1">One</label>
+            </div>
+            <div class="title-pre">
+                <input type="checkbox" value="2" id="checkbox2">
+                <label class="label-large-dark" for="checkbox2">Two</label>
+            </div>
+            <div class="title-pre">
+                <input type="checkbox" value="3" id="checkbox3">
+                <label class="label-large-dark" for="checkbox3">Three</label>
+            </div>
         </mf-input-container>
     </div>
 </div>
