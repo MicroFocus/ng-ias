@@ -4,6 +4,10 @@ mf-nav {
   display: block;
   height: $nav-height;
 
+  a + a {
+    margin-left: initial;
+  }
+
   > .mf-nav-content {
     display: flex;
     flex-flow: row nowrap;
@@ -72,5 +76,11 @@ mf-nav {
     > .mf-nav-content {
       padding: 0 $body-spacing-large;
     }
+  }
+}
+
+[dir="rtl"] {
+  mf-nav a + a {
+    margin-right: initial;
   }
 }

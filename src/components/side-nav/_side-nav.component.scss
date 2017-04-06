@@ -67,6 +67,10 @@ mf-side-nav {
     width: $side-nav-width;
   }
 
+  a + a {
+    margin-left: initial;
+  }
+
   a,
   mf-button {
     background-color: transparent;
@@ -90,5 +94,11 @@ mf-side-nav {
     &.mf-disabled {
 
     }
+  }
+}
+
+[dir="rtl"] {
+  mf-side-nav a + a {
+    margin-right: initial;
   }
 }
