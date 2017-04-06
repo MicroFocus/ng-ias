@@ -22,6 +22,24 @@ mf-input-container textarea {
   }
 }
 
+mf-input-container > span.mf-icon-input-container {
+  position: relative;
+  border: $input-border;
+  display: inline-block;
+}
+
+mf-input-container > span.mf-icon-input-container input {
+  border: none;
+  padding-left: 28px;
+}
+
+mf-input-container > span.mf-icon-input-container mf-icon {
+  position: absolute;
+  left: 0px;
+  top: 6px;
+  pointer-events: none;
+}
+
 mf-input-container input,
 mf-input-container textarea {
   min-width: 250px;
@@ -75,5 +93,16 @@ mf-input-container {
           margin-left: $spacing;
         }
       }
+    }
+    
+    mf-input-container > span.mf-icon-input-container mf-icon {
+      left: auto;
+      right: 0px;
+    }
+    
+    mf-input-container > span.mf-icon-input-container input {
+      border: none;
+      padding-left: none;
+      padding-right: 28px;
     }
 }
