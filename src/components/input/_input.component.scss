@@ -66,3 +66,15 @@ mf-input-container {
     }
   }
 }
+
+[dir="rtl"] {
+    mf-input-container {
+      &.mf-inline {
+        label {
+          display: inline-block;
+          margin-right: auto;
+          margin-left: $spacing;
+        }
+      }
+    }
+}
