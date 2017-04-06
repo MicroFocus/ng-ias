@@ -7,7 +7,6 @@ mf-input-container textarea {
   color: inherit;
   padding: $input-padding;
 
-  min-width: 250px;
   font-size: 15px;
 
   &::-ms-clear {
@@ -21,6 +20,11 @@ mf-input-container textarea {
   &[disabled] {
     @include disabled-state;
   }
+}
+
+mf-input-container input,
+mf-input-container textarea {
+  min-width: 250px;
 }
 
 mf-input-container input.inputError,
