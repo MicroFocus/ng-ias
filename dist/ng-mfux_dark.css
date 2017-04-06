@@ -467,7 +467,6 @@ mf-input-container textarea {
   border-radius: 3px;
   color: inherit;
   padding: 8px;
-  min-width: 250px;
   font-size: 15px;
 }
 
@@ -484,6 +483,11 @@ mf-input-container textarea[disabled] {
   border-color: #434c50;
   color: #59656a;
   outline: none;
+}
+
+mf-input-container input,
+mf-input-container textarea {
+  min-width: 250px;
 }
 
 mf-input-container input.inputError,

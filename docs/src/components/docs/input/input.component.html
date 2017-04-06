@@ -1,16 +1,16 @@
 <h2>Input</h2>
 
-Input components cover the functionality and styling of text boxes, password text boxes, text areas, select lists, radio buttons, and checkboxes.
+Input components cover the functionality and styling of text boxes, password text boxes, text areas, select lists, radio buttons, checkboxes, and an integer only text box.
 
 <div class="demo-section">
     <h4>Text and password</h4>
 
     <div repeat-as-code="inner">
         <mf-input-container>
-            <input id="username1" name="username1" type="text" placeholder="Text placeholder" format="currency">
+            <input type="text" placeholder="Text placeholder">
         </mf-input-container>
         <mf-input-container>
-            <input id="password1" name="password1" type="password" placeholder="Password placeholder">
+            <input type="password" placeholder="Password placeholder">
         </mf-input-container>
     </div>
 </div>
@@ -20,12 +20,12 @@ Input components cover the functionality and styling of text boxes, password tex
 
     <div repeat-as-code="inner">
         <mf-input-container>
-            <label for="username2">Username</label>
-            <input id="username2" name="username2" type="text">
+            <label for="username1">Username</label>
+            <input id="username1" name="username1" type="text">
         </mf-input-container>
         <mf-input-container>
-            <label for="password2">Password</label>
-            <input id="password2" name="password2" type="password">
+            <label for="password1">Password</label>
+            <input id="password1" name="password1" type="password">
         </mf-input-container>
     </div>
 </div>
@@ -38,8 +38,8 @@ Input components cover the functionality and styling of text boxes, password tex
             <input type="text" placeholder="Disabled text field" disabled="disabled">
         </mf-input-container>
         <mf-input-container>
-            <label for="username3">Disabled text field with label</label>
-            <input id="username3" name="username3" type="text" disabled="disabled">
+            <label for="text1">Disabled text field with label</label>
+            <input id="text1" name="text1" type="text" disabled="disabled">
         </mf-input-container>
     </div>
 </div>
@@ -49,12 +49,12 @@ Input components cover the functionality and styling of text boxes, password tex
 
     <div repeat-as-code="inner">
         <mf-input-container class="mf-inline">
-            <label for="username4">Username</label>
-            <input id="username4" name="username4" type="text">
+            <label for="text2">Username</label>
+            <input id="text2" name="text2" type="text">
         </mf-input-container>
         <mf-input-container class="mf-inline">
-            <label for="password3">Password</label>
-            <input id="password3" name="password3" type="password">
+            <label for="password2">Password</label>
+            <input id="password2" name="password2" type="password">
         </mf-input-container>
     </div>
 </div>
