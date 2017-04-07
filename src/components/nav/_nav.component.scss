@@ -4,8 +4,8 @@ mf-nav {
   display: block;
   height: $nav-height;
 
-  a + a {
-    margin-left: initial;
+  a {
+    margin: 0;
   }
 
   > .mf-nav-content {
@@ -76,11 +76,5 @@ mf-nav {
     > .mf-nav-content {
       padding: 0 $body-spacing-large;
     }
-  }
-}
-
-[dir="rtl"] {
-  mf-nav a + a {
-    margin-right: initial;
   }
 }

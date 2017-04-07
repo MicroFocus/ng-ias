@@ -67,8 +67,8 @@ mf-side-nav {
     width: $side-nav-width;
   }
 
-  a + a {
-    margin-left: initial;
+  a {
+    margin: 0;
   }
 
   a,
@@ -94,11 +94,5 @@ mf-side-nav {
     &.mf-disabled {
 
     }
-  }
-}
-
-[dir="rtl"] {
-  mf-side-nav a + a {
-    margin-right: initial;
   }
 }
