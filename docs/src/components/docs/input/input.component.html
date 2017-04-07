@@ -1,27 +1,58 @@
 <h2>Input</h2>
 
+Input components cover the functionality and styling of text boxes, password text boxes, text areas, select lists, radio buttons, checkboxes, and an integer only text box.
+
 <div class="demo-section">
-    <h4>Default</h4>
+    <h4>Text and password</h4>
 
     <div repeat-as-code="inner">
         <mf-input-container>
-            <input id="username1" name="username1" type="text" placeholder="Placeholder">
+            <input type="text" placeholder="Text placeholder">
         </mf-input-container>
         <mf-input-container>
-            <input id="password1" name="password1" type="password" placeholder="Password">
+            <input type="password" placeholder="Password placeholder">
         </mf-input-container>
     </div>
 </div>
 
 <div class="demo-section">
-    <h4>w/ label</h4>
+    <h4>Text and password inputs with labels</h4>
 
     <div repeat-as-code="inner">
         <mf-input-container>
-            <label for="username2">Username</label>
-            <input id="username2" name="username2" type="text">
+            <label for="username1">Username</label>
+            <input id="username1" name="username1" type="text">
         </mf-input-container>
         <mf-input-container>
+            <label for="password1">Password</label>
+            <input id="password1" name="password1" type="password">
+        </mf-input-container>
+    </div>
+</div>
+
+<div class="demo-section">
+    <h4>Disabled text and password inputs</h4>
+
+    <div repeat-as-code="inner">
+        <mf-input-container>
+            <input type="text" placeholder="Disabled text field" disabled="disabled">
+        </mf-input-container>
+        <mf-input-container>
+            <label for="text1">Disabled text field with label</label>
+            <input id="text1" name="text1" type="text" disabled="disabled">
+        </mf-input-container>
+    </div>
+</div>
+
+<div class="demo-section">
+    <h4>Text fields with inline labels</h4>
+
+    <div repeat-as-code="inner">
+        <mf-input-container class="mf-inline">
+            <label for="text2">Username</label>
+            <input id="text2" name="text2" type="text">
+        </mf-input-container>
+        <mf-input-container class="mf-inline">
             <label for="password2">Password</label>
             <input id="password2" name="password2" type="password">
         </mf-input-container>
@@ -29,30 +60,93 @@
 </div>
 
 <div class="demo-section">
-    <h4>[disabled]</h4>
+    <h4>Text area</h4>
 
     <div repeat-as-code="inner">
         <mf-input-container>
-            <input type="text" placeholder="Placeholder" disabled="disabled">
+            <textarea placeholder="Text area with placeholder"></textarea>
         </mf-input-container>
         <mf-input-container>
-            <label for="username3">Username</label>
-            <input id="username3" name="username3" type="text" disabled="disabled">
+            <label for="textarea1">Text area with label</label>
+            <textarea id="textarea1" name="textarea1"></textarea>
         </mf-input-container>
     </div>
 </div>
 
 <div class="demo-section">
-    <h4>.mf-inline</h4>
+    <h4>Select list</h4>
+
+    <div repeat-as-code="inner">
+        <mf-input-container>
+            <select name="select1" data-ng-options="selectedItem as selectedItem.name for selectedItem in $ctrl.selectListOptions" data-ng-model="$ctrl.selectListModel1">
+            </select>
+        </mf-input-container>
+        <mf-input-container>
+            <label for="select2">Select list with label</label>
+            <select name="select2" data-ng-options="selectedItem as selectedItem.name for selectedItem in $ctrl.selectListOptions" data-ng-model="$ctrl.selectListModel2">
+            </select>
+        </mf-input-container>
+    </div>
+</div>
+
+<div class="demo-section">
+    <h4>Radio buttons</h4>
 
     <div repeat-as-code="inner">
         <mf-input-container class="mf-inline">
-            <label for="username4">Username</label>
-            <input id="username4" name="username4" type="text">
+            <span class="title-pre">
+                <input type="radio" value="1" name="radio1" id="radio1-1">
+                <label class="label-large-dark" for="radio1-1">One</label>
+            </span>
+            <span class="title-pre">
+                <input type="radio" value="2" name="radio1" id="radio1-2">
+                <label class="label-large-dark" for="radio1-2">Two</label>
+            </span>
+            <span class="title-pre">
+                <input type="radio" value="3" name="radio1" id="radio1-3">
+                <label class="label-large-dark" for="radio1-3">Three</label>
+            </span>
         </mf-input-container>
+    </div>
+</div>
+
+<div class="demo-section">
+    <h4>Check boxes</h4>
+
+    <div repeat-as-code="inner">
         <mf-input-container class="mf-inline">
-            <label for="password3">Password</label>
-            <input id="password3" name="password3" type="password">
+            <div class="title-pre">
+                <input type="checkbox" value="1" id="checkbox1">
+                <label class="label-large-dark" for="checkbox1">One</label>
+            </div>
+            <div class="title-pre">
+                <input type="checkbox" value="2" id="checkbox2">
+                <label class="label-large-dark" for="checkbox2">Two</label>
+            </div>
+            <div class="title-pre">
+                <input type="checkbox" value="3" id="checkbox3">
+                <label class="label-large-dark" for="checkbox3">Three</label>
+            </div>
+        </mf-input-container>
+    </div>
+</div>
+
+<div class="demo-section">
+    <h4>Integer only input</h4>
+    
+    <p>
+        Integer only input fields show an error style if the value isn't a valid number.  The input field also supports a <code>min</code> and <code>max</code> attribute to set the allowable minimum and maximum values.
+    </p>
+    
+    <div repeat-as-code="inner">
+        <mf-input-container>
+            <label for="int1">An integer only text field</label>
+            <mf-int-input id="int1"></mf-int-input>
+        </mf-input-container>
+        
+        <mf-input-container>
+            <label for="int1">An integer only text field which only allows values between 10 and 20</label>
+            <mf-int-input id="int1" min="10" max="20" ng-model="$ctrl.myInt"></mf-int-input>
         </mf-input-container>
     </div>
 </div>
