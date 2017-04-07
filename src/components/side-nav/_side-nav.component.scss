@@ -67,6 +67,10 @@ mf-side-nav {
     width: $side-nav-width;
   }
 
+  a {
+    margin: 0;
+  }
+
   a,
   mf-button {
     background-color: transparent;
