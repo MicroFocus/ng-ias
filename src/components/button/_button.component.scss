@@ -1,4 +1,4 @@
-mf-button {
+button.mf-button {
   @include disable-text-selection;
 
   background-color: $button-bg-color;
@@ -6,6 +6,7 @@ mf-button {
   border-radius: $border-radius;
   color: $button-text-color;
   display: inline-block;
+  font-size: $font-size;
   height: $button-height;
   line-height: $button-height;
   padding: 0 $spacing;

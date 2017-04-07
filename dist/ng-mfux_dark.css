@@ -268,7 +268,7 @@ mf-avatar > .mf-avatar-content {
   border-radius: 3px;
 }
 
-mf-button {
+button.mf-button {
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -278,33 +278,34 @@ mf-button {
   border-radius: 3px;
   color: #f6f9f8;
   display: inline-block;
+  font-size: 14px;
   height: 28px;
   line-height: 28px;
   padding: 0 10px;
   vertical-align: middle;
 }
 
-mf-button:hover {
+button.mf-button:hover {
   background-color: #434c50;
   border-color: #007cd0;
   color: #007cd0;
   cursor: pointer;
 }
 
-mf-button[disabled], mf-button.mf-disabled {
+button.mf-button[disabled], button.mf-button.mf-disabled {
   background-color: #434c50;
   border-color: #808080;
   color: #808080;
 }
 
-mf-button[disabled]:hover, mf-button.mf-disabled:hover {
+button.mf-button[disabled]:hover, button.mf-button.mf-disabled:hover {
   background-color: #434c50;
   border-color: #808080;
   color: #808080;
   cursor: default;
 }
 
-mf-button.mf-icon-button {
+button.mf-button.mf-icon-button {
   font-size: 24px;
   height: 1em;
   line-height: 1em;
@@ -314,25 +315,25 @@ mf-button.mf-icon-button {
   padding: 0;
 }
 
-mf-button.mf-icon-button:hover {
+button.mf-button.mf-icon-button:hover {
   background-color: #434c50;
   border-color: #007cd0;
   color: #007cd0;
   cursor: pointer;
 }
 
-mf-button.mf-icon-button mf-icon {
+button.mf-button.mf-icon-button mf-icon {
   font-size: inherit;
 }
 
-mf-button:not(.mf-icon-button) > .mf-button-content mf-icon {
+button.mf-button:not(.mf-icon-button) > .mf-button-content mf-icon {
   color: inherit;
   font-size: 0.85em;
   margin-left: 0.5em;
   vertical-align: middle;
 }
 
-mf-button > .mf-button-content {
+button.mf-button > .mf-button-content {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -458,38 +459,50 @@ mf-icon.mf-medium {
   width: 100%;
 }
 
-input,
-select,
-textarea {
+mf-input-container input,
+mf-input-container select,
+mf-input-container textarea {
   background-color: #434c50;
   border: 1px solid #6a6f71;
   border-radius: 3px;
   color: inherit;
   padding: 8px;
+  font-size: 15px;
 }
 
-input:not([type="checkbox"]),
-select:not([type="checkbox"]),
-textarea:not([type="checkbox"]) {
-  min-width: 169px;
-}
-
-input::-ms-clear,
-select::-ms-clear,
-textarea::-ms-clear {
+mf-input-container input::-ms-clear,
+mf-input-container select::-ms-clear,
+mf-input-container textarea::-ms-clear {
   display: none;
 }
 
-input[disabled],
-select[disabled],
-textarea[disabled] {
+mf-input-container input[disabled],
+mf-input-container select[disabled],
+mf-input-container textarea[disabled] {
   background-color: #434c50;
   border-color: #434c50;
   color: #59656a;
   outline: none;
 }
 
-label {
+mf-input-container input,
+mf-input-container textarea {
+  min-width: 250px;
+}
+
+mf-input-container input.inputError,
+mf-input-container textarea.inputError,
+mf-input-container input.inputError:focus,
+mf-input-container textarea.inputError:focus {
+  border-color: #CC0000;
+}
+
+mf-input-container input.mfIntInput {
+  min-width: 50px;
+  width: 50px;
+}
+
+mf-input-container label {
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
@@ -497,7 +510,7 @@ label {
   color: #eef2f2;
   display: block;
   font-size: 12px;
-  margin: 10px 0 5px;
+  margin: 0.5em 0 5px;
   vertical-align: middle;
 }
 
@@ -514,9 +527,9 @@ mf-input-container.mf-inline:not(:last-of-type) {
   margin-right: 10px;
 }
 
-mf-input-container.mf-inline > label {
+mf-input-container.mf-inline label {
   display: inline-block;
-  margin: auto;
+  margin-right: 10px;
 }
 
 a {

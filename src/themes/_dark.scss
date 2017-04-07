@@ -78,6 +78,7 @@ $avatar-size-large: 100px;
 $body-bg-color: $color-gray-8;
 
 $border-color: $color-gray-5;
+$error-border-color: #CC0000;
 
 $button-bg-color: $color-gray-7;
 $button-bg-color-disabled: $button-bg-color;
@@ -113,7 +114,7 @@ $input-bg-color: $color-gray-7;
 $input-border: 1px solid $color-gray-5;
 $input-inline-label-padding: 5px;
 $input-label-font-size: 12px;
-$input-label-margin: 10px 0 5px;
+$input-label-margin: 0.5em 0 5px;
 $input-label-text-color: $color-gray-2;
 $input-padding: 8px;
 
