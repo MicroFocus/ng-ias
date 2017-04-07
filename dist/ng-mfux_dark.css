@@ -227,7 +227,7 @@ mf-app-bar > .mf-app-bar-content .mf-icon-button {
     height: 72px;
   }
   mf-app-bar.mf-large > .mf-app-bar-content .mf-icon-button {
-    font-size: 24px;
+    font-size: 25px;
   }
   [dir="rtl"] mf-app-bar {
     padding: 0 0 0 25px;
@@ -432,7 +432,7 @@ mf-header > mf-button:not(:last-child) {
 }
 
 mf-icon {
-  font-size: 24px;
+  font-size: 25px;
   height: 1em;
   line-height: 1em;
   width: 1em;
@@ -441,20 +441,20 @@ mf-icon {
 }
 
 mf-icon.mf-large {
-  font-size: 40px;
+  font-size: 75px;
   height: 1em;
   line-height: 1em;
   width: 1em;
 }
 
 mf-icon.mf-medium {
-  font-size: 32px;
+  font-size: 50px;
   height: 1em;
   line-height: 1em;
   width: 1em;
 }
 
-.mf-icon {
+.mf-icon, .svg-icon {
   height: 100%;
   width: 100%;
 }
