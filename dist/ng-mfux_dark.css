@@ -503,7 +503,8 @@ mf-input-container > span.mf-icon-input-container mf-icon {
   pointer-events: none;
 }
 
-mf-input-container input,
+mf-input-container input[type="text"],
+mf-input-container input[type="password"],
 mf-input-container textarea {
   min-width: 250px;
 }
