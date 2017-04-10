@@ -60,13 +60,14 @@
 	var list_component_1 = __webpack_require__(20);
 	var menu_component_1 = __webpack_require__(22);
 	var nav_component_1 = __webpack_require__(24);
-	var search_box_component_1 = __webpack_require__(26);
-	var side_nav_component_1 = __webpack_require__(28);
-	var tile_component_1 = __webpack_require__(30);
-	var tile_grid_component_1 = __webpack_require__(32);
-	var sort_directive_1 = __webpack_require__(33);
-	var toggle_directive_1 = __webpack_require__(34);
-	var toggle_service_1 = __webpack_require__(35);
+	var resizing_textarea_component_1 = __webpack_require__(26);
+	var search_box_component_1 = __webpack_require__(28);
+	var side_nav_component_1 = __webpack_require__(30);
+	var tile_component_1 = __webpack_require__(32);
+	var tile_grid_component_1 = __webpack_require__(34);
+	var sort_directive_1 = __webpack_require__(35);
+	var toggle_directive_1 = __webpack_require__(36);
+	var toggle_service_1 = __webpack_require__(37);
 	angular_1.module('ng-mfux', [])
 	    .component('mfAppBar', app_bar_component_1.default)
 	    .component('mfAvatar', avatar_component_1.default)
@@ -84,6 +85,7 @@
 	    .component('mfFooterMenu', menu_component_1.MenuFooterComponent)
 	    .component('mfHeaderMenu', menu_component_1.MenuHeaderComponent)
 	    .component('mfNav', nav_component_1.default)
+	    .directive('mfResizingTextarea', resizing_textarea_component_1.default)
 	    .component('mfSearchBox', search_box_component_1.default)
 	    .component('mfSideNav', side_nav_component_1.default)
 	    .component('mfTile', tile_component_1.default)
@@ -795,6 +797,78 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
+	Object.defineProperty(exports, "__esModule", { value: true });
+	var templateUrl = __webpack_require__(27);
+	var ResizingTextareaController = (function () {
+	    function ResizingTextareaController($scope) {
+	        this.$scope = $scope;
+	    }
+	    return ResizingTextareaController;
+	}());
+	ResizingTextareaController.$inject = ['$scope'];
+	exports.ResizingTextareaController = ResizingTextareaController;
+	function ResizingTextareaDirective() {
+	    return {
+	        controller: ResizingTextareaController,
+	        restrict: 'E',
+	        templateUrl: templateUrl,
+	        transclude: true,
+	        replace: true,
+	        scope: {
+	            model: '=ngModel'
+	        },
+	        link: function (scope, element, attributes, controller) {
+	            if (!controller) {
+	                return;
+	            }
+	            if (element.attr('min-rows')) {
+	                var minRows = element.attr('min-rows');
+	                if (minRows.indexOf(' ') > -1) {
+	                    element.attr('min-rows', minRows.slice(0, minRows.indexOf(' ')));
+	                }
+	            }
+	            var tmpVal = element.val();
+	            element.val('');
+	            var baseScrollHeight = element[0].scrollHeight;
+	            element.val(tmpVal);
+	            element.css('overflow-y', 'hidden');
+	            element.css('font-size', '15px');
+	            var resize = function () {
+	                var minRows = 0;
+	                if (element.attr('min-rows')) {
+	                    minRows = Number(element.attr('min-rows'));
+	                }
+	                element.attr('rows', minRows);
+	                var rows = Math.ceil((element[0].scrollHeight - baseScrollHeight) / 18) + minRows;
+	                element.attr('rows', rows);
+	            };
+	            scope.$watch('model', function (newValue, oldValue) {
+	                resize();
+	            });
+	            element.bind('input', function (event) {
+	                resize();
+	            });
+	        }
+	    };
+	}
+	exports.default = ResizingTextareaDirective;
+	ResizingTextareaController.$inject = ['$compile'];
+
+
+/***/ },
+/* 27 */
+/***/ function(module, exports) {
+
+	var path = 'components/input/resizing.textarea.component.html';
+	var html = "<textarea ng-transclude class=\"mfResizingTextArea\" rows=\"3\" min-rows=\"3\"></textarea>";
+	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
+	module.exports = path;
+
+/***/ },
+/* 28 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -841,14 +915,14 @@
 	        require: {
 	            ngModel: '^ngModel'
 	        },
-	        templateUrl: __webpack_require__(27)
+	        templateUrl: __webpack_require__(29)
 	    })
 	], SearchBoxComponent);
 	exports.default = SearchBoxComponent;
 
 
 /***/ },
-/* 27 */
+/* 29 */
 /***/ function(module, exports) {
 
 	var path = 'components/search-box/search-box.component.html';
@@ -857,7 +931,7 @@
 	module.exports = path;
 
 /***/ },
-/* 28 */
+/* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -895,7 +969,7 @@
 	        bindings: {
 	            name: '@'
 	        },
-	        templateUrl: __webpack_require__(29),
+	        templateUrl: __webpack_require__(31),
 	        transclude: true
 	    })
 	], SideNavComponent);
@@ -903,7 +977,7 @@
 
 
 /***/ },
-/* 29 */
+/* 31 */
 /***/ function(module, exports) {
 
 	var path = 'components/side-nav/side-nav.component.html';
@@ -912,7 +986,7 @@
 	module.exports = path;
 
 /***/ },
-/* 30 */
+/* 32 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -933,7 +1007,7 @@
 	TileComponent.$inject = ['$element'];
 	TileComponent = __decorate([
 	    component_decorator_1.Component({
-	        templateUrl: __webpack_require__(31),
+	        templateUrl: __webpack_require__(33),
 	        transclude: true
 	    })
 	], TileComponent);
@@ -941,7 +1015,7 @@
 
 
 /***/ },
-/* 31 */
+/* 33 */
 /***/ function(module, exports) {
 
 	var path = 'components/tile/tile.component.html';
@@ -950,7 +1024,7 @@
 	module.exports = path;
 
 /***/ },
-/* 32 */
+/* 34 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -980,7 +1054,7 @@
 
 
 /***/ },
-/* 33 */
+/* 35 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -1041,7 +1115,7 @@
 
 
 /***/ },
-/* 34 */
+/* 36 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -1059,7 +1133,7 @@
 
 
 /***/ },
-/* 35 */
+/* 37 */
 /***/ function(module, exports) {
 
 	"use strict";
