@@ -15,7 +15,7 @@ mf-nav {
     padding: 0 $body-spacing-small;
 
     > a,
-    > mf-button {
+    > .mf-button {
       background-color: transparent;
       border: $nav-item-border-width solid transparent;
       border-bottom-width: $nav-item-border-width-active;

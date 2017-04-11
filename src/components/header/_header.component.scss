@@ -25,7 +25,7 @@ mf-header {
     margin-left: $spacing;
   }
 
-  > mf-button {
+  > .mf-button {
     &:not(:last-child) {
       margin-right: 5px;
     }
