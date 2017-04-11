@@ -45,6 +45,20 @@ Input components cover the functionality and styling of text boxes, password tex
 </div>
 
 <div class="demo-section">
+    <h4>Text field with icon</h4>
+    
+    <p>
+        Text fields with icons are popular for search fields and any other field which requires a pictorial differentiator.  The icon field uses the same reference to the icon font as the mf-icon component.
+    </p>
+
+    <div repeat-as-code="inner">
+        <mf-input-container>
+            <mf-icon-input icon="search_thick" type="text" placeholder="Search"></mf-icon-input>
+        </mf-input-container>
+    </div>
+</div>
+
+<div class="demo-section">
     <h4>Text fields with inline labels</h4>
 
     <div repeat-as-code="inner">
@@ -69,6 +83,20 @@ Input components cover the functionality and styling of text boxes, password tex
         <mf-input-container>
             <label for="textarea1">Text area with label</label>
             <textarea id="textarea1" name="textarea1"></textarea>
+        </mf-input-container>
+    </div>
+</div>
+
+<div class="demo-section">
+    <h4>Resizing text area</h4>
+    
+    <p>
+        Resizing text areas will grow and shrink based on the contents in the text area.  When you add more contents the text area will grow to show all of the contents without scrolling.  When you remove some contents the text area will shrink down to the right size.
+    </p>
+
+    <div repeat-as-code="inner">
+        <mf-input-container>
+            <mf-resizing-textarea placeholder="Resizing text area with placeholder"></mf-resizing-textarea>
         </mf-input-container>
     </div>
 </div>
