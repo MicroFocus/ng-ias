@@ -177,7 +177,7 @@ mf-app-bar > .mf-app-bar-content > .mf-title {
   margin-left: 15px;
 }
 
-mf-app-bar > .mf-app-bar-content mf-button {
+mf-app-bar > .mf-app-bar-content .mf-button {
   background-color: transparent;
   border: none;
   color: inherit;
@@ -185,12 +185,12 @@ mf-app-bar > .mf-app-bar-content mf-button {
   padding: 0;
 }
 
-mf-app-bar > .mf-app-bar-content mf-button:hover {
+mf-app-bar > .mf-app-bar-content .mf-button:hover {
   background-color: transparent;
   color: inherit;
 }
 
-mf-app-bar > .mf-app-bar-content mf-button:not(:last-of-type) {
+mf-app-bar > .mf-app-bar-content .mf-button:not(:last-of-type) {
   margin-right: 10px;
 }
 
@@ -427,7 +427,7 @@ mf-header > .mf-icon-button {
   margin-left: 10px;
 }
 
-mf-header > mf-button:not(:last-child) {
+mf-header > .mf-button:not(:last-child) {
   margin-right: 5px;
 }
 
@@ -677,14 +677,14 @@ mf-menu-content {
   z-index: 1;
 }
 
-mf-menu-content mf-button:not([disabled]):not(.mf-disabled):focus, mf-menu-content mf-button:not([disabled]):not(.mf-disabled):hover,
+mf-menu-content .mf-button:not([disabled]):not(.mf-disabled):focus, mf-menu-content .mf-button:not([disabled]):not(.mf-disabled):hover,
 mf-menu-content mf-list-item:not([disabled]):not(.mf-disabled):focus,
 mf-menu-content mf-list-item:not([disabled]):not(.mf-disabled):hover {
   background-color: #6a6f71;
   color: inherit;
 }
 
-mf-menu-content mf-button {
+mf-menu-content .mf-button {
   background-color: transparent;
   border: none;
   box-sizing: border-box;
@@ -738,7 +738,7 @@ mf-nav > .mf-nav-content {
 }
 
 mf-nav > .mf-nav-content > a,
-mf-nav > .mf-nav-content > mf-button {
+mf-nav > .mf-nav-content > .mf-button {
   background-color: transparent;
   border: 1px solid transparent;
   border-bottom-width: 2px;
@@ -751,23 +751,23 @@ mf-nav > .mf-nav-content > mf-button {
 }
 
 mf-nav > .mf-nav-content > a[disabled], mf-nav > .mf-nav-content > a.mf-disabled,
-mf-nav > .mf-nav-content > mf-button[disabled],
-mf-nav > .mf-nav-content > mf-button.mf-disabled {
+mf-nav > .mf-nav-content > .mf-button[disabled],
+mf-nav > .mf-nav-content > .mf-button.mf-disabled {
   background-color: transparent;
   border-color: transparent;
   color: #dae1e1;
 }
 
 mf-nav > .mf-nav-content > a[disabled]:hover, mf-nav > .mf-nav-content > a.mf-disabled:hover,
-mf-nav > .mf-nav-content > mf-button[disabled]:hover,
-mf-nav > .mf-nav-content > mf-button.mf-disabled:hover {
+mf-nav > .mf-nav-content > .mf-button[disabled]:hover,
+mf-nav > .mf-nav-content > .mf-button.mf-disabled:hover {
   background-color: transparent;
   border-color: transparent;
   color: #dae1e1;
 }
 
 mf-nav > .mf-nav-content > a.mf-active,
-mf-nav > .mf-nav-content > mf-button.mf-active {
+mf-nav > .mf-nav-content > .mf-button.mf-active {
   border-bottom-color: #01a9e7;
   border-left-color: #dae1e1;
   border-right-color: #dae1e1;
@@ -775,14 +775,14 @@ mf-nav > .mf-nav-content > mf-button.mf-active {
 }
 
 mf-nav > .mf-nav-content > a:hover,
-mf-nav > .mf-nav-content > mf-button:hover {
+mf-nav > .mf-nav-content > .mf-button:hover {
   background-color: #dae1e1;
   border-color: transparent;
   color: #575b5d;
 }
 
 mf-nav > .mf-nav-content > a:focus,
-mf-nav > .mf-nav-content > mf-button:focus {
+mf-nav > .mf-nav-content > .mf-button:focus {
   background-color: #fff6ce;
   border-color: #ffd92d;
   color: #ffd92d;
@@ -918,7 +918,7 @@ mf-side-nav a {
 }
 
 mf-side-nav a,
-mf-side-nav mf-button {
+mf-side-nav .mf-button {
   background-color: transparent;
   border: none;
   box-sizing: border-box;
@@ -932,8 +932,8 @@ mf-side-nav mf-button {
 }
 
 mf-side-nav a:focus, mf-side-nav a:hover,
-mf-side-nav mf-button:focus,
-mf-side-nav mf-button:hover {
+mf-side-nav .mf-button:focus,
+mf-side-nav .mf-button:hover {
   background-color: #f6f9f8;
   color: inherit;
 }

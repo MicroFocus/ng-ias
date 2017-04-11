@@ -44,3 +44,5 @@ dist/**/*.gz
 
 #.DS_Store files that Macs add
 **/.DS_Store
+/.project
+/.settings
