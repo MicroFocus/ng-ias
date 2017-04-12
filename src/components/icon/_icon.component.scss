@@ -8,6 +8,6 @@ mf-icon {
   &.mf-medium { @include square($icon-size-medium); }
 }
 
-.mf-icon {
+.mf-icon, .svg-icon {
   @include same-size-as-parent;
 }

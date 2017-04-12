@@ -392,14 +392,13 @@
 	var IconComponent = (function () {
 	    function IconComponent() {
 	    }
-	    IconComponent.prototype.$onChanges = function () {
-	    };
 	    return IconComponent;
 	}());
 	IconComponent = __decorate([
 	    component_decorator_1.Component({
 	        bindings: {
-	            icon: '@'
+	            icon: '@',
+	            svgIcon: '@'
 	        },
 	        templateUrl: __webpack_require__(13)
 	    })
@@ -412,7 +411,7 @@
 /***/ function(module, exports) {
 
 	var path = 'components/icon/icon.component.html';
-	var html = "<i ng-class=\"['mf-icon', 'mf-icon-' + $ctrl.icon]\"></i>";
+	var html = "<i ng-if=\"$ctrl.icon\" ng-class=\"['mf-icon', 'mf-icon-' + $ctrl.icon]\"></i>\n<img ng-if=\"!$ctrl.icon\" class=\"svg-icon\" ng-src=\"{{$ctrl.svgIcon}}\" ng-attr-alt=\"{{$ctrl.svgIcon}}\"/>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 

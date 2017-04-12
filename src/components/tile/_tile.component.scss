@@ -131,6 +131,12 @@ mf-tile {
       }
     }
   }
+
+  a {
+    &:hover {
+      background-color: $body-bg-color;
+    }
+  }
 }
 
 .mf-tile-content {
