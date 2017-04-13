@@ -6,11 +6,13 @@ import DialogComponent from './components/dialog/dialog.component';
 import DialogService from './components/dialog/dialog.service';
 import HeaderComponent from './components/header/header.component';
 import IconComponent from './components/icon/icon.component';
+import IconInput from './components/input/icon.input.component';
 import InputContainerComponent from './components/input/input.component';
 import IntInput from './components/input/int.input.component';
 import { ListComponent, ListHeaderComponent, ListItemComponent } from './components/list/list.component';
 import { MenuComponent, MenuFooterComponent, MenuHeaderComponent } from './components/menu/menu.component';
 import NavComponent from './components/nav/nav.component';
+import ResizingTextareaComponent from './components/input/resizing.textarea.component';
 import SearchBoxComponent from './components/search-box/search-box.component';
 import SideNavComponent from './components/side-nav/side-nav.component';
 import TileComponent from './components/tile/tile.component';
@@ -24,6 +26,7 @@ module('ng-mfux', [])
     .component('mfAvatar', AvatarComponent)
     .directive('mfButton', ButtonDirective)
     .directive('mfIntInput', IntInput)
+    .directive('mfIconInput', IconInput)
     .component('mfDialog', DialogComponent)
     .component('mfHeader', HeaderComponent)
     .component('mfIcon', IconComponent)
@@ -35,6 +38,7 @@ module('ng-mfux', [])
     .component('mfFooterMenu', MenuFooterComponent)
     .component('mfHeaderMenu', MenuHeaderComponent)
     .component('mfNav', NavComponent)
+    .directive('mfResizingTextarea', ResizingTextareaComponent)
     .component('mfSearchBox', SearchBoxComponent)
     .component('mfSideNav', SideNavComponent)
     .component('mfTile', TileComponent)
