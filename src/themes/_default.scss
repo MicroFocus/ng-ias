@@ -73,10 +73,11 @@ $app-bar-action-color: rgba(67,76,80,.3);
 $app-bar-bg-fallback: $color-primary-2;
 $app-bar-bg: linear-gradient(to right, $color-primary-4, $color-primary-2);
 $app-bar-bg-rtl: linear-gradient(to left, $color-primary-4, $color-primary-2);
-$app-bar-font-size: 12px;
-$app-bar-height-small: 48px;
-$app-bar-height-large: 72px;
+$app-bar-font-size: $font-size-small;
+$app-bar-height-small: 45px;
+$app-bar-height-large: 100px;
 $app-bar-icon-size: 20px;
+$app-bar-button-padding: 5px;
 $app-bar-text-color: $color-gray-7;
 
 $avatar-size-small: 25px;
@@ -98,10 +99,11 @@ $button-border-width: 1px;
 $button-cta-bg-color: $color-gray-1;
 $button-cta-color: $color-gray-7;
 $button-font-size: $font-size;
-$button-height: 28px;
+$button-height: $font-size + ();
 $button-inline-icon-size: .85em;
 $button-inline-icon-padding: .5em;
 $button-min-width: 42px;
+$button-padding: .45em .75em;
 $button-text-color: $text-color;
 $button-text-color-disabled: $button-border-color-disabled;
 $button-text-color-hover: $color-primary-2;
@@ -110,9 +112,6 @@ $button-text-transform: none;
 $dialog-bg-color: white;
 $dialog-padding: 20px;
 $dialog-scrim-color: rgba(128, 128, 128, .7);
-
-$icon-button-border-width: 1px;
-$icon-button-size: 24px;
 
 $icon-size-small: 25px;
 $icon-size-medium: 50px;

@@ -1,41 +1,39 @@
-button.mf-button {
+.mf-button {
   @include disable-text-selection;
+  @include single-line;
 
   background-color: $button-bg-color;
-  border: 1px solid $button-border-color;
+  border: $button-border-width solid $button-border-color;
   border-radius: $border-radius;
   color: $button-text-color;
+  cursor: pointer;
   display: inline-block;
-  font-size: $font-size;
-  height: $button-height;
-  line-height: $button-height;
-  padding: 0 $spacing;
+  font-size: $button-font-size;
+  padding: $button-padding;
+  text-align: center;
+  text-decoration: $button-text-transform;
   vertical-align: middle;
 
-  &:hover {
-    background-color: $button-bg-color-hover;
-    border-color: $button-border-color-hover;
-    color: $button-text-color-hover;
-    cursor: pointer;
-  }
-
-  &[disabled],
-  &.mf-disabled {
+  &[disabled] {
     background-color: $button-bg-color-disabled;
     border-color: $button-border-color-disabled;
     color: $button-text-color-disabled;
+    cursor: default;
+  }
+
+  &:not([disabled]) {
+    &:focus {
+      @include focus-state;
+    }
 
     &:hover {
-      background-color: $button-bg-color-disabled;
-      border-color: $button-border-color-disabled;
-      color: $button-text-color-disabled;
-      cursor: default;
+      background-color: $button-bg-color-hover;
+      border-color: $button-border-color-hover;
+      color: $button-text-color-hover;
     }
   }
 
   &.mf-icon-button {
-    @include square($icon-button-size);
-
     background-color: transparent;
     border-color: transparent;
     padding: 0;
@@ -44,28 +42,41 @@ button.mf-button {
       background-color: $button-bg-color-hover;
       border-color: $button-border-color-hover;
       color: $button-text-color-hover;
-      cursor: pointer;
     }
 
     mf-icon {
-      font-size: inherit;
+      display: block;
     }
   }
 
   &:not(.mf-icon-button) {
-    > .mf-button-content {
-      mf-icon {
-        color: inherit;
-        font-size: $button-inline-icon-size;
-        margin-left: $button-inline-icon-padding;
-        vertical-align: middle;
+    min-width: $button-min-width;
+
+    > mf-icon {
+      color: inherit;
+      font-size: inherit;
+      margin-left: $button-inline-icon-padding;
+      vertical-align: middle;
+    }
+  }
+}
+
+a.mf-button {
+  margin-left: initial;
+}
+
+[dir="rtl"] {
+  .mf-button {
+
+    &:not(.mf-icon-button) {
+      > mf-icon {
+        margin-left: initial;
+        margin-right: $button-inline-icon-padding;
       }
     }
   }
 
-  > .mf-button-content {
-    @include single-line;
-
-    height: 100%;
+  a.mf-button {
+    margin-right: initial;
   }
 }
