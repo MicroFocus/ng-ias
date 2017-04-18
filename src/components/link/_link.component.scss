@@ -32,7 +32,7 @@ p, span {
 [dir="rtl"] {
   a {
     + a, &.mf-link-margin {
-      margin-left: initial;
+      margin-left: 0;
       margin-right: $link-spacing;
     }
   }

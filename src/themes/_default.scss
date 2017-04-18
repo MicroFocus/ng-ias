@@ -24,6 +24,14 @@ $color-accent-2: #fff6ce;
 $color-accent-3: #f17e12;
 $color-accent-4: #e50000;
 
+// Font size variants
+$font-size-xsmall: 11px;
+$font-size-small: 13px;
+$font-size-base: 15px;
+$font-size-medium: 18px;
+$font-size-large: 21px;
+$font-size-xlarge: 24px;
+
 // TYPOGRAPHY
 $font-family: 'Helvetica Neue Thin', 'Helvetica Neue', Helvetica, Arial, san-serif;
 $font-size: 14px;
@@ -61,13 +69,15 @@ $focus-border-color: $color-accent-1;
 $focus-text-color: $color-gray-1;
 
 // COMPONENTS
+$app-bar-action-color: rgba(67,76,80,.3);
 $app-bar-bg-fallback: $color-primary-2;
-$app-bar-bg: linear-gradient(to right, $color-primary-5, $color-primary-2);
-$app-bar-bg-rtl: linear-gradient(to left, $color-primary-5, $color-primary-2);
-$app-bar-font-size: 12px;
-$app-bar-height-small: 48px;
-$app-bar-height-large: 72px;
+$app-bar-bg: linear-gradient(to right, $color-primary-4, $color-primary-2);
+$app-bar-bg-rtl: linear-gradient(to left, $color-primary-4, $color-primary-2);
+$app-bar-font-size: $font-size-small;
+$app-bar-height-small: 45px;
+$app-bar-height-large: 100px;
 $app-bar-icon-size: 20px;
+$app-bar-button-padding: 5px;
 $app-bar-text-color: $color-gray-7;
 
 $avatar-size-small: 25px;
@@ -89,10 +99,10 @@ $button-border-width: 1px;
 $button-cta-bg-color: $color-gray-1;
 $button-cta-color: $color-gray-7;
 $button-font-size: $font-size;
-$button-height: 28px;
-$button-inline-icon-size: .85em;
+$button-inline-icon-size: .8em;
 $button-inline-icon-padding: .5em;
 $button-min-width: 42px;
+$button-padding: .45em .75em;
 $button-text-color: $text-color;
 $button-text-color-disabled: $button-border-color-disabled;
 $button-text-color-hover: $color-primary-2;
@@ -101,9 +111,6 @@ $button-text-transform: none;
 $dialog-bg-color: white;
 $dialog-padding: 20px;
 $dialog-scrim-color: rgba(128, 128, 128, .7);
-
-$icon-button-border-width: 1px;
-$icon-button-size: 24px;
 
 $icon-size-small: 25px;
 $icon-size-medium: 50px;
@@ -166,7 +173,7 @@ $nav-item-border-bottom-color-focus: $focus-border-color;
 $nav-item-text-color-focus: inherit;
 
 $panel-bg-color: $color-gray-6;
-$panel-height: $button-height + (2 * $button-border-width);
+$panel-height: 31px;
 
 $search-box-icon-padding: 5px;
 $search-box-icon-size: 20px;
