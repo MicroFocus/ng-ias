@@ -123,7 +123,7 @@
   border-color: inherit;
 }
 
-.mf-title {
+.mf-heading {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -135,7 +135,7 @@
   padding: 0;
 }
 
-.mf-header {
+.mf-title {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -152,7 +152,7 @@ mf-app-bar {
   background: linear-gradient(to right, #01a9e7, #007cd0);
   color: #f6f9f8;
   display: block;
-  font-size: 12px;
+  font-size: 13px;
 }
 
 mf-app-bar > .mf-app-bar-content {
@@ -162,78 +162,112 @@ mf-app-bar > .mf-app-bar-content {
   display: flex;
   -ms-flex-flow: row nowrap;
       flex-flow: row nowrap;
-  height: 100%;
-  min-height: 48px;
+  min-height: 45px;
   padding-right: 15px;
   overflow: hidden;
 }
 
 mf-app-bar > .mf-app-bar-content > .mf-logo {
   display: block;
-  max-height: 48px;
+  max-height: 45px;
 }
 
-mf-app-bar > .mf-app-bar-content > .mf-title {
+mf-app-bar > .mf-app-bar-content > .mf-heading {
+  /* Add height and line-height for align-items bug in IE11 */
+  height: 45px;
+  line-height: 45px;
   margin-left: 15px;
 }
 
-mf-app-bar > .mf-app-bar-content .mf-button {
-  background-color: transparent;
-  border: none;
-  color: inherit;
-  font-size: inherit;
-  padding: 0;
+mf-app-bar > .mf-app-bar-content > span:not(.mf-fill) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -ms-flex-negative: 10;
+      flex-shrink: 10;
+  margin-left: 25px;
 }
 
-mf-app-bar > .mf-app-bar-content .mf-button:hover {
-  background-color: transparent;
-  color: inherit;
-}
-
-mf-app-bar > .mf-app-bar-content .mf-button:not(:last-of-type) {
+mf-app-bar > .mf-app-bar-content > span:not(.mf-fill):not(:last-child) {
   margin-right: 10px;
 }
 
-mf-app-bar > .mf-app-bar-content .mf-icon-button {
+mf-app-bar > .mf-app-bar-content > .mf-button {
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  font-size: inherit;
+  margin-left: 10px;
+}
+
+mf-app-bar > .mf-app-bar-content > .mf-button.mf-icon-button {
+  padding: 5px;
+}
+
+mf-app-bar > .mf-app-bar-content > .mf-button.mf-icon-button > mf-icon {
   font-size: 20px;
+}
+
+mf-app-bar > .mf-app-bar-content > .mf-button:hover {
+  background-color: rgba(67, 76, 80, 0.3);
+  color: inherit;
+}
+
+mf-app-bar > .mf-app-bar-content > .mf-button:not(.mf-icon-button) > mf-icon {
+  background-color: transparent;
 }
 
 [dir="rtl"] mf-app-bar > .mf-app-bar-content {
   padding-left: 15px;
-  padding-right: initial;
+  padding-right: 0;
 }
 
-[dir="rtl"] mf-app-bar > .mf-app-bar-content > .mf-title {
-  margin-left: initial;
+[dir="rtl"] mf-app-bar > .mf-app-bar-content > .mf-heading {
+  margin-left: 0;
   margin-right: 15px;
 }
 
-[dir="rtl"] mf-app-bar > .mf-app-bar-content .mf-icon-button {
-  margin-left: initial;
+[dir="rtl"] mf-app-bar > .mf-app-bar-content > .mf-button {
+  margin-left: 0;
   margin-right: 10px;
+}
+
+[dir="rtl"] mf-app-bar > .mf-app-bar-content > span:not(.mf-fill) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-left: 0;
+  margin-right: 25px;
+}
+
+[dir="rtl"] mf-app-bar > .mf-app-bar-content > span:not(.mf-fill):not(:last-child) {
+  margin-left: 10px;
 }
 
 @media (min-width: 769px) {
   mf-app-bar > .mf-app-bar-content {
-    padding: 0 25px 0 0;
-  }
-  mf-app-bar > .mf-app-bar-content > .mf-title {
-    margin-left: 25px;
+    padding-right: 25px;
   }
   mf-app-bar > .mf-app-bar-content > .mf-logo {
-    max-height: 72px;
+    max-height: 100px;
   }
-  mf-app-bar.mf-large {
-    height: 72px;
+  mf-app-bar > .mf-app-bar-content > .mf-heading {
+    margin-left: 25px;
   }
-  mf-app-bar.mf-large > .mf-app-bar-content .mf-icon-button {
+  mf-app-bar.mf-large > .mf-app-bar-content {
+    height: 100px;
+  }
+  mf-app-bar.mf-large > .mf-app-bar-content > .mf-button.mf-icon-button > mf-icon {
     font-size: 25px;
   }
-  [dir="rtl"] mf-app-bar {
-    padding: 0 0 0 25px;
+  [dir="rtl"] mf-app-bar > .mf-app-bar-content {
+    padding-left: 25px;
+    padding-right: 0;
   }
-  [dir="rtl"] mf-app-bar > .mf-app-bar-content > .mf-title {
-    margin-left: initial;
+  [dir="rtl"] mf-app-bar > .mf-app-bar-content > .mf-heading {
+    margin-left: 0;
     margin-right: 25px;
   }
 }
@@ -268,76 +302,95 @@ mf-avatar > .mf-avatar-content {
   border-radius: 3px;
 }
 
-button.mf-button {
+.mf-button {
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   background-color: #434c50;
   border: 1px solid #6a6f71;
   border-radius: 3px;
   color: #f6f9f8;
+  cursor: pointer;
   display: inline-block;
   font-size: 14px;
-  height: 28px;
-  line-height: 28px;
-  padding: 0 10px;
+  padding: 0.45em 0.75em;
+  text-align: center;
+  text-decoration: none;
   vertical-align: middle;
 }
 
-button.mf-button:hover {
-  background-color: #434c50;
-  border-color: #007cd0;
-  color: #007cd0;
-  cursor: pointer;
-}
-
-button.mf-button[disabled], button.mf-button.mf-disabled {
-  background-color: #434c50;
-  border-color: #808080;
-  color: #808080;
-}
-
-button.mf-button[disabled]:hover, button.mf-button.mf-disabled:hover {
+.mf-button[disabled] {
   background-color: #434c50;
   border-color: #808080;
   color: #808080;
   cursor: default;
 }
 
-button.mf-button.mf-icon-button {
-  font-size: 24px;
-  height: 1em;
-  line-height: 1em;
-  width: 1em;
+.mf-button:not([disabled]):focus {
+  background-color: #fff6ce;
+  border-color: #ffd92d;
+  color: #434c50;
+  outline: none;
+}
+
+.mf-button:not([disabled]):hover {
+  background-color: #434c50;
+  border-color: #007cd0;
+  color: #007cd0;
+}
+
+.mf-button.mf-icon-button {
   background-color: transparent;
   border-color: transparent;
   padding: 0;
 }
 
-button.mf-button.mf-icon-button:hover {
+.mf-button.mf-icon-button:hover {
   background-color: #434c50;
   border-color: #007cd0;
   color: #007cd0;
-  cursor: pointer;
 }
 
-button.mf-button.mf-icon-button mf-icon {
-  font-size: inherit;
+.mf-button.mf-icon-button mf-icon {
+  display: block;
 }
 
-button.mf-button:not(.mf-icon-button) > .mf-button-content mf-icon {
+.mf-button:not(.mf-icon-button) {
+  min-width: 42px;
+}
+
+.mf-button:not(.mf-icon-button) > mf-icon {
   color: inherit;
-  font-size: 0.85em;
-  margin-left: 0.5em;
+  font-size: inherit;
   vertical-align: middle;
 }
 
-button.mf-button > .mf-button-content {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  height: 100%;
+.mf-button.mf-menu-toggle > mf-icon {
+  font-size: 0.8em;
+  margin-left: 0.5em;
+}
+
+/* Stop FF buttons from being larger. http://stackoverflow.com/questions/7928521 */
+button.mf-button::-moz-focus-inner {
+  padding: 0 !important;
+  border: 0 none !important;
+}
+
+a.mf-button {
+  margin-left: 0;
+}
+
+[dir="rtl"] .mf-button.mf-menu-toggle > mf-icon {
+  margin-left: 0;
+  margin-right: 0.5em;
+}
+
+[dir="rtl"] a.mf-button {
+  margin-right: 0;
 }
 
 mf-dialog {
@@ -481,7 +534,7 @@ mf-input-container select[disabled],
 mf-input-container textarea[disabled] {
   background-color: #434c50;
   border-color: #434c50;
-  color: #59656a;
+  color: #575b5d;
   outline: none;
 }
 
@@ -569,7 +622,7 @@ mf-input-container.mf-inline label {
 
 a {
   border-radius: 3px;
-  color: #0088ce;
+  color: #0090da;
   padding: 0.15em;
   text-decoration: none;
 }
@@ -591,7 +644,7 @@ a:focus {
 
 a:hover {
   background-color: #434c50;
-  color: #28a9e1;
+  color: #01a9e7;
 }
 
 p a, span a {
@@ -600,7 +653,7 @@ p a, span a {
 }
 
 [dir="rtl"] a + a, [dir="rtl"] a.mf-link-margin {
-  margin-left: initial;
+  margin-left: 0;
   margin-right: 0.5em;
 }
 
@@ -700,7 +753,7 @@ mf-menu.mf-end > mf-menu-content {
 
 mf-menu-content {
   background-color: #434c50;
-  border-color: #59656a;
+  border-color: #575b5d;
   border-radius: 3px;
   box-sizing: border-box;
   color: #f6f9f8;
@@ -715,7 +768,7 @@ mf-menu-content {
 mf-menu-content .mf-button:not([disabled]):not(.mf-disabled):focus, mf-menu-content .mf-button:not([disabled]):not(.mf-disabled):hover,
 mf-menu-content mf-list-item:not([disabled]):not(.mf-disabled):focus,
 mf-menu-content mf-list-item:not([disabled]):not(.mf-disabled):hover {
-  background-color: #59656a;
+  background-color: #575b5d;
   color: inherit;
 }
 
@@ -753,7 +806,7 @@ mf-menu-content mf-list-header {
 }
 
 mf-nav {
-  background-color: #59656a;
+  background-color: #575b5d;
   color: #eef2f2;
   display: block;
   height: 32px;
@@ -803,7 +856,7 @@ mf-nav > .mf-nav-content > .mf-button.mf-disabled:hover {
 
 mf-nav > .mf-nav-content > a.mf-active,
 mf-nav > .mf-nav-content > .mf-button.mf-active {
-  border-bottom-color: #28a9e1;
+  border-bottom-color: #01a9e7;
   border-left-color: #6a6f71;
   border-right-color: #6a6f71;
   color: #f6f9f8;
@@ -969,7 +1022,7 @@ mf-side-nav .mf-button {
 mf-side-nav a:focus, mf-side-nav a:hover,
 mf-side-nav .mf-button:focus,
 mf-side-nav .mf-button:hover {
-  background-color: #59656a;
+  background-color: #575b5d;
   color: inherit;
 }
 
@@ -1038,12 +1091,12 @@ table .mf-icon-button {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  color: #0088ce;
+  color: #0090da;
   cursor: pointer;
 }
 
 mf-tile {
-  background-color: #59656a;
+  background-color: #575b5d;
   border-radius: 3px;
   border: 1px solid transparent;
   box-sizing: border-box;
@@ -1065,7 +1118,7 @@ mf-tile:focus {
 
 mf-tile:hover {
   background-color: #434c50;
-  border-color: #28a9e1;
+  border-color: #01a9e7;
   color: #f6f9f8;
 }
 

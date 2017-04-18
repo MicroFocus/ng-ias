@@ -9,7 +9,7 @@ mf-app-bar {
     align-items: center;
     display: flex;
     flex-flow: row nowrap;
-    height: 100%;
+
     min-height: $app-bar-height-small;
     padding-right: $body-spacing-small;
     overflow: hidden;
@@ -19,31 +19,49 @@ mf-app-bar {
       max-height: $app-bar-height-small;
     }
 
-    > .mf-title {
+    > .mf-heading {
+      /* Add height and line-height for align-items bug in IE11 */
+      height: $app-bar-height-small;
+      line-height: $app-bar-height-small;
       margin-left: $body-spacing-small;
     }
 
-    .mf-button {
-      background-color: transparent;
-      border: none;
-      color: inherit;
-      font-size: inherit;
-      padding: 0;
+    > span:not(.mf-fill) {
+      @include single-line;
+      flex-shrink: 10;
+      margin-left: $body-spacing-large;
 
-      &:hover {
-        background-color: transparent;
-        color: inherit;
-      }
-    }
-
-    .mf-button {
-      &:not(:last-of-type) {
+      &:not(:last-child) {
         margin-right: $spacing;
       }
     }
 
-    .mf-icon-button {
-      font-size: $app-bar-icon-size;
+    > .mf-button {
+      background-color: transparent;
+      border: none;
+      color: inherit;
+      flex-shrink: 0;
+      font-size: inherit;
+      margin-left: $spacing;
+
+      &.mf-icon-button {
+        padding: $app-bar-button-padding;
+
+        > mf-icon {
+          font-size: $app-bar-icon-size;
+        }
+      }
+
+      &:hover {
+        background-color: $app-bar-action-color;
+        color: inherit;
+      }
+
+      &:not(.mf-icon-button) {
+        > mf-icon {
+          background-color: transparent;
+        }
+      }
     }
   }
 }
@@ -52,16 +70,26 @@ mf-app-bar {
   mf-app-bar {
     > .mf-app-bar-content {
       padding-left: $body-spacing-small;
-      padding-right: initial;
+      padding-right: 0;
 
-      > .mf-title {
-        margin-left: initial;
+      > .mf-heading {
+        margin-left: 0;
         margin-right: $body-spacing-small;
       }
 
-      .mf-icon-button {
-        margin-left: initial;
+      > .mf-button {
+        margin-left: 0;
         margin-right: $spacing;
+      }
+
+      > span:not(.mf-fill) {
+        @include single-line;
+        margin-left: 0;
+        margin-right: $body-spacing-large;
+
+        &:not(:last-child) {
+          margin-left: $spacing;
+        }
       }
     }
   }
@@ -70,23 +98,27 @@ mf-app-bar {
 @media (min-width: $large-display) {
   mf-app-bar {
     > .mf-app-bar-content {
-      padding: 0 $body-spacing-large 0 0;
-
-      > .mf-title {
-        margin-left: $body-spacing-large;
-      }
+      padding-right: $body-spacing-large;
 
       > .mf-logo {
         max-height: $app-bar-height-large;
       }
+
+      > .mf-heading {
+        margin-left: $body-spacing-large;
+      }
     }
 
     &.mf-large {
-      height: $app-bar-height-large;
-
       > .mf-app-bar-content {
-        .mf-icon-button {
-          font-size: $icon-size-small;
+        height: $app-bar-height-large;
+
+        > .mf-button {
+          &.mf-icon-button {
+            > mf-icon {
+              font-size: $icon-size-small;
+            }
+          }
         }
       }
     }
@@ -94,11 +126,12 @@ mf-app-bar {
 
   [dir="rtl"] {
     mf-app-bar {
-      padding: 0 0 0 $body-spacing-large;
-
       > .mf-app-bar-content {
-        > .mf-title {
-          margin-left: initial;
+        padding-left: $body-spacing-large;
+        padding-right: 0;
+
+        > .mf-heading {
+          margin-left: 0;
           margin-right: $body-spacing-large;
         }
       }
