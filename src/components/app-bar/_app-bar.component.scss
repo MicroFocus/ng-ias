@@ -9,7 +9,7 @@ mf-app-bar {
     align-items: center;
     display: flex;
     flex-flow: row nowrap;
-    height: 100%;
+
     min-height: $app-bar-height-small;
     padding-right: $body-spacing-small;
     overflow: hidden;
@@ -19,7 +19,10 @@ mf-app-bar {
       max-height: $app-bar-height-small;
     }
 
-    > .mf-title {
+    > .mf-heading {
+      /* Add height and line-height for align-items bug in IE11 */
+      height: $app-bar-height-small;
+      line-height: $app-bar-height-small;
       margin-left: $body-spacing-small;
     }
 
@@ -27,7 +30,10 @@ mf-app-bar {
       @include single-line;
       flex-shrink: 10;
       margin-left: $body-spacing-large;
-      margin-right: $body-spacing-small;
+
+      &:not(:last-child) {
+        margin-right: $spacing;
+      }
     }
 
     > .mf-button {
@@ -36,6 +42,7 @@ mf-app-bar {
       color: inherit;
       flex-shrink: 0;
       font-size: inherit;
+      margin-left: $spacing;
 
       &.mf-icon-button {
         padding: $app-bar-button-padding;
@@ -55,10 +62,6 @@ mf-app-bar {
           background-color: transparent;
         }
       }
-
-      &:not(:last-of-type) {
-        margin-right: $spacing;
-      }
     }
   }
 }
@@ -67,16 +70,24 @@ mf-app-bar {
   mf-app-bar {
     > .mf-app-bar-content {
       padding-left: $body-spacing-small;
-      padding-right: initial;
+      padding-right: 0;
 
-      > .mf-title {
-        margin-left: initial;
+      > .mf-heading {
+        margin-left: 0;
         margin-right: $body-spacing-small;
       }
 
       > .mf-button {
-        &:not(:last-of-type) {
-          margin-right: initial;
+        margin-left: 0;
+        margin-right: $spacing;
+      }
+
+      > span:not(.mf-fill) {
+        @include single-line;
+        margin-left: 0;
+        margin-right: $body-spacing-large;
+
+        &:not(:last-child) {
           margin-left: $spacing;
         }
       }
@@ -87,21 +98,21 @@ mf-app-bar {
 @media (min-width: $large-display) {
   mf-app-bar {
     > .mf-app-bar-content {
-      padding: 0 $body-spacing-large 0 0;
+      padding-right: $body-spacing-large;
 
       > .mf-logo {
         max-height: $app-bar-height-large;
       }
 
-      > .mf-title {
+      > .mf-heading {
         margin-left: $body-spacing-large;
       }
     }
 
     &.mf-large {
-      height: $app-bar-height-large;
-
       > .mf-app-bar-content {
+        height: $app-bar-height-large;
+
         > .mf-button {
           &.mf-icon-button {
             > mf-icon {
@@ -117,8 +128,10 @@ mf-app-bar {
     mf-app-bar {
       > .mf-app-bar-content {
         padding-left: $body-spacing-large;
+        padding-right: 0;
 
-        > .mf-title {
+        > .mf-heading {
+          margin-left: 0;
           margin-right: $body-spacing-large;
         }
       }

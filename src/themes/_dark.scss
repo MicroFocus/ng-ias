@@ -100,8 +100,7 @@ $button-border-width: 1px;
 $button-cta-bg-color: $color-gray-1;
 $button-cta-color: $color-gray-7;
 $button-font-size: $font-size;
-$button-height: 28px;
-$button-inline-icon-size: .85em;
+$button-inline-icon-size: .8em;
 $button-inline-icon-padding: .5em;
 $button-min-width: 42px;
 $button-padding: .45em .75em;
@@ -175,7 +174,7 @@ $nav-item-border-bottom-color-focus: $focus-border-color;
 $nav-item-text-color-focus: $focus-text-color;
 
 $panel-bg-color: $color-gray-6;
-$panel-height: $button-height + (2 * $button-border-width);
+$panel-height: 31px;
 
 $search-box-icon-padding: 5px;
 $search-box-icon-size: 20px;
