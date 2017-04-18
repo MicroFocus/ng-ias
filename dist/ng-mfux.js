@@ -69,6 +69,7 @@
 	var toggle_directive_1 = __webpack_require__(36);
 	var toggle_service_1 = __webpack_require__(37);
 	angular_1.module('ng-mfux', [])
+	    .constant('MENU_MARGIN', 24)
 	    .component('mfAppBar', app_bar_component_1.default)
 	    .component('mfAvatar', avatar_component_1.default)
 	    .directive('mfButton', button_component_1.default)
@@ -225,7 +226,7 @@
 /***/ function(module, exports) {
 
 	var path = 'components/button/button.component.html';
-	var html = "<button class=\"mf-button\" ng-transclude>\n</button>";
+	var html = "<button class=\"mf-button\" ng-transclude>\r\n</button>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
@@ -411,7 +412,7 @@
 /***/ function(module, exports) {
 
 	var path = 'components/icon/icon.component.html';
-	var html = "<i ng-if=\"$ctrl.icon\" ng-class=\"['mf-icon', 'mf-icon-' + $ctrl.icon]\"></i>\n<img ng-if=\"!$ctrl.icon\" class=\"svg-icon\" ng-src=\"{{$ctrl.svgIcon}}\" ng-attr-alt=\"{{$ctrl.svgIcon}}\"/>";
+	var html = "<i ng-if=\"$ctrl.icon\" ng-class=\"['mf-icon', 'mf-icon-' + $ctrl.icon]\"></i>\r\n<img ng-if=\"!$ctrl.icon\" class=\"svg-icon\" ng-src=\"{{$ctrl.svgIcon}}\" ng-attr-alt=\"{{$ctrl.svgIcon}}\"/>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
@@ -457,7 +458,7 @@
 /***/ function(module, exports) {
 
 	var path = 'components/input/icon.input.component.html';
-	var html = "<span class=\"mf-icon-input-container\">\n    <input type=\"text\" placeholder=\"{{placeholder}}\">\n    <mf-icon icon=\"{{icon}}\"></mf-icon>\n</span>";
+	var html = "<span class=\"mf-icon-input-container\">\r\n    <input type=\"text\" placeholder=\"{{placeholder}}\">\r\n    <mf-icon icon=\"{{icon}}\"></mf-icon>\r\n</span>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
@@ -570,7 +571,7 @@
 /***/ function(module, exports) {
 
 	var path = 'components/input/int.input.component.html';
-	var html = "<input type=\"text\" class=\"mfIntInput\" ng-transclude>\n</input>";
+	var html = "<input type=\"text\" class=\"mfIntInput\" ng-transclude>\r\n</input>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
@@ -671,11 +672,12 @@
 	    VerticalAlignment[VerticalAlignment["bottom"] = 2] = "bottom";
 	})(VerticalAlignment = exports.VerticalAlignment || (exports.VerticalAlignment = {}));
 	var MenuComponent = (function () {
-	    function MenuComponent($document, $element, $window, toggleService) {
+	    function MenuComponent($document, $element, $window, toggleService, MENU_MARGIN) {
 	        this.$document = $document;
 	        this.$element = $element;
 	        this.$window = $window;
 	        this.toggleService = toggleService;
+	        this.MENU_MARGIN = MENU_MARGIN;
 	        this.open = false;
 	        $element.detach();
 	        angular_1.element($document.find('body')).append($element);
@@ -722,9 +724,9 @@
 	        var menuContentBoundingBox = menuContentElement.getBoundingClientRect();
 	        var targetElementBoundingBox = targetElement.getBoundingClientRect();
 	        var bottom = null, left = null, right = null, top = null;
-	        if (menuContentBoundingBox.width > menuBoundingBox.width) {
-	            left = 0;
-	            right = 0;
+	        if (menuContentBoundingBox.width + (2 * this.MENU_MARGIN) > menuBoundingBox.width) {
+	            left = this.MENU_MARGIN;
+	            right = this.MENU_MARGIN;
 	        }
 	        else {
 	            switch (this.horizontalAlignment) {
@@ -751,15 +753,18 @@
 	                    break;
 	            }
 	            left -= menuBoundingBox.left;
-	            left = Math.max(left, 0);
+	            left = Math.max(left, this.MENU_MARGIN);
 	            if (left + menuContentBoundingBox.width > menuBoundingBox.width) {
 	                left = null;
-	                right = 0;
+	                right = this.MENU_MARGIN;
 	            }
 	        }
-	        if (menuContentBoundingBox.height > menuBoundingBox.height) {
-	            top = 0;
-	            bottom = 0;
+	        menuContentElement.style.left = this.numberToPixels(left);
+	        menuContentElement.style.right = this.numberToPixels(right);
+	        menuContentBoundingBox = menuContentElement.getBoundingClientRect();
+	        if (menuContentBoundingBox.height + (2 * this.MENU_MARGIN) > menuBoundingBox.height) {
+	            top = this.MENU_MARGIN;
+	            bottom = this.MENU_MARGIN;
 	        }
 	        else {
 	            switch (this.verticalAlignment) {
@@ -775,20 +780,18 @@
 	                    break;
 	            }
 	            top -= menuBoundingBox.top;
-	            top = Math.max(top, 0);
+	            top = Math.max(top, this.MENU_MARGIN);
 	            if (top + menuContentBoundingBox.height > menuBoundingBox.height) {
 	                top = null;
-	                bottom = 0;
+	                bottom = this.MENU_MARGIN;
 	            }
 	        }
-	        menuContentElement.style.left = this.numberToPixels(left);
 	        menuContentElement.style.top = this.numberToPixels(top);
 	        menuContentElement.style.bottom = this.numberToPixels(bottom);
-	        menuContentElement.style.right = this.numberToPixels(right);
 	    };
 	    return MenuComponent;
 	}());
-	MenuComponent.$inject = ['$document', '$element', '$window', 'MfToggleService'];
+	MenuComponent.$inject = ['$document', '$element', '$window', 'MfToggleService', 'MENU_MARGIN'];
 	MenuComponent = __decorate([
 	    component_decorator_1.Component({
 	        bindings: {
@@ -1011,7 +1014,7 @@
 /***/ function(module, exports) {
 
 	var path = 'components/search-box/search-box.component.html';
-	var html = "<div class=\"mf-search-box-content\">\n    <input type=\"text\"\n           autocomplete=\"false\"\n           ng-model=\"$ctrl.value\"\n           ng-attr-placeholder=\"{{$ctrl.placeholder}}\"\n           ng-keydown=\"$ctrl.onInputKeyDown($event)\" />\n    <mf-icon icon=\"search_thick\"></mf-icon>\n    <mf-button class=\"mf-icon-button\" ng-click=\"$ctrl.clearInput()\">\n        <mf-icon icon=\"close_thick\"></mf-icon>\n    </mf-button>\n</div>";
+	var html = "<div class=\"mf-search-box-content\">\r\n    <input type=\"text\"\r\n           autocomplete=\"false\"\r\n           ng-model=\"$ctrl.value\"\r\n           ng-attr-placeholder=\"{{$ctrl.placeholder}}\"\r\n           ng-keydown=\"$ctrl.onInputKeyDown($event)\" />\r\n    <mf-icon icon=\"search_thick\"></mf-icon>\r\n    <mf-button class=\"mf-icon-button\" ng-click=\"$ctrl.clearInput()\">\r\n        <mf-icon icon=\"close_thick\"></mf-icon>\r\n    </mf-button>\r\n</div>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
@@ -1066,7 +1069,7 @@
 /***/ function(module, exports) {
 
 	var path = 'components/side-nav/side-nav.component.html';
-	var html = "<div class=\"mf-scrim\" ng-click=\"$ctrl.hide()\"></div>\n<div class=\"mf-side-nav-content\" ng-transclude></div>";
+	var html = "<div class=\"mf-scrim\" ng-click=\"$ctrl.hide()\"></div>\r\n<div class=\"mf-side-nav-content\" ng-transclude></div>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 

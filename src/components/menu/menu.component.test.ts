@@ -1,3 +1,4 @@
+import * as angular from 'angular';
 import { element, IAugmentedJQuery, ICompileService, IComponentControllerService, mock } from 'angular';
 import { HorizontalAlignment, MenuComponent, VerticalAlignment } from './menu.component';
 import ToggleService from '../toggle/toggle.service';
@@ -12,6 +13,7 @@ describe('MenuComponent', () => {
     let menuElement: IAugmentedJQuery;
 
     beforeEach(mock.module('ng-mfux'));
+    beforeEach(mock.module(($provide: angular.auto.IProvideService) => { $provide.constant('MENU_MARGIN', 0); }));
     beforeEach(mock.inject((
         _$componentController_: IComponentControllerService,
         _$compile_: ICompileService
@@ -114,7 +116,7 @@ describe('MenuComponent', () => {
 
         describe('positions menu content correctly', () => {
             // Execute each test under ltr and rtl layout directions
-            ['ltr', 'ltr'].forEach((direction) => {
+            ['ltr', 'rtl'].forEach((direction) => {
                 describe(`in ${direction} layouts`, () => {
                     let isLtr = direction === 'ltr';
 
@@ -127,24 +129,44 @@ describe('MenuComponent', () => {
                     });
 
                     [
-                        {align: 'start top', top: 6, left: isLtr ? 4 : 2, constrain: false},
-                        {align: 'start center', top: 3, left: isLtr ? 4 : 2, constrain: false},
-                        {align: 'start bottom', top: 0, left: isLtr ? 4 : 2, constrain: false},
-                        {align: 'center top', top: 6, left: 3, constrain: false},
-                        {align: 'center center', top: 3, left: 3, constrain: false},
-                        {align: 'center bottom', top: 0, left: 3, constrain: false},
-                        {align: 'end top', top: 6, left: isLtr ? 2 : 4, constrain: false},
-                        {align: 'end center', top: 3, left: isLtr ? 2 : 4, constrain: false},
-                        {align: 'end bottom', top: 0, left: isLtr ? 2 : 4, constrain: false},
-                        {align: 'start top', top: 3, left: 3, constrain: true},
-                        {align: 'start center', top: 3, left: 3, constrain: true},
-                        {align: 'start bottom', top: 3, left: 3, constrain: true},
-                        {align: 'center top', top: 3, left: 3, constrain: true},
-                        {align: 'center center', top: 3, left: 3, constrain: true},
-                        {align: 'center bottom', top: 3, left: 3, constrain: true},
-                        {align: 'end top', top: 3, left: 3, constrain: true},
-                        {align: 'end center', top: 3, left: 3, constrain: true},
-                        {align: 'end bottom', top: 3, left: 3, constrain: true},
+                        { align: 'start top',     top: null,  left: null,  height: null,  width: null,  expectedTop: 6,
+                            expectedLeft: isLtr ? 4 : 2 },
+                        { align: 'start center',  top: null,  left: null,  height: null,  width: null,  expectedTop: 3,
+                            expectedLeft: isLtr ? 4 : 2 },
+                        { align: 'start bottom',  top: null,  left: null,  height: null,  width: null,  expectedTop: 0,
+                            expectedLeft: isLtr ? 4 : 2 },
+                        { align: 'center top',    top: null,  left: null,  height: null,  width: null,  expectedTop: 6,
+                            expectedLeft: 3 },
+                        { align: 'center center', top: null,  left: null,  height: null,  width: null,  expectedTop: 3,
+                            expectedLeft: 3 },
+                        { align: 'center bottom', top: null,  left: null,  height: null,  width: null,  expectedTop: 0,
+                            expectedLeft: 3 },
+                        { align: 'end top',       top: null,  left: null,  height: null,  width: null,  expectedTop: 6,
+                            expectedLeft: isLtr ? 2 : 4 },
+                        { align: 'end center',    top: null,  left: null,  height: null,  width: null,  expectedTop: 3,
+                            expectedLeft: isLtr ? 2 : 4 },
+                        { align: 'end bottom',    top: null,  left: null,  height: null,  width: null,  expectedTop: 0,
+                            expectedLeft: isLtr ? 2 : 4 },
+                        { align: 'start top',     top: '3px', left: '3px', height: '4px', width: '4px', expectedTop: 3,
+                            expectedLeft: 3 },
+                        { align: 'start center',  top: '3px', left: '3px', height: '4px', width: '4px', expectedTop: 3,
+                            expectedLeft: 3 },
+                        { align: 'start bottom',  top: '3px', left: '3px', height: '4px', width: '4px', expectedTop: 3,
+                            expectedLeft: 3 },
+                        { align: 'center top',    top: '3px', left: '3px', height: '4px', width: '4px', expectedTop: 3,
+                            expectedLeft: 3 },
+                        { align: 'center center', top: '3px', left: '3px', height: '4px', width: '4px', expectedTop: 3,
+                            expectedLeft: 3 },
+                        { align: 'center bottom', top: '3px', left: '3px', height: '4px', width: '4px', expectedTop: 3,
+                            expectedLeft: 3 },
+                        { align: 'end top',       top: '3px', left: '3px', height: '4px', width: '4px', expectedTop: 3,
+                            expectedLeft: 3 },
+                        { align: 'end center',    top: '3px', left: '3px', height: '4px', width: '4px', expectedTop: 3,
+                            expectedLeft: 3 },
+                        { align: 'end bottom',    top: '3px', left: '3px', height: '4px', width: '4px', expectedTop: 3,
+                            expectedLeft: 3 },
+                        { align: 'start top',     top: '3px', left: '3px', height: '5px', width: '5px', expectedTop: 4,
+                            expectedLeft: isLtr ? 4 : 3 },
                     ].forEach((test) => {
                         it(`for alignment "${test.align}"`, () => {
                             // Arrange
@@ -156,19 +178,19 @@ describe('MenuComponent', () => {
                             controller.$onInit();
 
                             // Constrain the size of the menu container to test positioning overflow
-                            menuElement[0].style.height = test.constrain ? '4px' : null;
-                            menuElement[0].style.width = test.constrain ? '4px' : null;
-                            menuElement[0].style.left = test.constrain ? '3px' : null;
-                            menuElement[0].style.top = test.constrain ? '3px' : null;
+                            menuElement[0].style.top = test.top;
+                            menuElement[0].style.left = test.left;
+                            menuElement[0].style.height = test.height;
+                            menuElement[0].style.width = test.width;
 
                             // Act
                             controller.show(targetElement);
 
                             // Assert
-                            let menuBoundingBox = menuElement.find('mf-menu-content')[0].getBoundingClientRect();
+                            let menuContentBoundingBox = menuElement.find('mf-menu-content')[0].getBoundingClientRect();
 
-                            expect(menuBoundingBox.top).toBe(test.top, 'top');
-                            expect(menuBoundingBox.left).toBe(test.left, 'left');
+                            expect(menuContentBoundingBox.top).toBe(test.expectedTop, 'top');
+                            expect(menuContentBoundingBox.left).toBe(test.expectedLeft, 'left');
                         });
                     });
                 });

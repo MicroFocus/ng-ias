@@ -29,11 +29,12 @@ export class MenuComponent implements IToggleable {
     name: string;
     open: boolean;
 
-    static $inject = [ '$document', '$element', '$window', 'MfToggleService' ];
+    static $inject = [ '$document', '$element', '$window', 'MfToggleService', 'MENU_MARGIN' ];
     constructor(private $document: IDocumentService,
                 private $element: IAugmentedJQuery,
                 private $window: IWindowService,
-                private toggleService: ToggleService) {
+                private toggleService: ToggleService,
+                private MENU_MARGIN: number) {
         this.open = false;
         $element.detach();
         element($document.find('body')).append($element);
@@ -106,9 +107,9 @@ export class MenuComponent implements IToggleable {
             top: number = null;
 
         // If menu content is wider than menu container, constrain width to menu container
-        if (menuContentBoundingBox.width > menuBoundingBox.width) {
-            left = 0;
-            right = 0;
+        if (menuContentBoundingBox.width + (2 * this.MENU_MARGIN) > menuBoundingBox.width) {
+            left = this.MENU_MARGIN;
+            right = this.MENU_MARGIN;
         }
         else {
             switch (this.horizontalAlignment) {
@@ -139,17 +140,23 @@ export class MenuComponent implements IToggleable {
             left -= menuBoundingBox.left;
 
             // Constrain to menu container boundaries
-            left = Math.max(left, 0);
+            left = Math.max(left, this.MENU_MARGIN);
             if (left + menuContentBoundingBox.width > menuBoundingBox.width) {
                 left = null;
-                right = 0;
+                right = this.MENU_MARGIN;
             }
         }
 
+        menuContentElement.style.left = this.numberToPixels(left);
+        menuContentElement.style.right = this.numberToPixels(right);
+
+        // Recalculate bounding box to account for any shrinking caused by constraining the left and right offsets
+        menuContentBoundingBox = menuContentElement.getBoundingClientRect();
+
         // If menu content is taller than menu container, constrain height to menu container
-        if (menuContentBoundingBox.height > menuBoundingBox.height) {
-            top = 0;
-            bottom = 0;
+        if (menuContentBoundingBox.height + (2 * this.MENU_MARGIN) > menuBoundingBox.height) {
+            top = this.MENU_MARGIN;
+            bottom = this.MENU_MARGIN;
         }
         else {
             switch (this.verticalAlignment) {
@@ -169,17 +176,15 @@ export class MenuComponent implements IToggleable {
             top -= menuBoundingBox.top;
 
             // Constrain to menu container boundaries
-            top = Math.max(top, 0);
+            top = Math.max(top, this.MENU_MARGIN);
             if (top + menuContentBoundingBox.height > menuBoundingBox.height) {
                 top = null;
-                bottom = 0;
+                bottom = this.MENU_MARGIN;
             }
         }
 
-        menuContentElement.style.left = this.numberToPixels(left);
         menuContentElement.style.top = this.numberToPixels(top);
         menuContentElement.style.bottom = this.numberToPixels(bottom);
-        menuContentElement.style.right = this.numberToPixels(right);
     }
 }
 

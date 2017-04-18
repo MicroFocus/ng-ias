@@ -22,6 +22,7 @@ import { ToggleDirective } from './components/toggle/toggle.directive';
 import ToggleService from './components/toggle/toggle.service';
 
 module('ng-mfux', [])
+    .constant('MENU_MARGIN', 24)
     .component('mfAppBar', AppBarComponent)
     .component('mfAvatar', AvatarComponent)
     .directive('mfButton', ButtonDirective)

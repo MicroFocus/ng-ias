@@ -28,8 +28,9 @@
 .mf-row {
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-flow: row;
-      flex-flow: row;
+  -ms-flex-flow: row wrap;
+      flex-flow: row wrap;
+  overflow: hidden;
 }
 
 .mf-row.mf-border-bottom {
@@ -50,6 +51,10 @@
 .mf-row > .mf-column {
   -ms-flex: 1 1;
       flex: 1 1;
+}
+
+.mf-column {
+  overflow: hidden;
 }
 
 .mf-column.mf-border-bottom {
@@ -706,7 +711,8 @@ mf-menu-content {
   color: #f6f9f8;
   display: block;
   font-size: 14px;
-  overflow: auto;
+  overflow: hidden;
+  overflow-y: auto;
   padding: 10px;
   position: absolute;
   z-index: 1;
