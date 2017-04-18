@@ -458,7 +458,7 @@
 /***/ function(module, exports) {
 
 	var path = 'components/input/icon.input.component.html';
-	var html = "<span class=\"mf-icon-input-container\">\r\n    <input type=\"text\" placeholder=\"{{placeholder}}\">\r\n    <mf-icon icon=\"{{icon}}\"></mf-icon>\r\n</span>";
+	var html = "<span class=\"mf-icon-input-container\">\n    <input type=\"text\" placeholder=\"{{placeholder}}\">\n    <mf-icon icon=\"{{icon}}\"></mf-icon>\n</span>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
