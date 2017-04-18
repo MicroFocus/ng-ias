@@ -55,7 +55,9 @@ $title-text-transform: uppercase;
 $large-display: 769px;
 
 // SPACING
-$body-spacing-small: 15px;
+$body-spacing-xsmall: 5px;
+$body-spacing-small: 10px;
+$body-spacing-medium: 15px;
 $body-spacing-large: 25px;
 $content-padding: 25px;
 $spacing: 10px;
@@ -74,12 +76,17 @@ $app-bar-action-color: rgba(67,76,80,.3);
 $app-bar-bg-fallback: $color-primary-2;
 $app-bar-bg: linear-gradient(to right, $color-primary-4, $color-primary-2);
 $app-bar-bg-rtl: linear-gradient(to left, $color-primary-4, $color-primary-2);
+$app-bar-button-padding: 5px;
+$app-bar-button-spacing: $spacing;
 $app-bar-font-size: $font-size-small;
 $app-bar-height-small: 45px;
 $app-bar-height-large: 100px;
 $app-bar-icon-size: 20px;
-$app-bar-button-padding: 5px;
+$app-bar-padding: $body-spacing-medium;
+$app-bar-padding-large: $body-spacing-large;
 $app-bar-text-color: $color-gray-1;
+$app-bar-text-spacing: $body-spacing-large;
+$app-bar-text-button-spacing: $spacing;
 
 $avatar-size-small: 25px;
 $avatar-size-medium: 50px;
