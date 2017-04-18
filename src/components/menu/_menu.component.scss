@@ -35,6 +35,7 @@ mf-menu-content {
   display: block;
   font-size: $menu-content-font-size;
   overflow: hidden;
+  overflow-y: auto;
   padding: $spacing;
   position: absolute;
   z-index: 1;

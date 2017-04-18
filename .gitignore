@@ -38,6 +38,7 @@ jspm_packages
 
 dist/docs
 dist/**/*.gz
+dist/test-results.xml
 
 # WebStorm
 .idea
