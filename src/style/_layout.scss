@@ -45,7 +45,8 @@
   @include mf-border();
 
   display: flex;
-  flex-flow: row;
+  flex-flow: row wrap;
+  overflow: hidden;
 
   > * {
     flex: none;
@@ -58,6 +59,8 @@
 
 .mf-column {
   @include mf-border();
+
+  overflow: hidden;
 }
 
 .mf-fill {

@@ -54,23 +54,27 @@
 	var dialog_service_1 = __webpack_require__(10);
 	var header_component_1 = __webpack_require__(11);
 	var icon_component_1 = __webpack_require__(12);
-	var input_component_1 = __webpack_require__(14);
-	var int_input_component_1 = __webpack_require__(16);
-	var list_component_1 = __webpack_require__(18);
-	var menu_component_1 = __webpack_require__(20);
-	var nav_component_1 = __webpack_require__(22);
-	var search_box_component_1 = __webpack_require__(24);
-	var side_nav_component_1 = __webpack_require__(26);
-	var tile_component_1 = __webpack_require__(28);
-	var tile_grid_component_1 = __webpack_require__(30);
-	var sort_directive_1 = __webpack_require__(31);
-	var toggle_directive_1 = __webpack_require__(32);
-	var toggle_service_1 = __webpack_require__(33);
+	var icon_input_component_1 = __webpack_require__(14);
+	var input_component_1 = __webpack_require__(16);
+	var int_input_component_1 = __webpack_require__(18);
+	var list_component_1 = __webpack_require__(20);
+	var menu_component_1 = __webpack_require__(22);
+	var nav_component_1 = __webpack_require__(24);
+	var resizing_textarea_component_1 = __webpack_require__(26);
+	var search_box_component_1 = __webpack_require__(28);
+	var side_nav_component_1 = __webpack_require__(30);
+	var tile_component_1 = __webpack_require__(32);
+	var tile_grid_component_1 = __webpack_require__(34);
+	var sort_directive_1 = __webpack_require__(35);
+	var toggle_directive_1 = __webpack_require__(36);
+	var toggle_service_1 = __webpack_require__(37);
 	angular_1.module('ng-mfux', [])
+	    .constant('MENU_MARGIN', 24)
 	    .component('mfAppBar', app_bar_component_1.default)
 	    .component('mfAvatar', avatar_component_1.default)
 	    .directive('mfButton', button_component_1.default)
 	    .directive('mfIntInput', int_input_component_1.default)
+	    .directive('mfIconInput', icon_input_component_1.default)
 	    .component('mfDialog', dialog_component_1.default)
 	    .component('mfHeader', header_component_1.default)
 	    .component('mfIcon', icon_component_1.default)
@@ -82,6 +86,7 @@
 	    .component('mfFooterMenu', menu_component_1.MenuFooterComponent)
 	    .component('mfHeaderMenu', menu_component_1.MenuHeaderComponent)
 	    .component('mfNav', nav_component_1.default)
+	    .directive('mfResizingTextarea', resizing_textarea_component_1.default)
 	    .component('mfSearchBox', search_box_component_1.default)
 	    .component('mfSideNav', side_nav_component_1.default)
 	    .component('mfTile', tile_component_1.default)
@@ -416,6 +421,52 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
+	Object.defineProperty(exports, "__esModule", { value: true });
+	var templateUrl = __webpack_require__(15);
+	var IconInputController = (function () {
+	    function IconInputController($scope) {
+	        this.$scope = $scope;
+	    }
+	    return IconInputController;
+	}());
+	IconInputController.$inject = ['$scope'];
+	exports.IconInputController = IconInputController;
+	function IconInputDirective() {
+	    return {
+	        controller: IconInputController,
+	        restrict: 'E',
+	        templateUrl: templateUrl,
+	        transclude: true,
+	        replace: true,
+	        scope: {
+	            model: '=ngModel',
+	            min: '=',
+	            max: '='
+	        },
+	        link: function (scope, element, attributes, controller) {
+	            scope.icon = element.attr('icon');
+	            scope.placeholder = element.attr('placeholder');
+	        }
+	    };
+	}
+	exports.default = IconInputDirective;
+	IconInputController.$inject = ['$compile'];
+
+
+/***/ },
+/* 15 */
+/***/ function(module, exports) {
+
+	var path = 'components/input/icon.input.component.html';
+	var html = "<span class=\"mf-icon-input-container\">\r\n    <input type=\"text\" placeholder=\"{{placeholder}}\">\r\n    <mf-icon icon=\"{{icon}}\"></mf-icon>\r\n</span>";
+	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
+	module.exports = path;
+
+/***/ },
+/* 16 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -435,7 +486,7 @@
 	InputContainerComponent.$inject = ['$element', '$transclude'];
 	InputContainerComponent = __decorate([
 	    component_decorator_1.Component({
-	        templateUrl: __webpack_require__(15),
+	        templateUrl: __webpack_require__(17),
 	        transclude: true
 	    })
 	], InputContainerComponent);
@@ -443,7 +494,7 @@
 
 
 /***/ },
-/* 15 */
+/* 17 */
 /***/ function(module, exports) {
 
 	var path = 'components/input/input.component.html';
@@ -452,12 +503,12 @@
 	module.exports = path;
 
 /***/ },
-/* 16 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	Object.defineProperty(exports, "__esModule", { value: true });
-	var templateUrl = __webpack_require__(17);
+	var templateUrl = __webpack_require__(19);
 	var IntInputController = (function () {
 	    function IntInputController($scope) {
 	        this.$scope = $scope;
@@ -516,7 +567,7 @@
 
 
 /***/ },
-/* 17 */
+/* 19 */
 /***/ function(module, exports) {
 
 	var path = 'components/input/int.input.component.html';
@@ -525,7 +576,7 @@
 	module.exports = path;
 
 /***/ },
-/* 18 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -548,7 +599,7 @@
 	ListComponent.$inject = ['$element', '$transclude'];
 	ListComponent = __decorate([
 	    component_decorator_1.Component({
-	        templateUrl: __webpack_require__(19),
+	        templateUrl: __webpack_require__(21),
 	        transclude: true
 	    })
 	], ListComponent);
@@ -586,7 +637,7 @@
 
 
 /***/ },
-/* 19 */
+/* 21 */
 /***/ function(module, exports) {
 
 	var path = 'components/list/list.component.html';
@@ -595,7 +646,7 @@
 	module.exports = path;
 
 /***/ },
-/* 20 */
+/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -608,58 +659,146 @@
 	Object.defineProperty(exports, "__esModule", { value: true });
 	var component_decorator_1 = __webpack_require__(3);
 	var angular_1 = __webpack_require__(1);
-	var MenuAlignment;
-	(function (MenuAlignment) {
-	    MenuAlignment[MenuAlignment["start"] = 0] = "start";
-	    MenuAlignment[MenuAlignment["center"] = 1] = "center";
-	    MenuAlignment[MenuAlignment["end"] = 2] = "end";
-	})(MenuAlignment = exports.MenuAlignment || (exports.MenuAlignment = {}));
+	var HorizontalAlignment;
+	(function (HorizontalAlignment) {
+	    HorizontalAlignment[HorizontalAlignment["start"] = 0] = "start";
+	    HorizontalAlignment[HorizontalAlignment["center"] = 1] = "center";
+	    HorizontalAlignment[HorizontalAlignment["end"] = 2] = "end";
+	})(HorizontalAlignment = exports.HorizontalAlignment || (exports.HorizontalAlignment = {}));
+	var VerticalAlignment;
+	(function (VerticalAlignment) {
+	    VerticalAlignment[VerticalAlignment["top"] = 0] = "top";
+	    VerticalAlignment[VerticalAlignment["center"] = 1] = "center";
+	    VerticalAlignment[VerticalAlignment["bottom"] = 2] = "bottom";
+	})(VerticalAlignment = exports.VerticalAlignment || (exports.VerticalAlignment = {}));
 	var MenuComponent = (function () {
-	    function MenuComponent($document, $element, toggleService) {
+	    function MenuComponent($document, $element, $window, toggleService, MENU_MARGIN) {
 	        this.$document = $document;
 	        this.$element = $element;
+	        this.$window = $window;
 	        this.toggleService = toggleService;
+	        this.MENU_MARGIN = MENU_MARGIN;
 	        this.open = false;
 	        $element.detach();
 	        angular_1.element($document.find('body')).append($element);
 	        $element.on('click', this.hide.bind(this));
-	        this.horizontalAlignment = MenuAlignment.start;
-	        this.verticalAlignment = MenuAlignment.start;
-	        if (this.align) {
-	            var tokens = this.align.split(' ');
-	            var horizontalAlignment = MenuAlignment[tokens[0]];
-	            var verticalAlignment = MenuAlignment[tokens[1]];
-	            this.horizontalAlignment = horizontalAlignment || MenuAlignment.start;
-	            this.verticalAlignment = verticalAlignment || MenuAlignment.start;
-	        }
+	        this.horizontalAlignment = HorizontalAlignment.start;
+	        this.verticalAlignment = VerticalAlignment.top;
 	    }
 	    MenuComponent.prototype.$onDestroy = function () {
 	        this.$element.off('click');
 	    };
 	    MenuComponent.prototype.$onInit = function () {
+	        if (this.align) {
+	            var tokens = this.align.split(' ');
+	            var horizontalAlignment = HorizontalAlignment[tokens[0]];
+	            var verticalAlignment = VerticalAlignment[tokens[1]];
+	            this.horizontalAlignment = horizontalAlignment || HorizontalAlignment.start;
+	            this.verticalAlignment = verticalAlignment || VerticalAlignment.top;
+	        }
 	        this.toggleService.register(this);
 	    };
 	    MenuComponent.prototype.hide = function () {
 	        this.open = false;
 	        this.$element.removeClass('mf-open');
 	    };
-	    MenuComponent.prototype.show = function (el) {
+	    MenuComponent.prototype.show = function (targetElement) {
 	        this.open = true;
-	        var boundingClientRect = el[0].getBoundingClientRect();
-	        this.$element.find('mf-menu-content')[0].style.left = boundingClientRect.left + 'px';
-	        this.$element.find('mf-menu-content')[0].style.top = boundingClientRect.bottom + 'px';
 	        this.$element.addClass('mf-open');
+	        this.showMenuContent(targetElement[0]);
+	    };
+	    MenuComponent.prototype.getLayoutDirection = function () {
+	        return window.getComputedStyle(this.$element[0], null).getPropertyValue('direction');
+	    };
+	    MenuComponent.prototype.numberToPixels = function (num) {
+	        return (num === null) ? null : num + 'px';
+	    };
+	    MenuComponent.prototype.showMenuContent = function (targetElement) {
+	        var menuContentElement = this.$element.find('mf-menu-content')[0];
+	        var isLtrLayout = this.getLayoutDirection() !== 'rtl';
+	        menuContentElement.style.bottom =
+	            menuContentElement.style.left =
+	                menuContentElement.style.right =
+	                    menuContentElement.style.top = null;
+	        var menuBoundingBox = this.$element[0].getBoundingClientRect();
+	        var menuContentBoundingBox = menuContentElement.getBoundingClientRect();
+	        var targetElementBoundingBox = targetElement.getBoundingClientRect();
+	        var bottom = null, left = null, right = null, top = null;
+	        if (menuContentBoundingBox.width + (2 * this.MENU_MARGIN) > menuBoundingBox.width) {
+	            left = this.MENU_MARGIN;
+	            right = this.MENU_MARGIN;
+	        }
+	        else {
+	            switch (this.horizontalAlignment) {
+	                case HorizontalAlignment.start:
+	                    if (isLtrLayout) {
+	                        left = targetElementBoundingBox.left;
+	                    }
+	                    else {
+	                        left = targetElementBoundingBox.right - menuContentBoundingBox.width;
+	                    }
+	                    break;
+	                case HorizontalAlignment.center:
+	                    left = targetElementBoundingBox.left +
+	                        ((targetElementBoundingBox.width - menuContentBoundingBox.width) / 2);
+	                    break;
+	                case HorizontalAlignment.end:
+	                    if (isLtrLayout) {
+	                        left = targetElementBoundingBox.left +
+	                            (targetElementBoundingBox.width - menuContentBoundingBox.width);
+	                    }
+	                    else {
+	                        left = targetElementBoundingBox.left;
+	                    }
+	                    break;
+	            }
+	            left -= menuBoundingBox.left;
+	            left = Math.max(left, this.MENU_MARGIN);
+	            if (left + menuContentBoundingBox.width > menuBoundingBox.width) {
+	                left = null;
+	                right = this.MENU_MARGIN;
+	            }
+	        }
+	        menuContentElement.style.left = this.numberToPixels(left);
+	        menuContentElement.style.right = this.numberToPixels(right);
+	        menuContentBoundingBox = menuContentElement.getBoundingClientRect();
+	        if (menuContentBoundingBox.height + (2 * this.MENU_MARGIN) > menuBoundingBox.height) {
+	            top = this.MENU_MARGIN;
+	            bottom = this.MENU_MARGIN;
+	        }
+	        else {
+	            switch (this.verticalAlignment) {
+	                case VerticalAlignment.top:
+	                    top = targetElementBoundingBox.bottom;
+	                    break;
+	                case VerticalAlignment.center:
+	                    top = targetElementBoundingBox.top +
+	                        ((targetElementBoundingBox.height - menuContentBoundingBox.height) / 2);
+	                    break;
+	                case VerticalAlignment.bottom:
+	                    top = (targetElementBoundingBox.top - menuContentBoundingBox.height);
+	                    break;
+	            }
+	            top -= menuBoundingBox.top;
+	            top = Math.max(top, this.MENU_MARGIN);
+	            if (top + menuContentBoundingBox.height > menuBoundingBox.height) {
+	                top = null;
+	                bottom = this.MENU_MARGIN;
+	            }
+	        }
+	        menuContentElement.style.top = this.numberToPixels(top);
+	        menuContentElement.style.bottom = this.numberToPixels(bottom);
 	    };
 	    return MenuComponent;
 	}());
-	MenuComponent.$inject = ['$document', '$element', 'MfToggleService'];
+	MenuComponent.$inject = ['$document', '$element', '$window', 'MfToggleService', 'MENU_MARGIN'];
 	MenuComponent = __decorate([
 	    component_decorator_1.Component({
 	        bindings: {
-	            align: '@',
+	            align: '@mfAlign',
 	            name: '@'
 	        },
-	        templateUrl: __webpack_require__(21),
+	        templateUrl: __webpack_require__(23),
 	        transclude: true
 	    })
 	], MenuComponent);
@@ -697,7 +836,7 @@
 
 
 /***/ },
-/* 21 */
+/* 23 */
 /***/ function(module, exports) {
 
 	var path = 'components/menu/menu.component.html';
@@ -706,7 +845,7 @@
 	module.exports = path;
 
 /***/ },
-/* 22 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -725,7 +864,7 @@
 	}());
 	NavComponent = __decorate([
 	    component_decorator_1.Component({
-	        templateUrl: __webpack_require__(23),
+	        templateUrl: __webpack_require__(25),
 	        transclude: true
 	    })
 	], NavComponent);
@@ -733,7 +872,7 @@
 
 
 /***/ },
-/* 23 */
+/* 25 */
 /***/ function(module, exports) {
 
 	var path = 'components/nav/nav.component.html';
@@ -742,7 +881,79 @@
 	module.exports = path;
 
 /***/ },
-/* 24 */
+/* 26 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	Object.defineProperty(exports, "__esModule", { value: true });
+	var templateUrl = __webpack_require__(27);
+	var ResizingTextareaController = (function () {
+	    function ResizingTextareaController($scope) {
+	        this.$scope = $scope;
+	    }
+	    return ResizingTextareaController;
+	}());
+	ResizingTextareaController.$inject = ['$scope'];
+	exports.ResizingTextareaController = ResizingTextareaController;
+	function ResizingTextareaDirective() {
+	    return {
+	        controller: ResizingTextareaController,
+	        restrict: 'E',
+	        templateUrl: templateUrl,
+	        transclude: true,
+	        replace: true,
+	        scope: {
+	            model: '=ngModel'
+	        },
+	        link: function (scope, element, attributes, controller) {
+	            if (!controller) {
+	                return;
+	            }
+	            if (element.attr('min-rows')) {
+	                var minRows = element.attr('min-rows');
+	                if (minRows.indexOf(' ') > -1) {
+	                    element.attr('min-rows', minRows.slice(0, minRows.indexOf(' ')));
+	                }
+	            }
+	            var tmpVal = element.val();
+	            element.val('');
+	            var baseScrollHeight = element[0].scrollHeight;
+	            element.val(tmpVal);
+	            element.css('overflow-y', 'hidden');
+	            element.css('font-size', '15px');
+	            var resize = function () {
+	                var minRows = 0;
+	                if (element.attr('min-rows')) {
+	                    minRows = Number(element.attr('min-rows'));
+	                }
+	                element.attr('rows', minRows);
+	                var rows = Math.ceil((element[0].scrollHeight - baseScrollHeight) / 18) + minRows;
+	                element.attr('rows', rows);
+	            };
+	            scope.$watch('model', function (newValue, oldValue) {
+	                resize();
+	            });
+	            element.bind('input', function (event) {
+	                resize();
+	            });
+	        }
+	    };
+	}
+	exports.default = ResizingTextareaDirective;
+	ResizingTextareaController.$inject = ['$compile'];
+
+
+/***/ },
+/* 27 */
+/***/ function(module, exports) {
+
+	var path = 'components/input/resizing.textarea.component.html';
+	var html = "<textarea ng-transclude class=\"mfResizingTextArea\" rows=\"3\" min-rows=\"3\"></textarea>";
+	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
+	module.exports = path;
+
+/***/ },
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -792,14 +1003,14 @@
 	        require: {
 	            ngModel: '^ngModel'
 	        },
-	        templateUrl: __webpack_require__(25)
+	        templateUrl: __webpack_require__(29)
 	    })
 	], SearchBoxComponent);
 	exports.default = SearchBoxComponent;
 
 
 /***/ },
-/* 25 */
+/* 29 */
 /***/ function(module, exports) {
 
 	var path = 'components/search-box/search-box.component.html';
@@ -808,7 +1019,7 @@
 	module.exports = path;
 
 /***/ },
-/* 26 */
+/* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -846,7 +1057,7 @@
 	        bindings: {
 	            name: '@'
 	        },
-	        templateUrl: __webpack_require__(27),
+	        templateUrl: __webpack_require__(31),
 	        transclude: true
 	    })
 	], SideNavComponent);
@@ -854,7 +1065,7 @@
 
 
 /***/ },
-/* 27 */
+/* 31 */
 /***/ function(module, exports) {
 
 	var path = 'components/side-nav/side-nav.component.html';
@@ -863,7 +1074,7 @@
 	module.exports = path;
 
 /***/ },
-/* 28 */
+/* 32 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -884,7 +1095,7 @@
 	TileComponent.$inject = ['$element'];
 	TileComponent = __decorate([
 	    component_decorator_1.Component({
-	        templateUrl: __webpack_require__(29),
+	        templateUrl: __webpack_require__(33),
 	        transclude: true
 	    })
 	], TileComponent);
@@ -892,7 +1103,7 @@
 
 
 /***/ },
-/* 29 */
+/* 33 */
 /***/ function(module, exports) {
 
 	var path = 'components/tile/tile.component.html';
@@ -901,7 +1112,7 @@
 	module.exports = path;
 
 /***/ },
-/* 30 */
+/* 34 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -931,7 +1142,7 @@
 
 
 /***/ },
-/* 31 */
+/* 35 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -992,7 +1203,7 @@
 
 
 /***/ },
-/* 32 */
+/* 36 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -1010,7 +1221,7 @@
 
 
 /***/ },
-/* 33 */
+/* 37 */
 /***/ function(module, exports) {
 
 	"use strict";

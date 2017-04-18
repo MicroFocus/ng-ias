@@ -35,11 +35,12 @@ mf-menu-content {
   display: block;
   font-size: $menu-content-font-size;
   overflow: hidden;
+  overflow-y: auto;
   padding: $spacing;
   position: absolute;
   z-index: 1;
 
-  mf-button,
+  .mf-button,
   mf-list-item {
     &:not([disabled]):not(.mf-disabled) {
       &:focus,
@@ -50,7 +51,7 @@ mf-menu-content {
     }
   }
 
-  mf-button {
+  .mf-button {
     background-color: transparent;
     border: none;
     box-sizing: border-box;
