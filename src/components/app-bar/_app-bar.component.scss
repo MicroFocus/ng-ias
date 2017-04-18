@@ -52,9 +52,12 @@ mf-app-bar {
         }
       }
 
-      &:hover {
-        background-color: $app-bar-action-color;
-        color: inherit;
+      &:not([disabled]) {
+        &:focus,
+        &:hover {
+          background-color: $app-bar-action-color;
+          color: inherit;
+        }
       }
 
       &:not(.mf-icon-button) {
@@ -68,6 +71,8 @@ mf-app-bar {
 
 [dir="rtl"] {
   mf-app-bar {
+    background: $app-bar-bg-rtl;
+    
     > .mf-app-bar-content {
       padding-left: $body-spacing-small;
       padding-right: 0;
