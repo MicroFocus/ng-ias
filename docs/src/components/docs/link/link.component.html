@@ -1,11 +1,56 @@
 <h2>Links</h2>
 
 <div class="demo-section">
-    <a href="#" repeat-as-code="">Link 1</a>
+    <h3>Default Usage</h3>
+
+    <div repeat-as-code="inner">
+        <a href="#">New York</a>
+        <a href="#">Chicago</a>
+    </div>
 </div>
 
 <div class="demo-section">
-    <h4>.mf-disabled</h4>
+    <h3>Usage (Block)</h3>
 
-    <a class="mf-disabled" tabindex="-1" repeat-as-code="">Disabled Link</a>
+    <div repeat-as-code="inner">
+        <div><a href="#">New York</a></div>
+        <div><a href="#">Chicago</a></div>
+    </div>
 </div>
+
+<div class="demo-section">
+    <h3>In text</h3>
+
+    <div repeat-as-code="inner">
+        <p>This is a <a href="#">link</a> in the middle of a paragraph</p>
+        <span>This is a <a href="#">link</a> in the middle of a span</span>
+    </div>
+</div>
+
+<div class="demo-section">
+    <h3>.mf-link-margin</h3>
+
+    <p repeat-as-code>Short blurb…<a href="#" class="mf-link-margin">More</a></p>
+</div>
+
+<div class="demo-section">
+    <h3>.mf-link-no-highlight</h3>
+
+    <a href="#" class="mf-link-no-highlight" repeat-as-code>De-emphasized</a>
+</div>
+
+<!--
+<div class="demo-section">
+    <h3>Supported Uses</h3>
+    <mf-tile class="mf-medium" title="Search" repeat-as-code>
+        <mf-avatar src="'images/appmark_search.png'"></mf-avatar>
+        <div class="mf-tile-body">
+            <h3>Search</h3>
+            <p><a href="#!/component/tile">On a tile</a></p>
+        </div>
+    </mf-tile>
+    <mf-nav repeat-as-code>
+        <a href="#!/component/nav">Nav Link 1</a>
+        <a href="#!/component/nav" class="mf-active">Nav Link 2</a>
+    </mf-nav>
+</div>-->

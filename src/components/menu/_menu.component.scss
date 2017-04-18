@@ -39,7 +39,7 @@ mf-menu-content {
   position: absolute;
   z-index: 1;
 
-  mf-button,
+  .mf-button,
   mf-list-item {
     &:not([disabled]):not(.mf-disabled) {
       &:focus,
@@ -50,7 +50,7 @@ mf-menu-content {
     }
   }
 
-  mf-button {
+  .mf-button {
     background-color: transparent;
     border: none;
     box-sizing: border-box;

@@ -2,11 +2,14 @@
 $border-radius: 3px;
 
 // COLORS
+$color-black-1: #000;
+$color-black-2: #1f1f1f;
+
 $color-gray-1: #f6f9f8;
 $color-gray-2: #eef2f2;
 $color-gray-3: #dae1e1;
 $color-gray-4: #808080;
-$color-gray-5: #626e72;
+$color-gray-5: #6a6f71;
 $color-gray-6: #59656a;
 $color-gray-7: #434c50;
 $color-gray-8: #2c2c2c;
@@ -19,6 +22,8 @@ $color-primary-5: #01a9e7;
 
 $color-accent-1: #ffd92d;
 $color-accent-2: #fff6ce;
+$color-accent-3: #f17e12;
+$color-accent-4: #dc233f;
 
 // TYPOGRAPHY
 $font-family: 'Helvetica Neue Thin', 'Helvetica Neue', Helvetica, Arial, san-serif;
@@ -73,6 +78,7 @@ $avatar-size-large: 100px;
 $body-bg-color: $color-gray-8;
 
 $border-color: $color-gray-5;
+$error-border-color: #CC0000;
 
 $button-bg-color: $color-gray-7;
 $button-bg-color-disabled: $button-bg-color;
@@ -100,27 +106,24 @@ $dialog-scrim-color: rgba(0, 0, 0, .50);
 $icon-button-border-width: 1px;
 $icon-button-size: 24px;
 
-$icon-size-small: 24px;
-$icon-size-medium: 32px;
-$icon-size-large: 40px;
+$icon-size-small: 25px;
+$icon-size-medium: 50px;
+$icon-size-large: 75px;
 
 $input-bg-color: $color-gray-7;
 $input-border: 1px solid $color-gray-5;
 $input-inline-label-padding: 5px;
 $input-label-font-size: 12px;
-$input-label-margin: 10px 0 5px;
+$input-label-margin: 0.5em 0 5px;
 $input-label-text-color: $color-gray-2;
 $input-padding: 8px;
 
-$link-text-color: $color-primary-3;
-$link-bg-color-disabled: transparent;
-$link-bg-color-focus: $color-accent-2;
 $link-bg-color-hover: $color-gray-7;
-$link-border-color-focus: $color-accent-1;
-$link-padding: .15em;
-$link-text-color-disabled: $text-color-disabled;
-$link-text-color-focus: $color-gray-2;
+$link-padding: 0.15em;
+$link-spacing: 0.5em;
+$link-text-color: $color-primary-3;
 $link-text-color-hover: $color-primary-4;
+$link-text-color-no-highlight: $color-gray-4;
 
 $list-item-bg-color-hover: $color-gray-7;
 $list-item-height: 26px;

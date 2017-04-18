@@ -54,21 +54,26 @@
 	var dialog_service_1 = __webpack_require__(10);
 	var header_component_1 = __webpack_require__(11);
 	var icon_component_1 = __webpack_require__(12);
-	var input_component_1 = __webpack_require__(14);
-	var list_component_1 = __webpack_require__(16);
-	var menu_component_1 = __webpack_require__(18);
-	var nav_component_1 = __webpack_require__(20);
-	var search_box_component_1 = __webpack_require__(22);
-	var side_nav_component_1 = __webpack_require__(24);
-	var tile_component_1 = __webpack_require__(26);
-	var tile_grid_component_1 = __webpack_require__(28);
-	var sort_directive_1 = __webpack_require__(29);
-	var toggle_directive_1 = __webpack_require__(30);
-	var toggle_service_1 = __webpack_require__(31);
+	var icon_input_component_1 = __webpack_require__(14);
+	var input_component_1 = __webpack_require__(16);
+	var int_input_component_1 = __webpack_require__(18);
+	var list_component_1 = __webpack_require__(20);
+	var menu_component_1 = __webpack_require__(22);
+	var nav_component_1 = __webpack_require__(24);
+	var resizing_textarea_component_1 = __webpack_require__(26);
+	var search_box_component_1 = __webpack_require__(28);
+	var side_nav_component_1 = __webpack_require__(30);
+	var tile_component_1 = __webpack_require__(32);
+	var tile_grid_component_1 = __webpack_require__(34);
+	var sort_directive_1 = __webpack_require__(35);
+	var toggle_directive_1 = __webpack_require__(36);
+	var toggle_service_1 = __webpack_require__(37);
 	angular_1.module('ng-mfux', [])
 	    .component('mfAppBar', app_bar_component_1.default)
 	    .component('mfAvatar', avatar_component_1.default)
-	    .component('mfButton', button_component_1.default)
+	    .directive('mfButton', button_component_1.default)
+	    .directive('mfIntInput', int_input_component_1.default)
+	    .directive('mfIconInput', icon_input_component_1.default)
 	    .component('mfDialog', dialog_component_1.default)
 	    .component('mfHeader', header_component_1.default)
 	    .component('mfIcon', icon_component_1.default)
@@ -80,6 +85,7 @@
 	    .component('mfFooterMenu', menu_component_1.MenuFooterComponent)
 	    .component('mfHeaderMenu', menu_component_1.MenuHeaderComponent)
 	    .component('mfNav', nav_component_1.default)
+	    .directive('mfResizingTextarea', resizing_textarea_component_1.default)
 	    .component('mfSearchBox', search_box_component_1.default)
 	    .component('mfSideNav', side_nav_component_1.default)
 	    .component('mfTile', tile_component_1.default)
@@ -189,32 +195,29 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-	    return c > 3 && r && Object.defineProperty(target, key, r), r;
-	};
 	Object.defineProperty(exports, "__esModule", { value: true });
-	var component_decorator_1 = __webpack_require__(3);
-	var ButtonComponent = (function () {
-	    function ButtonComponent($element) {
-	        this.$element = $element;
+	var templateUrl = __webpack_require__(8);
+	var ButtonController = (function () {
+	    function ButtonController($scope) {
+	        this.$scope = $scope;
 	    }
-	    ButtonComponent.prototype.$doCheck = function () {
-	        var disabled = this.$element.prop('disabled') === true;
-	        this.$element.attr('tabindex', disabled ? -1 : 0);
-	    };
-	    return ButtonComponent;
+	    return ButtonController;
 	}());
-	ButtonComponent.$inject = ['$element'];
-	ButtonComponent = __decorate([
-	    component_decorator_1.Component({
-	        templateUrl: __webpack_require__(8),
-	        transclude: true
-	    })
-	], ButtonComponent);
-	exports.default = ButtonComponent;
+	ButtonController.$inject = ['$scope'];
+	exports.ButtonController = ButtonController;
+	function ButtonDirective() {
+	    return {
+	        controller: ButtonController,
+	        restrict: 'E',
+	        templateUrl: templateUrl,
+	        transclude: true,
+	        replace: true,
+	        link: function (scope, element, attributes, controller) {
+	        }
+	    };
+	}
+	exports.default = ButtonDirective;
+	ButtonDirective.$inject = ['$compile'];
 
 
 /***/ },
@@ -222,7 +225,7 @@
 /***/ function(module, exports) {
 
 	var path = 'components/button/button.component.html';
-	var html = "<div class=\"mf-button-content\" ng-transclude></div>";
+	var html = "<button class=\"mf-button\" ng-transclude>\n</button>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
@@ -389,14 +392,13 @@
 	var IconComponent = (function () {
 	    function IconComponent() {
 	    }
-	    IconComponent.prototype.$onChanges = function () {
-	    };
 	    return IconComponent;
 	}());
 	IconComponent = __decorate([
 	    component_decorator_1.Component({
 	        bindings: {
-	            icon: '@'
+	            icon: '@',
+	            svgIcon: '@'
 	        },
 	        templateUrl: __webpack_require__(13)
 	    })
@@ -409,12 +411,58 @@
 /***/ function(module, exports) {
 
 	var path = 'components/icon/icon.component.html';
-	var html = "<i ng-class=\"['mf-icon', 'mf-icon-' + $ctrl.icon]\"></i>";
+	var html = "<i ng-if=\"$ctrl.icon\" ng-class=\"['mf-icon', 'mf-icon-' + $ctrl.icon]\"></i>\n<img ng-if=\"!$ctrl.icon\" class=\"svg-icon\" ng-src=\"{{$ctrl.svgIcon}}\" ng-attr-alt=\"{{$ctrl.svgIcon}}\"/>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
 /***/ },
 /* 14 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	Object.defineProperty(exports, "__esModule", { value: true });
+	var templateUrl = __webpack_require__(15);
+	var IconInputController = (function () {
+	    function IconInputController($scope) {
+	        this.$scope = $scope;
+	    }
+	    return IconInputController;
+	}());
+	IconInputController.$inject = ['$scope'];
+	exports.IconInputController = IconInputController;
+	function IconInputDirective() {
+	    return {
+	        controller: IconInputController,
+	        restrict: 'E',
+	        templateUrl: templateUrl,
+	        transclude: true,
+	        replace: true,
+	        scope: {
+	            model: '=ngModel',
+	            min: '=',
+	            max: '='
+	        },
+	        link: function (scope, element, attributes, controller) {
+	            scope.icon = element.attr('icon');
+	            scope.placeholder = element.attr('placeholder');
+	        }
+	    };
+	}
+	exports.default = IconInputDirective;
+	IconInputController.$inject = ['$compile'];
+
+
+/***/ },
+/* 15 */
+/***/ function(module, exports) {
+
+	var path = 'components/input/icon.input.component.html';
+	var html = "<span class=\"mf-icon-input-container\">\n    <input type=\"text\" placeholder=\"{{placeholder}}\">\n    <mf-icon icon=\"{{icon}}\"></mf-icon>\n</span>";
+	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
+	module.exports = path;
+
+/***/ },
+/* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -437,7 +485,7 @@
 	InputContainerComponent.$inject = ['$element', '$transclude'];
 	InputContainerComponent = __decorate([
 	    component_decorator_1.Component({
-	        templateUrl: __webpack_require__(15),
+	        templateUrl: __webpack_require__(17),
 	        transclude: true
 	    })
 	], InputContainerComponent);
@@ -445,7 +493,7 @@
 
 
 /***/ },
-/* 15 */
+/* 17 */
 /***/ function(module, exports) {
 
 	var path = 'components/input/input.component.html';
@@ -454,7 +502,80 @@
 	module.exports = path;
 
 /***/ },
-/* 16 */
+/* 18 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	Object.defineProperty(exports, "__esModule", { value: true });
+	var templateUrl = __webpack_require__(19);
+	var IntInputController = (function () {
+	    function IntInputController($scope) {
+	        this.$scope = $scope;
+	    }
+	    return IntInputController;
+	}());
+	IntInputController.$inject = ['$scope'];
+	exports.IntInputController = IntInputController;
+	function IntInputDirective() {
+	    return {
+	        controller: IntInputController,
+	        restrict: 'E',
+	        templateUrl: templateUrl,
+	        transclude: true,
+	        replace: true,
+	        scope: {
+	            model: '=ngModel',
+	            min: '=',
+	            max: '='
+	        },
+	        link: function (scope, element, attributes, controller) {
+	            if (!controller) {
+	                return;
+	            }
+	            var isValid = function (val) {
+	                if ('undefined' === typeof val || val === '') {
+	                    element.removeClass('inputError');
+	                    return;
+	                }
+	                if (isNaN(Number(val))) {
+	                    element.addClass('inputError');
+	                }
+	                else {
+	                    if (scope.max && val > scope.max) {
+	                        element.addClass('inputError');
+	                        return;
+	                    }
+	                    else if (scope.min && val < scope.min) {
+	                        element.addClass('inputError');
+	                        return;
+	                    }
+	                    element.removeClass('inputError');
+	                }
+	            };
+	            scope.$watch('model', function (newValue, oldValue) {
+	                isValid(newValue);
+	            });
+	            element.bind('input', function (event) {
+	                isValid(element.val());
+	            });
+	        }
+	    };
+	}
+	exports.default = IntInputDirective;
+	IntInputController.$inject = ['$compile'];
+
+
+/***/ },
+/* 19 */
+/***/ function(module, exports) {
+
+	var path = 'components/input/int.input.component.html';
+	var html = "<input type=\"text\" class=\"mfIntInput\" ng-transclude>\n</input>";
+	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
+	module.exports = path;
+
+/***/ },
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -477,7 +598,7 @@
 	ListComponent.$inject = ['$element', '$transclude'];
 	ListComponent = __decorate([
 	    component_decorator_1.Component({
-	        templateUrl: __webpack_require__(17),
+	        templateUrl: __webpack_require__(21),
 	        transclude: true
 	    })
 	], ListComponent);
@@ -515,7 +636,7 @@
 
 
 /***/ },
-/* 17 */
+/* 21 */
 /***/ function(module, exports) {
 
 	var path = 'components/list/list.component.html';
@@ -524,7 +645,7 @@
 	module.exports = path;
 
 /***/ },
-/* 18 */
+/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -674,7 +795,7 @@
 	            align: '@mfAlign',
 	            name: '@'
 	        },
-	        templateUrl: __webpack_require__(19),
+	        templateUrl: __webpack_require__(23),
 	        transclude: true
 	    })
 	], MenuComponent);
@@ -712,7 +833,7 @@
 
 
 /***/ },
-/* 19 */
+/* 23 */
 /***/ function(module, exports) {
 
 	var path = 'components/menu/menu.component.html';
@@ -721,7 +842,7 @@
 	module.exports = path;
 
 /***/ },
-/* 20 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -740,7 +861,7 @@
 	}());
 	NavComponent = __decorate([
 	    component_decorator_1.Component({
-	        templateUrl: __webpack_require__(21),
+	        templateUrl: __webpack_require__(25),
 	        transclude: true
 	    })
 	], NavComponent);
@@ -748,7 +869,7 @@
 
 
 /***/ },
-/* 21 */
+/* 25 */
 /***/ function(module, exports) {
 
 	var path = 'components/nav/nav.component.html';
@@ -757,7 +878,79 @@
 	module.exports = path;
 
 /***/ },
-/* 22 */
+/* 26 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	Object.defineProperty(exports, "__esModule", { value: true });
+	var templateUrl = __webpack_require__(27);
+	var ResizingTextareaController = (function () {
+	    function ResizingTextareaController($scope) {
+	        this.$scope = $scope;
+	    }
+	    return ResizingTextareaController;
+	}());
+	ResizingTextareaController.$inject = ['$scope'];
+	exports.ResizingTextareaController = ResizingTextareaController;
+	function ResizingTextareaDirective() {
+	    return {
+	        controller: ResizingTextareaController,
+	        restrict: 'E',
+	        templateUrl: templateUrl,
+	        transclude: true,
+	        replace: true,
+	        scope: {
+	            model: '=ngModel'
+	        },
+	        link: function (scope, element, attributes, controller) {
+	            if (!controller) {
+	                return;
+	            }
+	            if (element.attr('min-rows')) {
+	                var minRows = element.attr('min-rows');
+	                if (minRows.indexOf(' ') > -1) {
+	                    element.attr('min-rows', minRows.slice(0, minRows.indexOf(' ')));
+	                }
+	            }
+	            var tmpVal = element.val();
+	            element.val('');
+	            var baseScrollHeight = element[0].scrollHeight;
+	            element.val(tmpVal);
+	            element.css('overflow-y', 'hidden');
+	            element.css('font-size', '15px');
+	            var resize = function () {
+	                var minRows = 0;
+	                if (element.attr('min-rows')) {
+	                    minRows = Number(element.attr('min-rows'));
+	                }
+	                element.attr('rows', minRows);
+	                var rows = Math.ceil((element[0].scrollHeight - baseScrollHeight) / 18) + minRows;
+	                element.attr('rows', rows);
+	            };
+	            scope.$watch('model', function (newValue, oldValue) {
+	                resize();
+	            });
+	            element.bind('input', function (event) {
+	                resize();
+	            });
+	        }
+	    };
+	}
+	exports.default = ResizingTextareaDirective;
+	ResizingTextareaController.$inject = ['$compile'];
+
+
+/***/ },
+/* 27 */
+/***/ function(module, exports) {
+
+	var path = 'components/input/resizing.textarea.component.html';
+	var html = "<textarea ng-transclude class=\"mfResizingTextArea\" rows=\"3\" min-rows=\"3\"></textarea>";
+	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
+	module.exports = path;
+
+/***/ },
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -807,23 +1000,23 @@
 	        require: {
 	            ngModel: '^ngModel'
 	        },
-	        templateUrl: __webpack_require__(23)
+	        templateUrl: __webpack_require__(29)
 	    })
 	], SearchBoxComponent);
 	exports.default = SearchBoxComponent;
 
 
 /***/ },
-/* 23 */
+/* 29 */
 /***/ function(module, exports) {
 
 	var path = 'components/search-box/search-box.component.html';
-	var html = "<div class=\"mf-search-box-content\">\r\n    <input type=\"text\"\r\n           autocomplete=\"false\"\r\n           ng-model=\"$ctrl.value\"\r\n           ng-attr-placeholder=\"{{$ctrl.placeholder}}\"\r\n           ng-keydown=\"$ctrl.onInputKeyDown($event)\" />\r\n    <mf-icon icon=\"search_thick\"></mf-icon>\r\n    <mf-button class=\"mf-icon-button\" ng-click=\"$ctrl.clearInput()\">\r\n        <mf-icon icon=\"close_thick\"></mf-icon>\r\n    </mf-button>\r\n</div>";
+	var html = "<div class=\"mf-search-box-content\">\n    <input type=\"text\"\n           autocomplete=\"false\"\n           ng-model=\"$ctrl.value\"\n           ng-attr-placeholder=\"{{$ctrl.placeholder}}\"\n           ng-keydown=\"$ctrl.onInputKeyDown($event)\" />\n    <mf-icon icon=\"search_thick\"></mf-icon>\n    <mf-button class=\"mf-icon-button\" ng-click=\"$ctrl.clearInput()\">\n        <mf-icon icon=\"close_thick\"></mf-icon>\n    </mf-button>\n</div>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
 /***/ },
-/* 24 */
+/* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -861,7 +1054,7 @@
 	        bindings: {
 	            name: '@'
 	        },
-	        templateUrl: __webpack_require__(25),
+	        templateUrl: __webpack_require__(31),
 	        transclude: true
 	    })
 	], SideNavComponent);
@@ -869,16 +1062,16 @@
 
 
 /***/ },
-/* 25 */
+/* 31 */
 /***/ function(module, exports) {
 
 	var path = 'components/side-nav/side-nav.component.html';
-	var html = "<div class=\"mf-scrim\" ng-click=\"$ctrl.hide()\"></div>\r\n<div class=\"mf-side-nav-content\" ng-transclude></div>";
+	var html = "<div class=\"mf-scrim\" ng-click=\"$ctrl.hide()\"></div>\n<div class=\"mf-side-nav-content\" ng-transclude></div>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
 /***/ },
-/* 26 */
+/* 32 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -899,7 +1092,7 @@
 	TileComponent.$inject = ['$element'];
 	TileComponent = __decorate([
 	    component_decorator_1.Component({
-	        templateUrl: __webpack_require__(27),
+	        templateUrl: __webpack_require__(33),
 	        transclude: true
 	    })
 	], TileComponent);
@@ -907,7 +1100,7 @@
 
 
 /***/ },
-/* 27 */
+/* 33 */
 /***/ function(module, exports) {
 
 	var path = 'components/tile/tile.component.html';
@@ -916,7 +1109,7 @@
 	module.exports = path;
 
 /***/ },
-/* 28 */
+/* 34 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -946,7 +1139,7 @@
 
 
 /***/ },
-/* 29 */
+/* 35 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -1007,7 +1200,7 @@
 
 
 /***/ },
-/* 30 */
+/* 36 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -1025,7 +1218,7 @@
 
 
 /***/ },
-/* 31 */
+/* 37 */
 /***/ function(module, exports) {
 
 	"use strict";

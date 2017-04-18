@@ -23,7 +23,7 @@ mf-app-bar {
       margin-left: $body-spacing-small;
     }
 
-    mf-button {
+    .mf-button {
       background-color: transparent;
       border: none;
       color: inherit;
@@ -36,7 +36,7 @@ mf-app-bar {
       }
     }
 
-    mf-button {
+    .mf-button {
       &:not(:last-of-type) {
         margin-right: $spacing;
       }

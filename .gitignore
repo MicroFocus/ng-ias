@@ -42,3 +42,8 @@ dist/test-results.xml
 
 # WebStorm
 .idea
+
+#.DS_Store files that Macs add
+**/.DS_Store
+/.project
+/.settings

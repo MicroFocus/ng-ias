@@ -1,15 +1,13 @@
-input,
-select,
-textarea {
+mf-input-container input,
+mf-input-container select,
+mf-input-container textarea {
   background-color: $input-bg-color;
   border: $input-border;
   border-radius: $border-radius;
   color: inherit;
   padding: $input-padding;
 
-  &:not([type="checkbox"]){
-    min-width: 169px;
-  }
+  font-size: 15px;
 
   &::-ms-clear {
     display: none;
@@ -24,7 +22,43 @@ textarea {
   }
 }
 
-label {
+mf-input-container > span.mf-icon-input-container {
+  position: relative;
+  border: $input-border;
+  display: inline-block;
+}
+
+mf-input-container > span.mf-icon-input-container input {
+  border: none;
+  padding-left: 28px;
+}
+
+mf-input-container > span.mf-icon-input-container mf-icon {
+  position: absolute;
+  left: 0px;
+  top: 6px;
+  pointer-events: none;
+}
+
+mf-input-container input[type="text"],
+mf-input-container input[type="password"],
+mf-input-container textarea {
+  min-width: 250px;
+}
+
+mf-input-container input.inputError,
+mf-input-container textarea.inputError,
+mf-input-container input.inputError:focus,
+mf-input-container textarea.inputError:focus {
+  border-color: $error-border-color;
+}
+
+mf-input-container input.mfIntInput {
+    min-width: 50px;
+    width: 50px;
+}
+
+mf-input-container label {
   @include disable-text-selection;
 
   color: $input-label-text-color;
@@ -45,9 +79,31 @@ mf-input-container {
       margin-right: $spacing;
     }
 
-    > label {
+    label {
       display: inline-block;
-      margin: auto;
+      margin-right: $spacing;
     }
   }
+}
+
+[dir="rtl"] {
+    mf-input-container {
+      &.mf-inline {
+        label {
+          margin-right: auto;
+          margin-left: $spacing;
+        }
+      }
+    }
+    
+    mf-input-container > span.mf-icon-input-container mf-icon {
+      left: auto;
+      right: 0px;
+    }
+    
+    mf-input-container > span.mf-icon-input-container input {
+      border: none;
+      padding-left: none;
+      padding-right: 28px;
+    }
 }
