@@ -47,3 +47,4 @@ dist/test-results.xml
 **/.DS_Store
 /.project
 /.settings
+/target/
