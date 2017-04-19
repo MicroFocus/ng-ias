@@ -9,6 +9,8 @@ export default class FormValidationComponent {
     private emailError: String;
     private username: String;
     private password: String;
+    private repeat: String;
+    private repeatError: String;
 
     private days: Array<Object> = [];
     private months: Array<Object> = [];
@@ -20,8 +22,12 @@ export default class FormValidationComponent {
     private bYear: Object;
 
     private regForm: Object;
+    private timeout: ng.ITimeoutService;
+    private scope: ng.IScope;
 
-    constructor() {
+    constructor(private $timeout: ng.ITimeoutService, private $scope: ng.IScope) {
+        this.timeout = $timeout;
+        this.scope = $scope;
         this.populateDates();
     }
 
@@ -41,19 +47,26 @@ export default class FormValidationComponent {
     }
 
     validateUsername(): void {
+        let obj = this;
         let form = this.regForm;
         let username = this.username;
-        this.regForm['username'].$setValidity('inProgress', true);
+        this.regForm['username'].$setValidity('valid', false);
+        this.regForm['username'].inProgress = true;
+        delete this.regForm['username'].usernameError;
+        let scope = this.scope;
 
-        setTimeout(function() {
-            form['username'].$setValidity('inProgress', false);
+        this.timeout(function() {
+            delete form['username'].inProgress;
             if (username &&
-                username !== 'bob') {
+                username.toLowerCase().charAt(0) !== 'b') {
                 form['username'].$setValidity('valid', true);
             } else {
                 form['username'].$setValidity('valid', false);
+                form['username'].usernameError = 'The username \'' + username + '\' is already taken.';
             }
-        }, 5000);
+
+            scope.$applyAsync();
+        }, 3000);
     }
 
     validateDate(): void {
@@ -69,10 +82,22 @@ export default class FormValidationComponent {
     }
 
     validatePassword(): void {
-        if (this.password.match(/\d+/g) !== null) {
+        if (this.password && this.password.match(/\d+/g) !== null &&
+            this.password.length > 5 && this.password.match('.*[A-Z].*') !== null &&
+            this.password.match('.*[a-z].*') !== null) {
             this.regForm['password'].$setValidity('valid', true);
         } else {
             this.regForm['password'].$setValidity('valid', false);
+        }
+    }
+
+    validateRepeat(): void {
+        delete this.repeatError;
+        if (this.password && this.password === this.repeat) {
+            this.regForm['repeat'].$setValidity('valid', true);
+            this.repeatError = 'Your passwords do not match.';
+        } else {
+            this.regForm['repeat'].$setValidity('valid', false);
         }
     }
 

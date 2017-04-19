@@ -1,8 +1,7 @@
 <h2>Form Validation</h2>
 
 <form name="$ctrl.regForm">
-    
-    <div class="form-group" ng-class="{ 'has-error': userForm.name.$touched && userForm.name.$invalid }">
+    <div class="demo-section">
         <mf-input-container>
             <label for="name">Name (minimum 3 characters)<span class="required">*</span></label>
             <input id="name" name="name" type="text" ng-model="$ctrl.name" ng-minlength="3" required
@@ -17,15 +16,31 @@
         </mf-input-container>
         
         <mf-input-container>
-            <label for="username">Username (minimum 3 characters)<span class="required">*</span></label>
-            <input id="username" name="username" type="text" ng-model="$ctrl.username" ng-minlength="3" required
+            <label for="username">
+                Username (minimum 3 characters)<span class="required">*</span>
+                <img ng-if="$ctrl.regForm.username.inProgress" class="wait-icon" src="images/waiting_25.gif" alt="">
+            </label>
+            <input id="username" name="username" type="text" ng-model="$ctrl.username" required
                    ng-change="$ctrl.validateUsername();">
+            <label class="invalid-message" ng-if="$ctrl.regForm.username.usernameError">{{$ctrl.regForm.username.usernameError}}</label>
         </mf-input-container>
         
         <mf-input-container>
             <label for="password">Password<span class="required">*</span></label>
             <input id="password" name="password" type="password" ng-change="$ctrl.validatePassword();" ng-model="$ctrl.password" required>
-            <label class="weak">Passwords require a number</label>
+            <label class="weak">
+                <ul>
+                    <li>Passwords require a number</li>
+                    <li>Passwords must have an upper and lowercase letter</li>
+                    <li>Passwords must be at least six characters</li>
+                </ul>
+            </label>
+        </mf-input-container>
+        
+        <mf-input-container>
+            <label for="repeat">Repeat password<span class="required">*</span></label>
+            <input id="repeat" name="repeat" type="password" ng-change="$ctrl.validateRepeat();" ng-model="$ctrl.repeat" required>
+            <label class="invalid-message" ng-if="$ctrl.regForm.repeat.$invalid && $ctrl.regForm.repeat.$touched">{{$ctrl.repeatError}}</label>
         </mf-input-container>
         
         <mf-input-container>
@@ -45,9 +60,7 @@
         </mf-input-container>
     </div>
         
-    <div class="form-group">
-      <mf-button ng-click="$ctrl.simpleButton()" ng-disabled="$ctrl.regForm.name.$invalid || $ctrl.regForm.email.$invalid || $ctrl.regForm.username.$invalid || $ctrl.regForm.password.$invalid || $ctrl.regForm.birthday.$invalid">Submit</mf-button>
+    <div class="demo-section">
+      <mf-button ng-click="$ctrl.simpleButton()" ng-disabled="$ctrl.regForm.name.$invalid || $ctrl.regForm.email.$invalid || $ctrl.regForm.username.$invalid || $ctrl.regForm.password.$invalid || $ctrl.regForm.birthday.$invalid || $ctrl.regForm.repeat.$invalid">Submit</mf-button>
     </div>
-    
-    
-  </form>
+</form>

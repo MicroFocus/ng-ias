@@ -134,4 +134,12 @@ mf-input-container label.invalid-message {
 
 mf-input-container label.weak {
     color: $color-gray-4;
+    padding-bottom: 5px;
+}
+
+mf-input-container img.wait-icon {
+    display: inline-block;
+    padding-left: 3px;
+    position: relative;
+    max-height:16px;
 }
