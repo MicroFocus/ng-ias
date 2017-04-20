@@ -8,15 +8,6 @@
 </div>
 
 <div class="demo-section">
-    <h4>.mf-disabled</h4>
-
-    <mf-nav repeat-as-code="">
-        <a href="#">Link 1</a>
-        <a class="mf-disabled">Link 2</a>
-    </mf-nav>
-</div>
-
-<div class="demo-section">
     <h4>.mf-active</h4>
 
     <mf-nav repeat-as-code="">
@@ -34,20 +25,32 @@
             <mf-icon icon="search_thick"></mf-icon>
         </mf-button>
         <a href="#" class="mf-active">
-            <mf-icon icon="configure_thick"></mf-icon>
+            <mf-icon icon="home_thick"></mf-icon>
         </a>
         <a href="#">Link 1</a>
-        <a disabled="disabled">Link 2</a>
 
         <span class="mf-fill"></span>
 
         <mf-button class="mf-menu-toggle" mf-toggle="menu1">
             Menu<mf-icon icon="down_thick"></mf-icon>
         </mf-button>
-        <mf-menu name="menu1">
+        <mf-menu name="menu1" class="mf-menu-flat-top">
             <mf-button>Button 1</mf-button>
             <mf-button>Button 2</mf-button>
         </mf-menu>
+    </mf-nav>
+</div>
+
+<div class="demo-section">
+    <h4>Disabled</h4>
+
+    <mf-nav repeat-as-code="">
+        <mf-button class="mf-icon-button" disabled="disabled">
+            <mf-icon icon="search_thick"></mf-icon>
+        </mf-button>
+        <a href="#">Link 1</a>
+        <a class="mf-disabled">Link 2</a>
+        <a disabled="disabled">Link 3</a>
     </mf-nav>
 </div>
 
@@ -58,5 +61,19 @@
         <span>Text</span>
         <span class="mf-fill"></span>
         <span><a href="#">Hyperlink</a></span>
+    </mf-nav>
+</div>
+
+<div class="demo-section">
+    <h4>Header (non-navigation)</h4>
+    <mf-nav repeat-as-code>
+        <mf-button class="mf-icon-button">
+            <mf-icon icon="hamburger_menu_thick"></mf-icon>
+        </mf-button>
+        <span>Sign in to use available applications. This text wraps if necessary.</span>
+        <span class="mf-fill"></span>
+        <mf-button class="mf-icon-button">
+            <mf-icon icon="search_thick"></mf-icon>
+        </mf-button>
     </mf-nav>
 </div>
