@@ -1,5 +1,17 @@
 <h2>Form Validation</h2>
 
+<h4>Complex form</h4>
+
+<uib-accordion>
+    <div uib-accordion-group class="panel-default" heading="Static Header, initially expanded" is-open="true">
+        This content is straight in the template.
+    </div>
+    <div uib-accordion-group heading="Second header">
+        This content is straight in the template. - 2
+    </div>
+</uib-accordion>    
+                            
+<h4>Simple form</h4>
 <form name="$ctrl.regForm">
     <div class="demo-section">
         <mf-input-container>
@@ -17,11 +29,12 @@
         
         <mf-input-container>
             <label for="username">
-                Username (minimum 3 characters)<span class="required">*</span>
+                Username<span class="required">*</span>
                 <img ng-if="$ctrl.regForm.username.inProgress" class="wait-icon" src="images/waiting_25.gif" alt="">
             </label>
             <input id="username" name="username" type="text" ng-model="$ctrl.username" required
-                   ng-change="$ctrl.validateUsername();">
+                   ng-change="$ctrl.validateUsername();" ng-disabled="$ctrl.regForm.username.inProgress"
+                   ng-model-options="{ debounce: 250 }">
             <label class="invalid-message" ng-if="$ctrl.regForm.username.usernameError">{{$ctrl.regForm.username.usernameError}}</label>
         </mf-input-container>
         
@@ -44,7 +57,7 @@
         </mf-input-container>
         
         <mf-input-container>
-            <label>Birth date</label>
+            <label>Birth date<span class="required">*</span></label>
             <span id="birth-date">
                 <input type="hidden" name="birthday" ng-model="$ctrl.birthday" required>
                 <select name="month" data-ng-options="month as month.name for month in $ctrl.months"
@@ -64,3 +77,4 @@
       <mf-button ng-click="$ctrl.simpleButton()" ng-disabled="$ctrl.regForm.name.$invalid || $ctrl.regForm.email.$invalid || $ctrl.regForm.username.$invalid || $ctrl.regForm.password.$invalid || $ctrl.regForm.birthday.$invalid || $ctrl.regForm.repeat.$invalid">Submit</mf-button>
     </div>
 </form>
+
