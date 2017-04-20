@@ -30,7 +30,8 @@ import TileGridComponent from './components/docs/tile-grid/tile-grid.component';
 module('app', [
     'ng-mfux',
     'ng-prism',
-    'ui.router'
+    'ui.router',
+    'ui.bootstrap'
 ])
     .config(routes)
     .config([
