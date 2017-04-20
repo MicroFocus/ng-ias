@@ -11,6 +11,7 @@ import AppBarComponent from './components/docs/app-bar/app-bar.component';
 import AvatarComponent from './components/docs/avatar/avatar.component';
 import ButtonComponent from './components/docs/button/button.component';
 import DialogComponent from './components/docs/dialog/dialog.component';
+import FormValidationComponent from './components/docs/form-validation/form-validation.component';
 import HeaderComponent from './components/docs/header/header.component';
 import IconComponent from './components/docs/icon/icon.component';
 import IconButtonComponent from './components/docs/icon-button/icon-button.component';
@@ -30,7 +31,8 @@ import TileGridComponent from './components/docs/tile-grid/tile-grid.component';
 module('app', [
     'ng-mfux',
     'ng-prism',
-    'ui.router'
+    'ui.router',
+    'ui.bootstrap'
 ])
     .config(routes)
     .config([
@@ -49,6 +51,7 @@ module('app', [
     .component('avatarDocumentation', AvatarComponent)
     .component('buttonDocumentation', ButtonComponent)
     .component('dialogDocumentation', DialogComponent)
+    .component('formValidationDocumentation', FormValidationComponent)
     .component('headerDocumentation', HeaderComponent)
     .component('iconDocumentation', IconComponent)
     .component('iconButtonDocumentation', IconButtonComponent)

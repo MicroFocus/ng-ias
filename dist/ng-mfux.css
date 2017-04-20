@@ -574,6 +574,13 @@ mf-input-container textarea.inputError:focus {
   border-color: #CC0000;
 }
 
+input:focus, select:focus, textarea:focus {
+  background-color: #fff;
+  border-color: #01a9e7;
+  color: #434c50;
+  outline: none;
+}
+
 mf-input-container input.mfIntInput {
   min-width: 50px;
   width: 50px;
@@ -623,6 +630,39 @@ mf-input-container.mf-inline label {
   border: none;
   padding-left: none;
   padding-right: 28px;
+}
+
+mf-input-container input.input-required-missing, mf-input-container input.ng-touched.ng-invalid {
+  border: 1px solid #e50000;
+}
+
+mf-input-container label span.required, h4 span.required {
+  color: #e50000;
+  font-size: 18px;
+  padding-left: 1px;
+  padding-right: 5px;
+  position: relative;
+  top: 1px;
+}
+
+mf-input-container label.invalid-message, mf-icon.invalid-message {
+  color: #e50000;
+}
+
+h4 mf-icon.invalid-message {
+  font-size: 15px;
+}
+
+mf-input-container label.weak {
+  color: #808080;
+  padding-bottom: 5px;
+}
+
+mf-input-container img.wait-icon {
+  display: inline-block;
+  padding-left: 3px;
+  position: relative;
+  max-height: 16px;
 }
 
 a {

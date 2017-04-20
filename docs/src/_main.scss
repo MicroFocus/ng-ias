@@ -33,3 +33,11 @@ body > [ui-view] {
     height: 300px;
     position: relative;
 }
+
+/*
+ We want to limit the width of paragraphs and list items so we can
+ improve readability on wide screens.
+*/
+p, li {
+    max-width: 50em;
+}
