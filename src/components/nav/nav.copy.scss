@@ -1,0 +1,121 @@
+.mf-nav {
+  background-color: $nav-bg-color;
+  color: $nav-text-color;
+  display: flex;
+  flex-flow: row nowrap;
+  min-height: $nav-height;
+  overflow: hidden;
+  padding: 0 $nav-content-padding;
+
+  // Fixed size nav items
+  > a,
+  > button,
+  > .mf-button,
+  > .mf-menu {
+    flex: none;
+  }
+
+  // All nav items
+  > a,
+  > button,
+  > .mf-button,
+  > .mf-menu > button,
+  > .mf-menu > .mf-button,
+  > span:not(.mf-fill) {
+    color: inherit;
+    padding: 0 $nav-item-padding;
+  }
+
+  // Hoverable nav items
+  > a,
+  > button,
+  > .mf-button,
+  > .mf-menu > button,
+  > .mf-menu > .mf-button {
+    background-color: transparent;
+    border-color: transparent;
+    border-style: solid;
+    border-radius: 0;
+    border-width: $nav-item-border-vertical-width $nav-item-border-horizontal-width;
+
+    &:not([disabled]):not(.mf-disabled) {
+      &:focus:not(.mf-active),
+      &:hover {
+        background-color: $nav-item-bg-color-hover;
+        border-color: $nav-item-border-color-hover;
+        color: $nav-item-color-hover;
+      }
+    }
+
+    &[disabled],
+    &.mf-disabled {
+      color: $text-color-disabled;
+    }
+  }
+
+  // Active-capable nav items
+  > a {
+    height: $nav-item-height;
+    line-height: $nav-item-height;
+    margin: 0;
+
+    > .mf-icon,
+    > .svg-icon {
+      font-size: $nav-icon-size;
+      /* Icons are a bit too low with vertical-align: middle, so use margin-bottom to compensate */
+      margin-bottom: $nav-icon-margin;
+      vertical-align: middle;
+    }
+
+    &:not([disabled]):not(.mf-disabled) {
+      &.mf-active {
+        border-bottom-color: $nav-item-border-bottom-color-active;
+        border-left-color: $nav-item-border-side-color-active;
+        border-right-color: $nav-item-border-side-color-active;
+        color: $nav-item-color-active;
+        font-weight: $font-weight-medium;
+      }
+    }
+  }
+
+  // Non-hoverable, non-active-capable nav items
+  > span:not(.mf-fill) {
+    margin: $nav-text-vertical-margin 0;
+    max-width: $nav-text-max-width;
+
+    > a {
+      padding: $link-padding;
+
+      &:hover {
+        background-color: $nav-link-color-hover;
+      }
+    }
+  }
+
+  // Hoverable, non-active-capable nav items
+  > button,
+  > .mf-button {
+    box-sizing: content-box;
+  }
+
+  > .mf-icon-button,
+  > .mf-menu > .mf-icon-button {
+    > .mf-icon,
+    > .svg-icon {
+      font-size: $nav-icon-size;
+    }
+  }
+
+  > .mf-menu {
+    > .mf-menu-content {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+  }
+}
+
+@media (min-width: $large-display) {
+  .mf-nav {
+    padding: 0 $nav-content-padding-large;
+  }
+}
