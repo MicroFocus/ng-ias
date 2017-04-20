@@ -4,68 +4,93 @@ mf-nav {
   display: block;
   height: $nav-height;
 
-  a {
-    margin: 0;
-  }
-
   > .mf-nav-content {
     display: flex;
     flex-flow: row nowrap;
     height: 100%;
-    padding: 0 $body-spacing-medium;
+    overflow: hidden;
+    padding: 0 $nav-content-padding;
+
+    > a,
+    > .mf-button,
+    > mf-menu {
+      flex: none;
+    }
 
     > a,
     > .mf-button {
       background-color: transparent;
-      border: $nav-item-border-width solid transparent;
-      border-bottom-width: $nav-item-border-width-active;
+      border-color: transparent;
+      border-style: solid;
       border-radius: 0;
-      color: $nav-text-color;
+      border-width: $nav-item-border-v-width $nav-item-border-h-width;
+      color: inherit;
       height: $nav-item-height;
-      line-height: $nav-height;
-      padding: 0 $spacing;
-      text-align: center;
+      line-height: $nav-item-height;
 
-      &[disabled],
-      &.mf-disabled {
-        background-color: $nav-item-bg-color-disabled;
-        border-color: $nav-item-border-color-disabled;
-        color: $text-color-disabled;
-
+      &:not([disabled]):not(.mf-disabled) {
+        &:focus,
         &:hover {
-          background-color: $nav-item-bg-color-disabled;
-          border-color: $nav-item-border-color-disabled;
-          color: $text-color-disabled;
+          background-color: $nav-item-bg-color-hover;
+          border-color: $nav-item-border-color-hover;
+          color: $nav-item-color-hover;
         }
       }
 
-      &.mf-active {
-        border-bottom-color: $nav-item-border-bottom-color-active;
-        border-left-color: $nav-item-border-color-active;
-        border-right-color: $nav-item-border-color-active;
-        color: $nav-item-color-active;
-      }
-
-      &:hover {
-        background-color: $nav-item-bg-color-hover;
-        border-color: $nav-item-border-color-hover;
-        color: $nav-item-color-hover;
-      }
-
-      &:focus {
-        background-color: $nav-item-bg-color-focus;
-        border-color: $nav-item-border-color-focus;
-        color: $nav-item-border-color-focus;
+      &[disabled],
+      &.mf-disabled {
+        color: $text-color-disabled;
       }
     }
 
-    > .mf-icon-button {
-      font-size: $nav-icon-size;
-      padding: 0 $nav-icon-padding;
+    > a {
+      margin: 0;
 
-      mf-icon {
-        height: $nav-item-height;
-        line-height: $nav-item-height;
+      > mf-icon {
+        font-size: $nav-icon-size;
+        margin-bottom: $nav-icon-margin;
+        vertical-align: middle;
+      }
+
+      &:not([disabled]):not(.mf-disabled) {
+        &.mf-active {
+          border-bottom-color: $nav-item-border-bottom-color-active;
+          border-left-color: $nav-item-border-color-active;
+          border-right-color: $nav-item-border-color-active;
+          color: $nav-item-color-active;
+          font-weight: $font-weight-medium;
+        }
+      }
+    }
+
+    > .mf-button {
+      box-sizing: content-box;
+
+      &.mf-icon-button {
+        > mf-icon {
+          font-size: $nav-icon-size;
+        }
+      }
+    }
+
+    /* Everything */
+    > a,
+    > .mf-button,
+    > span:not(.mf-fill) {
+      padding: 0 $nav-item-padding;
+    }
+
+    /* Text */
+    > span {
+      @include single-line;
+      line-height: $nav-height;
+
+      > a {
+        padding: $link-padding;
+
+        &:hover {
+          background-color: $nav-link-color-hover;
+        }
       }
     }
   }
@@ -74,7 +99,7 @@ mf-nav {
 @media (min-width: $large-display) {
   mf-nav {
     > .mf-nav-content {
-      padding: 0 $body-spacing-large;
+      padding: 0 $nav-content-padding-large;
     }
   }
 }
