@@ -128,8 +128,12 @@ mf-input-container label span.required {
     top: 1px;
 }
 
-mf-input-container label.invalid-message {
+mf-input-container label.invalid-message, mf-icon.invalid-message {
     color: $color-accent-4;
+}
+
+h4 mf-icon.invalid-message {
+    font-size: $font-size-base;
 }
 
 mf-input-container label.weak {

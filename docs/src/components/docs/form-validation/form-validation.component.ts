@@ -26,10 +26,50 @@ export default class FormValidationComponent {
     private timeout: ng.ITimeoutService;
     private scope: ng.IScope;
 
+    private objForm: Object;
+    private objName: String;
+    private objCont: String;
+    private objType: Object;
+    private objTypes: Array<Object> = [];
+
+    private readPerm: Object;
+    private writePerm: Object;
+    private perms: Array<Object> = [];
+
     constructor(private $timeout: ng.ITimeoutService, private $scope: ng.IScope, private MfDialogService: any) {
         this.timeout = $timeout;
         this.scope = $scope;
         this.populateDates();
+
+        this.objTypes.push({
+            name: 'Role',
+            id: 'role'
+        });
+
+        this.objTypes.push({
+            name: 'Resource',
+            id: 'resource'
+        });
+
+        this.objTypes.push({
+            name: 'Entitlement',
+            id: 'entitlement'
+        });
+
+        this.objType = this.objTypes[0];
+
+        this.perms.push({
+            name: 'Nobody',
+            id: 'none'
+        });
+
+        this.perms.push({
+            name: 'Everyone',
+            id: 'all'
+        });
+
+        this.readPerm = this.perms[0];
+        this.writePerm = this.perms[0];
     }
 
     submitForm(): void {
