@@ -2,12 +2,11 @@ mf-nav {
   background-color: $nav-bg-color;
   color: $nav-text-color;
   display: block;
-  min-height: $nav-height;
 
   > .mf-nav-content {
     display: flex;
     flex-flow: row nowrap;
-    height: 100%;
+    min-height: $nav-height;
     overflow: hidden;
     padding: 0 $nav-content-padding;
 
@@ -37,9 +36,9 @@ mf-nav {
 
       &[disabled],
       &.mf-disabled {
-        color: $text-color-disabled;
         background-color: transparent;
         border-color: transparent;
+        color: $text-color-disabled;
       }
 
       &:not([disabled]):not(.mf-disabled) {
