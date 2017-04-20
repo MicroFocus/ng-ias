@@ -1,56 +1,5 @@
 <h2>Form Validation</h2>
 
-<h4>Complex form</h4>
-
-<p>
-    Complex forms require additional interaction to see all of the input controls.
-</p>
-
-<form name="$ctrl.objForm">
-    <div class="demo-section">
-        <mf-input-container>
-            <label for="objName">Object name (minimum 3 characters)<span class="required">*</span></label>
-            <input id="objName" name="objName" type="text" ng-model="$ctrl.objName" ng-minlength="3"
-                   required novalidate>
-        </mf-input-container>
-        <uib-accordion close-others="true" is-open="true">
-            <div uib-accordion-group class="panel-default" heading="General ">
-              <uib-accordion-heading>
-                  General <mf-icon class="invalid-message" ng-if="$ctrl.objForm.objName.$invalid && $ctrl.objForm.objName.$touched" icon="message_error_thick"></mf-icon>
-              </uib-accordion-heading>
-              
-              <mf-input-container>
-                  <label for="objCont">Object container (minimum 5 characters)<span class="required">*</span></label>
-                  <input id="objCont" name="objCont" type="text" ng-model="$ctrl.objCont" ng-minlength="5"
-                         required novalidate>
-              </mf-input-container>
-              
-              <mf-input-container>
-                  <label for="objType">Object type</label>
-                  <select name="objType" data-ng-options="obj as obj.name for obj in $ctrl.objTypes"
-                          data-ng-model="$ctrl.objType">
-                  </select>
-              </mf-input-container>
-            </div>
-            <div uib-accordion-group class="panel-default" heading="Permissions">
-              <mf-input-container>
-                  <label for="readPerm">Who can read this object?</label>
-                  <select name="readPerm" data-ng-options="perm as perm.name for perm in $ctrl.perms"
-                          data-ng-model="$ctrl.readPerm">
-                  </select>
-              </mf-input-container>
-              <mf-input-container>
-                  <label for="writePerm">Who can change this object?</label>
-                  <select name="writePerm" data-ng-options="perm as perm.name for perm in $ctrl.perms"
-                          data-ng-model="$ctrl.writePerm">
-                  </select>
-              </mf-input-container>
-            </div>
-        </uib-accordion>
-    </div>
-</form>
-
-
 <p>
     Form validation helps the user know how to fill out a form and validates their data.  Form validation is based on the following principles:
 </p>
@@ -62,7 +11,7 @@
     <li>Forms should not allow the user to submit until all required information has been entered into the form.  The goal is to prevent the user from taking a bad action instead of showing them an error after they have.</li>
 </ul>
 
-<h4>Simple form</h4>
+<h4>Simple forms</h4>
 
 <p>
     Simple forms show all of the input controls immediately.
@@ -131,5 +80,64 @@
         
     <div class="demo-section">
       <mf-button ng-disabled="$ctrl.regForm.name.$invalid || $ctrl.regForm.email.$invalid || $ctrl.regForm.username.$invalid || $ctrl.regForm.password.$invalid || $ctrl.regForm.birthday.$invalid || $ctrl.regForm.repeat.$invalid" ng-click="$ctrl.submitForm();">Submit</mf-button>
+    </div>
+</form>
+
+<h4>Complex forms</h4>
+
+<p>
+    Complex forms require additional interaction to see all of the input controls.  These forms often require so much input that they use organizing mechanisms.  There are additional principles to consider when designing complex forms:
+</p>
+
+<ul>
+    <li>When a required field is not visible the section containing the field must indicate that there is a required field.</li>
+    <li>When a field in a section has an error there must be an indication that there is an error when the section is closed.</li>
+</ul>
+
+<form name="$ctrl.objForm">
+    <div class="demo-section">
+        <mf-input-container>
+            <label for="objName">Object name (minimum 3 characters)<span class="required">*</span></label>
+            <input id="objName" name="objName" type="text" ng-model="$ctrl.objName" ng-minlength="3"
+                   required novalidate>
+        </mf-input-container>
+        <uib-accordion close-others="true" is-open="true">
+            <div uib-accordion-group class="panel-default" heading="General ">
+              <uib-accordion-heading>
+                  General<span class="required">*</span> <mf-icon class="invalid-message" ng-if="$ctrl.objForm.objCont.$invalid && $ctrl.objForm.objCont.$touched" icon="message_error_thick"></mf-icon>
+              </uib-accordion-heading>
+              
+              <mf-input-container>
+                  <label for="objCont">Object container (minimum 5 characters)<span class="required">*</span></label>
+                  <input id="objCont" name="objCont" type="text" ng-model="$ctrl.objCont" ng-minlength="5"
+                         required novalidate>
+              </mf-input-container>
+              
+              <mf-input-container>
+                  <label for="objType">Object type</label>
+                  <select name="objType" data-ng-options="obj as obj.name for obj in $ctrl.objTypes"
+                          data-ng-model="$ctrl.objType">
+                  </select>
+              </mf-input-container>
+            </div>
+            <div uib-accordion-group class="panel-default" heading="Permissions">
+              <mf-input-container>
+                  <label for="readPerm">Who can view this object?</label>
+                  <select name="readPerm" data-ng-options="perm as perm.name for perm in $ctrl.perms"
+                          data-ng-model="$ctrl.readPerm">
+                  </select>
+              </mf-input-container>
+              <mf-input-container>
+                  <label for="writePerm">Who can change this object?</label>
+                  <select name="writePerm" data-ng-options="perm as perm.name for perm in $ctrl.perms"
+                          data-ng-model="$ctrl.writePerm">
+                  </select>
+              </mf-input-container>
+            </div>
+        </uib-accordion>
+    </div>
+    
+    <div class="demo-section">
+      <mf-button ng-disabled="$ctrl.objForm.objName.$invalid || $ctrl.objForm.objCont.$invalid" ng-click="$ctrl.submitForm();">Submit</mf-button>
     </div>
 </form>

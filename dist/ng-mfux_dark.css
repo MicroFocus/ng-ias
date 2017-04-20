@@ -636,7 +636,7 @@ mf-input-container input.input-required-missing, mf-input-container input.ng-tou
   border: 1px solid #e50000;
 }
 
-mf-input-container label span.required {
+mf-input-container label span.required, h4 span.required {
   color: #e50000;
   font-size: 18px;
   padding-left: 1px;
@@ -645,8 +645,12 @@ mf-input-container label span.required {
   top: 1px;
 }
 
-mf-input-container label.invalid-message {
+mf-input-container label.invalid-message, mf-icon.invalid-message {
   color: #e50000;
+}
+
+h4 mf-icon.invalid-message {
+  font-size: 15px;
 }
 
 mf-input-container label.weak {
