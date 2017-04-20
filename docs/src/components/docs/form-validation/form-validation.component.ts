@@ -4,6 +4,7 @@ import { Component } from '../../../component.decorator';
     templateUrl: require('./form-validation.component.html')
 })
 export default class FormValidationComponent {
+
     private name: String;
     private email: String;
     private emailError: String;
@@ -25,10 +26,18 @@ export default class FormValidationComponent {
     private timeout: ng.ITimeoutService;
     private scope: ng.IScope;
 
-    constructor(private $timeout: ng.ITimeoutService, private $scope: ng.IScope) {
+    constructor(private $timeout: ng.ITimeoutService, private $scope: ng.IScope, private MfDialogService: any) {
         this.timeout = $timeout;
         this.scope = $scope;
         this.populateDates();
+    }
+
+    submitForm(): void {
+        this.MfDialogService
+            .alert({
+                textContent: 'You submitted your form',
+                title: 'All done'
+            });
     }
 
     validateEmail(): void {

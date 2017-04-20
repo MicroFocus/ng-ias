@@ -1,28 +1,33 @@
 <h2>Form Validation</h2>
 
-<h4>Complex form</h4>
+<p>
+    Form validation helps the user know how to fill out a form and validates their data.  Form validation is based on the following principles:
+</p>
 
-<uib-accordion>
-    <div uib-accordion-group class="panel-default" heading="Static Header, initially expanded" is-open="true">
-        This content is straight in the template.
-    </div>
-    <div uib-accordion-group heading="Second header">
-        This content is straight in the template. - 2
-    </div>
-</uib-accordion>    
-                            
+<ul>
+    <li>Input field validation should only happen once the user has interacted with the field.  We do not want to display a form with errors before the user has done anything in the form.</li>
+    <li>All required fields should be clearly visible without having to take an action on the form.</li>
+    <li>Fields should indicate their requirements without any extra interactions wherever possible.  This includes showing the minimum length of values in the field label and including extra information after the field.</li>
+    <li>Forms should not allow the user to submit until all required information has been entered into the form.  The goal is to prevent the user from taking a bad action instead of showing them an error after they have.</li>
+</ul>
+
 <h4>Simple form</h4>
+
+<p>
+    Simple forms show all of the input controls immediately.
+</p>
+
 <form name="$ctrl.regForm">
     <div class="demo-section">
         <mf-input-container>
             <label for="name">Name (minimum 3 characters)<span class="required">*</span></label>
-            <input id="name" name="name" type="text" ng-model="$ctrl.name" ng-minlength="3" required
+            <input id="name" name="name" type="text" ng-model="$ctrl.name" ng-minlength="3" required novalidate
                    autofocus>
         </mf-input-container>
         
         <mf-input-container>
             <label for="email">Email <span class="required">*</span></label>
-            <input id="email" name="email" type="text" ng-model="$ctrl.email" required 
+            <input id="email" name="email" type="text" ng-model="$ctrl.email" required novalidate
                    ng-change="$ctrl.validateEmail();">
             <label class="invalid-message" ng-if="$ctrl.regForm.email.$invalid && $ctrl.regForm.email.$touched">{{$ctrl.emailError}}</label>
         </mf-input-container>
@@ -32,7 +37,7 @@
                 Username<span class="required">*</span>
                 <img ng-if="$ctrl.regForm.username.inProgress" class="wait-icon" src="images/waiting_25.gif" alt="">
             </label>
-            <input id="username" name="username" type="text" ng-model="$ctrl.username" required
+            <input id="username" name="username" type="text" ng-model="$ctrl.username" required novalidate
                    ng-change="$ctrl.validateUsername();" ng-disabled="$ctrl.regForm.username.inProgress"
                    ng-model-options="{ debounce: 250 }">
             <label class="invalid-message" ng-if="$ctrl.regForm.username.usernameError">{{$ctrl.regForm.username.usernameError}}</label>
@@ -40,7 +45,7 @@
         
         <mf-input-container>
             <label for="password">Password<span class="required">*</span></label>
-            <input id="password" name="password" type="password" ng-change="$ctrl.validatePassword();" ng-model="$ctrl.password" required>
+            <input id="password" name="password" type="password" ng-change="$ctrl.validatePassword();" ng-model="$ctrl.password" required novalidate>
             <label class="weak">
                 <ul>
                     <li>Passwords require a number</li>
@@ -52,14 +57,14 @@
         
         <mf-input-container>
             <label for="repeat">Repeat password<span class="required">*</span></label>
-            <input id="repeat" name="repeat" type="password" ng-change="$ctrl.validateRepeat();" ng-model="$ctrl.repeat" required>
+            <input id="repeat" name="repeat" type="password" ng-change="$ctrl.validateRepeat();" ng-model="$ctrl.repeat" required novalidate>
             <label class="invalid-message" ng-if="$ctrl.regForm.repeat.$invalid && $ctrl.regForm.repeat.$touched">{{$ctrl.repeatError}}</label>
         </mf-input-container>
         
         <mf-input-container>
             <label>Birth date<span class="required">*</span></label>
             <span id="birth-date">
-                <input type="hidden" name="birthday" ng-model="$ctrl.birthday" required>
+                <input type="hidden" name="birthday" ng-model="$ctrl.birthday" required novalidate>
                 <select name="month" data-ng-options="month as month.name for month in $ctrl.months"
                         data-ng-model="$ctrl.bMonth" ng-change="$ctrl.validateDate();">
                 </select>
@@ -74,7 +79,23 @@
     </div>
         
     <div class="demo-section">
-      <mf-button ng-click="$ctrl.simpleButton()" ng-disabled="$ctrl.regForm.name.$invalid || $ctrl.regForm.email.$invalid || $ctrl.regForm.username.$invalid || $ctrl.regForm.password.$invalid || $ctrl.regForm.birthday.$invalid || $ctrl.regForm.repeat.$invalid">Submit</mf-button>
+      <mf-button ng-disabled="$ctrl.regForm.name.$invalid || $ctrl.regForm.email.$invalid || $ctrl.regForm.username.$invalid || $ctrl.regForm.password.$invalid || $ctrl.regForm.birthday.$invalid || $ctrl.regForm.repeat.$invalid" ng-click="$ctrl.submitForm();">Submit</mf-button>
     </div>
 </form>
 
+
+
+<h4>Complex form</h4>
+
+<p>
+    Complex forms require additional interaction to see all of the input controls.
+</p>
+
+<uib-accordion close-others="oneAtATime">
+    <div uib-accordion-group class="panel-default" heading="Static Header, initially expanded">
+      This content is straight in the template.
+    </div>
+    <div uib-accordion-group class="panel-default" heading="Static Header, initially expanded - 2">
+      This content is straight in the template - 2.
+    </div>
+</uib-accordion>
