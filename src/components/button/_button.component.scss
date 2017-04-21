@@ -38,10 +38,13 @@
     border-color: transparent;
     padding: 0;
 
-    &:hover {
-      background-color: $button-bg-color-hover;
-      border-color: $button-border-color-hover;
-      color: $button-text-color-hover;
+    &:not([disabled]) {
+      &:focus,
+      &:hover {
+        background-color: $button-bg-color-hover;
+        border-color: $button-border-color-hover;
+        color: $button-text-color-hover;
+      }
     }
 
     mf-icon {
