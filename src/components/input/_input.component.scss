@@ -5,7 +5,6 @@ mf-input-container textarea {
   border: $input-border;
   border-radius: $border-radius;
   color: inherit;
-  padding: $input-padding;
 
   font-size: 15px;
 
@@ -21,6 +20,12 @@ mf-input-container textarea {
     @include disabled-state;
   }
 }
+
+mf-input-container input,
+mf-input-container textarea {
+  padding: $input-padding;
+}
+
 
 mf-input-container > span.mf-icon-input-container {
   position: relative;

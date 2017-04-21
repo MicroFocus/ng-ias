@@ -524,7 +524,6 @@ mf-input-container textarea {
   border: 1px solid #dae1e1;
   border-radius: 3px;
   color: inherit;
-  padding: 8px;
   font-size: 15px;
 }
 
@@ -541,6 +540,11 @@ mf-input-container textarea[disabled] {
   border-color: #dae1e1;
   color: #dae1e1;
   outline: none;
+}
+
+mf-input-container input,
+mf-input-container textarea {
+  padding: 8px;
 }
 
 mf-input-container > span.mf-icon-input-container {
@@ -636,7 +640,7 @@ mf-input-container input.input-required-missing, mf-input-container input.ng-tou
   border: 1px solid #e50000;
 }
 
-mf-input-container label span.required, h4 span.required {
+mf-input-container label span.required, h4.panel-title span.required {
   color: #e50000;
   font-size: 18px;
   padding-left: 1px;
@@ -649,10 +653,6 @@ mf-input-container label.invalid-message, mf-icon.invalid-message {
   color: #e50000;
 }
 
-h4 mf-icon.invalid-message {
-  font-size: 15px;
-}
-
 mf-input-container label.weak {
   color: #808080;
   padding-bottom: 5px;
@@ -663,6 +663,19 @@ mf-input-container img.wait-icon {
   padding-left: 3px;
   position: relative;
   max-height: 16px;
+}
+
+mf-input-container label {
+  font-weight: normal;
+}
+
+h4.panel-title {
+  position: relative;
+}
+
+h4.panel-title mf-icon.invalid-message {
+  position: absolute;
+  top: -4px;
 }
 
 a {
