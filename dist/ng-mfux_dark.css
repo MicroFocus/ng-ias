@@ -215,13 +215,17 @@ mf-app-bar > .mf-app-bar-content > .mf-button.mf-icon-button > mf-icon {
   font-size: 20px;
 }
 
-mf-app-bar > .mf-app-bar-content > .mf-button:hover {
+mf-app-bar > .mf-app-bar-content > .mf-button:not([disabled]):focus, mf-app-bar > .mf-app-bar-content > .mf-button:not([disabled]):hover {
   background-color: rgba(67, 76, 80, 0.3);
   color: inherit;
 }
 
 mf-app-bar > .mf-app-bar-content > .mf-button:not(.mf-icon-button) > mf-icon {
   background-color: transparent;
+}
+
+[dir="rtl"] mf-app-bar {
+  background: linear-gradient(to left, #01a9e7, #007cd0);
 }
 
 [dir="rtl"] mf-app-bar > .mf-app-bar-content {
