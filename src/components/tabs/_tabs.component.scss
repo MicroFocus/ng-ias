@@ -20,7 +20,7 @@ li.mf-tab:first-child {
     margin-left: 10px;
 }
 
-li.mf-tab {
+.nav-tabs > li.mf-tab {
     background-color: $color-gray-7;
     color: #434c50;
     margin-right: 5px;
@@ -29,6 +29,7 @@ li.mf-tab {
     border: 1px solid #dae1e1;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
+    margin-bottom: 0px;
 }
 
 .nav-tabs > li.mf-tab a {
@@ -55,6 +56,7 @@ li.mf-tab:hover {
     border-color: #01a9e7;
     color: #007cd0;
     cursor: pointer;
+    border-bottom: none;
 }
 
 li.mf-tab.active:hover {
