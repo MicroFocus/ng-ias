@@ -11,7 +11,7 @@ mf-app-bar {
     flex-flow: row nowrap;
 
     min-height: $app-bar-height-small;
-    padding-right: $body-spacing-small;
+    padding-right: $app-bar-padding;
     overflow: hidden;
 
     > .mf-logo {
@@ -23,16 +23,16 @@ mf-app-bar {
       /* Add height and line-height for align-items bug in IE11 */
       height: $app-bar-height-small;
       line-height: $app-bar-height-small;
-      margin-left: $body-spacing-small;
+      margin-left: $app-bar-padding;
     }
 
     > span:not(.mf-fill) {
       @include single-line;
       flex-shrink: 10;
-      margin-left: $body-spacing-large;
+      margin-left: $app-bar-text-spacing;
 
       &:not(:last-child) {
-        margin-right: $spacing;
+        margin-right: $app-bar-text-button-spacing;
       }
     }
 
@@ -42,7 +42,7 @@ mf-app-bar {
       color: inherit;
       flex-shrink: 0;
       font-size: inherit;
-      margin-left: $spacing;
+      margin-left: $app-bar-button-spacing;
 
       &.mf-icon-button {
         padding: $app-bar-button-padding;
@@ -52,9 +52,12 @@ mf-app-bar {
         }
       }
 
-      &:hover {
-        background-color: $app-bar-action-color;
-        color: inherit;
+      &:not([disabled]) {
+        &:focus,
+        &:hover {
+          background-color: $app-bar-action-color;
+          color: inherit;
+        }
       }
 
       &:not(.mf-icon-button) {
@@ -68,27 +71,29 @@ mf-app-bar {
 
 [dir="rtl"] {
   mf-app-bar {
+    background: $app-bar-bg-rtl;
+
     > .mf-app-bar-content {
-      padding-left: $body-spacing-small;
+      padding-left: $app-bar-padding;
       padding-right: 0;
 
       > .mf-heading {
         margin-left: 0;
-        margin-right: $body-spacing-small;
+        margin-right: $app-bar-padding;
       }
 
       > .mf-button {
         margin-left: 0;
-        margin-right: $spacing;
+        margin-right: $app-bar-button-spacing;
       }
 
       > span:not(.mf-fill) {
         @include single-line;
         margin-left: 0;
-        margin-right: $body-spacing-large;
+        margin-right: $app-bar-text-spacing;
 
         &:not(:last-child) {
-          margin-left: $spacing;
+          margin-left: $app-bar-text-button-spacing;
         }
       }
     }
@@ -98,14 +103,14 @@ mf-app-bar {
 @media (min-width: $large-display) {
   mf-app-bar {
     > .mf-app-bar-content {
-      padding-right: $body-spacing-large;
+      padding-right: $app-bar-padding-large;
 
       > .mf-logo {
         max-height: $app-bar-height-large;
       }
 
       > .mf-heading {
-        margin-left: $body-spacing-large;
+        margin-left: $app-bar-padding-large;
       }
     }
 
@@ -127,12 +132,12 @@ mf-app-bar {
   [dir="rtl"] {
     mf-app-bar {
       > .mf-app-bar-content {
-        padding-left: $body-spacing-large;
+        padding-left: $app-bar-padding-large;
         padding-right: 0;
 
         > .mf-heading {
           margin-left: 0;
-          margin-right: $body-spacing-large;
+          margin-right: $app-bar-padding-large;
         }
       }
     }
