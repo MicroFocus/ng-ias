@@ -10,6 +10,7 @@ import {
 
 interface DialogOptions {
     cancel: string;
+    controller: any;
     ok: string;
     prompt: boolean;
     response: string;
@@ -41,37 +42,40 @@ export default class DialogService {
         return this.open(options);
     }
 
-    open(options: DialogOptions): IPromise<any> {
+    open(options: DialogOptions, dialogHtml: string = null): IPromise<any> {
         let deferred = this.$q.defer();
 
         // Create and compile element
-        let dialogHtml =
-            '<mf-dialog ng-click="onScrimClicked()">' +
-            '   <mf-dialog-content ng-click="$event.stopPropagation()">' +
-            '       <div class="mf-dialog-header">' +
-            '           <div ng-if="!!title" class="mf-title">{{title}}</div>' +
-            '       </div>' +
-            '       <div class="mf-dialog-body">' +
-            '           <div ng-if="!prompt">{{textContent}}</div>' +
-            '           <div ng-if="prompt">' +
-            '               <mf-input-container>' +
-            '                   <label for="response">{{textContent}}</label>' +
-            '                   <input id="response" name="response" type="text" ng-model="data.response">' +
-            '               </mf-input-container>' +
-            '           </div>' +
-            '       </div>' +
-            '       <div class="mf-actions">' +
-            '          <mf-button ng-if="!!okText" ng-click="confirm()">{{okText}}</mf-button>' +
-            '          <mf-button ng-if="!!cancelText" ng-click="cancel()">{{cancelText}}</mf-button>' +
-            '       </div>' +
-            '       <mf-button class="mf-icon-button mf-dialog-close-button" ng-click="cancel()">' +
-            '           <mf-icon icon="close_thick"></mf-icon>' +
-            '       </mf-button>' +
-            '   </mf-dialog-content>' +
-            '</mf-dialog>';
+        if (dialogHtml === null) {
+            dialogHtml =
+                '<mf-dialog ng-click="onScrimClicked()">' +
+                '   <mf-dialog-content ng-click="$event.stopPropagation()">' +
+                '       <div class="mf-dialog-header">' +
+                '           <div ng-if="!!title" class="mf-title">{{title}}</div>' +
+                '       </div>' +
+                '       <div class="mf-dialog-body">' +
+                '           <div ng-if="!prompt">{{textContent}}</div>' +
+                '           <div ng-if="prompt">' +
+                '               <mf-input-container>' +
+                '                   <label for="response">{{textContent}}</label>' +
+                '                   <input id="response" name="response" type="text" ng-model="data.response">' +
+                '               </mf-input-container>' +
+                '           </div>' +
+                '       </div>' +
+                '       <div class="mf-actions">' +
+                '          <mf-button ng-if="!!okText" ng-click="confirm()">{{okText}}</mf-button>' +
+                '          <mf-button ng-if="!!cancelText" ng-click="cancel()">{{cancelText}}</mf-button>' +
+                '       </div>' +
+                '       <mf-button class="mf-icon-button mf-dialog-close-button" ng-click="cancel()">' +
+                '           <mf-icon icon="close_thick"></mf-icon>' +
+                '       </mf-button>' +
+                '   </mf-dialog-content>' +
+                '</mf-dialog>';
+        }
 
         let scope = this.$rootScope.$new(true);
 
+        scope['$ctrl'] = options.controller;
         scope['cancel'] = () => {
             deferred.reject();
             compiledDialogElement.detach();
