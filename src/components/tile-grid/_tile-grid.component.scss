@@ -10,3 +10,12 @@ mf-tile-grid {
     vertical-align: top;
   }
 }
+
+[dir="rtl"] {
+  mf-tile-grid {
+    > mf-tile {
+      margin-left: $tile-margin;
+      margin-right: 0;
+    }
+  }
+}
