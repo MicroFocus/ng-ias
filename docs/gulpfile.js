@@ -56,6 +56,7 @@ ngGulp(gulp, {
         vendorTest: [
             path.resolve(__dirname, '../node_modules/angular/angular.js'),
             path.resolve(__dirname, '../node_modules/angular-mocks/angular-mocks.js'),
+            path.resolve(__dirname, '../node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js'),
             path.resolve(__dirname, '../node_modules/angular-ui-router/release/angular-ui-router.js'),
             path.resolve(__dirname, '../node_modules/ng-prism/dist/ng-prism.js'),
             path.resolve(__dirname, '../dist/ng-mfux.js')
