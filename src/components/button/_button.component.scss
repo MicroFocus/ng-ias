@@ -42,7 +42,7 @@
       &:focus,
       &:hover {
         background-color: $button-bg-color-hover;
-        border-color: $button-border-color-hover;
+        border-color: $button-border-color;
         color: $button-text-color-hover;
       }
     }
@@ -52,19 +52,30 @@
     }
   }
 
+  &.mf-icon-text-button {
+    padding: $button-padding-with-icon;
+
+    > span {
+      vertical-align: middle;
+    }
+
+    > mf-icon {
+      font-size: $button-inline-icon-size;
+      margin-right: $button-inline-icon-padding-with-icon;
+    }
+  }
+
   &:not(.mf-icon-button) {
     min-width: $button-min-width;
 
     > mf-icon {
-      color: inherit;
-      font-size: inherit;
       vertical-align: middle;
     }
   }
 
   &.mf-menu-toggle {
     > mf-icon {
-      font-size: $button-inline-icon-size;
+      font-size: inherit;
       margin-left: $button-inline-icon-padding;
     }
   }

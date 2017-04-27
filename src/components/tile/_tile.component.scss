@@ -25,7 +25,6 @@ mf-tile {
   // SIZES
   &.mf-tiny {
     height: $tile-height-tiny;
-    max-width: $tile-width-tiny;
     width: $tile-width-tiny;
 
     > .mf-tile-content {
@@ -94,7 +93,6 @@ mf-tile {
 
         > h3 {
           font-size: $tile-title-font-size-medium;
-          line-height: 1em;
         }
       }
     }
@@ -103,7 +101,6 @@ mf-tile {
   &.mf-large {
     flex-flow: column nowrap;
     height: $tile-height-large;
-    max-width: $tile-width-large;
     text-align: center;
     width: $tile-width-large;
 
@@ -122,11 +119,11 @@ mf-tile {
 
       > .mf-tile-body {
         margin-top: $tile-padding;
+        max-width: 100%;
         overflow: hidden;
 
         > h3 {
           font-size: $tile-title-font-size-large;
-          line-height: 1em;
         }
       }
     }
@@ -143,6 +140,11 @@ mf-tile {
   align-items: center;
   display: flex;
   flex-flow: row nowrap;
+  height: 100%;
+
+  > mf-icon {
+    flex-shrink: 0;
+  }
 
   > .mf-tile-actions {
     position: absolute;
@@ -151,6 +153,11 @@ mf-tile {
   }
 
   > .mf-tile-body {
+    > h3 {
+      @include single-line;
+      line-height: 1em;
+    }
+
     > h3,
     > p {
       margin: 0;
@@ -159,6 +166,27 @@ mf-tile {
 
     > p {
       margin-top: $tile-text-margin-top;
+    }
+  }
+}
+
+[dir="rtl"] {
+  mf-tile {
+    &.mf-small,
+    &.mf-medium {
+      > .mf-tile-content {
+        > .mf-tile-body {
+          margin-left: 0;
+          margin-right: $tile-padding;
+        }
+      }
+    }
+  }
+
+  .mf-tile-content {
+    > .mf-tile-actions {
+      left: 0;
+      right: auto;
     }
   }
 }
