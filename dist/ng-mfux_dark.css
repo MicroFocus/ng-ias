@@ -528,7 +528,6 @@ mf-input-container textarea {
   border: 1px solid #6a6f71;
   border-radius: 3px;
   color: inherit;
-  padding: 8px;
   font-size: 15px;
 }
 
@@ -545,6 +544,11 @@ mf-input-container textarea[disabled] {
   border-color: #434c50;
   color: #575b5d;
   outline: none;
+}
+
+mf-input-container input,
+mf-input-container textarea {
+  padding: 8px;
 }
 
 mf-input-container > span.mf-icon-input-container {
