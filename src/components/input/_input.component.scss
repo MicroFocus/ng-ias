@@ -5,7 +5,6 @@ mf-input-container textarea {
   border: $input-border;
   border-radius: $border-radius;
   color: inherit;
-  padding: $input-padding;
 
   font-size: 15px;
 
@@ -21,6 +20,12 @@ mf-input-container textarea {
     @include disabled-state;
   }
 }
+
+mf-input-container input,
+mf-input-container textarea {
+  padding: $input-padding;
+}
+
 
 mf-input-container > span.mf-icon-input-container {
   position: relative;
@@ -51,6 +56,13 @@ mf-input-container textarea.inputError,
 mf-input-container input.inputError:focus,
 mf-input-container textarea.inputError:focus {
   border-color: $error-border-color;
+}
+
+input:focus, select:focus, textarea:focus {
+    background-color: #fff;
+    border-color: #01a9e7;
+    color: #434c50;
+    outline: none;
 }
 
 mf-input-container input.mfIntInput {
@@ -106,4 +118,46 @@ mf-input-container {
       padding-left: none;
       padding-right: 28px;
     }
+}
+
+mf-input-container input.input-required-missing, mf-input-container input.ng-touched.ng-invalid {
+    border: 1px solid $color-accent-4;
+}
+
+mf-input-container label span.required, h4.panel-title span.required {
+    color: $color-accent-4;
+    font-size: $font-size-medium;
+    padding-left: 1px;
+    padding-right: 5px;
+    position: relative;
+    top: 1px;
+}
+
+mf-input-container label.invalid-message, mf-icon.invalid-message {
+    color: $color-accent-4;
+}
+
+mf-input-container label.weak {
+    color: $color-gray-4;
+    padding-bottom: 5px;
+}
+
+mf-input-container img.wait-icon {
+    display: inline-block;
+    padding-left: 3px;
+    position: relative;
+    max-height:16px;
+}
+
+mf-input-container label {
+    font-weight: normal;
+}
+
+h4.panel-title {
+    position: relative;
+}
+
+h4.panel-title mf-icon.invalid-message {
+    position: absolute;
+    top: -4px;
 }
