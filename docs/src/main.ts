@@ -24,6 +24,7 @@ import PanelComponent from './components/docs/panel/panel.component';
 import SearchBoxComponent from './components/docs/search-box/search-box.component';
 import SideNavComponent from './components/docs/side-nav/side-nav.component';
 import TableComponent from './components/docs/table/table.component';
+import TabsComponent from './components/docs/tabs/tabs.component';
 import TileComponent from './components/docs/tile/tile.component';
 import TileGridComponent from './components/docs/tile-grid/tile-grid.component';
 
@@ -63,6 +64,7 @@ module('app', [
     .component('searchBoxDocumentation', SearchBoxComponent)
     .component('sideNavDocumentation', SideNavComponent)
     .component('tableDocumentation', TableComponent)
+    .component('tabsDocumentation', TabsComponent)
     .component('tileDocumentation', TileComponent)
     .component('tileGridDocumentation', TileGridComponent);
 

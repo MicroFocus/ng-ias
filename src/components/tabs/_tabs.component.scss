@@ -1,0 +1,78 @@
+ul.nav-tabs {
+    -ms-flex-align: left;
+    align-items: left;
+    color: #434c50;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    margin-bottom: $body-spacing-small;
+    max-width: 100%;
+    padding-top: 2px;
+    padding-right: $body-spacing-small;
+    position: relative;
+    height: 28px;
+    border-bottom: 1px solid $color-black-1;
+    position: relative;
+}
+
+li.mf-tab:first-child {
+    margin-left: 10px;
+}
+
+.nav-tabs > li.mf-tab {
+    background-color: $color-gray-7;
+    color: #434c50;
+    margin-right: 5px;
+    min-width: 60px;
+    text-align: center;
+    border: 1px solid #dae1e1;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    margin-bottom: 0px;
+}
+
+.nav-tabs > li.mf-tab a {
+    color: $color-black-1;
+    padding: 2px $body-spacing-small;
+    height: 23px;
+    min-width: 60px;
+}
+
+li.mf-tab.active {
+    color: #434c50;
+    cursor: default;
+    font-size: $font-size-base;
+    font-weight: $font-weight;
+    background-color: $dialog-bg-color;
+    border-color: #808080;
+    border-bottom: 4px solid $dialog-bg-color;
+    z-index: 100;
+    height: 27px;
+}
+
+li.mf-tab:hover {
+    background-color: $color-gray-7;
+    border-color: #01a9e7;
+    color: #007cd0;
+    cursor: pointer;
+    border-bottom: none;
+}
+
+li.mf-tab.active:hover {
+    border: 1px solid $color-black-1;
+    border-bottom: 4px solid $dialog-bg-color;
+    color: $color-black-1;
+    cursor: arrow;
+    background-color: $dialog-bg-color;
+}
+
+.nav-tabs > li.mf-tab.active a, .nav-tabs > li.mf-tab.active a:hover, .nav-tabs > li.mf-tab.active a:focus {
+    border: none;
+    background: transparent;
+}
+
+a.mf-tab-link {
+    position: absolute;
+    right: 5px;
+}
