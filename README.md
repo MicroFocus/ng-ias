@@ -35,49 +35,24 @@ After this initial setup you can copy code/examples from the [docs app](#DocsApp
  
 ## Development
 
-The first step to building the NG-MFUX library locally is to clone it with a command like this:
+1. Clone the ng-mfux repository. Get the appropriate url from the BitBucket server since it is specific to you. You can find it by clicking on the "Clone" action in the left toolbar of this project. Use that url in the command below: 
 
-`git clone https://ZGrossbart@secmgmtgit.provo.novell.com:8443/scm/~jhawkins/ng-mfux.git`
+`git clone https://YourUsername@secmgmtgit.provo.novell.com:8443/scm/~jhawkins/ng-mfux.git`
 
-Make sure to get the command from the BitBucket server since it is specific to you.
-
-Once you have cloned the project you need to install the build tools. The NG-MFUX project builds with gulp.js so the first step is to use NPM to install gulp.js like this
+2. Install the build tools. The ng-mfux project uses gulp.js, which can be installed as follows:
 
 `npm install -g gulp-cli`
 
-Once gulp.js is installed you can add the icons project.
+3. Install the [BitBucket server certificate](https://wiki.provo.microfocus.com:8443/download/attachments/32741329/secmgmtgit.provo.novell.com.pem.txt), if you have not done so already. Download it, then run the command below. More information can be found on the [company wiki](https://wiki.provo.microfocus.com:8443/display/ENG/Bitbucket+Server+-+Getting+Started). 
 
-The mf-icons project contains the CSS and icon font which supports this project.  Open a new terminal, go to a new directory, and clone the icons repository with a command like this:
+`git config --global http."https://secmgmtgit.provo.novell.com:8443/".sslCAInfo path/to/cert.pem`
 
-`git clone https://ZGrossbart@secmgmtgit.provo.novell.com:8443/scm/~jhawkins/mf-icons.git`
-
-Once again you will need to get the correct command from the BitBucket server.
-
-Then build the icons with the following commands:
-
-```
-cd mf-icons
-npm install
-gulp
-gulp icons
-```
-
-Now you need to add a simlink for the icons project into this project.  In the mf-icons directory run this command:
-
-`npm link`
-
-Now in the ng-mfux directory run this command:
-
-`npm link mf-icons`
-
-Now you can add all of your other project dependencies with commands:
+4. Install the project dependencies:
 
 ```
 cd ng-mfux
 npm install
 ```
-
-These two steps are only needed the first time you set up your development environment.
 
 ### Development Toolchain
 
