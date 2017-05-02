@@ -1,5 +1,5 @@
 export default {
-    companyName: 'MicroFocus',
+    companyName: 'Micro Focus',
     projectName: 'UX-IAS for Angular 1',
-    teamName: 'MicroFocus Identity and Access Management Group'
+    teamName: 'Micro Focus Identity and Access Management Group'
 };
