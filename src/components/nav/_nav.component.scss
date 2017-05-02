@@ -53,7 +53,6 @@ mf-nav {
 
     // Active-capable nav items
     > a {
-      height: $nav-item-height;
       line-height: $nav-item-height;
       margin: 0;
 
@@ -77,6 +76,7 @@ mf-nav {
 
     // Non-hoverable, non-active-capable nav items
     > span:not(.mf-fill) {
+      line-height: normal;
       margin: $nav-text-vertical-margin 0;
       max-width: $nav-text-max-width;
 
