@@ -1,17 +1,17 @@
-mf-avatar {
+ias-avatar {
   @include square($avatar-size-small);
 
   display: inline-block;
 
-  &.mf-medium {
+  &.ias-medium {
     @include square($avatar-size-medium);
   }
 
-  &.mf-large {
+  &.ias-large {
     @include square($avatar-size-large);
   }
 
-  > .mf-avatar-content {
+  > .ias-avatar-content {
     @include same-size-as-parent;
 
     background: no-repeat center center;

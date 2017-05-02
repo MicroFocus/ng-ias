@@ -36,7 +36,7 @@ export default class FormValidationComponent {
     private writePerm: Object;
     private perms: Array<Object> = [];
 
-    constructor(private $timeout: ng.ITimeoutService, private $scope: ng.IScope, private MfDialogService: any) {
+    constructor(private $timeout: ng.ITimeoutService, private $scope: ng.IScope, private IasDialogService: any) {
         this.timeout = $timeout;
         this.scope = $scope;
         this.populateDates();
@@ -73,7 +73,7 @@ export default class FormValidationComponent {
     }
 
     submitForm(): void {
-        this.MfDialogService
+        this.IasDialogService
             .alert({
                 textContent: 'You submitted your form',
                 title: 'All done'

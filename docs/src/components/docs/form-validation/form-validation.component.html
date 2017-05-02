@@ -19,20 +19,20 @@
 
 <form name="$ctrl.regForm">
     <div class="demo-section">
-        <mf-input-container>
+        <ias-input-container>
             <label for="name">Name (minimum 3 characters)<span class="required">*</span></label>
             <input id="name" name="name" type="text" ng-model="$ctrl.name" ng-minlength="3" required novalidate
                    autofocus>
-        </mf-input-container>
+        </ias-input-container>
         
-        <mf-input-container>
+        <ias-input-container>
             <label for="email">Email <span class="required">*</span></label>
             <input id="email" name="email" type="text" ng-model="$ctrl.email" required novalidate
                    ng-change="$ctrl.validateEmail();">
             <label class="invalid-message" ng-if="$ctrl.regForm.email.$invalid && $ctrl.regForm.email.$touched">{{$ctrl.emailError}}</label>
-        </mf-input-container>
+        </ias-input-container>
         
-        <mf-input-container>
+        <ias-input-container>
             <label for="username">
                 Username<span class="required">*</span>
                 <img ng-if="$ctrl.regForm.username.inProgress" class="wait-icon" src="images/waiting_25.gif" alt="">
@@ -41,9 +41,9 @@
                    ng-change="$ctrl.validateUsername();" ng-disabled="$ctrl.regForm.username.inProgress"
                    ng-model-options="{ debounce: 250 }">
             <label class="invalid-message" ng-if="$ctrl.regForm.username.usernameError">{{$ctrl.regForm.username.usernameError}}</label>
-        </mf-input-container>
+        </ias-input-container>
         
-        <mf-input-container>
+        <ias-input-container>
             <label for="password">Password<span class="required">*</span></label>
             <input id="password" name="password" type="password" ng-change="$ctrl.validatePassword();" ng-model="$ctrl.password" required novalidate>
             <label class="weak">
@@ -53,15 +53,15 @@
                     <li>Passwords must be at least six characters</li>
                 </ul>
             </label>
-        </mf-input-container>
+        </ias-input-container>
         
-        <mf-input-container>
+        <ias-input-container>
             <label for="repeat">Repeat password<span class="required">*</span></label>
             <input id="repeat" name="repeat" type="password" ng-change="$ctrl.validateRepeat();" ng-model="$ctrl.repeat" required novalidate>
             <label class="invalid-message" ng-if="$ctrl.regForm.repeat.$invalid && $ctrl.regForm.repeat.$touched">{{$ctrl.repeatError}}</label>
-        </mf-input-container>
+        </ias-input-container>
         
-        <mf-input-container>
+        <ias-input-container>
             <label>Birth date<span class="required">*</span></label>
             <span id="birth-date">
                 <input type="hidden" name="birthday" ng-model="$ctrl.birthday" required novalidate>
@@ -75,11 +75,11 @@
                         data-ng-model="$ctrl.bYear" ng-change="$ctrl.validateDate();">
                 </select>
             </span>
-        </mf-input-container>
+        </ias-input-container>
     </div>
         
     <div class="demo-section">
-      <mf-button ng-disabled="$ctrl.regForm.name.$invalid || $ctrl.regForm.email.$invalid || $ctrl.regForm.username.$invalid || $ctrl.regForm.password.$invalid || $ctrl.regForm.birthday.$invalid || $ctrl.regForm.repeat.$invalid" ng-click="$ctrl.submitForm();">Submit</mf-button>
+      <ias-button ng-disabled="$ctrl.regForm.name.$invalid || $ctrl.regForm.email.$invalid || $ctrl.regForm.username.$invalid || $ctrl.regForm.password.$invalid || $ctrl.regForm.birthday.$invalid || $ctrl.regForm.repeat.$invalid" ng-click="$ctrl.submitForm();">Submit</ias-button>
     </div>
 </form>
 
@@ -96,48 +96,48 @@
 
 <form name="$ctrl.objForm">
     <div class="demo-section">
-        <mf-input-container>
+        <ias-input-container>
             <label for="objName">Object name (minimum 3 characters)<span class="required">*</span></label>
             <input id="objName" name="objName" type="text" ng-model="$ctrl.objName" ng-minlength="3"
                    required novalidate>
-        </mf-input-container>
+        </ias-input-container>
         <uib-accordion close-others="true" is-open="true">
             <div uib-accordion-group class="panel-default" heading="General ">
               <uib-accordion-heading>
-                  General<span class="required">*</span> <mf-icon class="invalid-message" ng-if="$ctrl.objForm.objCont.$invalid && $ctrl.objForm.objCont.$touched" icon="message_error_thick"></mf-icon>
+                  General<span class="required">*</span> <ias-icon class="invalid-message" ng-if="$ctrl.objForm.objCont.$invalid && $ctrl.objForm.objCont.$touched" icon="message_error_thick"></ias-icon>
               </uib-accordion-heading>
               
-              <mf-input-container>
+              <ias-input-container>
                   <label for="objCont">Object container (minimum 5 characters)<span class="required">*</span></label>
                   <input id="objCont" name="objCont" type="text" ng-model="$ctrl.objCont" ng-minlength="5"
                          required novalidate>
-              </mf-input-container>
+              </ias-input-container>
               
-              <mf-input-container>
+              <ias-input-container>
                   <label for="objType">Object type</label>
                   <select name="objType" data-ng-options="obj as obj.name for obj in $ctrl.objTypes"
                           data-ng-model="$ctrl.objType">
                   </select>
-              </mf-input-container>
+              </ias-input-container>
             </div>
             <div uib-accordion-group class="panel-default" heading="Permissions">
-              <mf-input-container>
+              <ias-input-container>
                   <label for="readPerm">Who can view this object?</label>
                   <select name="readPerm" data-ng-options="perm as perm.name for perm in $ctrl.perms"
                           data-ng-model="$ctrl.readPerm">
                   </select>
-              </mf-input-container>
-              <mf-input-container>
+              </ias-input-container>
+              <ias-input-container>
                   <label for="writePerm">Who can change this object?</label>
                   <select name="writePerm" data-ng-options="perm as perm.name for perm in $ctrl.perms"
                           data-ng-model="$ctrl.writePerm">
                   </select>
-              </mf-input-container>
+              </ias-input-container>
             </div>
         </uib-accordion>
     </div>
     
     <div class="demo-section">
-      <mf-button ng-disabled="$ctrl.objForm.objName.$invalid || $ctrl.objForm.objCont.$invalid" ng-click="$ctrl.submitForm();">Submit</mf-button>
+      <ias-button ng-disabled="$ctrl.objForm.objName.$invalid || $ctrl.objForm.objCont.$invalid" ng-click="$ctrl.submitForm();">Submit</ias-button>
     </div>
 </form>

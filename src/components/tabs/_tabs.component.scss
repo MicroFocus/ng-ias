@@ -16,11 +16,11 @@ ul.nav-tabs {
     position: relative;
 }
 
-li.mf-tab:first-child {
+li.ias-tab:first-child {
     margin-left: 10px;
 }
 
-.nav-tabs > li.mf-tab {
+.nav-tabs > li.ias-tab {
     background-color: $color-gray-7;
     color: #434c50;
     margin-right: 5px;
@@ -32,14 +32,14 @@ li.mf-tab:first-child {
     margin-bottom: 0px;
 }
 
-.nav-tabs > li.mf-tab a {
+.nav-tabs > li.ias-tab a {
     color: $color-black-1;
     padding: 2px $body-spacing-small;
     height: 23px;
     min-width: 60px;
 }
 
-li.mf-tab.active {
+li.ias-tab.active {
     color: #434c50;
     cursor: default;
     font-size: $font-size-base;
@@ -51,7 +51,7 @@ li.mf-tab.active {
     height: 27px;
 }
 
-li.mf-tab:hover {
+li.ias-tab:hover {
     background-color: $color-gray-7;
     border-color: #01a9e7;
     color: #007cd0;
@@ -59,7 +59,7 @@ li.mf-tab:hover {
     border-bottom: none;
 }
 
-li.mf-tab.active:hover {
+li.ias-tab.active:hover {
     border: 1px solid $color-black-1;
     border-bottom: 4px solid $dialog-bg-color;
     color: $color-black-1;
@@ -67,12 +67,12 @@ li.mf-tab.active:hover {
     background-color: $dialog-bg-color;
 }
 
-.nav-tabs > li.mf-tab.active a, .nav-tabs > li.mf-tab.active a:hover, .nav-tabs > li.mf-tab.active a:focus {
+.nav-tabs > li.ias-tab.active a, .nav-tabs > li.ias-tab.active a:hover, .nav-tabs > li.ias-tab.active a:focus {
     border: none;
     background: transparent;
 }
 
-a.mf-tab-link {
+a.ias-tab-link {
     position: absolute;
     right: 5px;
 }

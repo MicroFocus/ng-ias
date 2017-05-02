@@ -1,4 +1,4 @@
-.mf-button {
+.ias-button {
   @include disable-text-selection;
   @include single-line;
 
@@ -33,7 +33,7 @@
     }
   }
 
-  &.mf-icon-button {
+  &.ias-icon-button {
     background-color: transparent;
     border-color: transparent;
     padding: 0;
@@ -47,34 +47,34 @@
       }
     }
 
-    mf-icon {
+    ias-icon {
       display: block;
     }
   }
 
-  &.mf-icon-text-button {
+  &.ias-icon-text-button {
     padding: $button-padding-with-icon;
 
     > span {
       vertical-align: middle;
     }
 
-    > mf-icon {
+    > ias-icon {
       font-size: $button-inline-icon-size;
       margin-right: $button-inline-icon-padding-with-icon;
     }
   }
 
-  &:not(.mf-icon-button) {
+  &:not(.ias-icon-button) {
     min-width: $button-min-width;
 
-    > mf-icon {
+    > ias-icon {
       vertical-align: middle;
     }
   }
 
-  &.mf-menu-toggle {
-    > mf-icon {
+  &.ias-menu-toggle {
+    > ias-icon {
       font-size: inherit;
       margin-left: $button-inline-icon-padding;
     }
@@ -82,26 +82,26 @@
 }
 
 /* Stop FF buttons from being larger. http://stackoverflow.com/questions/7928521 */
-button.mf-button::-moz-focus-inner {
+button.ias-button::-moz-focus-inner {
   padding: 0 !important;
   border: 0 none !important;
 }
 
-a.mf-button {
+a.ias-button {
   margin-left: 0;
 }
 
 [dir="rtl"] {
-  .mf-button {
-    &.mf-menu-toggle {
-      > mf-icon {
+  .ias-button {
+    &.ias-menu-toggle {
+      > ias-icon {
         margin-left: 0;
         margin-right: $button-inline-icon-padding;
       }
     }
   }
 
-  a.mf-button {
+  a.ias-button {
     margin-right: 0;
   }
 }

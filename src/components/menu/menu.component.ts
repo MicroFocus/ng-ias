@@ -16,7 +16,7 @@ export enum VerticalAlignment {
 
 @Component({
     bindings: {
-        align: '@mfAlign',
+        align: '@iasAlign',
         name: '@'
     },
     templateUrl: require('./menu.component.html'),
@@ -29,7 +29,7 @@ export class MenuComponent implements IToggleable {
     name: string;
     open: boolean;
 
-    static $inject = [ '$document', '$element', '$window', 'MfToggleService', 'MENU_MARGIN' ];
+    static $inject = [ '$document', '$element', '$window', 'IasToggleService', 'MENU_MARGIN' ];
     constructor(private $document: IDocumentService,
                 private $element: IAugmentedJQuery,
                 private $window: IWindowService,
@@ -66,13 +66,13 @@ export class MenuComponent implements IToggleable {
     hide(): void {
         this.open = false;
 
-        this.$element.removeClass('mf-open');
+        this.$element.removeClass('ias-open');
     }
 
     show(targetElement: IAugmentedJQuery): void {
         // Set open state on component and menu element
         this.open = true;
-        this.$element.addClass('mf-open');
+        this.$element.addClass('ias-open');
 
         this.showMenuContent(targetElement[0]);
     }
@@ -86,7 +86,7 @@ export class MenuComponent implements IToggleable {
     }
 
     private showMenuContent(targetElement: HTMLElement) {
-        let menuContentElement = this.$element.find('mf-menu-content')[0];
+        let menuContentElement = this.$element.find('ias-menu-content')[0];
 
         let isLtrLayout: boolean = this.getLayoutDirection() !== 'rtl';
 

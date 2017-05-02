@@ -7,7 +7,7 @@ table {
     color: $color-gray-4;
     font-size: $table-header-font-size;
 
-    mf-icon {
+    ias-icon {
       font-size: inherit;
       vertical-align: middle;
     }
@@ -33,7 +33,7 @@ table {
     > a {
       padding: 0;
 
-      &:not(.mf-disabled) {
+      &:not(.ias-disabled) {
         &:hover {
           background-color: transparent;
         }
@@ -41,11 +41,11 @@ table {
     }
 
     > a,
-    > mf-icon {
+    > ias-icon {
       vertical-align: middle;
     }
 
-    > mf-icon {
+    > ias-icon {
       margin: 0 $table-icon-margin;
     }
   }
@@ -55,13 +55,13 @@ table {
     vertical-align: middle;
   }
 
-  mf-icon,
-  .mf-icon-button {
+  ias-icon,
+  .ias-icon-button {
     font-size: $table-icon-size;
   }
 }
 
-.mf-sortable {
+.ias-sortable {
   @include disable-text-selection;
 
   color: $link-text-color;

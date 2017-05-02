@@ -21,7 +21,7 @@ ngGulp(gulp, {
         outputVendor: path.resolve(__dirname, '../dist/docs/vendor')
     },
     externals: {
-        'ng-mfux': 'window["ng-mfux"]',
+        'ng-ias': 'window["ng-ias"]',
         'ng-prism': 'window["ng-prism"]',
         'angular-ui-router': 'window["angular-ui-router"]'
     },
@@ -38,9 +38,9 @@ ngGulp(gulp, {
             path.resolve(__dirname, '../node_modules/angular-ui-bootstrap/dist/ui-bootstrap-csp.css'),
             path.resolve(__dirname, '../node_modules/bootstrap/dist/css/bootstrap.css'),
             path.resolve(__dirname, '../node_modules/ng-prism/dist/ng-prism.js'),
-            path.resolve(__dirname, '../node_modules/mf-icons/dist/**/*'),
-            path.resolve(__dirname, '../dist/ng-mfux.js'),
-            exclude(path.resolve(__dirname, '../node_modules/mf-icons/dist/mf-icons.min.css'))
+            path.resolve(__dirname, '../node_modules/ias-icons/dist/**/*'),
+            path.resolve(__dirname, '../dist/ng-ias.js'),
+            exclude(path.resolve(__dirname, '../node_modules/ias-icons/dist/ias-icons.min.css'))
         ],
         vendorProduction: [
             path.resolve(__dirname, '../node_modules/angular/angular.js'),
@@ -49,9 +49,9 @@ ngGulp(gulp, {
             path.resolve(__dirname, '../node_modules/angular-ui-bootstrap/dist/ui-bootstrap-csp.css'),
             path.resolve(__dirname, '../node_modules/bootstrap/dist/css/bootstrap.css'),
 			path.resolve(__dirname, '../node_modules/ng-prism/dist/ng-prism.js'),
-			path.resolve(__dirname, '../node_modules/mf-icons/dist/**/*'),
-            path.resolve(__dirname, '../dist/ng-mfux.js'),
-            exclude(path.resolve(__dirname, '../node_modules/mf-icons/dist/mf-icons.min.css'))
+			path.resolve(__dirname, '../node_modules/ias-icons/dist/**/*'),
+            path.resolve(__dirname, '../dist/ng-ias.js'),
+            exclude(path.resolve(__dirname, '../node_modules/ias-icons/dist/ias-icons.min.css'))
         ],
         vendorTest: [
             path.resolve(__dirname, '../node_modules/angular/angular.js'),
@@ -59,7 +59,7 @@ ngGulp(gulp, {
             path.resolve(__dirname, '../node_modules/angular-ui-router/release/angular-ui-router.js'),
             path.resolve(__dirname, '../node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js'),
             path.resolve(__dirname, '../node_modules/ng-prism/dist/ng-prism.js'),
-            path.resolve(__dirname, '../dist/ng-mfux.js')
+            path.resolve(__dirname, '../dist/ng-ias.js')
         ]
     },
     productionServer: {

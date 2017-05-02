@@ -1,9 +1,9 @@
-mf-nav {
+ias-nav {
   background-color: $nav-bg-color;
   color: $nav-text-color;
   display: block;
 
-  > .mf-nav-content {
+  > .ias-nav-content {
     display: flex;
     flex-flow: row nowrap;
     min-height: $nav-height;
@@ -12,22 +12,22 @@ mf-nav {
 
     // Fixed size nav items
     > a,
-    > mf-menu,
-    > .mf-button {
+    > ias-menu,
+    > .ias-button {
       flex: none;
     }
 
     // All nav items
     > a,
-    > span:not(.mf-fill),
-    > .mf-button {
+    > span:not(.ias-fill),
+    > .ias-button {
       color: inherit;
       padding: 0 $nav-item-padding;
     }
 
     // Hoverable nav items
     > a,
-    > .mf-button {
+    > .ias-button {
       background-color: transparent;
       border-color: transparent;
       border-style: solid;
@@ -35,14 +35,14 @@ mf-nav {
       border-width: $nav-item-border-vertical-width $nav-item-border-horizontal-width;
 
       &[disabled],
-      &.mf-disabled {
+      &.ias-disabled {
         background-color: transparent;
         border-color: transparent;
         color: $text-color-disabled;
       }
 
-      &:not([disabled]):not(.mf-disabled) {
-        &:focus:not(.mf-active),
+      &:not([disabled]):not(.ias-disabled) {
+        &:focus:not(.ias-active),
         &:hover {
           background-color: $nav-item-bg-color-hover;
           border-color: $nav-item-border-color-hover;
@@ -56,15 +56,15 @@ mf-nav {
       line-height: $nav-item-height;
       margin: 0;
 
-      > mf-icon {
+      > ias-icon {
         font-size: $nav-icon-size;
         // Icons are a bit too low with vertical-align: middle, so use margin-bottom to compensate
         margin-bottom: $nav-icon-margin;
         vertical-align: middle;
       }
 
-      &:not([disabled]):not(.mf-disabled) {
-        &.mf-active {
+      &:not([disabled]):not(.ias-disabled) {
+        &.ias-active {
           border-bottom-color: $nav-item-border-bottom-color-active;
           border-left-color: $nav-item-border-side-color-active;
           border-right-color: $nav-item-border-side-color-active;
@@ -75,7 +75,7 @@ mf-nav {
     }
 
     // Non-hoverable, non-active-capable nav items
-    > span:not(.mf-fill) {
+    > span:not(.ias-fill) {
       line-height: normal;
       margin: $nav-text-vertical-margin 0;
       max-width: $nav-text-max-width;
@@ -90,11 +90,11 @@ mf-nav {
     }
 
     // Hoverable, non-active-capable nav items
-    > .mf-button {
+    > .ias-button {
       box-sizing: content-box;
 
-      &.mf-icon-button {
-        > mf-icon {
+      &.ias-icon-button {
+        > ias-icon {
           font-size: $nav-icon-size;
         }
       }
@@ -102,16 +102,16 @@ mf-nav {
   }
 }
 
-mf-menu.mf-menu-flat-top {
-  > mf-menu-content {
+ias-menu.ias-menu-flat-top {
+  > ias-menu-content {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
   }
 }
 
 @media (min-width: $large-display) {
-  mf-nav {
-    > .mf-nav-content {
+  ias-nav {
+    > .ias-nav-content {
       padding: 0 $nav-content-padding-large;
     }
   }

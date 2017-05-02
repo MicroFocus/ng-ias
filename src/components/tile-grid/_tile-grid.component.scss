@@ -1,8 +1,8 @@
-mf-tile-grid {
+ias-tile-grid {
   display: flex;
   flex-flow: row wrap;
 
-  > mf-tile {
+  > ias-tile {
     flex-grow: 0;
     flex-shrink: 0;
     margin-right: $tile-margin;
@@ -12,8 +12,8 @@ mf-tile-grid {
 }
 
 [dir="rtl"] {
-  mf-tile-grid {
-    > mf-tile {
+  ias-tile-grid {
+    > ias-tile {
       margin-left: $tile-margin;
       margin-right: 0;
     }

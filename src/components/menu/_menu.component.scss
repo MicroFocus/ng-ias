@@ -1,4 +1,4 @@
-mf-menu {
+ias-menu {
   background-color: transparent;
   bottom: 0;
   color: inherit;
@@ -10,23 +10,23 @@ mf-menu {
   right: 0;
   top: 0;
 
-  &.mf-open {
+  &.ias-open {
     display: block;
 
-    > mf-menu-content {
+    > ias-menu-content {
       height: auto;
     }
   }
 
-  &.mf-end {
-    > mf-menu-content {
+  &.ias-end {
+    > ias-menu-content {
       left: auto;
       right: 0;
     }
   }
 }
 
-mf-menu-content {
+ias-menu-content {
   background-color: $menu-bg-color;
   border-color: $menu-border-color;
   border-radius: $border-radius;
@@ -40,9 +40,9 @@ mf-menu-content {
   position: absolute;
   z-index: 1;
 
-  .mf-button,
-  mf-list-item {
-    &:not([disabled]):not(.mf-disabled) {
+  .ias-button,
+  ias-list-item {
+    &:not([disabled]):not(.ias-disabled) {
       &:focus,
       &:hover {
         background-color: $menu-bg-color-hover;
@@ -51,7 +51,7 @@ mf-menu-content {
     }
   }
 
-  .mf-button {
+  .ias-button {
     background-color: transparent;
     border: none;
     box-sizing: border-box;
@@ -61,18 +61,18 @@ mf-menu-content {
     width: 100%;
   }
 
-  mf-list-item {
+  ias-list-item {
     border-radius: $border-radius;
   }
 }
 
-mf-menu-footer {
+ias-menu-footer {
   text-align: center;
 }
 
-mf-menu-header,
-mf-menu-footer,
-mf-menu-content mf-list-header {
+ias-menu-header,
+ias-menu-footer,
+ias-menu-content ias-list-header {
   @include single-line;
 
   color: $menu-header-text-color;

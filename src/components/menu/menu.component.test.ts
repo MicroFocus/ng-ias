@@ -5,14 +5,14 @@ import ToggleService from '../toggle/toggle.service';
 
 describe('MenuComponent', () => {
     const COMPONENT_NAME = 'menu1';
-    const OPEN_CLASS_NAME = 'mf-open';
+    const OPEN_CLASS_NAME = 'ias-open';
 
     let $compile;
     let $componentController: IComponentControllerService;
     let controller: MenuComponent;
     let menuElement: IAugmentedJQuery;
 
-    beforeEach(mock.module('ng-mfux'));
+    beforeEach(mock.module('ng-ias'));
     beforeEach(mock.module(($provide: angular.auto.IProvideService) => { $provide.constant('MENU_MARGIN', 0); }));
     beforeEach(mock.inject((
         _$componentController_: IComponentControllerService,
@@ -24,16 +24,16 @@ describe('MenuComponent', () => {
 
     beforeAll(() => {
         menuElement = element(
-            `<mf-menu>
-                <mf-menu-content style="height:4px;margin:0;padding:0;width:4px;"></mf-menu-content>
-            </mf-menu>`);
+            `<ias-menu>
+                <ias-menu-content style="height:4px;margin:0;padding:0;width:4px;"></ias-menu-content>
+            </ias-menu>`);
     });
 
     describe('.constructor()', () => {
         it('sets correct defaults', () => {
             // Arrange
             controller = <MenuComponent>$componentController(
-                'mfMenu', { $element: menuElement }, { name: COMPONENT_NAME });
+                'iasMenu', { $element: menuElement }, { name: COMPONENT_NAME });
 
             // Assert
             expect(controller.name).toBe(COMPONENT_NAME);
@@ -44,7 +44,7 @@ describe('MenuComponent', () => {
         it('initializes horizontal and vertical alignment correctly', () => {
             // Arrange
             controller =
-                <MenuComponent>$componentController('mfMenu', { $element: menuElement }, { name: COMPONENT_NAME });
+                <MenuComponent>$componentController('iasMenu', { $element: menuElement }, { name: COMPONENT_NAME });
 
             // Assert
             expect(controller.horizontalAlignment).toBe(HorizontalAlignment.start);
@@ -60,10 +60,10 @@ describe('MenuComponent', () => {
             toggleService = new ToggleService();
             spyOn(toggleService, 'register');
             controller = <MenuComponent>$componentController(
-                'mfMenu',
+                'iasMenu',
                 {
                     $element: menuElement,
-                    MfToggleService: toggleService
+                    iasToggleService: toggleService
                 },
                 { name: COMPONENT_NAME });
 
@@ -78,7 +78,7 @@ describe('MenuComponent', () => {
     describe('.hide()', () => {
         it('sets menu in non-open state', () => {
             // Arrange
-            controller = <MenuComponent>$componentController('mfMenu', { $element: menuElement });
+            controller = <MenuComponent>$componentController('iasMenu', { $element: menuElement });
             controller.open = true;
             menuElement.addClass(OPEN_CLASS_NAME);
 
@@ -103,7 +103,7 @@ describe('MenuComponent', () => {
 
         it('sets menu in open state', () => {
             // Arrange
-            controller = <MenuComponent>$componentController('mfMenu', { $element: menuElement });
+            controller = <MenuComponent>$componentController('iasMenu', { $element: menuElement });
             controller.$onInit();
 
             // Act
@@ -171,7 +171,7 @@ describe('MenuComponent', () => {
                         it(`for alignment "${test.align}"`, () => {
                             // Arrange
                             controller = <MenuComponent>$componentController(
-                                'mfMenu',
+                                'iasMenu',
                                 {$element: menuElement},
                                 {align: test.align, name: COMPONENT_NAME}
                             );
@@ -187,7 +187,7 @@ describe('MenuComponent', () => {
                             controller.show(targetElement);
 
                             // Assert
-                            let menuContentBoundingBox = menuElement.find('mf-menu-content')[0].getBoundingClientRect();
+                            let menuContentBoundingBox = menuElement.find('ias-menu-content')[0].getBoundingClientRect();
 
                             expect(menuContentBoundingBox.top).toBe(test.expectedTop, 'top');
                             expect(menuContentBoundingBox.left).toBe(test.expectedLeft, 'left');
@@ -202,7 +202,7 @@ describe('MenuComponent', () => {
         it('handles malformed input', () => {
             // Arrange
             controller = <MenuComponent>$componentController(
-                'mfMenu', { $element: menuElement }, { align: 'endend', name: COMPONENT_NAME });
+                'iasMenu', { $element: menuElement }, { align: 'endend', name: COMPONENT_NAME });
 
             // Act
             controller.$onInit();
@@ -215,7 +215,7 @@ describe('MenuComponent', () => {
         it('handles missing token', () => {
             // Arrange
             controller = <MenuComponent>$componentController(
-                'mfMenu', { $element: menuElement }, { align: 'end', name: COMPONENT_NAME });
+                'iasMenu', { $element: menuElement }, { align: 'end', name: COMPONENT_NAME });
 
             // Act
             controller.$onInit();

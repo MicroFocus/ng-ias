@@ -1,6 +1,6 @@
-mf-input-container input,
-mf-input-container select,
-mf-input-container textarea {
+ias-input-container input,
+ias-input-container select,
+ias-input-container textarea {
   background-color: $input-bg-color;
   border: $input-border;
   border-radius: $border-radius;
@@ -21,40 +21,40 @@ mf-input-container textarea {
   }
 }
 
-mf-input-container input,
-mf-input-container textarea {
+ias-input-container input,
+ias-input-container textarea {
   padding: $input-padding;
 }
 
 
-mf-input-container > span.mf-icon-input-container {
+ias-input-container > span.ias-icon-input-container {
   position: relative;
   border: $input-border;
   display: inline-block;
 }
 
-mf-input-container > span.mf-icon-input-container input {
+ias-input-container > span.ias-icon-input-container input {
   border: none;
   padding-left: 28px;
 }
 
-mf-input-container > span.mf-icon-input-container mf-icon {
+ias-input-container > span.ias-icon-input-container ias-icon {
   position: absolute;
   left: 0px;
   top: 6px;
   pointer-events: none;
 }
 
-mf-input-container input[type="text"],
-mf-input-container input[type="password"],
-mf-input-container textarea {
+ias-input-container input[type="text"],
+ias-input-container input[type="password"],
+ias-input-container textarea {
   min-width: 250px;
 }
 
-mf-input-container input.inputError,
-mf-input-container textarea.inputError,
-mf-input-container input.inputError:focus,
-mf-input-container textarea.inputError:focus {
+ias-input-container input.inputError,
+ias-input-container textarea.inputError,
+ias-input-container input.inputError:focus,
+ias-input-container textarea.inputError:focus {
   border-color: $error-border-color;
 }
 
@@ -65,12 +65,12 @@ input:focus, select:focus, textarea:focus {
     outline: none;
 }
 
-mf-input-container input.mfIntInput {
+ias-input-container input.iasIntInput {
     min-width: 50px;
     width: 50px;
 }
 
-mf-input-container label {
+ias-input-container label {
   @include disable-text-selection;
 
   color: $input-label-text-color;
@@ -80,11 +80,11 @@ mf-input-container label {
   vertical-align: middle;
 }
 
-mf-input-container {
+ias-input-container {
   display: block;
   margin-bottom: $spacing;
 
-  &.mf-inline {
+  &.ias-inline {
     display: inline-block;
 
     &:not(:last-of-type) {
@@ -99,8 +99,8 @@ mf-input-container {
 }
 
 [dir="rtl"] {
-    mf-input-container {
-      &.mf-inline {
+    ias-input-container {
+      &.ias-inline {
         label {
           margin-right: auto;
           margin-left: $spacing;
@@ -108,23 +108,23 @@ mf-input-container {
       }
     }
     
-    mf-input-container > span.mf-icon-input-container mf-icon {
+    ias-input-container > span.ias-icon-input-container ias-icon {
       left: auto;
       right: 0px;
     }
     
-    mf-input-container > span.mf-icon-input-container input {
+    ias-input-container > span.ias-icon-input-container input {
       border: none;
       padding-left: none;
       padding-right: 28px;
     }
 }
 
-mf-input-container input.input-required-missing, mf-input-container input.ng-touched.ng-invalid {
+ias-input-container input.input-required-missing, ias-input-container input.ng-touched.ng-invalid {
     border: 1px solid $color-accent-4;
 }
 
-mf-input-container label span.required, h4.panel-title span.required {
+ias-input-container label span.required, h4.panel-title span.required {
     color: $color-accent-4;
     font-size: $font-size-medium;
     padding-left: 1px;
@@ -133,23 +133,23 @@ mf-input-container label span.required, h4.panel-title span.required {
     top: 1px;
 }
 
-mf-input-container label.invalid-message, mf-icon.invalid-message {
+ias-input-container label.invalid-message, ias-icon.invalid-message {
     color: $color-accent-4;
 }
 
-mf-input-container label.weak {
+ias-input-container label.weak {
     color: $color-gray-4;
     padding-bottom: 5px;
 }
 
-mf-input-container img.wait-icon {
+ias-input-container img.wait-icon {
     display: inline-block;
     padding-left: 3px;
     position: relative;
     max-height:16px;
 }
 
-mf-input-container label {
+ias-input-container label {
     font-weight: normal;
 }
 
@@ -157,7 +157,7 @@ h4.panel-title {
     position: relative;
 }
 
-h4.panel-title mf-icon.invalid-message {
+h4.panel-title ias-icon.invalid-message {
     position: absolute;
     top: -4px;
 }

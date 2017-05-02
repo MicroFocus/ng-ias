@@ -29,7 +29,7 @@ import TileComponent from './components/docs/tile/tile.component';
 import TileGridComponent from './components/docs/tile-grid/tile-grid.component';
 
 module('app', [
-    'ng-mfux',
+    'ng-ias',
     'ng-prism',
     'ui.router',
     'ui.bootstrap'
