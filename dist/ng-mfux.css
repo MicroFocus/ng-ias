@@ -713,11 +713,13 @@ a:focus {
   border-color: #ffd92d;
   color: #434c50;
   outline: none;
+  text-decoration: none;
 }
 
 a:hover {
   background-color: #eef2f2;
   color: #0061bd;
+  text-decoration: none;
 }
 
 p a, span a {
@@ -738,6 +740,7 @@ mf-list {
 }
 
 mf-list-item {
+  box-sizing: content-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-flow: row nowrap;
@@ -935,7 +938,6 @@ mf-nav > .mf-nav-content > .mf-button:not([disabled]):not(.mf-disabled):hover {
 }
 
 mf-nav > .mf-nav-content > a {
-  height: 28px;
   line-height: 28px;
   margin: 0;
 }
@@ -955,6 +957,7 @@ mf-nav > .mf-nav-content > a:not([disabled]):not(.mf-disabled).mf-active {
 }
 
 mf-nav > .mf-nav-content > span:not(.mf-fill) {
+  line-height: normal;
   margin: 8px 0;
   max-width: 700px;
 }
@@ -1233,7 +1236,7 @@ li.mf-tab:first-child {
 li.mf-tab.active {
   color: #434c50;
   cursor: default;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 400;
   background-color: white;
   border-color: #808080;

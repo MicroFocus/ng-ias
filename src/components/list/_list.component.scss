@@ -6,6 +6,7 @@ mf-list {
 }
 
 mf-list-item {
+  box-sizing: content-box;
   display: flex;
   flex-flow: row nowrap;
   height: $list-item-height;
