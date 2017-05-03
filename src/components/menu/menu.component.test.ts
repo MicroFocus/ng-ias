@@ -63,7 +63,7 @@ describe('MenuComponent', () => {
                 'iasMenu',
                 {
                     $element: menuElement,
-                    iasToggleService: toggleService
+                    IasToggleService: toggleService
                 },
                 { name: COMPONENT_NAME });
 
@@ -187,7 +187,8 @@ describe('MenuComponent', () => {
                             controller.show(targetElement);
 
                             // Assert
-                            let menuContentBoundingBox = menuElement.find('ias-menu-content')[0].getBoundingClientRect();
+                            let menuContentBoundingBox = menuElement.find('ias-menu-content')[0]
+                                .getBoundingClientRect();
 
                             expect(menuContentBoundingBox.top).toBe(test.expectedTop, 'top');
                             expect(menuContentBoundingBox.left).toBe(test.expectedLeft, 'left');
