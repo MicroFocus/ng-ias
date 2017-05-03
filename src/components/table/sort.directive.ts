@@ -28,7 +28,7 @@ export function SortDirective(): IDirective {
                element: IAugmentedJQuery,
                attributes: IAttributes,
                controller: SortDirectiveController) => {
-            controller.sortBinding = attributes['mfSort'];
+            controller.sortBinding = attributes['iasSort'];
         }
     };
 }
@@ -40,10 +40,10 @@ interface ISortOnScope extends IScope {
 
 export function SortOnDirective($compile: ICompileService): IDirective {
     return {
-        require: '^mfSort',
+        require: '^iasSort',
         restrict: 'A',
         scope: {
-            'sortOn': '<mfSortOn'
+            'sortOn': '<iasSortOn'
         },
         link: (scope: ISortOnScope,
                element: IAugmentedJQuery,
@@ -55,13 +55,13 @@ export function SortOnDirective($compile: ICompileService): IDirective {
 
             // Add sort icons
             let iconHtml =
-                '<mf-icon icon="down_thick" ng-if="getSortExpression() == \'' + scope.sortOn + '\'"></mf-icon>' +
-                '<mf-icon icon="up_thick" ng-if="getSortExpression() == \'-' + scope.sortOn + '\'"></mf-icon>';
+                '<ias-icon icon="down_thick" ng-if="getSortExpression() == \'' + scope.sortOn + '\'"></ias-icon>' +
+                '<ias-icon icon="up_thick" ng-if="getSortExpression() == \'-' + scope.sortOn + '\'"></ias-icon>';
             let iconElement = $compile(iconHtml)(scope);
             element.append(iconElement);
 
-            // Add mf-sortable class
-            element.addClass('mf-sortable');
+            // Add ias-sortable class
+            element.addClass('ias-sortable');
 
             // Register click handler
             element.on('click', () => {

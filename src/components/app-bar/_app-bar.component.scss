@@ -1,11 +1,11 @@
-mf-app-bar {
+ias-app-bar {
   background: $app-bar-bg-fallback;
   background: $app-bar-bg;
   color: $app-bar-text-color;
   display: block;
   font-size: $app-bar-font-size;
 
-  > .mf-app-bar-content {
+  > .ias-app-bar-content {
     align-items: center;
     display: flex;
     flex-flow: row nowrap;
@@ -14,19 +14,19 @@ mf-app-bar {
     padding-right: $app-bar-padding;
     overflow: hidden;
 
-    > .mf-logo {
+    > .ias-logo {
       display: block;
       max-height: $app-bar-height-small;
     }
 
-    > .mf-heading {
+    > .ias-heading {
       /* Add height and line-height for align-items bug in IE11 */
       height: $app-bar-height-small;
       line-height: $app-bar-height-small;
       margin-left: $app-bar-padding;
     }
 
-    > span:not(.mf-fill) {
+    > span:not(.ias-fill) {
       @include single-line;
       flex-shrink: 10;
       margin-left: $app-bar-text-spacing;
@@ -36,7 +36,7 @@ mf-app-bar {
       }
     }
 
-    > .mf-button {
+    > .ias-button {
       background-color: transparent;
       border: none;
       color: inherit;
@@ -44,10 +44,10 @@ mf-app-bar {
       font-size: inherit;
       margin-left: $app-bar-button-spacing;
 
-      &.mf-icon-button {
+      &.ias-icon-button {
         padding: $app-bar-button-padding;
 
-        > mf-icon {
+        > ias-icon {
           font-size: $app-bar-icon-size;
         }
       }
@@ -60,8 +60,8 @@ mf-app-bar {
         }
       }
 
-      &:not(.mf-icon-button) {
-        > mf-icon {
+      &:not(.ias-icon-button) {
+        > ias-icon {
           background-color: transparent;
         }
       }
@@ -70,24 +70,24 @@ mf-app-bar {
 }
 
 [dir="rtl"] {
-  mf-app-bar {
+  ias-app-bar {
     background: $app-bar-bg-rtl;
 
-    > .mf-app-bar-content {
+    > .ias-app-bar-content {
       padding-left: $app-bar-padding;
       padding-right: 0;
 
-      > .mf-heading {
+      > .ias-heading {
         margin-left: 0;
         margin-right: $app-bar-padding;
       }
 
-      > .mf-button {
+      > .ias-button {
         margin-left: 0;
         margin-right: $app-bar-button-spacing;
       }
 
-      > span:not(.mf-fill) {
+      > span:not(.ias-fill) {
         @include single-line;
         margin-left: 0;
         margin-right: $app-bar-text-spacing;
@@ -101,26 +101,26 @@ mf-app-bar {
 }
 
 @media (min-width: $large-display) {
-  mf-app-bar {
-    > .mf-app-bar-content {
+  ias-app-bar {
+    > .ias-app-bar-content {
       padding-right: $app-bar-padding-large;
 
-      > .mf-logo {
+      > .ias-logo {
         max-height: $app-bar-height-large;
       }
 
-      > .mf-heading {
+      > .ias-heading {
         margin-left: $app-bar-padding-large;
       }
     }
 
-    &.mf-large {
-      > .mf-app-bar-content {
+    &.ias-large {
+      > .ias-app-bar-content {
         height: $app-bar-height-large;
 
-        > .mf-button {
-          &.mf-icon-button {
-            > mf-icon {
+        > .ias-button {
+          &.ias-icon-button {
+            > ias-icon {
               font-size: $icon-size-small;
             }
           }
@@ -130,12 +130,12 @@ mf-app-bar {
   }
 
   [dir="rtl"] {
-    mf-app-bar {
-      > .mf-app-bar-content {
+    ias-app-bar {
+      > .ias-app-bar-content {
         padding-left: $app-bar-padding-large;
         padding-right: 0;
 
-        > .mf-heading {
+        > .ias-heading {
           margin-left: 0;
           margin-right: $app-bar-padding-large;
         }

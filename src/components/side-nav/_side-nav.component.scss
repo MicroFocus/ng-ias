@@ -1,4 +1,4 @@
-mf-side-nav {
+ias-side-nav {
   bottom: 0;
   display: none;
   left: 0;
@@ -8,42 +8,42 @@ mf-side-nav {
   right: 0;
   top: 0;
 
-  &.mf-open,
-  &.mf-locked {
+  &.ias-open,
+  &.ias-locked {
     display: block;
     opacity: 1;
 
-    > .mf-side-nav-content {
+    > .ias-side-nav-content {
       left: 0;
     }
   }
 
-  &.mf-open {
-    &:not(.mf-locked) {
+  &.ias-open {
+    &:not(.ias-locked) {
       animation: fadein 500ms;
 
-      > .mf-scrim {
+      > .ias-scrim {
         background-color: $side-nav-scrim-color;
       }
 
-      > .mf-side-nav-content {
+      > .ias-side-nav-content {
         animation: slidein 500ms;
       }
     }
   }
 
-  &.mf-locked {
+  &.ias-locked {
     background-color: transparent;
     height: 100%;
     position: relative;
     width: $side-nav-width;
 
-    > .mf-side-nav-content {
+    > .ias-side-nav-content {
       max-width: initial;
     }
   }
 
-  > .mf-scrim {
+  > .ias-scrim {
     background-color: transparent;
     cursor: pointer;
     height: 100%;
@@ -51,7 +51,7 @@ mf-side-nav {
     width: 100%;
   }
 
-  > .mf-side-nav-content {
+  > .ias-side-nav-content {
     background-color: $side-nav-bg-color;
     box-sizing: border-box;
     color: $side-nav-text-color;
@@ -72,7 +72,7 @@ mf-side-nav {
   }
 
   a,
-  .mf-button {
+  .ias-button {
     background-color: transparent;
     border: none;
     box-sizing: border-box;
@@ -91,7 +91,7 @@ mf-side-nav {
     }
 
     &[disabled],
-    &.mf-disabled {
+    &.ias-disabled {
 
     }
   }

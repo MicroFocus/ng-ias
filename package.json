@@ -1,5 +1,5 @@
 {
-  "name": "ng-mfux",
+  "name": "ng-ias",
   "version": "0.1.1",
   "description": "",
   "main": "index.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jedwardhawkins/ng-mfux.git"
+    "url": "git+https://github.com/jedwardhawkins/ng-ias.git"
   },
   "author": "Joe Hawkins <joe.hawkins@microfocus.com>",
   "license": "SEE LICENSE IN LICENSE",
   "bugs": {
-    "url": "https://github.com/jedwardhawkins/ng-mfux/issues"
+    "url": "https://github.com/jedwardhawkins/ng-ias/issues"
   },
-  "homepage": "https://github.com/jedwardhawkins/ng-mfux#readme",
+  "homepage": "https://github.com/jedwardhawkins/ng-ias#readme",
   "devDependencies": {
     "@types/angular": "1.6.0",
     "@types/angular-mocks": "1.5.8",
@@ -28,7 +28,7 @@
     "angular-ui-bootstrap": "2.5.0",
     "bootstrap": "3.3.7",
     "gulp": "3.9.1",
-    "mf-icons": "git+https://secmgmtgit.provo.novell.com:8443/scm/~jhawkins/mf-icons.git#v0.1.1",
+    "ias-icons": "git+https://secmgmtgit.provo.novell.com:8443/scm/~jhawkins/ias-icons.git#v0.1.1",
     "ng-gulp": "jedwardhawkins/ng-gulp#v0.7.2",
     "ng-prism": "joswhite/ng-prism#v1.2.2"
   }

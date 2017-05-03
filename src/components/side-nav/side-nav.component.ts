@@ -14,7 +14,7 @@ export default class SideNavComponent implements IToggleable {
     name: string;
     open: boolean;
 
-    static $inject = ['$element', 'MfToggleService'];
+    static $inject = ['$element', 'IasToggleService'];
     constructor(private $element: IAugmentedJQuery, private toggleService: ToggleService) {
         this.open = false;
     }
@@ -28,10 +28,10 @@ export default class SideNavComponent implements IToggleable {
     }
 
     hide() {
-        this.$element.removeClass('mf-open');
+        this.$element.removeClass('ias-open');
     }
 
     show() {
-        this.$element.addClass('mf-open');
+        this.$element.addClass('ias-open');
     }
 }

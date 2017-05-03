@@ -1,45 +1,45 @@
-# ng-mfux
+# ng-ias
 
-The NG-MFUX project is a set of reusable widgets for Angular.js 1.x. These widgets provide a consistent look and feel across products as well as functionality that provides product consistency.  
+The NG-IAS project is a set of reusable widgets for Angular.js 1.x. These widgets provide a consistent look and feel across products as well as functionality that provides product consistency.  
 
 ## Usage
 
-These steps outline how to use NG-MFUX in your project.
+These steps outline how to use NG-IAS in your project.
 
 ### Installation
 
-The first step is to add the NG-MFUX code to your project.  You can clone the code from Git or add the code as a dependency for WebPack in your package.json like this:
+The first step is to add the NG-IAS code to your project.  You can clone the code from Git or add the code as a dependency for WebPack in your package.json like this:
 
 ```
 "dependencies": {
-    "mf-icons": "git+https://secmgmtgit.provo.novell.com:8443/scm/~jhawkins/mf-icons.git",
-    "ng-mfux": "git+https://secmgmtgit.provo.novell.com:8443/scm/~jhawkins/ng-mfux.git"
+    "ias-icons": "git+https://secmgmtgit.provo.novell.com:8443/scm/~jhawkins/ias-icons.git",
+    "ng-ias": "git+https://secmgmtgit.provo.novell.com:8443/scm/~jhawkins/ng-ias.git"
 }
 ```
 
-This will bring in the icons projects, which includes icons and CSS, and the MFUX project which includes the widgets.  
+This will bring in the icons projects, which includes icons and CSS, and the NG-IAS project which includes the widgets.  
 
-Once you have added these project dependencies you can add the NG-MFUX library to your Angular project by adding the following to your application HTML page:
+Once you have added these project dependencies you can add the NG-IAS library to your Angular project by adding the following to your application HTML page:
 
 ```
-<link href="node_modules/mf-icons/dist/mf-icons.css" rel="stylesheet">
-<link href="dist/ng-mfux.css" rel="stylesheet">
-<script src="dist/ng-mfux.js">
+<link href="node_modules/ias-icons/dist/ias-icons.css" rel="stylesheet">
+<link href="dist/ng-ias.css" rel="stylesheet">
+<script src="dist/ng-ias.js">
 ```
 
 ...and the following module dependency to your Angular app declaration:
 
-`angular.module('app', ['ng-mfux'])`
+`angular.module('app', ['ng-ias'])`
  
 After this initial setup you can copy code/examples from the [docs app](#DocsApp) into your project.
  
 ## Development
 
-1. Clone the ng-mfux repository. Get the appropriate url from the BitBucket server since it is specific to you. You can find it by clicking on the "Clone" action in the left toolbar of this project. Use that url in the command below: 
+1. Clone the ng-ias repository. Get the appropriate url from the BitBucket server since it is specific to you. You can find it by clicking on the "Clone" action in the left toolbar of this project. Use that url in the command below: 
 
-`git clone https://YourUsername@secmgmtgit.provo.novell.com:8443/scm/~jhawkins/ng-mfux.git`
+`git clone https://YourUsername@secmgmtgit.provo.novell.com:8443/scm/~jhawkins/ng-ias.git`
 
-2. Install the build tools. The ng-mfux project uses gulp.js, which can be installed as follows:
+2. Install the build tools. The ng-ias project uses gulp.js, which can be installed as follows:
 
 `npm install -g gulp-cli`
 
@@ -50,7 +50,7 @@ After this initial setup you can copy code/examples from the [docs app](#DocsApp
 4. Install the project dependencies:
 
 ```
-cd ng-mfux
+cd ng-ias
 npm install
 ```
 
@@ -63,9 +63,9 @@ Once you have completed the initial setup you are ready to build and run locally
 Then start the development environment for the core with this command:
 `gulp`
 
-This service does not start a server, it just makes changes in the core available to the browser in development mode.  NG-MFUX contains a second project named docs which includes interactive examples of all of the widgets.  This project is where you will see and test your changes.
+This service does not start a server, it just makes changes in the core available to the browser in development mode.  NG-IAS contains a second project named docs which includes interactive examples of all of the widgets.  This project is where you will see and test your changes.
 
-To start the docs app open a second terminal and go to your NG-MFUX working copy.  Then run the following commands:
+To start the docs app open a second terminal and go to your NG-IAS working copy.  Then run the following commands:
 
 ```
 cd docs/

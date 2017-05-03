@@ -6,12 +6,12 @@ Input components cover the functionality and styling of text boxes, password tex
     <h4>Text and password</h4>
 
     <div repeat-as-code="inner">
-        <mf-input-container>
+        <ias-input-container>
             <input type="text" placeholder="Text placeholder">
-        </mf-input-container>
-        <mf-input-container>
+        </ias-input-container>
+        <ias-input-container>
             <input type="password" placeholder="Password placeholder">
-        </mf-input-container>
+        </ias-input-container>
     </div>
 </div>
 
@@ -19,14 +19,14 @@ Input components cover the functionality and styling of text boxes, password tex
     <h4>Text and password inputs with labels</h4>
 
     <div repeat-as-code="inner">
-        <mf-input-container>
+        <ias-input-container>
             <label for="username1">Username</label>
             <input id="username1" name="username1" type="text">
-        </mf-input-container>
-        <mf-input-container>
+        </ias-input-container>
+        <ias-input-container>
             <label for="password1">Password</label>
             <input id="password1" name="password1" type="password">
-        </mf-input-container>
+        </ias-input-container>
     </div>
 </div>
 
@@ -34,13 +34,13 @@ Input components cover the functionality and styling of text boxes, password tex
     <h4>Disabled text and password inputs</h4>
 
     <div repeat-as-code="inner">
-        <mf-input-container>
+        <ias-input-container>
             <input type="text" placeholder="Disabled text field" disabled="disabled">
-        </mf-input-container>
-        <mf-input-container>
+        </ias-input-container>
+        <ias-input-container>
             <label for="text1">Disabled text field with label</label>
             <input id="text1" name="text1" type="text" disabled="disabled">
-        </mf-input-container>
+        </ias-input-container>
     </div>
 </div>
 
@@ -48,13 +48,13 @@ Input components cover the functionality and styling of text boxes, password tex
     <h4>Text field with icon</h4>
     
     <p>
-        Text fields with icons are popular for search fields and any other field which requires a pictorial differentiator.  The icon field uses the same reference to the icon font as the mf-icon component.
+        Text fields with icons are popular for search fields and any other field which requires a pictorial differentiator.  The icon field uses the same reference to the icon font as the ias-icon component.
     </p>
 
     <div repeat-as-code="inner">
-        <mf-input-container>
-            <mf-icon-input icon="search_thick" type="text" placeholder="Search"></mf-icon-input>
-        </mf-input-container>
+        <ias-input-container>
+            <ias-icon-input icon="search_thick" type="text" placeholder="Search"></ias-icon-input>
+        </ias-input-container>
     </div>
 </div>
 
@@ -62,14 +62,14 @@ Input components cover the functionality and styling of text boxes, password tex
     <h4>Text fields with inline labels</h4>
 
     <div repeat-as-code="inner">
-        <mf-input-container class="mf-inline">
+        <ias-input-container class="ias-inline">
             <label for="text2">Username</label>
             <input id="text2" name="text2" type="text">
-        </mf-input-container>
-        <mf-input-container class="mf-inline">
+        </ias-input-container>
+        <ias-input-container class="ias-inline">
             <label for="password2">Password</label>
             <input id="password2" name="password2" type="password">
-        </mf-input-container>
+        </ias-input-container>
     </div>
 </div>
 
@@ -77,13 +77,13 @@ Input components cover the functionality and styling of text boxes, password tex
     <h4>Text area</h4>
 
     <div repeat-as-code="inner">
-        <mf-input-container>
+        <ias-input-container>
             <textarea placeholder="Text area with placeholder"></textarea>
-        </mf-input-container>
-        <mf-input-container>
+        </ias-input-container>
+        <ias-input-container>
             <label for="textarea1">Text area with label</label>
             <textarea id="textarea1" name="textarea1"></textarea>
-        </mf-input-container>
+        </ias-input-container>
     </div>
 </div>
 
@@ -95,9 +95,9 @@ Input components cover the functionality and styling of text boxes, password tex
     </p>
 
     <div repeat-as-code="inner">
-        <mf-input-container>
-            <mf-resizing-textarea placeholder="Resizing text area with placeholder"></mf-resizing-textarea>
-        </mf-input-container>
+        <ias-input-container>
+            <ias-resizing-textarea placeholder="Resizing text area with placeholder"></ias-resizing-textarea>
+        </ias-input-container>
     </div>
 </div>
 
@@ -105,15 +105,15 @@ Input components cover the functionality and styling of text boxes, password tex
     <h4>Select list</h4>
 
     <div repeat-as-code="inner">
-        <mf-input-container>
+        <ias-input-container>
             <select name="select1" data-ng-options="selectedItem as selectedItem.name for selectedItem in $ctrl.selectListOptions" data-ng-model="$ctrl.selectListModel1">
             </select>
-        </mf-input-container>
-        <mf-input-container>
+        </ias-input-container>
+        <ias-input-container>
             <label for="select2">Select list with label</label>
             <select name="select2" data-ng-options="selectedItem as selectedItem.name for selectedItem in $ctrl.selectListOptions" data-ng-model="$ctrl.selectListModel2">
             </select>
-        </mf-input-container>
+        </ias-input-container>
     </div>
 </div>
 
@@ -121,7 +121,7 @@ Input components cover the functionality and styling of text boxes, password tex
     <h4>Radio buttons</h4>
 
     <div repeat-as-code="inner">
-        <mf-input-container class="mf-inline">
+        <ias-input-container class="ias-inline">
             <span class="title-pre">
                 <input type="radio" value="1" name="radio1" id="radio1-1">
                 <label class="label-large-dark" for="radio1-1">One</label>
@@ -134,7 +134,7 @@ Input components cover the functionality and styling of text boxes, password tex
                 <input type="radio" value="3" name="radio1" id="radio1-3">
                 <label class="label-large-dark" for="radio1-3">Three</label>
             </span>
-        </mf-input-container>
+        </ias-input-container>
     </div>
 </div>
 
@@ -142,7 +142,7 @@ Input components cover the functionality and styling of text boxes, password tex
     <h4>Check boxes</h4>
 
     <div repeat-as-code="inner">
-        <mf-input-container class="mf-inline">
+        <ias-input-container class="ias-inline">
             <div class="title-pre">
                 <input type="checkbox" value="1" id="checkbox1">
                 <label class="label-large-dark" for="checkbox1">One</label>
@@ -155,7 +155,7 @@ Input components cover the functionality and styling of text boxes, password tex
                 <input type="checkbox" value="3" id="checkbox3">
                 <label class="label-large-dark" for="checkbox3">Three</label>
             </div>
-        </mf-input-container>
+        </ias-input-container>
     </div>
 </div>
 
@@ -167,14 +167,14 @@ Input components cover the functionality and styling of text boxes, password tex
     </p>
     
     <div repeat-as-code="inner">
-        <mf-input-container>
+        <ias-input-container>
             <label for="int1">An integer only text field</label>
-            <mf-int-input id="int1"></mf-int-input>
-        </mf-input-container>
+            <ias-int-input id="int1"></ias-int-input>
+        </ias-input-container>
         
-        <mf-input-container>
+        <ias-input-container>
             <label for="int1">An integer only text field which only allows values between 10 and 20</label>
-            <mf-int-input id="int1" min="10" max="20" ng-model="$ctrl.myInt"></mf-int-input>
-        </mf-input-container>
+            <ias-int-input id="int1" min="10" max="20" ng-model="$ctrl.myInt"></ias-int-input>
+        </ias-input-container>
     </div>
 </div>

@@ -10,64 +10,64 @@
     ]"></div>
 
 <div class="demo-section">
-    <h4>.mf-tiny</h4>
+    <h4>.ias-tiny</h4>
 
-    <mf-tile-grid repeat-as-code="">
-        <mf-tile class="mf-tiny" ng-repeat="app in $ctrl.apps" ng-attr-title="{{app.name}}">
-            <mf-avatar src="app.image"></mf-avatar>
-            <div class="mf-tile-actions">
-                <mf-icon ng-if="app.favorite" icon="favorite_fill"></mf-icon>
+    <ias-tile-grid repeat-as-code="">
+        <ias-tile class="ias-tiny" ng-repeat="app in $ctrl.apps" ng-attr-title="{{app.name}}">
+            <ias-avatar src="app.image"></ias-avatar>
+            <div class="ias-tile-actions">
+                <ias-icon ng-if="app.favorite" icon="favorite_fill"></ias-icon>
             </div>
-        </mf-tile>
-    </mf-tile-grid>
+        </ias-tile>
+    </ias-tile-grid>
 </div>
 
 <div class="demo-section">
-    <h4>.mf-small</h4>
+    <h4>.ias-small</h4>
 
-    <mf-tile-grid>
-        <mf-tile class="mf-small" ng-repeat="app in $ctrl.apps" ng-attr-title="{{app.name}}">
-            <mf-avatar src="app.image"></mf-avatar>
-            <div class="mf-tile-body">
+    <ias-tile-grid>
+        <ias-tile class="ias-small" ng-repeat="app in $ctrl.apps" ng-attr-title="{{app.name}}">
+            <ias-avatar src="app.image"></ias-avatar>
+            <div class="ias-tile-body">
                 <h3>{{app.name}}</h3>
             </div>
-            <div class="mf-tile-actions">
-                <mf-icon ng-if="app.favorite" icon="favorite_fill"></mf-icon>
+            <div class="ias-tile-actions">
+                <ias-icon ng-if="app.favorite" icon="favorite_fill"></ias-icon>
             </div>
-        </mf-tile>
-    </mf-tile-grid>
+        </ias-tile>
+    </ias-tile-grid>
 </div>
 
 <div class="demo-section">
-    <h4>.mf-medium</h4>
+    <h4>.ias-medium</h4>
 
-    <mf-tile-grid>
-        <mf-tile class="mf-medium" ng-repeat="app in $ctrl.apps">
-            <mf-avatar src="app.image"></mf-avatar>
-            <div class="mf-tile-body">
-                <h3>{{app.name}}</h3>
-                <p>0 lines show on tiny and small, 2 lines on medium, and three on large</p>
-            </div>
-            <div class="mf-tile-actions">
-                <mf-icon ng-if="app.favorite" icon="favorite_fill"></mf-icon>
-            </div>
-        </mf-tile>
-    </mf-tile-grid>
-</div>
-
-<div class="demo-section">
-    <h4>.mf-large</h4>
-
-    <mf-tile-grid repeat-as-code="">
-        <mf-tile class="mf-large" ng-repeat="app in $ctrl.apps">
-            <mf-avatar src="app.image"></mf-avatar>
-            <div class="mf-tile-body">
+    <ias-tile-grid>
+        <ias-tile class="ias-medium" ng-repeat="app in $ctrl.apps">
+            <ias-avatar src="app.image"></ias-avatar>
+            <div class="ias-tile-body">
                 <h3>{{app.name}}</h3>
                 <p>0 lines show on tiny and small, 2 lines on medium, and three on large</p>
             </div>
-            <div class="mf-tile-actions">
-                <mf-icon ng-if="app.favorite" icon="favorite_fill"></mf-icon>
+            <div class="ias-tile-actions">
+                <ias-icon ng-if="app.favorite" icon="favorite_fill"></ias-icon>
             </div>
-        </mf-tile>
-    </mf-tile-grid>
+        </ias-tile>
+    </ias-tile-grid>
+</div>
+
+<div class="demo-section">
+    <h4>.ias-large</h4>
+
+    <ias-tile-grid repeat-as-code="">
+        <ias-tile class="ias-large" ng-repeat="app in $ctrl.apps">
+            <ias-avatar src="app.image"></ias-avatar>
+            <div class="ias-tile-body">
+                <h3>{{app.name}}</h3>
+                <p>0 lines show on tiny and small, 2 lines on medium, and three on large</p>
+            </div>
+            <div class="ias-tile-actions">
+                <ias-icon ng-if="app.favorite" icon="favorite_fill"></ias-icon>
+            </div>
+        </ias-tile>
+    </ias-tile-grid>
 </div>

@@ -68,34 +68,34 @@
 	var sort_directive_1 = __webpack_require__(35);
 	var toggle_directive_1 = __webpack_require__(36);
 	var toggle_service_1 = __webpack_require__(37);
-	angular_1.module('ng-mfux', [])
+	angular_1.module('ng-ias', [])
 	    .constant('MENU_MARGIN', 24)
-	    .component('mfAppBar', app_bar_component_1.default)
-	    .component('mfAvatar', avatar_component_1.default)
-	    .directive('mfButton', button_component_1.default)
-	    .directive('mfIntInput', int_input_component_1.default)
-	    .directive('mfIconInput', icon_input_component_1.default)
-	    .component('mfDialog', dialog_component_1.default)
-	    .component('mfHeader', header_component_1.default)
-	    .component('mfIcon', icon_component_1.default)
-	    .component('mfInputContainer', input_component_1.default)
-	    .component('mfList', list_component_1.ListComponent)
-	    .component('mfListHeader', list_component_1.ListHeaderComponent)
-	    .component('mfListItem', list_component_1.ListItemComponent)
-	    .component('mfMenu', menu_component_1.MenuComponent)
-	    .component('mfFooterMenu', menu_component_1.MenuFooterComponent)
-	    .component('mfHeaderMenu', menu_component_1.MenuHeaderComponent)
-	    .component('mfNav', nav_component_1.default)
-	    .directive('mfResizingTextarea', resizing_textarea_component_1.default)
-	    .component('mfSearchBox', search_box_component_1.default)
-	    .component('mfSideNav', side_nav_component_1.default)
-	    .component('mfTile', tile_component_1.default)
-	    .component('mfTileGrid', tile_grid_component_1.default)
-	    .directive('mfToggle', toggle_directive_1.ToggleDirective)
-	    .directive('mfSort', sort_directive_1.SortDirective)
-	    .directive('mfSortOn', sort_directive_1.SortOnDirective)
-	    .service('MfDialogService', dialog_service_1.default)
-	    .service('MfToggleService', toggle_service_1.default);
+	    .component('iasAppBar', app_bar_component_1.default)
+	    .component('iasAvatar', avatar_component_1.default)
+	    .directive('iasButton', button_component_1.default)
+	    .directive('iasIntInput', int_input_component_1.default)
+	    .directive('iasIconInput', icon_input_component_1.default)
+	    .component('iasDialog', dialog_component_1.default)
+	    .component('iasHeader', header_component_1.default)
+	    .component('iasIcon', icon_component_1.default)
+	    .component('iasInputContainer', input_component_1.default)
+	    .component('iasList', list_component_1.ListComponent)
+	    .component('iasListHeader', list_component_1.ListHeaderComponent)
+	    .component('iasListItem', list_component_1.ListItemComponent)
+	    .component('iasMenu', menu_component_1.MenuComponent)
+	    .component('iasFooterMenu', menu_component_1.MenuFooterComponent)
+	    .component('iasHeaderMenu', menu_component_1.MenuHeaderComponent)
+	    .component('iasNav', nav_component_1.default)
+	    .directive('iasResizingTextarea', resizing_textarea_component_1.default)
+	    .component('iasSearchBox', search_box_component_1.default)
+	    .component('iasSideNav', side_nav_component_1.default)
+	    .component('iasTile', tile_component_1.default)
+	    .component('iasTileGrid', tile_grid_component_1.default)
+	    .directive('iasToggle', toggle_directive_1.ToggleDirective)
+	    .directive('iasSort', sort_directive_1.SortDirective)
+	    .directive('iasSortOn', sort_directive_1.SortOnDirective)
+	    .service('IasDialogService', dialog_service_1.default)
+	    .service('IasToggleService', toggle_service_1.default);
 
 
 /***/ },
@@ -149,7 +149,7 @@
 /***/ function(module, exports) {
 
 	var path = 'components/app-bar/app-bar.component.html';
-	var html = "<div class=\"mf-app-bar-content\" ng-transclude></div>";
+	var html = "<div class=\"ias-app-bar-content\" ng-transclude></div>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
@@ -187,7 +187,7 @@
 /***/ function(module, exports) {
 
 	var path = 'components/avatar/avatar.component.html';
-	var html = "<div class=\"mf-avatar-content\" ng-style=\"{ 'background-image': 'url(' + $ctrl.src + ')' }\"></div>";
+	var html = "<div class=\"ias-avatar-content\" ng-style=\"{ 'background-image': 'url(' + $ctrl.src + ')' }\"></div>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
@@ -226,7 +226,7 @@
 /***/ function(module, exports) {
 
 	var path = 'components/button/button.component.html';
-	var html = "<button class=\"mf-button\" ng-transclude>\r\n</button>";
+	var html = "<button class=\"ias-button\" ng-transclude>\r\n</button>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
@@ -291,29 +291,29 @@
 	        var deferred = this.$q.defer();
 	        if (dialogHtml === null) {
 	            dialogHtml =
-	                '<mf-dialog ng-click="onScrimClicked()">' +
-	                    '   <mf-dialog-content ng-click="$event.stopPropagation()">' +
-	                    '       <div class="mf-dialog-header">' +
-	                    '           <div ng-if="!!title" class="mf-title">{{title}}</div>' +
+	                '<ias-dialog ng-click="onScrimClicked()">' +
+	                    '   <ias-dialog-content ng-click="$event.stopPropagation()">' +
+	                    '       <div class="ias-dialog-header">' +
+	                    '           <div ng-if="!!title" class="ias-title">{{title}}</div>' +
 	                    '       </div>' +
-	                    '       <div class="mf-dialog-body">' +
+	                    '       <div class="ias-dialog-body">' +
 	                    '           <div ng-if="!prompt">{{textContent}}</div>' +
 	                    '           <div ng-if="prompt">' +
-	                    '               <mf-input-container>' +
+	                    '               <ias-input-container>' +
 	                    '                   <label for="response">{{textContent}}</label>' +
 	                    '                   <input id="response" name="response" type="text" ng-model="data.response">' +
-	                    '               </mf-input-container>' +
+	                    '               </ias-input-container>' +
 	                    '           </div>' +
 	                    '       </div>' +
-	                    '       <div class="mf-actions">' +
-	                    '          <mf-button ng-if="!!okText" ng-click="confirm()">{{okText}}</mf-button>' +
-	                    '          <mf-button ng-if="!!cancelText" ng-click="cancel()">{{cancelText}}</mf-button>' +
+	                    '       <div class="ias-actions">' +
+	                    '          <ias-button ng-if="!!okText" ng-click="confirm()">{{okText}}</ias-button>' +
+	                    '          <ias-button ng-if="!!cancelText" ng-click="cancel()">{{cancelText}}</ias-button>' +
 	                    '       </div>' +
-	                    '       <mf-button class="mf-icon-button mf-dialog-close-button" ng-click="cancel()">' +
-	                    '           <mf-icon icon="close_thick"></mf-icon>' +
-	                    '       </mf-button>' +
-	                    '   </mf-dialog-content>' +
-	                    '</mf-dialog>';
+	                    '       <ias-button class="ias-icon-button ias-dialog-close-button" ng-click="cancel()">' +
+	                    '           <ias-icon icon="close_thick"></ias-icon>' +
+	                    '       </ias-button>' +
+	                    '   </ias-dialog-content>' +
+	                    '</ias-dialog>';
 	        }
 	        var scope = this.$rootScope.$new(true);
 	        scope['$ctrl'] = options.controller;
@@ -417,7 +417,7 @@
 /***/ function(module, exports) {
 
 	var path = 'components/icon/icon.component.html';
-	var html = "<i ng-if=\"$ctrl.icon\" ng-class=\"['mf-icon', 'mf-icon-' + $ctrl.icon]\"></i>\r\n<img ng-if=\"!$ctrl.icon\" class=\"svg-icon\" ng-src=\"{{$ctrl.svgIcon}}\" ng-attr-alt=\"{{$ctrl.svgIcon}}\"/>";
+	var html = "<i ng-if=\"$ctrl.icon\" ng-class=\"['ias-icon', 'ias-icon-' + $ctrl.icon]\"></i>\r\n<img ng-if=\"!$ctrl.icon\" class=\"svg-icon\" ng-src=\"{{$ctrl.svgIcon}}\" ng-attr-alt=\"{{$ctrl.svgIcon}}\"/>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
@@ -463,7 +463,7 @@
 /***/ function(module, exports) {
 
 	var path = 'components/input/icon.input.component.html';
-	var html = "<span class=\"mf-icon-input-container\">\r\n    <input type=\"text\" placeholder=\"{{placeholder}}\">\r\n    <mf-icon icon=\"{{icon}}\"></mf-icon>\r\n</span>";
+	var html = "<span class=\"ias-icon-input-container\">\r\n    <input type=\"text\" placeholder=\"{{placeholder}}\">\r\n    <ias-icon icon=\"{{icon}}\"></ias-icon>\r\n</span>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
@@ -576,7 +576,7 @@
 /***/ function(module, exports) {
 
 	var path = 'components/input/int.input.component.html';
-	var html = "<input type=\"text\" class=\"mfIntInput\" ng-transclude>\r\n</input>";
+	var html = "<input type=\"text\" class=\"iasIntInput\" ng-transclude>\r\n</input>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
@@ -705,11 +705,11 @@
 	    };
 	    MenuComponent.prototype.hide = function () {
 	        this.open = false;
-	        this.$element.removeClass('mf-open');
+	        this.$element.removeClass('ias-open');
 	    };
 	    MenuComponent.prototype.show = function (targetElement) {
 	        this.open = true;
-	        this.$element.addClass('mf-open');
+	        this.$element.addClass('ias-open');
 	        this.showMenuContent(targetElement[0]);
 	    };
 	    MenuComponent.prototype.getLayoutDirection = function () {
@@ -719,7 +719,7 @@
 	        return (num === null) ? null : num + 'px';
 	    };
 	    MenuComponent.prototype.showMenuContent = function (targetElement) {
-	        var menuContentElement = this.$element.find('mf-menu-content')[0];
+	        var menuContentElement = this.$element.find('ias-menu-content')[0];
 	        var isLtrLayout = this.getLayoutDirection() !== 'rtl';
 	        menuContentElement.style.bottom =
 	            menuContentElement.style.left =
@@ -796,11 +796,11 @@
 	    };
 	    return MenuComponent;
 	}());
-	MenuComponent.$inject = ['$document', '$element', '$window', 'MfToggleService', 'MENU_MARGIN'];
+	MenuComponent.$inject = ['$document', '$element', '$window', 'IasToggleService', 'MENU_MARGIN'];
 	MenuComponent = __decorate([
 	    component_decorator_1.Component({
 	        bindings: {
-	            align: '@mfAlign',
+	            align: '@iasAlign',
 	            name: '@'
 	        },
 	        templateUrl: __webpack_require__(23),
@@ -845,7 +845,7 @@
 /***/ function(module, exports) {
 
 	var path = 'components/menu/menu.component.html';
-	var html = "<mf-menu-content ng-transclude ng-click=\"$event.stopPropagation()\"></mf-menu-content>";
+	var html = "<ias-menu-content ng-transclude ng-click=\"$event.stopPropagation()\"></ias-menu-content>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
@@ -881,7 +881,7 @@
 /***/ function(module, exports) {
 
 	var path = 'components/nav/nav.component.html';
-	var html = "<div class=\"mf-nav-content\" ng-transclude></div>";
+	var html = "<div class=\"ias-nav-content\" ng-transclude></div>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
@@ -953,7 +953,7 @@
 /***/ function(module, exports) {
 
 	var path = 'components/input/resizing.textarea.component.html';
-	var html = "<textarea ng-transclude class=\"mfResizingTextArea\" rows=\"3\" min-rows=\"3\"></textarea>";
+	var html = "<textarea ng-transclude class=\"iasResizingTextArea\" rows=\"3\" min-rows=\"3\"></textarea>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
@@ -1019,7 +1019,7 @@
 /***/ function(module, exports) {
 
 	var path = 'components/search-box/search-box.component.html';
-	var html = "<div class=\"mf-search-box-content\">\r\n    <input type=\"text\"\r\n           autocomplete=\"false\"\r\n           ng-model=\"$ctrl.value\"\r\n           ng-attr-placeholder=\"{{$ctrl.placeholder}}\"\r\n           ng-keydown=\"$ctrl.onInputKeyDown($event)\" />\r\n    <mf-icon icon=\"search_thick\"></mf-icon>\r\n    <mf-button class=\"mf-icon-button\" ng-click=\"$ctrl.clearInput()\">\r\n        <mf-icon icon=\"close_thick\"></mf-icon>\r\n    </mf-button>\r\n</div>";
+	var html = "<div class=\"ias-search-box-content\">\r\n    <input type=\"text\"\r\n           autocomplete=\"false\"\r\n           ng-model=\"$ctrl.value\"\r\n           ng-attr-placeholder=\"{{$ctrl.placeholder}}\"\r\n           ng-keydown=\"$ctrl.onInputKeyDown($event)\" />\r\n    <ias-icon icon=\"search_thick\"></ias-icon>\r\n    <ias-button class=\"ias-icon-button\" ng-click=\"$ctrl.clearInput()\">\r\n        <ias-icon icon=\"close_thick\"></ias-icon>\r\n    </ias-button>\r\n</div>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
@@ -1049,14 +1049,14 @@
 	        this.$element.off('click');
 	    };
 	    SideNavComponent.prototype.hide = function () {
-	        this.$element.removeClass('mf-open');
+	        this.$element.removeClass('ias-open');
 	    };
 	    SideNavComponent.prototype.show = function () {
-	        this.$element.addClass('mf-open');
+	        this.$element.addClass('ias-open');
 	    };
 	    return SideNavComponent;
 	}());
-	SideNavComponent.$inject = ['$element', 'MfToggleService'];
+	SideNavComponent.$inject = ['$element', 'IasToggleService'];
 	SideNavComponent = __decorate([
 	    component_decorator_1.Component({
 	        bindings: {
@@ -1074,7 +1074,7 @@
 /***/ function(module, exports) {
 
 	var path = 'components/side-nav/side-nav.component.html';
-	var html = "<div class=\"mf-scrim\" ng-click=\"$ctrl.hide()\"></div>\r\n<div class=\"mf-side-nav-content\" ng-transclude></div>";
+	var html = "<div class=\"ias-scrim\" ng-click=\"$ctrl.hide()\"></div>\r\n<div class=\"ias-side-nav-content\" ng-transclude></div>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
@@ -1112,7 +1112,7 @@
 /***/ function(module, exports) {
 
 	var path = 'components/tile/tile.component.html';
-	var html = "<div class=\"mf-tile-content\" ng-transclude></div>";
+	var html = "<div class=\"ias-tile-content\" ng-transclude></div>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
@@ -1174,27 +1174,27 @@
 	        controller: SortDirectiveController,
 	        restrict: 'A',
 	        link: function (scope, element, attributes, controller) {
-	            controller.sortBinding = attributes['mfSort'];
+	            controller.sortBinding = attributes['iasSort'];
 	        }
 	    };
 	}
 	exports.SortDirective = SortDirective;
 	function SortOnDirective($compile) {
 	    return {
-	        require: '^mfSort',
+	        require: '^iasSort',
 	        restrict: 'A',
 	        scope: {
-	            'sortOn': '<mfSortOn'
+	            'sortOn': '<iasSortOn'
 	        },
 	        link: function (scope, element, attributes, controller) {
 	            scope.getSortExpression = function () {
 	                return controller.sortExpression;
 	            };
-	            var iconHtml = '<mf-icon icon="down_thick" ng-if="getSortExpression() == \'' + scope.sortOn + '\'"></mf-icon>' +
-	                '<mf-icon icon="up_thick" ng-if="getSortExpression() == \'-' + scope.sortOn + '\'"></mf-icon>';
+	            var iconHtml = '<ias-icon icon="down_thick" ng-if="getSortExpression() == \'' + scope.sortOn + '\'"></ias-icon>' +
+	                '<ias-icon icon="up_thick" ng-if="getSortExpression() == \'-' + scope.sortOn + '\'"></ias-icon>';
 	            var iconElement = $compile(iconHtml)(scope);
 	            element.append(iconElement);
-	            element.addClass('mf-sortable');
+	            element.addClass('ias-sortable');
 	            element.on('click', function () {
 	                scope.$apply(function () {
 	                    controller.sortOn(scope['sortOn']);
@@ -1216,13 +1216,13 @@
 	function ToggleDirective(toggleService) {
 	    return {
 	        link: function (scope, element, attrs) {
-	            element.on('click', function () { toggleService.toggleComponent(attrs['mfToggle'], element); });
+	            element.on('click', function () { toggleService.toggleComponent(attrs['iasToggle'], element); });
 	        },
 	        restrict: 'A'
 	    };
 	}
 	exports.ToggleDirective = ToggleDirective;
-	ToggleDirective.$inject = ['MfToggleService'];
+	ToggleDirective.$inject = ['IasToggleService'];
 
 
 /***/ },

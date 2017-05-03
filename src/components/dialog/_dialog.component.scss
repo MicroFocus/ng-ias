@@ -1,4 +1,4 @@
-mf-dialog {
+ias-dialog {
   animation: fadein 500ms;
   animation-fill-mode: forwards;
   background-color: $dialog-scrim-color;
@@ -12,7 +12,7 @@ mf-dialog {
   top: 0;
 }
 
-mf-dialog-content {
+ias-dialog-content {
   background-color: $dialog-bg-color;
   border-radius: $border-radius;
   box-sizing: border-box;
@@ -22,27 +22,27 @@ mf-dialog-content {
   position: relative;
   width: 100%;
 
-  .mf-dialog-close-button {
+  .ias-dialog-close-button {
     position: absolute;
     right: 10px;
     top: 10px;
   }
 
-  > .mf-actions {
+  > .ias-actions {
     padding: $content-padding;
   }
 
-  > .mf-dialog-body {
+  > .ias-dialog-body {
     padding: 0 $content-padding;
   }
 
-  > .mf-dialog-header {
+  > .ias-dialog-header {
     padding: $content-padding $content-padding $spacing $content-padding;
   }
 }
 
 @media (min-width: $large-display) {
-  mf-dialog-content {
+  ias-dialog-content {
     min-width: 320px;
     width: auto;
   }

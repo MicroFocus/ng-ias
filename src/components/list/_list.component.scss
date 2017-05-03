@@ -1,11 +1,11 @@
-mf-list {
+ias-list {
   display: block;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-mf-list-item {
+ias-list-item {
   box-sizing: content-box;
   display: flex;
   flex-flow: row nowrap;
@@ -22,7 +22,7 @@ mf-list-item {
     color: inherit;
   }
 
-  &.mf-offset {
+  &.ias-offset {
     padding-left: (2 * $spacing) + $list-item-avatar-size;
   }
 
@@ -33,25 +33,25 @@ mf-list-item {
     flex: 1 1;
   }
 
-  > mf-avatar {
+  > ias-avatar {
     flex: 0 0 $list-item-avatar-size;
     height: $list-item-avatar-size;
     width: $list-item-avatar-size;
   }
 
-  > mf-icon {
+  > ias-icon {
     font-size: $list-item-avatar-size;
   }
 
-  > mf-icon,
-  > mf-avatar {
+  > ias-icon,
+  > ias-avatar {
     &:first-child {
       margin-right: $spacing;
     }
   }
 }
 
-mf-list-header {
+ias-list-header {
   color: $list-header-text-color;
   display: block;
   font-size: $list-header-font-size;

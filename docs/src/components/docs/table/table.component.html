@@ -12,27 +12,27 @@
         <tbody>
             <tr>
                 <td>
-                    <mf-button class="mf-icon-button">
-                        <mf-icon icon="search_thick"></mf-icon>
-                    </mf-button>
+                    <ias-button class="ias-icon-button">
+                        <ias-icon icon="search_thick"></ias-icon>
+                    </ias-button>
                 </td>
                 <td><a href="#">Lynn Christensen</a></td>
                 <td>UX Director</td>
             </tr>
             <tr>
                 <td>
-                    <mf-button class="mf-icon-button">
-                        <mf-icon icon="search_thick"></mf-icon>
-                    </mf-button>
+                    <ias-button class="ias-icon-button">
+                        <ias-icon icon="search_thick"></ias-icon>
+                    </ias-button>
                 </td>
                 <td><a href="#">Joe Hawkins</a></td>
                 <td>Assistant to the UX Director</td>
             </tr>
             <tr>
                 <td>
-                    <mf-button class="mf-icon-button">
-                        <mf-icon icon="search_thick"></mf-icon>
-                    </mf-button>
+                    <ias-button class="ias-icon-button">
+                        <ias-icon icon="search_thick"></ias-icon>
+                    </ias-button>
                 </td>
                 <td><a href="#">Joseph White</a></td>
                 <td>Secret assistant to the UX Director</td>
@@ -42,7 +42,7 @@
 </div>
 
 <div class="demo-section">
-    <h4>Inline mf-icon</h4>
+    <h4>Inline ias-icon</h4>
 
     <table repeat-as-code="">
         <thead>
@@ -54,21 +54,21 @@
         <tbody>
             <tr>
                 <td>
-                    <mf-icon icon="favorite_outline_thin"></mf-icon>
+                    <ias-icon icon="favorite_outline_thin"></ias-icon>
                     <a href="#">Lynn Christensen</a>
                 </td>
                 <td>UX Director</td>
             </tr>
             <tr>
                 <td>
-                    <mf-icon icon="favorite_outline_thin"></mf-icon>
+                    <ias-icon icon="favorite_outline_thin"></ias-icon>
                     <a href="#">Joe Hawkins</a>
                 </td>
                 <td>Assistant to the UX Director</td>
             </tr>
             <tr>
                 <td>
-                    <mf-icon icon="favorite_outline_thin"></mf-icon>
+                    <ias-icon icon="favorite_outline_thin"></ias-icon>
                     <a href="#">Joseph White</a>
                 </td>
                 <td>Secret assistant to the UX Director</td>
@@ -80,21 +80,21 @@
 <div class="demo-section">
     <h4>Sorting</h4>
 
-    <table mf-sort="$ctrl.sort" repeat-as-code=""
+    <table ias-sort="$ctrl.sort" repeat-as-code=""
            ng-init="$ctrl.people=[
             {name: 'Lynn Christensen', title: 'UX Director'},
             {name: 'Joseph White', title: 'Assistant to the UX Director'},
             {name: 'Joe Hawkins', title: 'Secret assistant to the UX Director'}]">
         <thead>
             <tr>
-                <th mf-sort-on="'name'">Name</th>
-                <th mf-sort-on="'title'">Title</th>
+                <th ias-sort-on="'name'">Name</th>
+                <th ias-sort-on="'title'">Title</th>
             </tr>
         </thead>
         <tbody>
             <tr ng-repeat="person in $ctrl.people | orderBy:$ctrl.sort">
                 <td>
-                    <mf-icon icon="favorite_outline_thin"></mf-icon>
+                    <ias-icon icon="favorite_outline_thin"></ias-icon>
                     <a href="#">{{person.name}}</a>
                 </td>
                 <td>{{person.title}}</td>

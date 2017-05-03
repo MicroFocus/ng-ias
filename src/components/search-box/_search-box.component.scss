@@ -1,23 +1,23 @@
-mf-search-box {
+ias-search-box {
   background-color: $input-bg-color;
   display: inline-block;
   height: 33px;
 }
 
-.mf-search-box-content {
+.ias-search-box-content {
   height: 33px;
   position: relative;
 
-  > mf-icon {
+  > ias-icon {
     left: 0;
   }
 
-  > .mf-icon-button {
+  > .ias-icon-button {
     right: 0;
   }
 
-  > mf-icon,
-  > .mf-icon-button {
+  > ias-icon,
+  > .ias-icon-button {
     position: absolute;
     top: 1px;
   }
@@ -29,13 +29,13 @@ mf-search-box {
     padding: $input-padding ((2 * $search-box-icon-padding) + $search-box-icon-size);
   }
 
-  > mf-icon,
-  > .mf-icon-button {
+  > ias-icon,
+  > .ias-icon-button {
     padding: $search-box-icon-padding;
   }
 
-  mf-icon,
-  .mf-icon-button {
+  ias-icon,
+  .ias-icon-button {
     font-size: $search-box-icon-size;
   }
 }

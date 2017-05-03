@@ -48,29 +48,29 @@ export default class DialogService {
         // Create and compile element
         if (dialogHtml === null) {
             dialogHtml =
-                '<mf-dialog ng-click="onScrimClicked()">' +
-                '   <mf-dialog-content ng-click="$event.stopPropagation()">' +
-                '       <div class="mf-dialog-header">' +
-                '           <div ng-if="!!title" class="mf-title">{{title}}</div>' +
+                '<ias-dialog ng-click="onScrimClicked()">' +
+                '   <ias-dialog-content ng-click="$event.stopPropagation()">' +
+                '       <div class="ias-dialog-header">' +
+                '           <div ng-if="!!title" class="ias-title">{{title}}</div>' +
                 '       </div>' +
-                '       <div class="mf-dialog-body">' +
+                '       <div class="ias-dialog-body">' +
                 '           <div ng-if="!prompt">{{textContent}}</div>' +
                 '           <div ng-if="prompt">' +
-                '               <mf-input-container>' +
+                '               <ias-input-container>' +
                 '                   <label for="response">{{textContent}}</label>' +
                 '                   <input id="response" name="response" type="text" ng-model="data.response">' +
-                '               </mf-input-container>' +
+                '               </ias-input-container>' +
                 '           </div>' +
                 '       </div>' +
-                '       <div class="mf-actions">' +
-                '          <mf-button ng-if="!!okText" ng-click="confirm()">{{okText}}</mf-button>' +
-                '          <mf-button ng-if="!!cancelText" ng-click="cancel()">{{cancelText}}</mf-button>' +
+                '       <div class="ias-actions">' +
+                '          <ias-button ng-if="!!okText" ng-click="confirm()">{{okText}}</ias-button>' +
+                '          <ias-button ng-if="!!cancelText" ng-click="cancel()">{{cancelText}}</ias-button>' +
                 '       </div>' +
-                '       <mf-button class="mf-icon-button mf-dialog-close-button" ng-click="cancel()">' +
-                '           <mf-icon icon="close_thick"></mf-icon>' +
-                '       </mf-button>' +
-                '   </mf-dialog-content>' +
-                '</mf-dialog>';
+                '       <ias-button class="ias-icon-button ias-dialog-close-button" ng-click="cancel()">' +
+                '           <ias-icon icon="close_thick"></ias-icon>' +
+                '       </ias-button>' +
+                '   </ias-dialog-content>' +
+                '</ias-dialog>';
         }
 
         let scope = this.$rootScope.$new(true);

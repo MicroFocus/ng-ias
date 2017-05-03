@@ -6,20 +6,20 @@ var cwd = process.cwd();
 
 ngGulp(gulp, {
     autoTest: false,
-    cssBasename: 'ng-mfux',
+    cssBasename: 'ng-ias',
     devServer: false,
-    jsBasename: 'ng-mfux',
+    jsBasename: 'ng-ias',
     externals: {
         'angular-ui-router': 'window["angular-ui-router"]'
     },
     files: {
         sassManifest: [
-            path.resolve(cwd, 'src/ng-mfux.scss'),
-            path.resolve(cwd, 'src/ng-mfux_dark.scss')
+            path.resolve(cwd, 'src/ng-ias.scss'),
+            path.resolve(cwd, 'src/ng-ias_dark.scss')
         ],
-        typescriptMainDevelopment: path.resolve(cwd, 'src/ng-mfux.module.ts'),
-        typescriptMainProduction: path.resolve(cwd, 'src/ng-mfux.module.ts'),
-        typescriptMainTest: path.resolve(cwd, 'src/ng-mfux.module.ts'),
+        typescriptMainDevelopment: path.resolve(cwd, 'src/ng-ias.module.ts'),
+        typescriptMainProduction: path.resolve(cwd, 'src/ng-ias.module.ts'),
+        typescriptMainTest: path.resolve(cwd, 'src/ng-ias.module.ts'),
         vendorDevelopment: [
             // There should not be any vendor dependencies in this library
         ],
