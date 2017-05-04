@@ -3,65 +3,71 @@
 <div class="demo-section">
     <h4>Alert Dialog</h4>
 
-    <ias-button ng-click="$ctrl.openAlertDialog()" repeat-as-code>Click</ias-button>
+    <ias-button ng-click="$ctrl.openAlertDialog()" repeat-as-code prism-insert-id="code-01">Click</ias-button>
 
 
+	<toggleable-code id="code-01">
 		<pre><code highlight>
-		this.openAlertDialog = function () {
-			this.IasDialogService
-				.alert({
-				textContent: 'You opened an alert dialog.',
-				title: 'Alert!'
-			})
-				.then(function () {
-				alert('resolved');
-			}, function () {
-				alert('rejected');
-			});
-		};
-    </code></pre>
+			this.openAlertDialog = function () {
+				this.IasDialogService
+					.alert({
+					textContent: 'You opened an alert dialog.',
+					title: 'Alert!'
+				})
+					.then(function () {
+					alert('resolved');
+				}, function () {
+					alert('rejected');
+				});
+			};
+		</code></pre>
+	</toggleable-code>
 </div>
 
 <div class="demo-section">
     <h4>Confirmation Dialog</h4>
 
-    <ias-button ng-click="$ctrl.openConfirmationDialog()" repeat-as-code>Click</ias-button>
+    <ias-button ng-click="$ctrl.openConfirmationDialog()" repeat-as-code prism-insert-id="code-02">Click</ias-button>
 
-    <pre><code highlight>
-		this.openConfirmationDialog = function () {
-			this.IasDialogService
-				.confirm({
-				textContent: 'Are you sure?',
-				title: 'Confirmation'
-			})
-				.then(function () {
-				alert('confirmed');
-			}, function () {
-				alert('declined');
-			});
-		};
-    </code></pre>
+	<toggleable-code id="code-02">
+		<pre><code highlight>
+			this.openConfirmationDialog = function () {
+				this.IasDialogService
+					.confirm({
+					textContent: 'Are you sure?',
+					title: 'Confirmation'
+				})
+					.then(function () {
+					alert('confirmed');
+				}, function () {
+					alert('declined');
+				});
+			};
+		</code></pre>
+	</toggleable-code>
 </div>
 
 <div class="demo-section">
     <h4>Prompt Dialog</h4>
 
-    <ias-button ng-click="$ctrl.openPromptDialog()" repeat-as-code>Click</ias-button>
+    <ias-button ng-click="$ctrl.openPromptDialog()" repeat-as-code prism-insert-id="code-03">Click</ias-button>
 
-    <pre><code highlight>
-		this.openPromptDialog = function () {
-			this.IasDialogService
-				.prompt({
-				cancel: 'Cancel',
-				ok: 'OK',
-				textContent: 'What do you want to say?',
-				title: 'Prompt'
-			})
-				.then(function (result) {
-				alert(result);
-			}, function () {
-				alert('declined');
-			});
-		};
-    </code></pre>
+	<toggleable-code id="code-03">
+		<pre><code highlight>
+			this.openPromptDialog = function () {
+				this.IasDialogService
+					.prompt({
+					cancel: 'Cancel',
+					ok: 'OK',
+					textContent: 'What do you want to say?',
+					title: 'Prompt'
+				})
+					.then(function (result) {
+					alert(result);
+				}, function () {
+					alert('declined');
+				});
+			};
+		</code></pre>
+	</toggleable-code>
 </div>
