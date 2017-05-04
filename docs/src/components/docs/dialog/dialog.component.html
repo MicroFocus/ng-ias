@@ -3,10 +3,10 @@
 <div class="demo-section">
     <h4>Alert Dialog</h4>
 
-    <ias-button ng-click="$ctrl.openAlertDialog()" toggle-repeat-code>Click</ias-button>
+    <ias-button ng-click="$ctrl.openAlertDialog()" repeat-as-code prism-insert-id="code-01">Click</ias-button>
 
 
-	<toggleable-code>
+	<toggleable-code id="code-01">
 		<pre><code highlight>
 			this.openAlertDialog = function () {
 				this.IasDialogService
@@ -27,9 +27,9 @@
 <div class="demo-section">
     <h4>Confirmation Dialog</h4>
 
-    <ias-button ng-click="$ctrl.openConfirmationDialog()" toggle-repeat-code>Click</ias-button>
+    <ias-button ng-click="$ctrl.openConfirmationDialog()" repeat-as-code prism-insert-id="code-02">Click</ias-button>
 
-	<toggleable-code>
+	<toggleable-code id="code-02">
 		<pre><code highlight>
 			this.openConfirmationDialog = function () {
 				this.IasDialogService
@@ -50,9 +50,9 @@
 <div class="demo-section">
     <h4>Prompt Dialog</h4>
 
-    <ias-button ng-click="$ctrl.openPromptDialog()" toggle-repeat-code>Click</ias-button>
+    <ias-button ng-click="$ctrl.openPromptDialog()" repeat-as-code prism-insert-id="code-03">Click</ias-button>
 
-	<toggleable-code>
+	<toggleable-code id="code-03">
 		<pre><code highlight>
 			this.openPromptDialog = function () {
 				this.IasDialogService
