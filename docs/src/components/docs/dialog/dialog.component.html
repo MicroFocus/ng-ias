@@ -6,20 +6,22 @@
     <ias-button ng-click="$ctrl.openAlertDialog()" toggle-repeat-code>Click</ias-button>
 
 
+	<toggleable-code>
 		<pre><code highlight>
-		this.openAlertDialog = function () {
-			this.IasDialogService
-				.alert({
-				textContent: 'You opened an alert dialog.',
-				title: 'Alert!'
-			})
-				.then(function () {
-				alert('resolved');
-			}, function () {
-				alert('rejected');
-			});
-		};
-    </code></pre>
+			this.openAlertDialog = function () {
+				this.IasDialogService
+					.alert({
+					textContent: 'You opened an alert dialog.',
+					title: 'Alert!'
+				})
+					.then(function () {
+					alert('resolved');
+				}, function () {
+					alert('rejected');
+				});
+			};
+		</code></pre>
+	</toggleable-code>
 </div>
 
 <div class="demo-section">
@@ -27,20 +29,22 @@
 
     <ias-button ng-click="$ctrl.openConfirmationDialog()" toggle-repeat-code>Click</ias-button>
 
-    <pre><code highlight>
-		this.openConfirmationDialog = function () {
-			this.IasDialogService
-				.confirm({
-				textContent: 'Are you sure?',
-				title: 'Confirmation'
-			})
-				.then(function () {
-				alert('confirmed');
-			}, function () {
-				alert('declined');
-			});
-		};
-    </code></pre>
+	<toggleable-code>
+		<pre><code highlight>
+			this.openConfirmationDialog = function () {
+				this.IasDialogService
+					.confirm({
+					textContent: 'Are you sure?',
+					title: 'Confirmation'
+				})
+					.then(function () {
+					alert('confirmed');
+				}, function () {
+					alert('declined');
+				});
+			};
+		</code></pre>
+	</toggleable-code>
 </div>
 
 <div class="demo-section">
@@ -48,20 +52,22 @@
 
     <ias-button ng-click="$ctrl.openPromptDialog()" toggle-repeat-code>Click</ias-button>
 
-    <pre><code highlight>
-		this.openPromptDialog = function () {
-			this.IasDialogService
-				.prompt({
-				cancel: 'Cancel',
-				ok: 'OK',
-				textContent: 'What do you want to say?',
-				title: 'Prompt'
-			})
-				.then(function (result) {
-				alert(result);
-			}, function () {
-				alert('declined');
-			});
-		};
-    </code></pre>
+	<toggleable-code>
+		<pre><code highlight>
+			this.openPromptDialog = function () {
+				this.IasDialogService
+					.prompt({
+					cancel: 'Cancel',
+					ok: 'OK',
+					textContent: 'What do you want to say?',
+					title: 'Prompt'
+				})
+					.then(function (result) {
+					alert(result);
+				}, function () {
+					alert('declined');
+				});
+			};
+		</code></pre>
+	</toggleable-code>
 </div>
