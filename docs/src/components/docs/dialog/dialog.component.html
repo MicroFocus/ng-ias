@@ -5,19 +5,20 @@
 
     <ias-button ng-click="$ctrl.openAlertDialog()" repeat-as-code>Click</ias-button>
 
-
 		<pre><code highlight>
 		this.openAlertDialog = function () {
 			this.IasDialogService
 				.alert({
-				textContent: 'You opened an alert dialog.',
-				title: 'Alert!'
-			})
-				.then(function () {
-				alert('resolved');
-			}, function () {
-				alert('rejected');
-			});
+					textContent: 'You opened an alert dialog.',
+					title: 'Alert!'
+				})
+				.then(
+					function () {
+						alert('resolved');
+					},
+					function () {
+						alert('rejected');
+					});
 		};
     </code></pre>
 </div>
@@ -31,14 +32,16 @@
 		this.openConfirmationDialog = function () {
 			this.IasDialogService
 				.confirm({
-				textContent: 'Are you sure?',
-				title: 'Confirmation'
-			})
-				.then(function () {
-				alert('confirmed');
-			}, function () {
-				alert('declined');
-			});
+					textContent: 'Are you sure?',
+					title: 'Confirmation'
+				})
+				.then(
+					function () {
+						alert('confirmed');
+					},
+					function () {
+						alert('declined');
+					});
 		};
     </code></pre>
 </div>
@@ -52,16 +55,50 @@
 		this.openPromptDialog = function () {
 			this.IasDialogService
 				.prompt({
-				cancel: 'Cancel',
-				ok: 'OK',
-				textContent: 'What do you want to say?',
-				title: 'Prompt'
-			})
-				.then(function (result) {
-				alert(result);
-			}, function () {
-				alert('declined');
-			});
+					cancel: 'Cancel',
+					ok: 'OK',
+					textContent: 'What do you want to say?',
+					title: 'Prompt'
+				})
+				.then(
+					function (result) {
+						alert(result);
+					},
+					function () {
+						alert('declined');
+					});
+		};
+    </code></pre>
+</div>
+
+<div class="demo-section">
+    <h4>Custom Dialog</h4>
+
+    <ias-button ng-click="$ctrl.openCustomDialog()" repeat-as-code>Click</ias-button>
+
+    <pre><code highlight>
+		this.openCustomDialog = function() {
+			this.IasDialogService
+				.open({
+					controller: function ($scope, IasDialogService) {
+						$scope.title = 'Custom Template';
+						$scope.close = function() {
+							IasDialogService.close();
+						};
+					},
+					template:
+						'&lt;ias-dialog&gt;' +
+						'   &lt;div class="ias-dialog-header"&gt;' +
+						'       &lt;div class="ias-title"&gt;{{title}}&lt;/div&gt;' +
+						'   &lt;/div&gt;' +
+						'   &lt;div class="ias-dialog-body"&gt;' +
+						'       &lt;p&gt;Add your content here&lt;/p&gt;' +
+						'   &lt;/div&gt;' +
+						'   &lt;div class="ias-actions"&gt;' +
+						'      &lt;ias-button ng-click="close()"&gt;Got It!&lt;/ias-button&gt;' +
+						'   &lt;/div&gt;' +
+						'&lt;/ias-dialog&gt;'
+				});
 		};
     </code></pre>
 </div>

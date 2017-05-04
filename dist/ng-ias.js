@@ -51,23 +51,23 @@
 	var avatar_component_1 = __webpack_require__(5);
 	var button_component_1 = __webpack_require__(7);
 	var dialog_component_1 = __webpack_require__(9);
-	var dialog_service_1 = __webpack_require__(10);
-	var header_component_1 = __webpack_require__(11);
-	var icon_component_1 = __webpack_require__(12);
-	var icon_input_component_1 = __webpack_require__(14);
-	var input_component_1 = __webpack_require__(16);
-	var int_input_component_1 = __webpack_require__(18);
-	var list_component_1 = __webpack_require__(20);
-	var menu_component_1 = __webpack_require__(22);
-	var nav_component_1 = __webpack_require__(24);
-	var resizing_textarea_component_1 = __webpack_require__(26);
-	var search_box_component_1 = __webpack_require__(28);
-	var side_nav_component_1 = __webpack_require__(30);
-	var tile_component_1 = __webpack_require__(32);
-	var tile_grid_component_1 = __webpack_require__(34);
-	var sort_directive_1 = __webpack_require__(35);
-	var toggle_directive_1 = __webpack_require__(36);
-	var toggle_service_1 = __webpack_require__(37);
+	var dialog_service_1 = __webpack_require__(11);
+	var header_component_1 = __webpack_require__(12);
+	var icon_component_1 = __webpack_require__(13);
+	var icon_input_component_1 = __webpack_require__(15);
+	var input_component_1 = __webpack_require__(17);
+	var int_input_component_1 = __webpack_require__(19);
+	var list_component_1 = __webpack_require__(21);
+	var menu_component_1 = __webpack_require__(23);
+	var nav_component_1 = __webpack_require__(25);
+	var resizing_textarea_component_1 = __webpack_require__(27);
+	var search_box_component_1 = __webpack_require__(29);
+	var side_nav_component_1 = __webpack_require__(31);
+	var tile_component_1 = __webpack_require__(33);
+	var tile_grid_component_1 = __webpack_require__(35);
+	var sort_directive_1 = __webpack_require__(36);
+	var toggle_directive_1 = __webpack_require__(37);
+	var toggle_service_1 = __webpack_require__(38);
 	angular_1.module('ng-ias', [])
 	    .constant('MENU_MARGIN', 24)
 	    .component('iasAppBar', app_bar_component_1.default)
@@ -244,16 +244,26 @@
 	Object.defineProperty(exports, "__esModule", { value: true });
 	var component_decorator_1 = __webpack_require__(3);
 	var DialogComponent = (function () {
-	    function DialogComponent($element, $transclude) {
-	        $transclude(function (clone) {
-	            $element.append(clone);
-	        });
+	    function DialogComponent($element, dialogService) {
+	        this.$element = $element;
+	        this.dialogService = dialogService;
+	        $element.on('click', this.cancel.bind(this));
 	    }
+	    DialogComponent.prototype.$destroy = function () {
+	        this.$element.off();
+	    };
+	    DialogComponent.prototype.cancel = function () {
+	        this.dialogService.cancel();
+	    };
+	    DialogComponent.prototype.close = function () {
+	        this.dialogService.close();
+	    };
 	    return DialogComponent;
 	}());
-	DialogComponent.$inject = ['$element', '$transclude'];
+	DialogComponent.$inject = ['$element', 'IasDialogService'];
 	DialogComponent = __decorate([
 	    component_decorator_1.Component({
+	        templateUrl: __webpack_require__(10),
 	        transclude: true
 	    })
 	], DialogComponent);
@@ -262,16 +272,26 @@
 
 /***/ },
 /* 10 */
+/***/ function(module, exports) {
+
+	var path = 'components/dialog/dialog.component.html';
+	var html = "<ias-dialog-content ng-click=\"$event.stopPropagation()\" ng-transclude>\r\n</ias-dialog-content>\r\n";
+	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
+	module.exports = path;
+
+/***/ },
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	Object.defineProperty(exports, "__esModule", { value: true });
 	var angular_1 = __webpack_require__(1);
 	var DialogService = (function () {
-	    function DialogService($compile, $controller, $document, $q, $rootScope, $templateCache) {
+	    function DialogService($compile, $controller, $document, $http, $q, $rootScope, $templateCache) {
 	        this.$compile = $compile;
 	        this.$controller = $controller;
 	        this.$document = $document;
+	        this.$http = $http;
 	        this.$q = $q;
 	        this.$rootScope = $rootScope;
 	        this.$templateCache = $templateCache;
@@ -281,64 +301,46 @@
 	        options.ok = options.ok || 'OK';
 	        return this.open(options);
 	    };
+	    DialogService.prototype.cancel = function (response) {
+	        this.dialogDeferred.reject(response);
+	        this.destroy();
+	    };
+	    DialogService.prototype.close = function (response) {
+	        this.dialogDeferred.resolve(response);
+	        this.destroy();
+	    };
 	    DialogService.prototype.confirm = function (options) {
 	        options.cancel = options.cancel || 'No';
 	        options.ok = options.ok || 'Yes';
 	        return this.open(options);
 	    };
-	    DialogService.prototype.open = function (options, dialogHtml) {
-	        if (dialogHtml === void 0) { dialogHtml = null; }
-	        var deferred = this.$q.defer();
-	        if (dialogHtml === null) {
-	            dialogHtml =
-	                '<ias-dialog ng-click="onScrimClicked()">' +
-	                    '   <ias-dialog-content ng-click="$event.stopPropagation()">' +
-	                    '       <div class="ias-dialog-header">' +
-	                    '           <div ng-if="!!title" class="ias-title">{{title}}</div>' +
-	                    '       </div>' +
-	                    '       <div class="ias-dialog-body">' +
-	                    '           <div ng-if="!prompt">{{textContent}}</div>' +
-	                    '           <div ng-if="prompt">' +
-	                    '               <ias-input-container>' +
-	                    '                   <label for="response">{{textContent}}</label>' +
-	                    '                   <input id="response" name="response" type="text" ng-model="data.response">' +
-	                    '               </ias-input-container>' +
-	                    '           </div>' +
-	                    '       </div>' +
-	                    '       <div class="ias-actions">' +
-	                    '          <ias-button ng-if="!!okText" ng-click="confirm()">{{okText}}</ias-button>' +
-	                    '          <ias-button ng-if="!!cancelText" ng-click="cancel()">{{cancelText}}</ias-button>' +
-	                    '       </div>' +
-	                    '       <ias-button class="ias-icon-button ias-dialog-close-button" ng-click="cancel()">' +
-	                    '           <ias-icon icon="close_thick"></ias-icon>' +
-	                    '       </ias-button>' +
-	                    '   </ias-dialog-content>' +
-	                    '</ias-dialog>';
+	    DialogService.prototype.destroy = function () {
+	        this.compiledDialogElement.detach();
+	        this.dialogController = null;
+	        this.dialogDeferred = null;
+	    };
+	    DialogService.prototype.open = function (options) {
+	        var self = this;
+	        var scope = (this.$rootScope.$new(true));
+	        scope.$ctrl = options.controller;
+	        scope.cancel = function () { self.cancel(); };
+	        scope.cancelText = options.cancel;
+	        scope.close = function () { self.close(scope.data.response); };
+	        scope.okText = options.ok;
+	        scope.prompt = options.prompt;
+	        scope.data = { response: options.response };
+	        scope.textContent = options.textContent;
+	        scope.title = options.title;
+	        if (options.controller) {
+	            this.dialogController = this.$controller(options.controller, { $scope: scope });
 	        }
-	        var scope = this.$rootScope.$new(true);
-	        scope['$ctrl'] = options.controller;
-	        scope['cancel'] = function () {
-	            deferred.reject();
-	            compiledDialogElement.detach();
-	        };
-	        scope['confirm'] = function () {
-	            var response = scope['data']['response'];
-	            deferred.resolve(response);
-	            compiledDialogElement.detach();
-	        };
-	        scope['deferred'] = deferred;
-	        scope['cancelText'] = options.cancel;
-	        scope['okText'] = options.ok;
-	        scope['onScrimClicked'] = function () {
-	            scope['cancel']();
-	        };
-	        scope['prompt'] = options.prompt;
-	        scope['data'] = { response: options.response };
-	        scope['textContent'] = options.textContent;
-	        scope['title'] = options.title;
-	        var compiledDialogElement = this.$compile(dialogHtml)(scope);
-	        angular_1.element(this.$document.find('body')).append(compiledDialogElement);
-	        return deferred.promise;
+	        this.loadTemplate(options)
+	            .then(function (template) {
+	            self.compiledDialogElement = self.$compile(template)(scope);
+	            angular_1.element(self.$document.find('body')).append(self.compiledDialogElement);
+	        });
+	        this.dialogDeferred = this.$q.defer();
+	        return this.dialogDeferred.promise;
 	    };
 	    DialogService.prototype.prompt = function (options) {
 	        options.cancel = options.cancel || 'Cancel';
@@ -346,14 +348,53 @@
 	        options.prompt = true;
 	        return this.open(options);
 	    };
+	    DialogService.prototype.loadTemplate = function (options) {
+	        if (options.template) {
+	            return this.$q.resolve(options.template);
+	        }
+	        else if (options.templateUrl) {
+	            var template = this.$templateCache.get(options.templateUrl);
+	            if (template) {
+	                return this.$q.resolve(template);
+	            }
+	            return this.$http
+	                .get(options.templateUrl, { cache: this.$templateCache })
+	                .then(function (response) {
+	                return response.data;
+	            });
+	        }
+	        else {
+	            return this.$q.resolve('<ias-dialog>' +
+	                '   <div class="ias-dialog-header">' +
+	                '       <div ng-if="!!title" class="ias-title">{{title}}</div>' +
+	                '   </div>' +
+	                '   <div class="ias-dialog-body">' +
+	                '       <div ng-if="!prompt">{{textContent}}</div>' +
+	                '       <div ng-if="prompt">' +
+	                '           <ias-input-container>' +
+	                '               <label for="response">{{textContent}}</label>' +
+	                '               <input id="response" name="response" type="text" ng-model="data.response">' +
+	                '           </ias-input-container>' +
+	                '       </div>' +
+	                '   </div>' +
+	                '   <div class="ias-actions">' +
+	                '      <ias-button ng-if="!!okText" ng-click="close()">{{okText}}</ias-button>' +
+	                '      <ias-button ng-if="!!cancelText" ng-click="cancel()">{{cancelText}}</ias-button>' +
+	                '   </div>' +
+	                '   <ias-button class="ias-icon-button ias-dialog-close-button" ng-click="cancel()">' +
+	                '       <ias-icon icon="close_thick"></ias-icon>' +
+	                '   </ias-button>' +
+	                '</ias-dialog>');
+	        }
+	    };
 	    return DialogService;
 	}());
-	DialogService.$inject = ['$compile', '$controller', '$document', '$q', '$rootScope', '$templateCache'];
+	DialogService.$inject = ['$compile', '$controller', '$document', '$http', '$q', '$rootScope', '$templateCache'];
 	exports.default = DialogService;
 
 
 /***/ },
-/* 11 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -383,7 +424,7 @@
 
 
 /***/ },
-/* 12 */
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -406,14 +447,14 @@
 	            icon: '@',
 	            svgIcon: '@'
 	        },
-	        templateUrl: __webpack_require__(13)
+	        templateUrl: __webpack_require__(14)
 	    })
 	], IconComponent);
 	exports.default = IconComponent;
 
 
 /***/ },
-/* 13 */
+/* 14 */
 /***/ function(module, exports) {
 
 	var path = 'components/icon/icon.component.html';
@@ -422,12 +463,12 @@
 	module.exports = path;
 
 /***/ },
-/* 14 */
+/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	Object.defineProperty(exports, "__esModule", { value: true });
-	var templateUrl = __webpack_require__(15);
+	var templateUrl = __webpack_require__(16);
 	var IconInputController = (function () {
 	    function IconInputController($scope) {
 	        this.$scope = $scope;
@@ -459,7 +500,7 @@
 
 
 /***/ },
-/* 15 */
+/* 16 */
 /***/ function(module, exports) {
 
 	var path = 'components/input/icon.input.component.html';
@@ -468,7 +509,7 @@
 	module.exports = path;
 
 /***/ },
-/* 16 */
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -491,7 +532,7 @@
 	InputContainerComponent.$inject = ['$element', '$transclude'];
 	InputContainerComponent = __decorate([
 	    component_decorator_1.Component({
-	        templateUrl: __webpack_require__(17),
+	        templateUrl: __webpack_require__(18),
 	        transclude: true
 	    })
 	], InputContainerComponent);
@@ -499,7 +540,7 @@
 
 
 /***/ },
-/* 17 */
+/* 18 */
 /***/ function(module, exports) {
 
 	var path = 'components/input/input.component.html';
@@ -508,12 +549,12 @@
 	module.exports = path;
 
 /***/ },
-/* 18 */
+/* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	Object.defineProperty(exports, "__esModule", { value: true });
-	var templateUrl = __webpack_require__(19);
+	var templateUrl = __webpack_require__(20);
 	var IntInputController = (function () {
 	    function IntInputController($scope) {
 	        this.$scope = $scope;
@@ -572,7 +613,7 @@
 
 
 /***/ },
-/* 19 */
+/* 20 */
 /***/ function(module, exports) {
 
 	var path = 'components/input/int.input.component.html';
@@ -581,7 +622,7 @@
 	module.exports = path;
 
 /***/ },
-/* 20 */
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -604,7 +645,7 @@
 	ListComponent.$inject = ['$element', '$transclude'];
 	ListComponent = __decorate([
 	    component_decorator_1.Component({
-	        templateUrl: __webpack_require__(21),
+	        templateUrl: __webpack_require__(22),
 	        transclude: true
 	    })
 	], ListComponent);
@@ -642,7 +683,7 @@
 
 
 /***/ },
-/* 21 */
+/* 22 */
 /***/ function(module, exports) {
 
 	var path = 'components/list/list.component.html';
@@ -651,7 +692,7 @@
 	module.exports = path;
 
 /***/ },
-/* 22 */
+/* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -803,7 +844,7 @@
 	            align: '@iasAlign',
 	            name: '@'
 	        },
-	        templateUrl: __webpack_require__(23),
+	        templateUrl: __webpack_require__(24),
 	        transclude: true
 	    })
 	], MenuComponent);
@@ -841,7 +882,7 @@
 
 
 /***/ },
-/* 23 */
+/* 24 */
 /***/ function(module, exports) {
 
 	var path = 'components/menu/menu.component.html';
@@ -850,7 +891,7 @@
 	module.exports = path;
 
 /***/ },
-/* 24 */
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -869,7 +910,7 @@
 	}());
 	NavComponent = __decorate([
 	    component_decorator_1.Component({
-	        templateUrl: __webpack_require__(25),
+	        templateUrl: __webpack_require__(26),
 	        transclude: true
 	    })
 	], NavComponent);
@@ -877,7 +918,7 @@
 
 
 /***/ },
-/* 25 */
+/* 26 */
 /***/ function(module, exports) {
 
 	var path = 'components/nav/nav.component.html';
@@ -886,12 +927,12 @@
 	module.exports = path;
 
 /***/ },
-/* 26 */
+/* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	Object.defineProperty(exports, "__esModule", { value: true });
-	var templateUrl = __webpack_require__(27);
+	var templateUrl = __webpack_require__(28);
 	var ResizingTextareaController = (function () {
 	    function ResizingTextareaController($scope) {
 	        this.$scope = $scope;
@@ -949,7 +990,7 @@
 
 
 /***/ },
-/* 27 */
+/* 28 */
 /***/ function(module, exports) {
 
 	var path = 'components/input/resizing.textarea.component.html';
@@ -958,7 +999,7 @@
 	module.exports = path;
 
 /***/ },
-/* 28 */
+/* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -1008,14 +1049,14 @@
 	        require: {
 	            ngModel: '^ngModel'
 	        },
-	        templateUrl: __webpack_require__(29)
+	        templateUrl: __webpack_require__(30)
 	    })
 	], SearchBoxComponent);
 	exports.default = SearchBoxComponent;
 
 
 /***/ },
-/* 29 */
+/* 30 */
 /***/ function(module, exports) {
 
 	var path = 'components/search-box/search-box.component.html';
@@ -1024,7 +1065,7 @@
 	module.exports = path;
 
 /***/ },
-/* 30 */
+/* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -1062,7 +1103,7 @@
 	        bindings: {
 	            name: '@'
 	        },
-	        templateUrl: __webpack_require__(31),
+	        templateUrl: __webpack_require__(32),
 	        transclude: true
 	    })
 	], SideNavComponent);
@@ -1070,7 +1111,7 @@
 
 
 /***/ },
-/* 31 */
+/* 32 */
 /***/ function(module, exports) {
 
 	var path = 'components/side-nav/side-nav.component.html';
@@ -1079,7 +1120,7 @@
 	module.exports = path;
 
 /***/ },
-/* 32 */
+/* 33 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -1100,7 +1141,7 @@
 	TileComponent.$inject = ['$element'];
 	TileComponent = __decorate([
 	    component_decorator_1.Component({
-	        templateUrl: __webpack_require__(33),
+	        templateUrl: __webpack_require__(34),
 	        transclude: true
 	    })
 	], TileComponent);
@@ -1108,7 +1149,7 @@
 
 
 /***/ },
-/* 33 */
+/* 34 */
 /***/ function(module, exports) {
 
 	var path = 'components/tile/tile.component.html';
@@ -1117,7 +1158,7 @@
 	module.exports = path;
 
 /***/ },
-/* 34 */
+/* 35 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -1147,7 +1188,7 @@
 
 
 /***/ },
-/* 35 */
+/* 36 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -1208,7 +1249,7 @@
 
 
 /***/ },
-/* 36 */
+/* 37 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -1226,7 +1267,7 @@
 
 
 /***/ },
-/* 37 */
+/* 38 */
 /***/ function(module, exports) {
 
 	"use strict";
