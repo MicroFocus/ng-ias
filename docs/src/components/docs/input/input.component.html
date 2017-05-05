@@ -5,7 +5,7 @@ Input components cover the functionality and styling of text boxes, password tex
 <div class="demo-section">
     <h4>Text and password</h4>
 
-    <div repeat-as-code="inner">
+    <div toggle-repeat-code="inner">
         <ias-input-container>
             <input type="text" placeholder="Text placeholder">
         </ias-input-container>
@@ -18,7 +18,7 @@ Input components cover the functionality and styling of text boxes, password tex
 <div class="demo-section">
     <h4>Text and password inputs with labels</h4>
 
-    <div repeat-as-code="inner">
+    <div toggle-repeat-code="inner">
         <ias-input-container>
             <label for="username1">Username</label>
             <input id="username1" name="username1" type="text">
@@ -33,7 +33,7 @@ Input components cover the functionality and styling of text boxes, password tex
 <div class="demo-section">
     <h4>Disabled text and password inputs</h4>
 
-    <div repeat-as-code="inner">
+    <div toggle-repeat-code="inner">
         <ias-input-container>
             <input type="text" placeholder="Disabled text field" disabled="disabled">
         </ias-input-container>
@@ -51,7 +51,7 @@ Input components cover the functionality and styling of text boxes, password tex
         Text fields with icons are popular for search fields and any other field which requires a pictorial differentiator.  The icon field uses the same reference to the icon font as the ias-icon component.
     </p>
 
-    <div repeat-as-code="inner">
+    <div toggle-repeat-code="inner">
         <ias-input-container>
             <ias-icon-input icon="search_thick" type="text" placeholder="Search"></ias-icon-input>
         </ias-input-container>
@@ -61,7 +61,7 @@ Input components cover the functionality and styling of text boxes, password tex
 <div class="demo-section">
     <h4>Text fields with inline labels</h4>
 
-    <div repeat-as-code="inner">
+    <div toggle-repeat-code="inner">
         <ias-input-container class="ias-inline">
             <label for="text2">Username</label>
             <input id="text2" name="text2" type="text">
@@ -76,7 +76,7 @@ Input components cover the functionality and styling of text boxes, password tex
 <div class="demo-section">
     <h4>Text area</h4>
 
-    <div repeat-as-code="inner">
+    <div toggle-repeat-code="inner">
         <ias-input-container>
             <textarea placeholder="Text area with placeholder"></textarea>
         </ias-input-container>
@@ -94,7 +94,7 @@ Input components cover the functionality and styling of text boxes, password tex
         Resizing text areas will grow and shrink based on the contents in the text area.  When you add more contents the text area will grow to show all of the contents without scrolling.  When you remove some contents the text area will shrink down to the right size.
     </p>
 
-    <div repeat-as-code="inner">
+    <div toggle-repeat-code="inner">
         <ias-input-container>
             <ias-resizing-textarea placeholder="Resizing text area with placeholder"></ias-resizing-textarea>
         </ias-input-container>
@@ -104,7 +104,7 @@ Input components cover the functionality and styling of text boxes, password tex
 <div class="demo-section">
     <h4>Select list</h4>
 
-    <div repeat-as-code="inner">
+    <div toggle-repeat-code="inner">
         <ias-input-container>
             <select name="select1" data-ng-options="selectedItem as selectedItem.name for selectedItem in $ctrl.selectListOptions" data-ng-model="$ctrl.selectListModel1">
             </select>
@@ -120,7 +120,7 @@ Input components cover the functionality and styling of text boxes, password tex
 <div class="demo-section">
     <h4>Radio buttons</h4>
 
-    <div repeat-as-code="inner">
+    <div toggle-repeat-code="inner">
         <ias-input-container class="ias-inline">
             <span class="title-pre">
                 <input type="radio" value="1" name="radio1" id="radio1-1">
@@ -141,7 +141,7 @@ Input components cover the functionality and styling of text boxes, password tex
 <div class="demo-section">
     <h4>Check boxes</h4>
 
-    <div repeat-as-code="inner">
+    <div toggle-repeat-code="inner">
         <ias-input-container class="ias-inline">
             <div class="title-pre">
                 <input type="checkbox" value="1" id="checkbox1">
@@ -166,7 +166,7 @@ Input components cover the functionality and styling of text boxes, password tex
         Integer only input fields show an error style if the value isn't a valid number.  The input field also supports a <code>min</code> and <code>max</code> attribute to set the allowable minimum and maximum values.
     </p>
     
-    <div repeat-as-code="inner">
+    <div toggle-repeat-code="inner">
         <ias-input-container>
             <label for="int1">An integer only text field</label>
             <ias-int-input id="int1"></ias-int-input>
