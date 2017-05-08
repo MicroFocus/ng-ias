@@ -247,10 +247,8 @@
 	    function DialogComponent($element, dialogService) {
 	        this.$element = $element;
 	        this.dialogService = dialogService;
-	        $element.on('click', this.cancel.bind(this));
 	    }
 	    DialogComponent.prototype.$destroy = function () {
-	        this.$element.off();
 	    };
 	    DialogComponent.prototype.cancel = function () {
 	        this.dialogService.cancel();

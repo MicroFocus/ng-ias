@@ -416,28 +416,28 @@ a.ias-button {
 ias-dialog {
   animation: fadein 500ms;
   animation-fill-mode: forwards;
+  -ms-flex-align: center;
+      align-items: center;
   background-color: rgba(0, 0, 0, 0.5);
-  bottom: 0;
   display: -ms-flexbox;
   display: flex;
+  height: 100vh;
   -ms-flex-pack: center;
       justify-content: center;
-  left: 0;
   opacity: 0;
   position: fixed;
-  right: 0;
   top: 0;
+  width: 100vw;
 }
 
 ias-dialog-content {
   background-color: #434c50;
   border-radius: 3px;
-  box-sizing: border-box;
-  margin-top: 100px;
-  margin-bottom: auto;
-  overflow: hidden;
+  display: block;
+  max-height: 100%;
+  max-width: 100%;
+  overflow: auto;
   position: relative;
-  width: 100%;
 }
 
 ias-dialog-content .ias-dialog-close-button {
@@ -455,13 +455,12 @@ ias-dialog-content > .ias-dialog-body {
 }
 
 ias-dialog-content > .ias-dialog-header {
-  padding: 25px 25px 10px 25px;
+  padding: 25px 50px 10px 25px;
 }
 
 @media (min-width: 769px) {
   ias-dialog-content {
     min-width: 320px;
-    width: auto;
   }
 }
 

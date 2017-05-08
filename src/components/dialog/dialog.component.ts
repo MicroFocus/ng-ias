@@ -9,11 +9,11 @@ import DialogService from './dialog.service';
 export default class DialogComponent {
     static $inject = [ '$element', 'IasDialogService' ];
     constructor(private $element: IAugmentedJQuery, private dialogService: DialogService) {
-        $element.on('click', this.cancel.bind(this));
+        // $element.on('click', this.cancel.bind(this));
     }
 
     $destroy(): void {
-        this.$element.off();
+        // this.$element.off();
     }
 
     cancel(): void {
