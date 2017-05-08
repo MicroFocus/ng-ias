@@ -2,6 +2,7 @@
 $border-radius: 3px;
 
 // COLORS
+$color-white-1: #fff;
 $color-black-1: #000;
 $color-black-2: #1f1f1f;
 
@@ -24,6 +25,7 @@ $color-accent-1: #ffd92d;
 $color-accent-2: #fff6ce;
 $color-accent-3: #f17e12;
 $color-accent-4: #e50000;
+$color-accent-5: #37c26a;
 
 // Font size variants
 $font-size-xsmall: 11px;
@@ -33,14 +35,17 @@ $font-size-medium: 18px;
 $font-size-large: 21px;
 $font-size-xlarge: 24px;
 
+// PAGE
+$body-bg-color: $color-gray-8;
+
 // TYPOGRAPHY
-$font-family: 'Helvetica Neue Thin', 'Helvetica Neue', Helvetica, Arial, san-serif;
-$font-size: 14px;
+$font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-size: $font-size-base;
 $font-weight: 400;
 $font-weight-medium: 500;
 
 $heading-text-color: inherit;
-$heading-font-size: 22px;
+$heading-font-size: $font-size-xlarge;
 $heading-font-weight: 200;
 $heading-letter-spacing: 1px;
 
@@ -48,7 +53,7 @@ $text-color: $color-gray-1;
 $text-color-disabled: $color-gray-4;
 
 $title-text-color: $color-gray-3;
-$title-font-size: 15px;
+$title-font-size: $font-size-base;
 $title-font-weight: normal;
 $title-text-transform: uppercase;
 
@@ -68,9 +73,9 @@ $disabled-bg-color: $color-gray-7;
 $disabled-border-color: $color-gray-7;
 $disabled-text-color: $color-gray-6;
 
-$focus-bg-color: $color-accent-2;
-$focus-border-color: $color-accent-1;
-$focus-text-color: $color-gray-7;
+$focus-bg-color: $body-bg-color;
+$focus-border-color: $color-primary-4;
+$focus-text-color: $color-gray-1;
 
 // COMPONENTS
 $app-bar-action-color: rgba(67,76,80,.3);
@@ -92,8 +97,6 @@ $app-bar-text-button-spacing: $spacing;
 $avatar-size-small: 25px;
 $avatar-size-medium: 50px;
 $avatar-size-large: 100px;
-
-$body-bg-color: $color-gray-8;
 
 $border-color: $color-gray-5;
 $error-border-color: #CC0000;
@@ -127,19 +130,19 @@ $icon-size-small: 25px;
 $icon-size-medium: 50px;
 $icon-size-large: 75px;
 
-$input-bg-color: $color-gray-7;
+$input-bg-color: $body-bg-color;
 $input-border: 1px solid $color-gray-5;
 $input-inline-label-padding: 5px;
-$input-label-font-size: 12px;
-$input-label-margin: 0.5em 0 5px;
-$input-label-text-color: $color-gray-2;
+$input-label-font-size: $font-size-small;
+$input-label-margin: 10px 0 3px;
+$input-label-text-color: $color-gray-4;
 $input-padding: 8px;
 
 $link-bg-color-hover: $color-gray-7;
 $link-padding: 0.15em;
 $link-spacing: 0.5em;
 $link-text-color: $color-primary-3;
-$link-text-color-hover: $color-primary-4;
+$link-text-color-hover: $color-primary-1;
 $link-text-color-no-highlight: $color-gray-4;
 
 $list-item-bg-color-hover: $color-gray-7;
@@ -165,7 +168,7 @@ $menu-text-color: $color-gray-1;
 $nav-bg-color: $color-gray-6;
 $nav-content-padding: $body-spacing-medium;
 $nav-content-padding-large: $body-spacing-large;
-$nav-height: 32px;
+$nav-height: 34px;
 $nav-icon-margin: 2px;
 $nav-icon-size: 20px;
 $nav-item-bg-color-hover: $color-gray-5;
@@ -197,7 +200,7 @@ $side-nav-header-text-color: $menu-header-text-color;
 $side-nav-header-font-size: $menu-header-font-size;
 $side-nav-header-font-weight: $menu-header-font-weight;
 $side-nav-header-text-transform: $menu-header-text-transform;
-$side-nav-item-height: 28px;
+$side-nav-item-height: 30px;
 $side-nav-max-width: 85%;
 $side-nav-padding: $spacing;
 $side-nav-scrim-color: rgba(0, 0, 0, .50);
@@ -220,9 +223,9 @@ $tile-description-line-height: 15px;
 $tile-margin: 5px;
 $tile-padding: 10px;
 $tile-text-color: $color-gray-1;
-$tile-title-font-size-large: 15px;
-$tile-title-font-size-medium: 15px;
-$tile-title-font-size-small: 20px;
+$tile-title-font-size-large: $font-size-base;
+$tile-title-font-size-medium: $font-size-base;
+$tile-title-font-size-small: $font-size-large;
 $tile-text-margin-top: 5px;
 
 $tile-avatar-size-large: 100px;
