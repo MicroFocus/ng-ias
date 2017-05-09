@@ -46,3 +46,12 @@ ias-dialog-content {
     min-width: 320px;
   }
 }
+
+[dir="rtl"] {
+  ias-dialog-content {
+    .ias-dialog-close-button {
+      left: 10px;
+      right: auto;
+    }
+  }
+}

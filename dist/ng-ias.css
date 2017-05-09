@@ -464,6 +464,11 @@ ias-dialog-content > .ias-dialog-header {
   }
 }
 
+[dir="rtl"] ias-dialog-content .ias-dialog-close-button {
+  left: 10px;
+  right: auto;
+}
+
 ias-header {
   -ms-flex-align: center;
       align-items: center;
