@@ -1,4 +1,5 @@
 import { Component } from '../../../component.decorator';
+import {IScope} from 'angular';
 
 @Component({
     templateUrl: require('./dialog.component.html')
@@ -35,6 +36,30 @@ export default class DialogComponent {
                 function() {
                     alert('declined');
                 });
+    }
+
+    openCustomDialog(): void {
+        this.IasDialogService
+            .open({
+                controller: function ($scope, IasDialogService) {
+                    $scope.title = 'Custom Template';
+                    $scope.close = function() {
+                        IasDialogService.close();
+                    };
+                },
+                template:
+                    '<ias-dialog>' +
+                    '   <div class="ias-dialog-header">' +
+                    '       <div class="ias-title">{{title}}</div>' +
+                    '   </div>' +
+                    '   <div class="ias-dialog-body">' +
+                    '       <p>Add your content here</p>' +
+                    '   </div>' +
+                    '   <div class="ias-actions">' +
+                    '      <ias-button ng-click="close()">Got It!</ias-button>' +
+                    '   </div>' +
+                    '</ias-dialog>'
+            });
     }
 
     openPromptDialog(): void {
