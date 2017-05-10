@@ -321,8 +321,7 @@
 	    };
 	    DialogService.prototype.open = function (options) {
 	        var self = this;
-	        var scope = (this.$rootScope.$new(true));
-	        scope.$ctrl = options.controller;
+	        var scope = options.scope ? options.scope.$new(false) : (this.$rootScope.$new(true));
 	        scope.cancel = function () { self.cancel(); };
 	        scope.cancelText = options.cancel;
 	        scope.close = function () { self.close(scope.data.response); };
