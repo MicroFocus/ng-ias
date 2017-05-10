@@ -32,6 +32,7 @@ interface IDialogOptions {
     ok: string;
     prompt: boolean;
     response: string;
+    scope: IScope;
     template: string;
     templateUrl: string;
     textContent: string;
@@ -87,8 +88,7 @@ export default class DialogService {
         let self = this;
 
         // Initialize scope
-        let scope = <IDialogScope>(this.$rootScope.$new(true));
-        scope.$ctrl = options.controller;
+        let scope = options.scope ? options.scope.$new(false) : <IDialogScope>(this.$rootScope.$new(true));
         scope.cancel = () => { self.cancel(); };
         scope.cancelText = options.cancel;
         scope.close = () => { self.close(scope.data.response); };
