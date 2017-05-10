@@ -68,6 +68,7 @@
 	var sort_directive_1 = __webpack_require__(36);
 	var toggle_directive_1 = __webpack_require__(37);
 	var toggle_service_1 = __webpack_require__(38);
+	var panel_component_1 = __webpack_require__(39);
 	angular_1.module('ng-ias', [])
 	    .constant('MENU_MARGIN', 24)
 	    .component('iasAppBar', app_bar_component_1.default)
@@ -86,6 +87,7 @@
 	    .component('iasFooterMenu', menu_component_1.MenuFooterComponent)
 	    .component('iasHeaderMenu', menu_component_1.MenuHeaderComponent)
 	    .component('iasNav', nav_component_1.default)
+	    .component('iasPanel', panel_component_1.default)
 	    .directive('iasResizingTextarea', resizing_textarea_component_1.default)
 	    .component('iasSearchBox', search_box_component_1.default)
 	    .component('iasSideNav', side_nav_component_1.default)
@@ -1293,6 +1295,42 @@
 	}());
 	exports.default = ToggleService;
 
+
+/***/ },
+/* 39 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+	    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+	    return c > 3 && r && Object.defineProperty(target, key, r), r;
+	};
+	Object.defineProperty(exports, "__esModule", { value: true });
+	var component_decorator_1 = __webpack_require__(3);
+	var PanelComponent = (function () {
+	    function PanelComponent() {
+	    }
+	    return PanelComponent;
+	}());
+	PanelComponent = __decorate([
+	    component_decorator_1.Component({
+	        templateUrl: __webpack_require__(40),
+	        transclude: true
+	    })
+	], PanelComponent);
+	exports.default = PanelComponent;
+
+
+/***/ },
+/* 40 */
+/***/ function(module, exports) {
+
+	var path = 'components/panel/panel.component.html';
+	var html = "<div class=\"ias-panel-content ias-content-padding\" ng-transclude></div>";
+	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
+	module.exports = path;
 
 /***/ }
 /******/ ]);

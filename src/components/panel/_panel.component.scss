@@ -1,0 +1,14 @@
+ias-panel {
+  background-color: $panel-bg-color;
+  border-radius: $border-radius;
+  display: block;
+
+  > .ias-panel-content {
+    > .ias-panel-header {
+      align-items: center;
+      display: flex;
+      flex-flow: row nowrap;
+      margin-bottom: $content-padding;
+    }
+  }
+}
