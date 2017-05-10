@@ -1,7 +1,9 @@
 ias-panel {
   background-color: $panel-bg-color;
   border-radius: $border-radius;
+  box-sizing: content-box;
   display: block;
+  padding: $content-padding;
 
   > .ias-panel-content {
     > .ias-panel-header {
@@ -15,7 +17,7 @@ ias-panel {
   a {
     padding: 0;
     margin: 0;
-    
+
     &:hover {
       background-color: $body-bg-color;
     }

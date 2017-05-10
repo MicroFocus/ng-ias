@@ -996,7 +996,9 @@ ias-menu.ias-menu-flat-top > ias-menu-content {
 ias-panel {
   background-color: #575b5d;
   border-radius: 3px;
+  box-sizing: content-box;
   display: block;
+  padding: 25px;
 }
 
 ias-panel > .ias-panel-content > .ias-panel-header {

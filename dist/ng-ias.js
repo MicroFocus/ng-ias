@@ -1328,7 +1328,7 @@
 /***/ function(module, exports) {
 
 	var path = 'components/panel/panel.component.html';
-	var html = "<div class=\"ias-panel-content ias-content-padding\" ng-transclude></div>";
+	var html = "<div class=\"ias-panel-content\" ng-transclude></div>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
