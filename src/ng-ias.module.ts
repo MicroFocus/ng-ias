@@ -20,6 +20,7 @@ import TileGridComponent from './components/tile-grid/tile-grid.component';
 import { SortDirective, SortOnDirective } from './components/table/sort.directive';
 import { ToggleDirective } from './components/toggle/toggle.directive';
 import ToggleService from './components/toggle/toggle.service';
+import PanelComponent from './components/panel/panel.component';
 
 module('ng-ias', [])
     .constant('MENU_MARGIN', 24)
@@ -39,6 +40,7 @@ module('ng-ias', [])
     .component('iasFooterMenu', MenuFooterComponent)
     .component('iasHeaderMenu', MenuHeaderComponent)
     .component('iasNav', NavComponent)
+    .component('iasPanel', PanelComponent)
     .directive('iasResizingTextarea', ResizingTextareaComponent)
     .component('iasSearchBox', SearchBoxComponent)
     .component('iasSideNav', SideNavComponent)
