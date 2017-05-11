@@ -11,7 +11,7 @@ components {
     flex: none;
   }
 
-  > [ui-view] {
+  > .components-body {
     flex-grow: 1;
     height: 100%;
     overflow: auto;
