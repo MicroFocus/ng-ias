@@ -82,7 +82,8 @@ ias-side-nav {
     width: 100%;
 
     &:focus:not([disabled]),
-    &:hover:not([disabled]) {
+    &:hover:not([disabled]),
+    &.ias-active {
       background-color: $side-nav-bg-color-hover;
       color: inherit;
     }
