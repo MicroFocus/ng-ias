@@ -10,6 +10,7 @@ import ProjectComponent from './components/project/project.component';
 import AppBarComponent from './components/docs/app-bar/app-bar.component';
 import AvatarComponent from './components/docs/avatar/avatar.component';
 import ButtonComponent from './components/docs/button/button.component';
+import DemoContentComponent from './components/components/demo-content.component';
 import DialogComponent from './components/docs/dialog/dialog.component';
 import FormValidationComponent from './components/docs/form-validation/form-validation.component';
 import HeaderComponent from './components/docs/header/header.component';
@@ -27,7 +28,7 @@ import TableComponent from './components/docs/table/table.component';
 import TabsComponent from './components/docs/tabs/tabs.component';
 import TileComponent from './components/docs/tile/tile.component';
 import TileGridComponent from './components/docs/tile-grid/tile-grid.component';
-import DemoContentComponent from './components/components/demo-content.component';
+import ToggleService from '../../src/components/toggle/toggle.service';
 
 module('app', [
     'ng-ias',
@@ -77,6 +78,19 @@ module('app', [
                 requireBase: false
             });
         }
+    ])
+
+    .run(['$transitions', 'IasToggleService',
+        ($transitions: {onStart: (Object, Function) => void},   // Not in our version of @types/angular-ui-router
+         toggleService: ToggleService) => {
+            $transitions.onStart({
+                to: 'app.component.**',
+                from: 'app.component.**'
+            }, function() {
+                toggleService.hideComponent('componentSideNav');
+                // scroll up to top
+            });
+        }
     ]);
 
-bootstrap(document, [ 'app' ]);
+bootstrap(document, ['app']);
