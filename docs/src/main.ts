@@ -81,7 +81,7 @@ module('app', [
     ])
 
     .run(['$transitions', 'IasToggleService',
-        ($transitions: {onStart: (Object, Function) => void},   // Not in our version of @types/angular-ui-router
+        ($transitions: {onStart: (Object, Function) => void},   // No definition in @types/angular-ui-router#v1.1.36
          toggleService: ToggleService) => {
             $transitions.onStart({
                 to: 'app.component.**',

@@ -15,6 +15,14 @@ side-nav-documentation {
         z-index: 100;
       }
     }
+
+    &.ias-locked {
+      flex: none;
+    }
+  }
+
+  demo-content {
+    overflow: hidden;
   }
 }
 
@@ -27,8 +35,13 @@ side-nav-documentation {
       position: absolute;
       width: auto;
 
+      &.ias-open {
+        &:not(.ias-locked) {
+          z-index: 100;
+        }
+      }
+
       > .ias-side-nav-content {
-        left: -100%;
         max-width: 85%;
       }
     }
