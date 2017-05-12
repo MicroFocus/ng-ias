@@ -11,7 +11,7 @@ application {
   }
 }
 
-@media (min-width: $large-display) {
+@media (min-width: $medium-display) {
   ias-nav #componentsSideNavToggle {
     display: none;
   }
