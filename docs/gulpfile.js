@@ -31,10 +31,6 @@ ngGulp(gulp, {
     },
     files: {
         indexProduction: 'src/index.production.html',
-        sassManifest: [
-            path.resolve(__dirname, 'src/app.scss'),
-            path.resolve(__dirname, 'src/app_dark.scss')
-        ],
         vendorDevelopment: [
             path.resolve(__dirname, '../node_modules/angular/angular.js'),
             path.resolve(__dirname, '../node_modules/angular-ui-router/release/angular-ui-router.js'),

@@ -27,6 +27,7 @@ import TableComponent from './components/docs/table/table.component';
 import TabsComponent from './components/docs/tabs/tabs.component';
 import TileComponent from './components/docs/tile/tile.component';
 import TileGridComponent from './components/docs/tile-grid/tile-grid.component';
+import DemoContentComponent from './components/components/demo-content.component';
 
 module('app', [
     'ng-ias',
@@ -51,6 +52,7 @@ module('app', [
     .component('avatarDocumentation', AvatarComponent)
     .component('buttonDocumentation', ButtonComponent)
     .component('dialogDocumentation', DialogComponent)
+    .component('demoContent', DemoContentComponent)
     .component('formValidationDocumentation', FormValidationComponent)
     .component('headerDocumentation', HeaderComponent)
     .component('iconDocumentation', IconComponent)

@@ -1,3 +1,4 @@
+@import './config';
 @import '../../node_modules/ng-prism/dist/ng-prism';
 @import './components/application/application.component';
 @import './components/components/components.component';
@@ -24,14 +25,6 @@ body > [ui-view] {
 .tiles ias-tile {
     display: inline-block;
     vertical-align: middle;
-}
-
-.side-nav-demo {
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .12);
-    display: flex;
-    flex-flow: row nowrap;
-    height: 300px;
-    position: relative;
 }
 
 /*
