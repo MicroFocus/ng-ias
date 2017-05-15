@@ -58,6 +58,16 @@ ias-side-nav {
     position: relative;
     width: $side-nav-width;
 
+    > .ias-side-nav-header,
+    > .ias-side-nav-footer {
+      @include single-line;
+
+      color: $side-nav-header-text-color;
+      font-size: $side-nav-header-font-size;
+      font-weight: $side-nav-header-font-weight;
+      text-transform: $side-nav-header-text-transform;
+    }
+
     > .ias-side-nav-body {
       padding: $side-nav-padding;
     }
