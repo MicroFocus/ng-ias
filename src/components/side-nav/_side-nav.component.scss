@@ -23,7 +23,7 @@ ias-side-nav {
       animation: fadein 500ms;
 
       > .ias-scrim {
-        background-color: $side-nav-scrim-color;
+        background-color: $side-nav-scrim-bg-color;
       }
 
       > .ias-side-nav-content {
@@ -61,6 +61,7 @@ ias-side-nav {
     overflow-x: hidden;
     overflow-y: auto;
     padding: $side-nav-padding;
+	padding-right: $body-spacing-small;
     position: relative;
     top: 0;
     transition: left 500ms ease-in-out;
@@ -69,6 +70,7 @@ ias-side-nav {
 
   a {
     margin: 0;
+	  padding: 0;
   }
 
   a,
@@ -80,7 +82,7 @@ ias-side-nav {
     display: block;
     height: $side-nav-item-height;
     line-height: $side-nav-item-height;
-    padding: 0 $spacing;
+    padding: 0 $body-spacing-xsmall;
     text-align: inherit;
     width: 100%;
 

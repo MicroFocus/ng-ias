@@ -1,7 +1,6 @@
-<h2>Button</h2>
+<h2 class="ias-page-title">Button</h2>
 
-<p>
-    The basic button provides simple interaction and styling to a standard HTML button.
+<p class="ias-page-instructions">These button types provide simple interaction and styling to a standard HTML button and icon button. Icon buttons show an icon without a border instead of a button.
 </p>
 
 <p ng-if="$ctrl.alerts.length > 0">
@@ -9,6 +8,7 @@
 </p>
 
 <div class="demo-section">
+    <h4>Text button</h4>
     <div toggle-repeat-code="inner">
         <ias-button ng-click="$ctrl.simpleButton()">Simple button</ias-button>
 
@@ -17,12 +17,8 @@
 </div>
 
 <div class="demo-section">
-    <h4>Icon button</h4>
+    <h4 class="ias-page-heading-4">Icon button</h4>
     
-    <p>
-        Icon buttons show an icon without a border instead of a button.
-    </p>
-
     <div toggle-repeat-code="inner">
         <ias-button class="ias-icon-button" title="Help button">
             <ias-icon icon="help_thick"></ias-icon>

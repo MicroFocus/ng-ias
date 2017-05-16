@@ -1,13 +1,13 @@
-<h2>Dialog</h2>
-<p>
+<h2 class="ias-page-title">Dialog</h2>
+<p class="ias-page-instructions">
     Modal dialogs help to focus a user's attention to a small task or message. The content of the page
     is darkened to shift focus from the page content to the task.
 </p>
-<p>
+<p class="ias-page-instructions">
     There are pre-configured dialogs that can be quickly integrated into an application; they are alert, confirmation,
     and prompt. For more fine-grained control, use a custom dialog (optionally with a controller).
 </p>
-<p>
+<p class="ias-page-instructions">
     Given the asynchronous nature of modal dialogs, Promises are used to determine the result of a modal dialog
     interaction. The methods for showing a modal dialog through the DialogService return promises, which are resolved
     on success or positive actions (i.e. click 'Ok', or 'Save') and are rejected on negative actions (i.e. click outside
@@ -20,7 +20,7 @@
     <h4>Alert Dialog</h4>
     <p>Use alert dialogs to notify users of important information.</p>
 
-    <ias-button ng-click="$ctrl.openAlertDialog()" repeat-as-code prism-insert-id="code-01">Click</ias-button>
+    <ias-button ng-click="$ctrl.openAlertDialog()" repeat-as-code prism-insert-id="code-01">View Alert Dialog</ias-button>
 
 	<toggleable-code id="code-01">
 		<pre><code highlight>
@@ -47,7 +47,7 @@
     <p>Use confirmation dialogs to request confirmation of some action. If user confirms, promise is resolved.
     If user cancels the dialog or declines the promise is rejected.</p>
 
-    <ias-button ng-click="$ctrl.openConfirmationDialog()" repeat-as-code prism-insert-id="code-02">Click</ias-button>
+    <ias-button ng-click="$ctrl.openConfirmationDialog()" repeat-as-code prism-insert-id="code-02">View Confirmation Dialog</ias-button>
 
 	<toggleable-code id="code-02">
         <pre><code highlight>
@@ -72,7 +72,7 @@
 <div class="demo-section">
     <h4>Prompt Dialog</h4>
 
-    <ias-button ng-click="$ctrl.openPromptDialog()" repeat-as-code prism-insert-id="code-03">Click</ias-button>
+    <ias-button ng-click="$ctrl.openPromptDialog()" repeat-as-code prism-insert-id="code-03">View Prompt Dialog</ias-button>
 
 	<toggleable-code id="code-03">
         <pre><code highlight>
@@ -99,7 +99,7 @@
 <div class="demo-section">
     <h4>Custom Dialog</h4>
 
-    <ias-button ng-click="$ctrl.openCustomDialog()" repeat-as-code prism-insert-id="code-04">Click</ias-button>
+    <ias-button ng-click="$ctrl.openCustomDialog()" repeat-as-code prism-insert-id="code-04">View Custom Dialog</ias-button>
 
 	<toggleable-code id="code-04">
         <pre><code highlight>

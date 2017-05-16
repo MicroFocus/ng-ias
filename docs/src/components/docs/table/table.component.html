@@ -1,41 +1,55 @@
-<h2>Table</h2>
+<h2 class="ias-page-title">Table</h2>
 
 <div class="demo-section">
     <table toggle-repeat-code="">
         <thead>
             <tr>
-                <th></th>
                 <th>Name</th>
                 <th>Title</th>
+                <th>Phone</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>
-                    <ias-button class="ias-icon-button">
-                        <ias-icon icon="search_thick"></ias-icon>
-                    </ias-button>
-                </td>
                 <td><a href="#">Lynn Christensen</a></td>
                 <td>UX Director</td>
+                <td>801-861-7000</td>
             </tr>
             <tr>
-                <td>
-                    <ias-button class="ias-icon-button">
-                        <ias-icon icon="search_thick"></ias-icon>
-                    </ias-button>
-                </td>
                 <td><a href="#">Joe Hawkins</a></td>
                 <td>Assistant to the UX Director</td>
+                <td>801-861-7000</td>
             </tr>
             <tr>
-                <td>
-                    <ias-button class="ias-icon-button">
-                        <ias-icon icon="search_thick"></ias-icon>
-                    </ias-button>
-                </td>
                 <td><a href="#">Joseph White</a></td>
                 <td>Secret assistant to the UX Director</td>
+                <td>801-861-7000</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="demo-section">
+    <h4>Sorting</h4>
+
+    <table ias-sort="$ctrl.sort" toggle-repeat-code=""
+           ng-init="$ctrl.people=[
+            {name: 'Lynn Christensen', title: 'UX Director'},
+            {name: 'Joseph White', title: 'Assistant to the UX Director'},
+            {name: 'Joe Hawkins', title: 'Secret assistant to the UX Director'}]">
+        <thead>
+            <tr>
+                <th ias-sort-on="'name'">Name</th>
+                <th ias-sort-on="'title'">Title</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="person in $ctrl.people | orderBy:$ctrl.sort">
+                <td>
+                    <ias-icon icon="favorite_outline_thin"></ias-icon>
+                    <a href="#">{{person.name}}</a>
+                </td>
+                <td>{{person.title}}</td>
             </tr>
         </tbody>
     </table>
@@ -78,26 +92,42 @@
 </div>
 
 <div class="demo-section">
-    <h4>Sorting</h4>
-
-    <table ias-sort="$ctrl.sort" toggle-repeat-code=""
-           ng-init="$ctrl.people=[
-            {name: 'Lynn Christensen', title: 'UX Director'},
-            {name: 'Joseph White', title: 'Assistant to the UX Director'},
-            {name: 'Joe Hawkins', title: 'Secret assistant to the UX Director'}]">
+    <h4>Including ias-icon-button</h4>
+    <table toggle-repeat-code="">
         <thead>
             <tr>
-                <th ias-sort-on="'name'">Name</th>
-                <th ias-sort-on="'title'">Title</th>
+                <th>Name</th>
+                <th>Action</th>
+                <th>Title</th>
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="person in $ctrl.people | orderBy:$ctrl.sort">
+            <tr>
+                <td><a href="#">Lynn Christensen</a></td>
                 <td>
-                    <ias-icon icon="favorite_outline_thin"></ias-icon>
-                    <a href="#">{{person.name}}</a>
+                    <ias-button class="ias-icon-button">
+                        <ias-icon icon="email_thin"></ias-icon>
+                    </ias-button>
                 </td>
-                <td>{{person.title}}</td>
+                <td>UX Director</td>
+            </tr>
+            <tr>
+                <td><a href="#">Joe Hawkins</a></td>
+                <td>
+                    <ias-button class="ias-icon-button">
+                        <ias-icon icon="email_thin"></ias-icon>
+                    </ias-button>
+                </td>
+                <td>Assistant to the UX Director</td>
+            </tr>
+            <tr>
+                <td><a href="#">Joseph White</a></td>
+                <td>
+                    <ias-button class="ias-icon-button">
+                        <ias-icon icon="email_thin"></ias-icon>
+                    </ias-button>
+                </td>
+                <td>Secret assistant to the UX Director</td>
             </tr>
         </tbody>
     </table>
