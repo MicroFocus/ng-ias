@@ -16,6 +16,9 @@
         </ias-button>
     </ias-app-bar>
     <ias-nav>
+        <ias-button id="componentsSideNavToggle" class="ias-icon-button" ng-if="$ctrl.isComponentsView()" ias-toggle="componentSideNav">
+            <ias-icon icon="hamburger_menu_thick"></ias-icon>
+        </ias-button>
         <a ui-sref="app.project" ui-sref-active="ias-active">Project</a>
         <a ui-sref="app.component" ui-sref-active="ias-active" ng-click="$ctrl.goToComponentsView($event)">Components</a>
         <a ui-sref="app.layout" ui-sref-active="ias-active" class="ias-disabled" title="Coming soon">Layout</a>

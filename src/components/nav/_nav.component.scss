@@ -109,7 +109,7 @@ ias-menu.ias-menu-flat-top {
   }
 }
 
-@media (min-width: $large-display) {
+@media (min-width: $medium-display) {
   ias-nav {
     > .ias-nav-content {
       padding: 0 $nav-content-padding-large;

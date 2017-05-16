@@ -62,7 +62,7 @@ $title-font-weight: normal;
 $title-text-transform: uppercase;
 
 // DISPLAY SIZE
-$large-display: 769px;
+$medium-display: 768px;
 
 // SPACING
 $body-spacing-xsmall: 5px;
@@ -195,7 +195,6 @@ $nav-text-max-width: 700px;
 $nav-text-vertical-margin: ($nav-height - $nav-text-element-height) / 2;
 
 $panel-bg-color: $color-gray-6;
-$panel-height: 31px;
 
 $search-box-icon-padding: 5px;
 $search-box-icon-size: 20px;
