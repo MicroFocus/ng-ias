@@ -1090,9 +1090,11 @@
 	    };
 	    SideNavComponent.prototype.hide = function () {
 	        this.$element.removeClass('ias-open');
+	        this.open = false;
 	    };
 	    SideNavComponent.prototype.show = function () {
 	        this.$element.addClass('ias-open');
+	        this.open = true;
 	    };
 	    return SideNavComponent;
 	}());
@@ -1114,7 +1116,7 @@
 /***/ function(module, exports) {
 
 	var path = 'components/side-nav/side-nav.component.html';
-	var html = "<div class=\"ias-scrim\" ng-click=\"$ctrl.hide()\"></div>\r\n<div class=\"ias-side-nav-content\" ng-transclude></div>";
+	var html = "<div class=\"ias-scrim\" ng-click=\"$ctrl.hide()\"></div>\r\n<div class=\"ias-side-nav-content\">\r\n    <div class=\"ias-side-nav-body\" ng-transclude></div>\r\n</div>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
@@ -1275,6 +1277,13 @@
 	    function ToggleService() {
 	        this.toggleableComponents = {};
 	    }
+	    ToggleService.prototype.hideComponent = function (componentId) {
+	        var toggleableElement = this.toggleableComponents[componentId];
+	        if (toggleableElement == null) {
+	            return;
+	        }
+	        toggleableElement.hide();
+	    };
 	    ToggleService.prototype.register = function (toggleableComponent) {
 	        this.toggleableComponents[toggleableComponent.name] = toggleableComponent;
 	    };

@@ -4,7 +4,7 @@ ias-side-nav {
   left: 0;
   opacity: 0;
   overflow: hidden;
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 0;
 
@@ -12,34 +12,31 @@ ias-side-nav {
   &.ias-locked {
     display: block;
     opacity: 1;
-
-    > .ias-side-nav-content {
-      left: 0;
-    }
   }
 
   &.ias-open {
     &:not(.ias-locked) {
       animation: fadein 500ms;
+      z-index: 1000;
 
       > .ias-scrim {
         background-color: $side-nav-scrim-color;
       }
 
       > .ias-side-nav-content {
-        animation: slidein 500ms;
+        animation: 500ms slidein;
+        animation-direction: normal;
       }
     }
   }
 
   &.ias-locked {
-    background-color: transparent;
     height: 100%;
     position: relative;
     width: $side-nav-width;
 
     > .ias-side-nav-content {
-      max-width: initial;
+      max-width: none;
     }
   }
 
@@ -53,18 +50,27 @@ ias-side-nav {
 
   > .ias-side-nav-content {
     background-color: $side-nav-bg-color;
-    box-sizing: border-box;
     color: $side-nav-text-color;
     height: 100%;
-    left: -100%;
     max-width: $side-nav-max-width;
     overflow-x: hidden;
     overflow-y: auto;
-    padding: $side-nav-padding;
     position: relative;
-    top: 0;
-    transition: left 500ms ease-in-out;
     width: $side-nav-width;
+
+    > .ias-side-nav-header,
+    > .ias-side-nav-footer {
+      @include single-line;
+
+      color: $side-nav-header-text-color;
+      font-size: $side-nav-header-font-size;
+      font-weight: $side-nav-header-font-weight;
+      text-transform: $side-nav-header-text-transform;
+    }
+
+    > .ias-side-nav-body {
+      padding: $side-nav-padding;
+    }
   }
 
   a {
@@ -73,6 +79,7 @@ ias-side-nav {
 
   a,
   .ias-button {
+    @include single-line;
     background-color: transparent;
     border: none;
     box-sizing: border-box;
@@ -80,19 +87,56 @@ ias-side-nav {
     display: block;
     height: $side-nav-item-height;
     line-height: $side-nav-item-height;
-    padding: 0 $spacing;
+    padding: 0 0 0 $spacing;
     text-align: inherit;
     width: 100%;
 
-    &:focus,
-    &:hover {
+    &:focus:not([disabled]),
+    &:hover:not([disabled]),
+    &.ias-active {
       background-color: $side-nav-bg-color-hover;
       color: inherit;
     }
+  }
+}
 
-    &[disabled],
-    &.ias-disabled {
+[dir="rtl"] {
+  ias-side-nav {
+    &.ias-open {
+      &:not(.ias-locked) {
+        > .ias-side-nav-content {
+          animation: 500ms slidein-rtl;
+        }
+      }
+    }
 
+    a {
+      margin: 0;
+    }
+
+    a,
+    .ias-button {
+      padding: 0 $spacing 0 0;
+    }
+  }
+}
+
+@media (min-width: $medium-display) {
+  ias-side-nav {
+    display: block;
+    height: 100%;
+    opacity: 1;
+    position: relative;
+    width: $side-nav-width;
+
+    &.ias-open {
+      &:not(.ias-locked) {
+        z-index: auto;
+      }
+    }
+
+    > .ias-side-nav-content {
+      max-width: none;
     }
   }
 }

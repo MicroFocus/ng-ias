@@ -29,9 +29,11 @@ export default class SideNavComponent implements IToggleable {
 
     hide() {
         this.$element.removeClass('ias-open');
+        this.open = false;
     }
 
     show() {
         this.$element.addClass('ias-open');
+        this.open = true;
     }
 }

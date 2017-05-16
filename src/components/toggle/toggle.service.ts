@@ -8,6 +8,16 @@ export default class ToggleService {
         this.toggleableComponents = {};
     }
 
+    hideComponent(componentId: string): void {
+        let toggleableElement: IToggleable = this.toggleableComponents[componentId];
+
+        if (toggleableElement == null) {
+            return;
+        }
+
+        toggleableElement.hide();
+    }
+
     register(toggleableComponent: IToggleable): void {
         this.toggleableComponents[toggleableComponent.name] = toggleableComponent;
     }
