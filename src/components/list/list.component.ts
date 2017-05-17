@@ -2,7 +2,6 @@ import { Component } from '../../component.decorator';
 import { IAugmentedJQuery, ITranscludeFunction } from 'angular';
 
 @Component({
-    templateUrl: require('./list.component.html'),
     transclude: true
 })
 export class ListComponent {
