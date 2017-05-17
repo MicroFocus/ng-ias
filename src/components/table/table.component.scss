@@ -34,9 +34,7 @@ table {
       padding: 0;
 
       &:not(.ias-disabled) {
-        &:hover {
-          background-color: transparent;
-        }
+        @include focus-hover-background(transparent);
       }
     }
 

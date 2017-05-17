@@ -12,10 +12,6 @@ ias-input-container textarea {
     display: none;
   }
 
-  &:focus {
-    //@include focus-state;
-  }
-
   &[disabled] {
     @include disabled-state;
   }
@@ -59,7 +55,7 @@ ias-input-container textarea.inputError:focus {
 }
 
 input:focus, select:focus, textarea:focus {
-    background-color: #fff;
+    background-color: $input-bg-color;
     border-color: #01a9e7;
     color: #434c50;
     outline: none;

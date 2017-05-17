@@ -83,9 +83,7 @@ ias-nav {
       > a {
         padding: $link-padding;
 
-        &:hover {
-          background-color: $nav-link-color-hover;
-        }
+        @include focus-hover-background($nav-link-color-hover);
       }
     }
 

@@ -23,7 +23,10 @@
 
   &:not([disabled]) {
     &:focus {
-      @include focus-state;
+      background-color: $button-bg-color-hover;
+      border-color: $button-border-color-hover;
+      color: $button-text-color;
+      outline: none;
     }
 
     &:hover {

@@ -70,6 +70,7 @@ li.ias-tab.active:hover {
 .nav-tabs > li.ias-tab.active a, .nav-tabs > li.ias-tab.active a:hover, .nav-tabs > li.ias-tab.active a:focus {
     border: none;
     background: transparent;
+    outline: none;
 }
 
 a.ias-tab-link {
