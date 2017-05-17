@@ -4,6 +4,7 @@ ias-icon {
   display: inline-block;
   text-align: center;
 
+  &.ias-xlarge { @include square($icon-size-xlarge); }
   &.ias-large { @include square($icon-size-large); }
   &.ias-medium { @include square($icon-size-medium); }
 }

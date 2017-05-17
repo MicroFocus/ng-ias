@@ -1,0 +1,51 @@
+.ias-page-title {
+	@include single-line;
+
+	font-size: $font-size-xlarge;
+	font-weight: normal;
+	line-height: 1.2;
+	margin: 0 0 $body-spacing-medium;
+}
+
+.ias-page-instructions {
+	color: $color-gray-4;
+	font-size: 16px;
+	line-height: $font-size-large;
+	margin: $body-spacing-medium 0;
+	max-width: $content-web-max-width;	
+}
+
+ul.ias-page-instructions {
+	color: $color-gray-4;
+	font-size: $font-size-base;
+	line-height: 1.2;
+}
+
+
+h2, .ias-page-heading-2 {
+  @include single-line;
+
+  color: $text-color;
+  font-size: $font-size-large;
+  line-height: 1.2;
+  margin: $body-spacing-medium 0 $body-spacing-medium;
+}
+
+h3, .ias-page-heading-3 {
+  @include single-line;
+
+  color: $text-color;
+  font-size: $font-size-medium;
+  line-height: 1.2;
+  margin: $body-spacing-small 0 $body-spacing-medium;
+}
+
+h4, .ias-page-heading-4 {
+  @include single-line;
+
+  color: $color-gray-2;
+  font-size: $font-size-base;
+  font-weight: bold;
+  line-height: 1.2;
+  margin: $body-spacing-small 0 $body-spacing-xsmall;
+}

@@ -137,6 +137,61 @@
   border-color: inherit;
 }
 
+.ias-page-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 24px;
+  font-weight: normal;
+  line-height: 1.2;
+  margin: 0 0 15px;
+}
+
+.ias-page-instructions {
+  color: #808080;
+  font-size: 16px;
+  line-height: 21px;
+  margin: 15px 0;
+  max-width: 700px;
+}
+
+ul.ias-page-instructions {
+  color: #808080;
+  font-size: 15px;
+  line-height: 1.2;
+}
+
+h2, .ias-page-heading-2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #434c50;
+  font-size: 21px;
+  line-height: 1.2;
+  margin: 15px 0 15px;
+}
+
+h3, .ias-page-heading-3 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #434c50;
+  font-size: 18px;
+  line-height: 1.2;
+  margin: 10px 0 15px;
+}
+
+h4, .ias-page-heading-4 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #575b5d;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 1.2;
+  margin: 10px 0 5px;
+}
+
 .ias-heading {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -199,7 +254,7 @@ ias-app-bar > .ias-app-bar-content > span:not(.ias-fill) {
   white-space: nowrap;
   -ms-flex-negative: 10;
       flex-shrink: 10;
-  margin-left: 25px;
+  margin-left: 20px;
 }
 
 ias-app-bar > .ias-app-bar-content > span:not(.ias-fill):not(:last-child) {
@@ -257,7 +312,7 @@ ias-app-bar > .ias-app-bar-content > .ias-button:not(.ias-icon-button) > ias-ico
   text-overflow: ellipsis;
   white-space: nowrap;
   margin-left: 0;
-  margin-right: 25px;
+  margin-right: 20px;
 }
 
 [dir="rtl"] ias-app-bar > .ias-app-bar-content > span:not(.ias-fill):not(:last-child) {
@@ -265,14 +320,11 @@ ias-app-bar > .ias-app-bar-content > .ias-button:not(.ias-icon-button) > ias-ico
 }
 
 @media (min-width: 768px) {
-  ias-app-bar > .ias-app-bar-content {
-    padding-right: 25px;
-  }
   ias-app-bar > .ias-app-bar-content > .ias-logo {
     max-height: 100px;
   }
   ias-app-bar > .ias-app-bar-content > .ias-heading {
-    margin-left: 25px;
+    margin-left: 20px;
   }
   ias-app-bar.ias-large > .ias-app-bar-content {
     height: 100px;
@@ -281,12 +333,12 @@ ias-app-bar > .ias-app-bar-content > .ias-button:not(.ias-icon-button) > ias-ico
     font-size: 25px;
   }
   [dir="rtl"] ias-app-bar > .ias-app-bar-content {
-    padding-left: 25px;
+    padding-left: 20px;
     padding-right: 0;
   }
   [dir="rtl"] ias-app-bar > .ias-app-bar-content > .ias-heading {
     margin-left: 0;
-    margin-right: 25px;
+    margin-right: 20px;
   }
 }
 
@@ -335,6 +387,7 @@ ias-avatar > .ias-avatar-content {
   cursor: pointer;
   display: inline-block;
   font-size: 15px;
+  margin-right: 5px;
   padding: 0.45em 0.75em;
   text-align: center;
   text-decoration: none;
@@ -490,14 +543,17 @@ ias-header {
 }
 
 ias-header > .ias-header-title {
-  font-size: 26px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 24px;
 }
 
 ias-header > .ias-header-sub-title {
-  color: #808080;
+  color: #6a6f71;
   -ms-flex: 0 0 100%;
       flex: 0 0 100%;
-  font-size: 16px;
+  font-size: 15px;
   -ms-flex-order: 1;
       order: 1;
 }
@@ -524,6 +580,13 @@ ias-icon {
   width: 1em;
   display: inline-block;
   text-align: center;
+}
+
+ias-icon.ias-xlarge {
+  font-size: 100px;
+  height: 1em;
+  line-height: 1em;
+  width: 1em;
 }
 
 ias-icon.ias-large {
@@ -603,7 +666,7 @@ ias-input-container input.inputError,
 ias-input-container textarea.inputError,
 ias-input-container input.inputError:focus,
 ias-input-container textarea.inputError:focus {
-  border-color: #CC0000;
+  border-color: #e50000;
 }
 
 input:focus, select:focus, textarea:focus {
@@ -908,7 +971,7 @@ ias-nav > .ias-nav-content {
       flex-flow: row nowrap;
   min-height: 34px;
   overflow: hidden;
-  padding: 0 15px;
+  padding: 0 20px;
 }
 
 ias-nav > .ias-nav-content > a,
@@ -956,7 +1019,7 @@ ias-nav > .ias-nav-content > a {
 }
 
 ias-nav > .ias-nav-content > a > ias-icon {
-  font-size: 20px;
+  font-size: 25px;
   margin-bottom: 2px;
   vertical-align: middle;
 }
@@ -988,7 +1051,7 @@ ias-nav > .ias-nav-content > .ias-button {
 }
 
 ias-nav > .ias-nav-content > .ias-button.ias-icon-button > ias-icon {
-  font-size: 20px;
+  font-size: 25px;
 }
 
 ias-menu.ias-menu-flat-top > ias-menu-content {
@@ -998,7 +1061,7 @@ ias-menu.ias-menu-flat-top > ias-menu-content {
 
 @media (min-width: 768px) {
   ias-nav > .ias-nav-content {
-    padding: 0 25px;
+    padding: 0 20px;
   }
 }
 
@@ -1046,12 +1109,19 @@ ias-search-box {
 
 .ias-search-box-content > .ias-icon-button {
   right: 0;
+  margin-right: 0;
+}
+
+.ias-search-box-content > .ias-button.ias-icon-button:not([disabled]):focus, .ias-search-box-content .ias-button.ias-icon-button:not([disabled]):hover {
+  background-color: transparent;
+  border-color: transparent;
 }
 
 .ias-search-box-content > ias-icon,
 .ias-search-box-content > .ias-icon-button {
   position: absolute;
-  top: 1px;
+  top: 2px;
+  color: #808080;
 }
 
 .ias-search-box-content > input {
@@ -1093,7 +1163,7 @@ ias-side-nav.ias-open:not(.ias-locked) {
 }
 
 ias-side-nav.ias-open:not(.ias-locked) > .ias-scrim {
-  background-color: rgba(128, 128, 128, 0.7);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 ias-side-nav.ias-open:not(.ias-locked) > .ias-side-nav-content {
@@ -1142,11 +1212,12 @@ ias-side-nav > .ias-side-nav-content > .ias-side-nav-footer {
 }
 
 ias-side-nav > .ias-side-nav-content > .ias-side-nav-body {
-  padding: 10px;
+  padding: 15px;
 }
 
 ias-side-nav a {
   margin: 0;
+  padding: 0;
 }
 
 ias-side-nav a,
@@ -1161,7 +1232,7 @@ ias-side-nav .ias-button {
   display: block;
   height: 30px;
   line-height: 30px;
-  padding: 0 0 0 10px;
+  padding: 0 0 0 5px;
   text-align: inherit;
   width: 100%;
 }
@@ -1184,7 +1255,7 @@ ias-side-nav .ias-button.ias-active {
 
 [dir="rtl"] ias-side-nav a,
 [dir="rtl"] ias-side-nav .ias-button {
-  padding: 0 10px 0 0;
+  padding: 0 5px 0 0;
 }
 
 @media (min-width: 768px) {
@@ -1233,6 +1304,7 @@ table > tbody > tr:hover {
 
 table td, table th {
   padding: 0 10px;
+  font-weight: normal;
 }
 
 table td > a, table th > a {
@@ -1254,13 +1326,13 @@ table td > ias-icon, table th > ias-icon {
 }
 
 table tr {
-  height: 36px;
+  height: 35px;
   vertical-align: middle;
 }
 
 table ias-icon,
 table .ias-icon-button {
-  font-size: 20px;
+  font-size: 25px;
 }
 
 .ias-sortable {
@@ -1269,13 +1341,14 @@ table .ias-icon-button {
       -ms-user-select: none;
           user-select: none;
   color: #0090da;
+  font-weight: 700;
   cursor: pointer;
 }
 
 ul.nav-tabs {
   -ms-flex-align: left;
   align-items: left;
-  color: #434c50;
+  color: #6a6f71;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-flow: row nowrap;
@@ -1285,8 +1358,8 @@ ul.nav-tabs {
   padding-top: 2px;
   padding-right: 10px;
   position: relative;
-  height: 28px;
-  border-bottom: 1px solid #000;
+  height: 31px;
+  border-bottom: 1px solid #6a6f71;
   position: relative;
 }
 
@@ -1298,39 +1371,48 @@ li.ias-tab:first-child {
   background-color: #f6f9f8;
   color: #434c50;
   margin-right: 5px;
-  min-width: 60px;
+  min-width: 70px;
   text-align: center;
   border: 1px solid #dae1e1;
+  border-bottom: 1px solid transparent;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
   margin-bottom: 0px;
 }
 
 .nav-tabs > li.ias-tab a {
-  color: #000;
-  padding: 2px 10px;
-  height: 23px;
-  min-width: 60px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #434c50;
+  padding: 3px 10px;
+  height: 26px;
+  min-width: 70px;
 }
 
 li.ias-tab.active {
-  color: #434c50;
+  color: #000;
   cursor: default;
   font-size: 15px;
-  font-weight: 400;
+  font-weight: 500;
   background-color: #fff;
-  border-color: #808080;
+  border-color: #6a6f71;
   border-bottom: 4px solid #fff;
   z-index: 100;
-  height: 27px;
+  height: 31px;
 }
 
 li.ias-tab:hover {
-  background-color: #f6f9f8;
   border-color: #01a9e7;
   color: #007cd0;
   cursor: pointer;
-  border-bottom: none;
+  border-bottom: 1px solid transparent;
+}
+
+.nav-tabs > li > a:hover {
+  color: #007cd0;
+  border-color: transparent;
+  background-color: transparent;
 }
 
 li.ias-tab.active:hover {

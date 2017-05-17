@@ -14,12 +14,19 @@ ias-search-box {
 
   > .ias-icon-button {
     right: 0;
+    margin-right: 0;
   }
-
+	
+  >.ias-button.ias-icon-button:not([disabled]):focus, .ias-button.ias-icon-button:not([disabled]):hover {
+    background-color: transparent;
+    border-color: transparent;
+  }
+	
   > ias-icon,
   > .ias-icon-button {
     position: absolute;
-    top: 1px;
+    top: 2px;
+	  color: $color-gray-4;
   }
 
   > input {
