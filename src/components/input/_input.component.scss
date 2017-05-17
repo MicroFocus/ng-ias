@@ -1,3 +1,7 @@
+input {
+  background-color: $input-bg-color;
+}
+
 ias-input-container input,
 ias-input-container select,
 ias-input-container textarea {
