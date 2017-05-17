@@ -31,8 +31,6 @@ table {
     padding: 0 $spacing;
 
     > a {
-      padding: 0;
-
       &:not(.ias-disabled) {
         @include focus-hover-background(transparent);
       }

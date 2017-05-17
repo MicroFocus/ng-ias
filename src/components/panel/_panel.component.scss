@@ -16,6 +16,7 @@ ias-panel {
 
   a {
     @include focus-hover-background($body-bg-color);
+    display: inline;
     margin: 0;
     padding: 0;
   }
