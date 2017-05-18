@@ -90,6 +90,7 @@ ias-nav {
     // Hoverable, non-active-capable nav items
     > .ias-button {
       box-sizing: content-box;
+      margin: 0;
 
       &.ias-icon-button {
         > ias-icon {

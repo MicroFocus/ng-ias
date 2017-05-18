@@ -9,11 +9,15 @@
   cursor: pointer;
   display: inline-block;
   font-size: $button-font-size;
-  margin-right: $body-spacing-xsmall;
+  margin-right: $button-spacing;
   padding: $button-padding;
   text-align: center;
   text-decoration: $button-text-transform;
   vertical-align: middle;
+
+  &:last-of-type {
+    margin-right: 0;
+  }
 
   &[disabled] {
     background-color: $button-bg-color-disabled;
@@ -97,6 +101,13 @@ a.ias-button {
 
 [dir="rtl"] {
   .ias-button {
+    margin-left: $button-spacing;
+    margin-right: 0;
+
+    &:last-of-type {
+      margin-left: 0;
+    }
+
     &.ias-menu-toggle {
       > ias-icon {
         margin-left: 0;

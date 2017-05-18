@@ -25,11 +25,9 @@ ias-header {
 
   > .ias-icon-button {
     margin-left: $spacing;
-  }
 
-  > .ias-button {
-    &:not(:last-child) {
-      margin-right: $body-spacing-xsmall;
+    ias-icon {
+      font-size: $header-icon-size;
     }
   }
 }

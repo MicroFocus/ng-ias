@@ -72,10 +72,6 @@ ias-side-nav {
     }
   }
 
-  a {
-    margin: 0;
-  }
-
   a,
   .ias-button {
     @include single-line;
@@ -86,6 +82,7 @@ ias-side-nav {
     display: block;
     height: $side-nav-item-height;
     line-height: $side-nav-item-height;
+    margin: 0;
     padding: 0 0 0 $spacing;
     text-align: inherit;
     width: 100%;
@@ -109,12 +106,9 @@ ias-side-nav {
       }
     }
 
-    a {
-      margin: 0;
-    }
-
     a,
     .ias-button {
+      margin: 0;
       padding: 0 $spacing 0 0;
     }
   }

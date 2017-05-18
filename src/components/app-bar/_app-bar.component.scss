@@ -43,6 +43,7 @@ ias-app-bar {
       flex-shrink: 0;
       font-size: inherit;
       margin-left: $app-bar-button-spacing;
+      margin-right: 0;
 
       &.ias-icon-button {
         padding: $app-bar-button-padding;
