@@ -57,6 +57,7 @@ ias-menu-content {
     box-sizing: border-box;
     color: inherit;
     display: block;
+    margin: 0;
     text-align: inherit;
     width: 100%;
   }
@@ -82,4 +83,12 @@ ias-menu-content ias-list-header {
   margin: $list-header-margin;
   padding: 0;
   text-transform: $menu-header-text-transform;
+}
+
+[dir="rtl"] {
+  ias-menu-content {
+    .ias-button {
+      margin: 0;
+    }
+  }
 }

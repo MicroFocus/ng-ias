@@ -12,14 +12,12 @@ ias-tile {
   position: relative;
 
   // STATES
-  &:focus {
-    @include focus-state;
-  }
-
+  &:focus,
   &:hover {
     background-color: $tile-bg-color;
     border-color: $tile-border-color;
     color: $tile-text-color;
+    outline: none;
   }
 
   // SIZES
@@ -130,9 +128,7 @@ ias-tile {
   }
 
   a {
-    &:hover {
-      background-color: $body-bg-color;
-    }
+    @include focus-hover-background($body-bg-color);
   }
 }
 

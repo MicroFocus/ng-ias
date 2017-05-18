@@ -9,7 +9,7 @@ import IconComponent from './components/icon/icon.component';
 import IconInput from './components/input/icon.input.component';
 import InputContainerComponent from './components/input/input.component';
 import IntInput from './components/input/int.input.component';
-import { ListComponent, ListHeaderComponent, ListItemComponent } from './components/list/list.component';
+import { ListItemComponent } from './components/list/list.component';
 import { MenuComponent, MenuFooterComponent, MenuHeaderComponent } from './components/menu/menu.component';
 import NavComponent from './components/nav/nav.component';
 import ResizingTextareaComponent from './components/input/resizing.textarea.component';
@@ -33,8 +33,6 @@ module('ng-ias', [])
     .component('iasHeader', HeaderComponent)
     .component('iasIcon', IconComponent)
     .component('iasInputContainer', InputContainerComponent)
-    .component('iasList', ListComponent)
-    .component('iasListHeader', ListHeaderComponent)
     .component('iasListItem', ListItemComponent)
     .component('iasMenu', MenuComponent)
     .component('iasFooterMenu', MenuFooterComponent)

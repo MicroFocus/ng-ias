@@ -39,6 +39,10 @@ ias-dialog-content {
   > .ias-dialog-header {
     padding: $content-padding 2 * $content-padding $spacing $content-padding;
   }
+
+  input:focus {
+    color: $dialog-input-focus-text-color;
+  }
 }
 
 @media (min-width: $medium-display) {
