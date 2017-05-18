@@ -74,7 +74,6 @@ ias-side-nav {
 
   a {
     margin: 0;
-	  padding: 0;
   }
 
   a,
@@ -87,7 +86,7 @@ ias-side-nav {
     display: block;
     height: $side-nav-item-height;
     line-height: $side-nav-item-height;
-    padding: 0 0 0 $body-spacing-xsmall;
+    padding: 0 0 0 $spacing;
     text-align: inherit;
     width: 100%;
 
@@ -116,7 +115,7 @@ ias-side-nav {
 
     a,
     .ias-button {
-      padding: 0 $body-spacing-xsmall 0 0;
+      padding: 0 $spacing 0 0;
     }
   }
 }

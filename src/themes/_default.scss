@@ -62,7 +62,7 @@ $title-font-weight: normal;
 $title-text-transform: uppercase;
 
 // DISPLAY SIZE
-$small-display: 420px;
+$small-display: 425px;
 $medium-display: 768px;
 
 // SPACING
@@ -209,14 +209,13 @@ $side-nav-header-font-weight: $list-header-font-weight;
 $side-nav-header-text-transform: $list-header-text-transform;
 $side-nav-item-height: 30px;
 $side-nav-max-width: 85%;
-$side-nav-padding: $body-spacing-medium;
+$side-nav-padding: $body-spacing-small;
 $side-nav-scrim-bg-color: rgba(0, 0, 0, .50);
 $side-nav-text-color: inherit;
 $side-nav-width: 240px;
 
 $table-header-border-color: $color-gray-5;
 $table-header-font-size: 12px;
-$table-header-height: $body-spacing-large;
 $table-icon-margin: 5px;
 $table-icon-size: 25px;
 $table-body-border-color: $color-gray-5;
@@ -235,8 +234,6 @@ $tile-text-margin-top: 5px;
 $tile-title-font-size-large: $font-size-base;
 $tile-title-font-size-medium: $font-size-base;
 $tile-title-font-size-small: $font-size-large;
-$tile-title-margin-bottom-large: 5px;
-$tile-title-margin-bottom-medium: 5px;
 
 $tile-avatar-size-large: 100px;
 $tile-height-large:

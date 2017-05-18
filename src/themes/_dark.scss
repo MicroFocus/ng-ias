@@ -62,7 +62,7 @@ $title-font-weight: normal;
 $title-text-transform: uppercase;
 
 // DISPLAY SIZE
-$small-display: 420px;
+$small-display: 425px;
 $medium-display: 768px;
 
 // SPACING
@@ -207,7 +207,7 @@ $side-nav-header-font-weight: $menu-header-font-weight;
 $side-nav-header-text-transform: $menu-header-text-transform;
 $side-nav-item-height: 30px;
 $side-nav-max-width: 85%;
-$side-nav-padding: $spacing;
+$side-nav-padding: $body-spacing-small;
 $side-nav-scrim-bg-color: rgba(0, 0, 0, .50);
 $side-nav-text-color: inherit;
 $side-nav-width: 240px;

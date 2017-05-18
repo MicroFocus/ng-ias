@@ -228,7 +228,7 @@
 /***/ function(module, exports) {
 
 	var path = 'components/button/button.component.html';
-	var html = "<button class=\"ias-button\" ng-transclude>\n</button>";
+	var html = "<button class=\"ias-button\" ng-transclude>\r\n</button>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
@@ -275,7 +275,7 @@
 /***/ function(module, exports) {
 
 	var path = 'components/dialog/dialog.component.html';
-	var html = "<ias-dialog-content ng-click=\"$event.stopPropagation()\" ng-transclude>\n</ias-dialog-content>\n";
+	var html = "<ias-dialog-content ng-click=\"$event.stopPropagation()\" ng-transclude>\r\n</ias-dialog-content>\r\n";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
@@ -457,7 +457,7 @@
 /***/ function(module, exports) {
 
 	var path = 'components/icon/icon.component.html';
-	var html = "<i ng-if=\"$ctrl.icon\" ng-class=\"['ias-icon', 'ias-icon-' + $ctrl.icon]\"></i>\n<img ng-if=\"!$ctrl.icon\" class=\"svg-icon\" ng-src=\"{{$ctrl.svgIcon}}\" ng-attr-alt=\"{{$ctrl.svgIcon}}\"/>";
+	var html = "<i ng-if=\"$ctrl.icon\" ng-class=\"['ias-icon', 'ias-icon-' + $ctrl.icon]\"></i>\r\n<img ng-if=\"!$ctrl.icon\" class=\"svg-icon\" ng-src=\"{{$ctrl.svgIcon}}\" ng-attr-alt=\"{{$ctrl.svgIcon}}\"/>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
@@ -503,7 +503,7 @@
 /***/ function(module, exports) {
 
 	var path = 'components/input/icon.input.component.html';
-	var html = "<span class=\"ias-icon-input-container\">\n    <input type=\"text\" placeholder=\"{{placeholder}}\">\n    <ias-icon icon=\"{{icon}}\"></ias-icon>\n</span>";
+	var html = "<span class=\"ias-icon-input-container\">\r\n    <input type=\"text\" placeholder=\"{{placeholder}}\">\r\n    <ias-icon icon=\"{{icon}}\"></ias-icon>\r\n</span>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
@@ -616,7 +616,7 @@
 /***/ function(module, exports) {
 
 	var path = 'components/input/int.input.component.html';
-	var html = "<input type=\"text\" class=\"iasIntInput\" ng-transclude>\n</input>";
+	var html = "<input type=\"text\" class=\"iasIntInput\" ng-transclude>\r\n</input>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
@@ -1049,7 +1049,7 @@
 /***/ function(module, exports) {
 
 	var path = 'components/search-box/search-box.component.html';
-	var html = "<div class=\"ias-search-box-content\">\n    <input type=\"text\"\n           autocomplete=\"false\"\n           ng-model=\"$ctrl.value\"\n           ng-attr-placeholder=\"{{$ctrl.placeholder}}\"\n           ng-keydown=\"$ctrl.onInputKeyDown($event)\" />\n    <ias-icon icon=\"search_thick\"></ias-icon>\n    <ias-button class=\"ias-icon-button\" ng-click=\"$ctrl.clearInput()\">\n        <ias-icon icon=\"close_thick\"></ias-icon>\n    </ias-button>\n</div>";
+	var html = "<div class=\"ias-search-box-content\">\r\n    <input type=\"text\"\r\n           autocomplete=\"false\"\r\n           ng-model=\"$ctrl.value\"\r\n           ng-attr-placeholder=\"{{$ctrl.placeholder}}\"\r\n           ng-keydown=\"$ctrl.onInputKeyDown($event)\" />\r\n    <ias-icon icon=\"search_thick\"></ias-icon>\r\n    <ias-button class=\"ias-icon-button\" ng-click=\"$ctrl.clearInput()\">\r\n        <ias-icon icon=\"close_thick\"></ias-icon>\r\n    </ias-button>\r\n</div>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
@@ -1106,7 +1106,7 @@
 /***/ function(module, exports) {
 
 	var path = 'components/side-nav/side-nav.component.html';
-	var html = "<div class=\"ias-scrim\" ng-click=\"$ctrl.hide()\"></div>\n<div class=\"ias-side-nav-content\">\n    <div class=\"ias-side-nav-body\" ng-transclude></div>\n</div>";
+	var html = "<div class=\"ias-scrim\" ng-click=\"$ctrl.hide()\"></div>\r\n<div class=\"ias-side-nav-content\">\r\n    <div class=\"ias-side-nav-body\" ng-transclude></div>\r\n</div>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
