@@ -37,12 +37,16 @@ $font-size-xlarge: 24px;
 
 // PAGE
 $body-bg-color: $color-gray-8;
+$content-column-width: 225px;
+$content-web-max-width: 700px;
+$content-mobile-max-width: 400px;
 
 // TYPOGRAPHY
 $font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $font-size: $font-size-base;
 $font-weight: 400;
 $font-weight-medium: 500;
+$font-weight-bold: 700;
 
 $heading-text-color: inherit;
 $heading-font-size: $font-size-xlarge;
@@ -130,6 +134,7 @@ $dialog-scrim-color: rgba(0, 0, 0, .50);
 $icon-size-small: 25px;
 $icon-size-medium: 50px;
 $icon-size-large: 75px;
+$icon-size-xlarge: 100px;
 
 $input-bg-color: $body-bg-color;
 $input-border: 1px solid $color-gray-5;
@@ -171,7 +176,7 @@ $nav-content-padding: $body-spacing-medium;
 $nav-content-padding-large: $body-spacing-large;
 $nav-height: 34px;
 $nav-icon-margin: 2px;
-$nav-icon-size: 20px;
+$nav-icon-size: 25px;
 $nav-item-bg-color-hover: $color-gray-5;
 $nav-item-border-bottom-color-active: $color-primary-4;
 $nav-item-border-color-hover: transparent;
@@ -203,7 +208,7 @@ $side-nav-header-text-transform: $menu-header-text-transform;
 $side-nav-item-height: 30px;
 $side-nav-max-width: 85%;
 $side-nav-padding: $spacing;
-$side-nav-scrim-color: rgba(0, 0, 0, .50);
+$side-nav-scrim-bg-color: rgba(0, 0, 0, .50);
 $side-nav-text-color: inherit;
 $side-nav-width: 240px;
 

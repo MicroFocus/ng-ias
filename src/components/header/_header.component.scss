@@ -6,13 +6,15 @@ ias-header {
   padding-top: $spacing;
 
   > .ias-header-title {
-    font-size: 26px;
+  	@include single-line;
+
+    font-size: $font-size-xlarge;
   }
 
   > .ias-header-sub-title {
-    color: #808080;
+    color: $color-gray-3;
     flex: 0 0 100%;
-    font-size: 16px;
+    font-size: $font-size-base;
     order: 1;
   }
 
@@ -27,7 +29,7 @@ ias-header {
 
   > .ias-button {
     &:not(:last-child) {
-      margin-right: 5px;
+      margin-right: $body-spacing-xsmall;
     }
   }
 }

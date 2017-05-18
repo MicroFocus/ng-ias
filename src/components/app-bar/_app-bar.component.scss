@@ -103,7 +103,6 @@ ias-app-bar {
 @media (min-width: $medium-display) {
   ias-app-bar {
     > .ias-app-bar-content {
-      padding-right: $app-bar-padding-large;
 
       > .ias-logo {
         max-height: $app-bar-height-large;

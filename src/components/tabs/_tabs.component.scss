@@ -1,7 +1,7 @@
 ul.nav-tabs {
-    -ms-flex-align: left;
+	-ms-flex-align: left;
     align-items: left;
-    color: #434c50;
+    color: $color-gray-3;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-flow: row nowrap;
@@ -11,8 +11,8 @@ ul.nav-tabs {
     padding-top: 2px;
     padding-right: $body-spacing-small;
     position: relative;
-    height: 28px;
-    border-bottom: 1px solid $color-black-1;
+    height: 31px;
+    border-bottom: 1px solid $color-gray-3;
     position: relative;
 }
 
@@ -24,39 +24,47 @@ li.ias-tab:first-child {
     background-color: $color-gray-7;
     color: #434c50;
     margin-right: 5px;
-    min-width: 60px;
+    min-width: 70px;
     text-align: center;
     border: 1px solid #dae1e1;
+    border-bottom: 1px solid transparent;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
     margin-bottom: 0px;
 }
 
 .nav-tabs > li.ias-tab a {
-    color: $color-black-1;
-    padding: 2px $body-spacing-small;
-    height: 23px;
-    min-width: 60px;
+  	@include single-line;
+
+	color: $color-gray-1;
+    padding: 3px $body-spacing-small;
+    height: 26px;
+    min-width: 70px;
 }
 
 li.ias-tab.active {
-    color: #434c50;
+    color: $color-black-1;
     cursor: default;
     font-size: $font-size-base;
-    font-weight: $font-weight;
+    font-weight: $font-weight-medium;
     background-color: $dialog-bg-color;
-    border-color: #808080;
+    border-color: $color-gray-3;
     border-bottom: 4px solid $dialog-bg-color;
     z-index: 100;
-    height: 27px;
+    height: 31px;
 }
 
 li.ias-tab:hover {
-    background-color: $color-gray-7;
-    border-color: #01a9e7;
-    color: #007cd0;
+    border-color: $color-primary-4;
+    color: $color-primary-2;
     cursor: pointer;
-    border-bottom: none;
+    border-bottom: 1px solid transparent;
+}
+
+.nav-tabs > li > a:hover {
+    color: $color-primary-2;
+    border-color: transparent;
+	background-color: transparent;
 }
 
 li.ias-tab.active:hover {
