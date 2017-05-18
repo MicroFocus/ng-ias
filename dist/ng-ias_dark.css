@@ -254,7 +254,7 @@ ias-app-bar > .ias-app-bar-content > span:not(.ias-fill) {
   white-space: nowrap;
   -ms-flex-negative: 10;
       flex-shrink: 10;
-  margin-left: 25px;
+  margin-left: 20px;
 }
 
 ias-app-bar > .ias-app-bar-content > span:not(.ias-fill):not(:last-child) {
@@ -313,7 +313,7 @@ ias-app-bar > .ias-app-bar-content > .ias-button:not(.ias-icon-button) > ias-ico
   text-overflow: ellipsis;
   white-space: nowrap;
   margin-left: 0;
-  margin-right: 25px;
+  margin-right: 20px;
 }
 
 [dir="rtl"] ias-app-bar > .ias-app-bar-content > span:not(.ias-fill):not(:last-child) {
@@ -325,7 +325,7 @@ ias-app-bar > .ias-app-bar-content > .ias-button:not(.ias-icon-button) > ias-ico
     max-height: 100px;
   }
   ias-app-bar > .ias-app-bar-content > .ias-heading {
-    margin-left: 25px;
+    margin-left: 20px;
   }
   ias-app-bar.ias-large > .ias-app-bar-content {
     height: 100px;
@@ -334,12 +334,12 @@ ias-app-bar > .ias-app-bar-content > .ias-button:not(.ias-icon-button) > ias-ico
     font-size: 25px;
   }
   [dir="rtl"] ias-app-bar > .ias-app-bar-content {
-    padding-left: 25px;
+    padding-left: 20px;
     padding-right: 0;
   }
   [dir="rtl"] ias-app-bar > .ias-app-bar-content > .ias-heading {
     margin-left: 0;
-    margin-right: 25px;
+    margin-right: 20px;
   }
 }
 
@@ -556,7 +556,7 @@ ias-header {
   display: flex;
   -ms-flex-flow: row wrap;
       flex-flow: row wrap;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 ias-header > .ias-header-title {
@@ -688,7 +688,7 @@ ias-input-container input.inputError,
 ias-input-container textarea.inputError,
 ias-input-container input.inputError:focus,
 ias-input-container textarea.inputError:focus {
-  border-color: #CC0000;
+  border-color: #e50000;
 }
 
 input:focus, select:focus, textarea:focus {
@@ -987,7 +987,7 @@ ias-nav > .ias-nav-content {
       flex-flow: row nowrap;
   min-height: 34px;
   overflow: hidden;
-  padding: 0 15px;
+  padding: 0 20px;
 }
 
 ias-nav > .ias-nav-content > a,
@@ -1078,7 +1078,7 @@ ias-menu.ias-menu-flat-top > ias-menu-content {
 
 @media (min-width: 768px) {
   ias-nav > .ias-nav-content {
-    padding: 0 25px;
+    padding: 0 20px;
   }
 }
 
@@ -1338,7 +1338,7 @@ table td > ias-icon, table th > ias-icon {
 }
 
 table tr {
-  height: 36px;
+  height: 35px;
   vertical-align: middle;
 }
 
