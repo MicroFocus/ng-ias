@@ -1,3 +1,7 @@
+// Note: ABSOLUTELY NO variables here should be in overridden in _default.scss or _dark.scss!
+// Why? Declaring a variable twice for the same theme means it can have two different values
+// where it is used. This error is very difficult to detect.
+
 // BORDERS
 $border-radius: 3px;
 $border-radius-small: 2px;
