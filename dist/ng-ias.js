@@ -80,8 +80,6 @@
 	    .component('iasHeader', header_component_1.default)
 	    .component('iasIcon', icon_component_1.default)
 	    .component('iasInputContainer', input_component_1.default)
-	    .component('iasList', list_component_1.ListComponent)
-	    .component('iasListHeader', list_component_1.ListHeaderComponent)
 	    .component('iasListItem', list_component_1.ListItemComponent)
 	    .component('iasMenu', menu_component_1.MenuComponent)
 	    .component('iasFooterMenu', menu_component_1.MenuFooterComponent)
@@ -633,39 +631,10 @@
 	};
 	Object.defineProperty(exports, "__esModule", { value: true });
 	var component_decorator_1 = __webpack_require__(3);
-	var ListComponent = (function () {
-	    function ListComponent($element, $transclude) {
-	        $transclude(function (clone) {
-	            $element.append(clone);
-	        });
-	    }
-	    return ListComponent;
-	}());
-	ListComponent.$inject = ['$element', '$transclude'];
-	ListComponent = __decorate([
-	    component_decorator_1.Component({
-	        transclude: true
-	    })
-	], ListComponent);
-	exports.ListComponent = ListComponent;
-	var ListHeaderComponent = (function () {
-	    function ListHeaderComponent($element, $transclude) {
-	        $transclude(function (clone) {
-	            $element.append(clone);
-	        });
-	    }
-	    return ListHeaderComponent;
-	}());
-	ListHeaderComponent.$inject = ['$element', '$transclude'];
-	ListHeaderComponent = __decorate([
-	    component_decorator_1.Component({
-	        transclude: true
-	    })
-	], ListHeaderComponent);
-	exports.ListHeaderComponent = ListHeaderComponent;
 	var ListItemComponent = (function () {
 	    function ListItemComponent($element, $transclude) {
 	        $transclude(function (clone) {
+	            $element.attr('tabindex', '0');
 	            $element.append(clone);
 	        });
 	    }
