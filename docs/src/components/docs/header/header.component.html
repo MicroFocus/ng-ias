@@ -1,15 +1,17 @@
-<h2 class="ias-page-title">Headers</h2>
-<p class="ias-page-instructions">Headers are used in many elements including pages, panels, and dialogs. The header element should be used as the primary starting point of the UI element.</p>
+<ias-header>
+    <div class="ias-header-title"><span>Headers</span></div>
+</ias-header>
+<p class="ias-page-instructions">Headers are used within elements including pages, panels, and dialogs. The header element should be used as the starting point of the UI element that contains the header.</p>
 
 <div class="demo-section">
-    <h4>.ias-page-title</h4>
+    <h4>.ias-header-title</h4>
     <ias-header toggle-repeat-code>
-        <div class="ias-page-title"><span>Page Title</span></div>
+        <div class="ias-header-title"><span>Header Title</span></div>
     </ias-header>
 </div>
 
    <div class="demo-section">
-    <h4>.ias-header-title and .ias-header-sub-title</h4>
+    <h4>w/ .ias-header-sub-title</h4>
     <ias-header toggle-repeat-code>
         <div class="ias-header-title"><span>Header Title</span></div>
         <div class="ias-header-sub-title"><span>Sub Title</span></div>
@@ -34,6 +36,9 @@
         <div class="ias-header-title"><span>Header Title</span></div>
         <div class="ias-header-sub-title"><span>Sub Title</span></div>
         <ias-button class="ias-icon-button">
+            <ias-icon icon="new_thick"></ias-icon>
+        </ias-button>
+        <ias-button class="ias-icon-button">
             <ias-icon icon="configure_thick"></ias-icon>
         </ias-button>
         <span class="ias-fill"></span>
@@ -43,10 +48,6 @@
     </ias-header>
 </div>
 
-<div class="demo-section">
-    <h4>.ias-page-title</h4>
-    <h2 class="ias-page-title"><span>Page Title</span></h2>
-</div>
 
 <div class="demo-section">
     <h4>.ias-page-heading-2</h4>
