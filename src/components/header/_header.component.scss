@@ -2,13 +2,13 @@ ias-header {
   align-items: center;
   display: flex;
   flex-flow: row wrap;
-  margin-bottom: $content-padding;
-  padding-top: $spacing;
-
+  margin-bottom: $body-spacing-large;
+  
   > .ias-header-title {
   	@include single-line;
 
     font-size: $font-size-xlarge;
+    padding-right: $spacing;
   }
 
   > .ias-header-sub-title {

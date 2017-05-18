@@ -557,7 +557,6 @@ ias-header {
   -ms-flex-flow: row wrap;
       flex-flow: row wrap;
   margin-bottom: 25px;
-  padding-top: 10px;
 }
 
 ias-header > .ias-header-title {
@@ -565,6 +564,7 @@ ias-header > .ias-header-title {
   text-overflow: ellipsis;
   white-space: nowrap;
   font-size: 24px;
+  padding-right: 10px;
 }
 
 ias-header > .ias-header-sub-title {
