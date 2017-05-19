@@ -1,7 +1,3 @@
-// Note: ABSOLUTELY NO variables here should be in overridden in _default.scss or _dark.scss!
-// Why? Declaring a variable twice for the same theme means it can have two different values
-// where it is used. This error is very difficult to detect.
-
 // BORDERS
 $border-radius: 3px;
 $border-radius-small: 2px;
@@ -161,6 +157,9 @@ $search-box-icon-padding: 5px;
 $search-box-icon-size: 20px;
 $search-box-max-width: 300px;
 
+$side-nav-header-font-size: 12px;
+$side-nav-header-font-weight: normal;
+$side-nav-header-text-transform: uppercase;
 $side-nav-item-height: 30px;
 $side-nav-max-width: 85%;
 $side-nav-padding: $body-spacing-small;

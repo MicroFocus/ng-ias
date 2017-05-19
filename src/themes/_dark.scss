@@ -1,3 +1,5 @@
+// Note: These variables are overridden by _common.scss: make sure none here are declared there.
+
 // COLORS
 $color-white-1: #fff;
 $color-black-1: #000;
@@ -26,9 +28,6 @@ $color-accent-5: #37c26a;
 
 // COLOR PALETTE
 $body-bg-color: $color-gray-8;
-
-// COMMON STYLES
-@import 'common';
 
 // TYPOGRAPHY
 $text-color-disabled: $color-gray-4;
@@ -64,9 +63,6 @@ $menu-text-color: $color-gray-1;
 
 $side-nav-bg-color: $menu-bg-color;
 $side-nav-bg-color-hover: $menu-bg-color-hover;
-$side-nav-header-text-color: $menu-header-text-color;
-$side-nav-header-font-size: $menu-header-font-size;
-$side-nav-header-font-weight: $menu-header-font-weight;
-$side-nav-header-text-transform: $menu-header-text-transform;
+$side-nav-header-text-color: $list-header-text-color;
 
 $table-row-bg-color-hover: $color-gray-7;
