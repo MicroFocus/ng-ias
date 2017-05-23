@@ -151,7 +151,7 @@ ias-tile {
   > .ias-tile-body {
     > h3 {
       @include single-line;
-      line-height: 1em;
+      line-height: normal;
     }
 
     > h3,
