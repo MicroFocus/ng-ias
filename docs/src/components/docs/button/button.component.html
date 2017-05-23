@@ -2,6 +2,8 @@
 
 <p class="ias-page-instructions">These button types provide simple interaction and styling to a standard HTML button and icon button. Icon buttons show an icon without a border instead of a button.
 </p>
+<p class="ias-page-instructions"><strong>WARNING:</strong> The alert boxes (&lt;uib-alert&gt; directive) require
+    angular-ui-bootstrap to work.</p>
 
 <p ng-if="$ctrl.alerts.length > 0">
     <div uib-alert ng-repeat="alert in $ctrl.alerts" ng-class="'alert-' + (alert.type || 'warning')" close="closeAlert($index)">{{alert.msg}}</div>
