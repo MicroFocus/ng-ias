@@ -1,7 +1,7 @@
 <h1 class="ias-page-title">Table</h1>
 
 <div class="demo-section">
-    <table toggle-repeat-code="">
+    <table toggle-repeat-code>
         <thead>
             <tr>
                 <th>Name</th>
@@ -32,7 +32,11 @@
 <div class="demo-section">
     <h4>Sorting</h4>
 
-    <table ias-sort="$ctrl.sort" toggle-repeat-code=""
+    <p>The ias-sort directive allows the user to specify a property to store the sort expression of the table.</p>
+    <p>The ias-sort-on allows the user to specify a sort expression for individual columns in the table. This
+    expression is stored in the property designated in ias-sort.</p>
+
+    <table ias-sort="$ctrl.sort" toggle-repeat-code
            ng-init="$ctrl.people=[
             {name: 'Lynn Christensen', title: 'UX Director'},
             {name: 'Joseph White', title: 'Assistant to the UX Director'},
@@ -47,7 +51,7 @@
             <tr ng-repeat="person in $ctrl.people | orderBy:$ctrl.sort">
                 <td>
                     <ias-icon icon="favorite_outline_thin"></ias-icon>
-                    <a href="#">{{person.name}}</a>
+                    <a href="#" ng-bind="person.name"></a>
                 </td>
                 <td>{{person.title}}</td>
             </tr>
@@ -58,7 +62,7 @@
 <div class="demo-section">
     <h4>Inline ias-icon</h4>
 
-    <table toggle-repeat-code="">
+    <table toggle-repeat-code>
         <thead>
             <tr>
                 <th>Name</th>
@@ -93,7 +97,7 @@
 
 <div class="demo-section">
     <h4>w/ ias-icon-button</h4>
-    <table toggle-repeat-code="">
+    <table toggle-repeat-code>
         <thead>
             <tr>
                 <th>Name</th>
