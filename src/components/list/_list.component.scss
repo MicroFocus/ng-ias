@@ -11,7 +11,7 @@ ias-list-item {
   flex-flow: row nowrap;
   height: $list-item-height;
   line-height: $list-item-height;
-  padding: $spacing;
+  padding: $body-spacing-xsmall $spacing;
 
   &:focus,
   &:hover {

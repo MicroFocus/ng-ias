@@ -3,14 +3,14 @@ h1, .ias-page-title {
 
 	font-size: $font-size-xlarge;
 	font-weight: normal;
-	line-height: 1.2;
+	line-height: 1.2em;
 	margin: 0 0 $body-spacing-medium;
 }
 
 .ias-page-instructions {
 	color: $color-gray-4;
 	font-size: 16px;
-	line-height: $font-size-large;
+	line-height: 20px;
 	margin: $body-spacing-medium 0;
 	max-width: $content-web-max-width;	
 }
@@ -18,7 +18,7 @@ h1, .ias-page-title {
 ul.ias-page-instructions {
 	color: $color-gray-4;
 	font-size: $font-size-base;
-	line-height: 1.2;
+	line-height: 1.2em;
 }
 
 
@@ -27,7 +27,7 @@ h2, .ias-page-heading-2 {
 
   color: $text-color;
   font-size: $font-size-large;
-  line-height: 1.2;
+  line-height: 1.2em;
   margin: $body-spacing-medium 0 $body-spacing-medium;
 }
 
@@ -36,7 +36,7 @@ h3, .ias-page-heading-3 {
 
   color: $text-color;
   font-size: $font-size-medium;
-  line-height: 1.2;
+  line-height: 1.2em;
   margin: $body-spacing-small 0 $body-spacing-medium;
 }
 
@@ -46,6 +46,6 @@ h4, .ias-page-heading-4 {
   color: $color-gray-2;
   font-size: $font-size-base;
   font-weight: bold;
-  line-height: 1.2;
+  line-height: 1.2em;
   margin: $body-spacing-small 0 $body-spacing-xsmall;
 }
