@@ -3,9 +3,10 @@
 <div class="demo-section" toggle-repeat-code="inner">
     <ias-button ias-toggle="menu1">View regular menu</ias-button>
     <ias-menu name="menu1">
-        <ias-button>Menu Item 1</ias-button>
-        <ias-button>Menu Item 2</ias-button>
-        <ias-button>Menu Item 3</ias-button>
+        <ias-button ui-sref="app.component.appBar">Menu Item 1</ias-button>
+        <ias-button ui-sref=".">Menu Item 1</ias-button>
+        <ias-button ui-sref=".">Menu Item 2</ias-button>
+        <ias-button ui-sref=".">Menu Item 3</ias-button>
     </ias-menu>
 </div>
 
@@ -13,62 +14,62 @@
     <h4>Complex Menu</h4>
 
     <div toggle-repeat-code="inner">
-    <ias-button ias-toggle="complexMenu">View complex menu</ias-button>
-    <ias-menu name="complexMenu" class="ias-dynamic-menu">
-        <div class="ias-row ias-border-bottom">
-            <div class="ias-column ias-border-end">
-                <div class="ias-row ias-border-bottom">
-                    <div class="ias-column">
-                        <ias-menu-header>First Section</ias-menu-header>
-                        <ias-button>View My Devices</ias-button>
-                        <ias-button>Help Me...(end-user)</ias-button>
-                        <ias-button>Request impersonate session...(HelpDesk)</ias-button>
+        <ias-button ias-toggle="complexMenu">View complex menu</ias-button>
+        <ias-menu name="complexMenu" class="ias-dynamic-menu">
+            <div class="ias-row ias-border-bottom">
+                <div class="ias-column ias-border-end">
+                    <div class="ias-row ias-border-bottom">
+                        <div class="ias-column">
+                            <ias-menu-header>First Section</ias-menu-header>
+                            <a href="#">View My Devices</a>
+                            <a href="#">Help Me...(end-user)</a>
+                            <a href="#">Request impersonate session...(HelpDesk)</a>
+                        </div>
+                    </div>
+                    <div class="ias-row ias-border-bottom">
+                        <div class="ias-column">
+                            <ias-menu-header class="ias-menu-header">Second Section</ias-menu-header>
+                            <a href="#">Button 4</a>
+                            <a href="#">An Interesting Link</a>
+                            <a href="#">Button 6</a>
+                            <a href="#">Button 7</a>
+                            <a href="#">Request Support</a>
+                            <a href="#">Button 9</a>
+                        </div>
+                    </div>
+                    <div class="ias-row">
+                        <div class="ias-column">
+                            <a href="#">Button 10</a>
+                        </div>
                     </div>
                 </div>
-                <div class="ias-row ias-border-bottom">
-                    <div class="ias-column">
-                        <ias-menu-header class="ias-menu-header">Second Section</ias-menu-header>
-                        <ias-button>Button 4</ias-button>
-                        <ias-button>An Interesting Link</ias-button>
-                        <ias-button>Button 6</ias-button>
-                        <ias-button>Button 7</ias-button>
-                        <ias-button>Request Support</ias-button>
-                        <ias-button>Button 9</ias-button>
-                    </div>
-                </div>
-                <div class="ias-row">
-                    <div class="ias-column">
-                        <ias-button type="button">Button 10</ias-button>
-                    </div>
+                <div class="ias-column ias-align-end">
+                    <ias-menu-header class="ias-menu-header">User Section</ias-menu-header>
+                    <a href="#">Help</a>
+                    <a href="#">Settings</a>
+                    <a href="#">Log Out</a>
                 </div>
             </div>
-            <div class="ias-column ias-align-end">
-                <ias-menu-header class="ias-menu-header">User Section</ias-menu-header>
-                <ias-button>Help</ias-button>
-                <ias-button>Settings</ias-button>
-                <ias-button>Log Out</ias-button>
+            <div class="ias-row">
+                <div class="ias-column">
+                    <ias-menu-header class="ias-menu-header">Big Section</ias-menu-header>
+                    <a href="#">IDM Prototype</a>
+                    <a href="#">Add Users</a>
+                    <a href="#">Button 13</a>
+                    <a href="#">A Button That Extends Well Beyond the Column Immediately Above It</a>
+                    <a href="#">Button 15</a>
+                    <a href="#">Micro Focus Branded Sign</a>
+                </div>
             </div>
-        </div>
-        <div class="ias-row">
-            <div class="ias-column">
-                <ias-menu-header class="ias-menu-header">Big Section</ias-menu-header>
-                <ias-button>IDM Prototype</ias-button>
-                <ias-button>Add Users</ias-button>
-                <ias-button>Button 13</ias-button>
-                <ias-button>A Button That Extends Well Beyond the Column Immediately Above It</ias-button>
-                <ias-button>Button 15</ias-button>
-                <ias-button>Micro Focus Branded Sign</ias-button>
+            <div class="ias-row ias-border-top">
+                <div class="ias-column">
+                    <ias-menu-footer class="ias-menu-footer">VERSION 2.0</ias-menu-footer>
+                </div>
+                <div class="ias-column">
+                    <ias-menu-footer class="ias-menu-footer">BUILD 123456</ias-menu-footer>
+                </div>
             </div>
-        </div>
-        <div class="ias-row ias-border-top">
-            <div class="ias-column">
-                <ias-menu-footer class="ias-menu-footer">VERSION 2.0</ias-menu-footer>
-            </div>
-            <div class="ias-column">
-                <ias-menu-footer class="ias-menu-footer">BUILD 123456</ias-menu-footer>
-            </div>
-        </div>
-    </ias-menu>
+        </ias-menu>
     </div>
 </div>
 
@@ -76,28 +77,28 @@
     <h4>w/ ias-list</h4>
 
     <div toggle-repeat-code="inner">
-    <ias-button ias-toggle="listMenu">View menu with list</ias-button>
-    <ias-menu name="listMenu" class="ias-dynamic-menu">
-        <ias-list>
-            <ias-list-header>List</ias-list-header>
-            <ias-list-item>
-                <ias-avatar src="'images/appmark_box.png'" title="Box"></ias-avatar>
-                <span>Box</span>
-            </ias-list-item>
-            <ias-list-item>
-                <ias-avatar src="'images/appmark_clarity.png'" title="Clarity"></ias-avatar>
-                <span>Clarity</span>
-            </ias-list-item>
-            <ias-list-item>
-                <ias-avatar src="'images/appmark_geeko.png'" title="Geeko"></ias-avatar>
-                <span>Geeko</span>
-            </ias-list-item>
-            <ias-list-item>
-                <ias-avatar src="'images/appmark_googledocs.png'" title="Google Docs"></ias-avatar>
-                <span>Google Docs</span>
-            </ias-list-item>
-        </ias-list>
-    </ias-menu>
+        <ias-button ias-toggle="listMenu">View menu with list</ias-button>
+        <ias-menu name="listMenu" class="ias-dynamic-menu">
+            <ias-list>
+                <ias-list-header>List</ias-list-header>
+                <ias-list-item>
+                    <ias-avatar src="'images/appmark_box.png'" title="Box"></ias-avatar>
+                    <span>Box</span>
+                </ias-list-item>
+                <ias-list-item>
+                    <ias-avatar src="'images/appmark_clarity.png'" title="Clarity"></ias-avatar>
+                    <span>Clarity</span>
+                </ias-list-item>
+                <ias-list-item>
+                    <ias-avatar src="'images/appmark_geeko.png'" title="Geeko"></ias-avatar>
+                    <span>Geeko</span>
+                </ias-list-item>
+                <ias-list-item>
+                    <ias-avatar src="'images/appmark_googledocs.png'" title="Google Docs"></ias-avatar>
+                    <span>Google Docs</span>
+                </ias-list-item>
+            </ias-list>
+        </ias-menu>
     </div>
 </div>
 
@@ -109,11 +110,11 @@
         and end is on the right. When nested under [dir="rtl"], start is on the right and end is on the left.</p>
 
     <div toggle-repeat-code="inner">
-    <ias-button ias-toggle="menu2">View menu positioning</ias-button>
-    <ias-menu name="menu2" ias-align="start center">
-        <ias-button>Menu Item 1</ias-button>
-        <ias-button>Menu Item 2</ias-button>
-        <ias-button>Menu Item 3</ias-button>
-    </ias-menu>
+        <ias-button ias-toggle="menu2">View menu positioning</ias-button>
+        <ias-menu name="menu2" ias-align="start center">
+            <ias-button>Menu Item 1</ias-button>
+            <ias-button>Menu Item 2</ias-button>
+            <ias-button>Menu Item 3</ias-button>
+        </ias-menu>
     </div>
 </div>

@@ -1,6 +1,14 @@
 import { Component } from '../../component.decorator';
 import ToggleService from '../toggle/toggle.service';
-import { element, IAugmentedJQuery, IDocumentService, ITranscludeFunction, IWindowService } from 'angular';
+import {
+    element,
+    IAugmentedJQuery,
+    IDocumentService,
+    ITimeoutService,
+    ITranscludeFunction,
+    IWindowService
+} from 'angular';
+
 import { IToggleable } from '../toggle/toggle.directive';
 
 export enum HorizontalAlignment {
@@ -13,6 +21,8 @@ export enum VerticalAlignment {
     center,
     bottom
 }
+
+const CLICKABLE_MENU_TAGS = [ 'a', 'button', 'ias-list-item' ];
 
 @Component({
     bindings: {
@@ -29,9 +39,10 @@ export class MenuComponent implements IToggleable {
     name: string;
     open: boolean;
 
-    static $inject = [ '$document', '$element', '$window', 'IasToggleService', 'MENU_MARGIN' ];
+    static $inject = ['$document', '$element', '$timeout', '$window', 'IasToggleService', 'MENU_MARGIN'];
     constructor(private $document: IDocumentService,
                 private $element: IAugmentedJQuery,
+                private $timeout: ITimeoutService,
                 private $window: IWindowService,
                 private toggleService: ToggleService,
                 private MENU_MARGIN: number) {
@@ -39,10 +50,19 @@ export class MenuComponent implements IToggleable {
         $element.detach();
         element($document.find('body')).append($element);
 
-        $element.on('click', this.hide.bind(this));
+        $element.on('click', this.clickMenuScrim.bind(this));
 
         this.horizontalAlignment = HorizontalAlignment.start;
         this.verticalAlignment = VerticalAlignment.top;
+
+        // Hide the menu before navigation occurs. This prevents the menu
+        // Using $timeout because $scope.$evalAsync executes before Angular processes child components.
+        // (If you set a click listener on ias-button in $scope.$evalAsnyc, the listener will never be called.)
+        $timeout(() => {
+            CLICKABLE_MENU_TAGS.forEach((tag) => {
+                this.$element.find(tag).on('click', this.hide.bind(this));
+            });
+        });
     }
 
     $onDestroy(): void {
@@ -61,6 +81,14 @@ export class MenuComponent implements IToggleable {
         }
 
         this.toggleService.register(this);
+    }
+
+    clickMenuScrim(event: JQueryEventObject) {
+        // Only hide the menu if the scrim was clicked rather than a child element on the menu itself.
+        // (Don't call event.stopPropagation: calling it changes the behavior of some navigational elements.)
+        if (event.target.tagName.toLowerCase() === 'ias-menu') {
+            this.hide();
+        }
     }
 
     hide(): void {

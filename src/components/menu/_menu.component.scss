@@ -40,6 +40,7 @@ ias-menu-content {
   position: absolute;
   z-index: 1;
 
+  a,
   .ias-button,
   ias-list-item {
     &:not([disabled]):not(.ias-disabled) {
@@ -51,6 +52,7 @@ ias-menu-content {
     }
   }
 
+  a,
   .ias-button {
     background-color: transparent;
     border: none;
@@ -58,6 +60,7 @@ ias-menu-content {
     color: inherit;
     display: block;
     margin: 0;
+    padding: $button-padding;
     text-align: inherit;
     width: 100%;
   }
@@ -87,6 +90,7 @@ ias-menu-content ias-list-header {
 
 [dir="rtl"] {
   ias-menu-content {
+    a,
     .ias-button {
       margin: 0;
     }
