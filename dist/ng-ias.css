@@ -626,6 +626,49 @@ ias-icon.ias-medium {
   width: 100%;
 }
 
+.ias-icon-input {
+  height: 33px;
+  position: relative;
+}
+
+.ias-icon-input > ias-icon {
+  left: 0;
+}
+
+.ias-icon-input > .ias-icon-button {
+  right: 0;
+  margin-right: 0;
+}
+
+.ias-icon-input > .ias-button.ias-icon-button:not([disabled]):focus, .ias-icon-input .ias-button.ias-icon-button:not([disabled]):hover {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.ias-icon-input > ias-icon,
+.ias-icon-input > .ias-icon-button {
+  position: absolute;
+  top: 2px;
+  color: #808080;
+}
+
+.ias-icon-input > input {
+  border: 1px solid #dae1e1;
+  border-radius: 3px;
+  max-width: 300px;
+  padding: 8px 30px;
+}
+
+.ias-icon-input > ias-icon,
+.ias-icon-input > .ias-icon-button {
+  padding: 5px;
+}
+
+.ias-icon-input ias-icon,
+.ias-icon-input .ias-icon-button {
+  font-size: 20px;
+}
+
 input {
   background-color: inherit;
 }
@@ -658,24 +701,6 @@ ias-input-container textarea[disabled] {
 ias-input-container input,
 ias-input-container textarea {
   padding: 8px;
-}
-
-ias-input-container > span.ias-icon-input-container {
-  position: relative;
-  border: 1px solid #dae1e1;
-  display: inline-block;
-}
-
-ias-input-container > span.ias-icon-input-container input {
-  border: none;
-  padding-left: 28px;
-}
-
-ias-input-container > span.ias-icon-input-container ias-icon {
-  position: absolute;
-  left: 0px;
-  top: 6px;
-  pointer-events: none;
 }
 
 ias-input-container input[type="text"],
@@ -736,17 +761,6 @@ ias-input-container.ias-inline label {
 [dir="rtl"] ias-input-container.ias-inline label {
   margin-right: auto;
   margin-left: 10px;
-}
-
-[dir="rtl"] ias-input-container > span.ias-icon-input-container ias-icon {
-  left: auto;
-  right: 0px;
-}
-
-[dir="rtl"] ias-input-container > span.ias-icon-input-container input {
-  border: none;
-  padding-left: none;
-  padding-right: 28px;
 }
 
 ias-input-container input.input-required-missing, ias-input-container input.ng-touched.ng-invalid {
@@ -1116,52 +1130,7 @@ ias-panel a:focus, ias-panel a:hover {
 }
 
 ias-search-box {
-  background-color: inherit;
   display: inline-block;
-  height: 33px;
-}
-
-.ias-search-box-content {
-  height: 33px;
-  position: relative;
-}
-
-.ias-search-box-content > ias-icon {
-  left: 0;
-}
-
-.ias-search-box-content > .ias-icon-button {
-  right: 0;
-  margin-right: 0;
-}
-
-.ias-search-box-content > .ias-button.ias-icon-button:not([disabled]):focus, .ias-search-box-content .ias-button.ias-icon-button:not([disabled]):hover {
-  background-color: transparent;
-  border-color: transparent;
-}
-
-.ias-search-box-content > ias-icon,
-.ias-search-box-content > .ias-icon-button {
-  position: absolute;
-  top: 2px;
-  color: #808080;
-}
-
-.ias-search-box-content > input {
-  border: 1px solid #dae1e1;
-  border-radius: 3px;
-  max-width: 300px;
-  padding: 8px 30px;
-}
-
-.ias-search-box-content > ias-icon,
-.ias-search-box-content > .ias-icon-button {
-  padding: 5px;
-}
-
-.ias-search-box-content ias-icon,
-.ias-search-box-content .ias-icon-button {
-  font-size: 20px;
 }
 
 ias-side-nav {

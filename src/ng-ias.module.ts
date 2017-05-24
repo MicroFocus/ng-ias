@@ -6,13 +6,12 @@ import DialogComponent from './components/dialog/dialog.component';
 import DialogService from './components/dialog/dialog.service';
 import HeaderComponent from './components/header/header.component';
 import IconComponent from './components/icon/icon.component';
-import IconInput from './components/input/icon.input.component';
 import InputContainerComponent from './components/input/input.component';
-import IntInput from './components/input/int.input.component';
+import IntInput from './components/input/int-input.component';
 import { ListItemComponent } from './components/list/list.component';
 import { MenuComponent, MenuFooterComponent, MenuHeaderComponent } from './components/menu/menu.component';
 import NavComponent from './components/nav/nav.component';
-import ResizingTextareaComponent from './components/input/resizing.textarea.component';
+import ResizingTextareaComponent from './components/input/resizing-textarea.component';
 import SearchBoxComponent from './components/search-box/search-box.component';
 import SideNavComponent from './components/side-nav/side-nav.component';
 import TileComponent from './components/tile/tile.component';
@@ -28,7 +27,6 @@ module('ng-ias', [])
     .component('iasAvatar', AvatarComponent)
     .directive('iasButton', ButtonDirective)
     .directive('iasIntInput', IntInput)
-    .directive('iasIconInput', IconInput)
     .component('iasDialog', DialogComponent)
     .component('iasHeader', HeaderComponent)
     .component('iasIcon', IconComponent)

@@ -1,5 +1,5 @@
 import { IAugmentedJQuery, ICompileService, IDirective, IScope, IAttributes } from 'angular';
-let templateUrl = require('components/input/resizing.textarea.component.html');
+let templateUrl = require('components/input/resizing-textarea.component.html');
 
 export class ResizingTextareaController {
     static $inject = ['$scope'];

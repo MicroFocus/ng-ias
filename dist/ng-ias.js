@@ -54,28 +54,26 @@
 	var dialog_service_1 = __webpack_require__(11);
 	var header_component_1 = __webpack_require__(12);
 	var icon_component_1 = __webpack_require__(13);
-	var icon_input_component_1 = __webpack_require__(15);
-	var input_component_1 = __webpack_require__(17);
-	var int_input_component_1 = __webpack_require__(19);
-	var list_component_1 = __webpack_require__(21);
-	var menu_component_1 = __webpack_require__(22);
-	var nav_component_1 = __webpack_require__(24);
-	var resizing_textarea_component_1 = __webpack_require__(26);
-	var search_box_component_1 = __webpack_require__(28);
-	var side_nav_component_1 = __webpack_require__(30);
-	var tile_component_1 = __webpack_require__(32);
-	var tile_grid_component_1 = __webpack_require__(34);
-	var sort_directive_1 = __webpack_require__(35);
-	var toggle_directive_1 = __webpack_require__(36);
-	var toggle_service_1 = __webpack_require__(37);
-	var panel_component_1 = __webpack_require__(38);
+	var input_component_1 = __webpack_require__(15);
+	var int_input_component_1 = __webpack_require__(17);
+	var list_component_1 = __webpack_require__(19);
+	var menu_component_1 = __webpack_require__(20);
+	var nav_component_1 = __webpack_require__(22);
+	var resizing_textarea_component_1 = __webpack_require__(24);
+	var search_box_component_1 = __webpack_require__(26);
+	var side_nav_component_1 = __webpack_require__(28);
+	var tile_component_1 = __webpack_require__(30);
+	var tile_grid_component_1 = __webpack_require__(32);
+	var sort_directive_1 = __webpack_require__(33);
+	var toggle_directive_1 = __webpack_require__(34);
+	var toggle_service_1 = __webpack_require__(35);
+	var panel_component_1 = __webpack_require__(36);
 	angular_1.module('ng-ias', [])
 	    .constant('MENU_MARGIN', 24)
 	    .component('iasAppBar', app_bar_component_1.default)
 	    .component('iasAvatar', avatar_component_1.default)
 	    .directive('iasButton', button_component_1.default)
 	    .directive('iasIntInput', int_input_component_1.default)
-	    .directive('iasIconInput', icon_input_component_1.default)
 	    .component('iasDialog', dialog_component_1.default)
 	    .component('iasHeader', header_component_1.default)
 	    .component('iasIcon', icon_component_1.default)
@@ -464,52 +462,6 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	Object.defineProperty(exports, "__esModule", { value: true });
-	var templateUrl = __webpack_require__(16);
-	var IconInputController = (function () {
-	    function IconInputController($scope) {
-	        this.$scope = $scope;
-	    }
-	    return IconInputController;
-	}());
-	IconInputController.$inject = ['$scope'];
-	exports.IconInputController = IconInputController;
-	function IconInputDirective() {
-	    return {
-	        controller: IconInputController,
-	        restrict: 'E',
-	        templateUrl: templateUrl,
-	        transclude: true,
-	        replace: true,
-	        scope: {
-	            model: '=ngModel',
-	            min: '=',
-	            max: '='
-	        },
-	        link: function (scope, element, attributes, controller) {
-	            scope.icon = element.attr('icon');
-	            scope.placeholder = element.attr('placeholder');
-	        }
-	    };
-	}
-	exports.default = IconInputDirective;
-	IconInputController.$inject = ['$compile'];
-
-
-/***/ },
-/* 16 */
-/***/ function(module, exports) {
-
-	var path = 'components/input/icon.input.component.html';
-	var html = "<span class=\"ias-icon-input-container\">\r\n    <input type=\"text\" placeholder=\"{{placeholder}}\">\r\n    <ias-icon icon=\"{{icon}}\"></ias-icon>\r\n</span>";
-	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
-	module.exports = path;
-
-/***/ },
-/* 17 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
 	var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
 	    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
 	    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -529,7 +481,7 @@
 	InputContainerComponent.$inject = ['$element', '$transclude'];
 	InputContainerComponent = __decorate([
 	    component_decorator_1.Component({
-	        templateUrl: __webpack_require__(18),
+	        templateUrl: __webpack_require__(16),
 	        transclude: true
 	    })
 	], InputContainerComponent);
@@ -537,7 +489,7 @@
 
 
 /***/ },
-/* 18 */
+/* 16 */
 /***/ function(module, exports) {
 
 	var path = 'components/input/input.component.html';
@@ -546,12 +498,12 @@
 	module.exports = path;
 
 /***/ },
-/* 19 */
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	Object.defineProperty(exports, "__esModule", { value: true });
-	var templateUrl = __webpack_require__(20);
+	var templateUrl = __webpack_require__(18);
 	var IntInputController = (function () {
 	    function IntInputController($scope) {
 	        this.$scope = $scope;
@@ -610,16 +562,16 @@
 
 
 /***/ },
-/* 20 */
+/* 18 */
 /***/ function(module, exports) {
 
-	var path = 'components/input/int.input.component.html';
+	var path = 'components/input/int-input.component.html';
 	var html = "<input type=\"text\" class=\"iasIntInput\" ng-transclude>\r\n</input>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
 /***/ },
-/* 21 */
+/* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -650,7 +602,7 @@
 
 
 /***/ },
-/* 22 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -815,7 +767,7 @@
 	            align: '@iasAlign',
 	            name: '@'
 	        },
-	        templateUrl: __webpack_require__(23),
+	        templateUrl: __webpack_require__(21),
 	        transclude: true
 	    })
 	], MenuComponent);
@@ -853,7 +805,7 @@
 
 
 /***/ },
-/* 23 */
+/* 21 */
 /***/ function(module, exports) {
 
 	var path = 'components/menu/menu.component.html';
@@ -862,7 +814,7 @@
 	module.exports = path;
 
 /***/ },
-/* 24 */
+/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -881,7 +833,7 @@
 	}());
 	NavComponent = __decorate([
 	    component_decorator_1.Component({
-	        templateUrl: __webpack_require__(25),
+	        templateUrl: __webpack_require__(23),
 	        transclude: true
 	    })
 	], NavComponent);
@@ -889,7 +841,7 @@
 
 
 /***/ },
-/* 25 */
+/* 23 */
 /***/ function(module, exports) {
 
 	var path = 'components/nav/nav.component.html';
@@ -898,12 +850,12 @@
 	module.exports = path;
 
 /***/ },
-/* 26 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
 	Object.defineProperty(exports, "__esModule", { value: true });
-	var templateUrl = __webpack_require__(27);
+	var templateUrl = __webpack_require__(25);
 	var ResizingTextareaController = (function () {
 	    function ResizingTextareaController($scope) {
 	        this.$scope = $scope;
@@ -961,16 +913,16 @@
 
 
 /***/ },
-/* 27 */
+/* 25 */
 /***/ function(module, exports) {
 
-	var path = 'components/input/resizing.textarea.component.html';
+	var path = 'components/input/resizing-textarea.component.html';
 	var html = "<textarea ng-transclude class=\"iasResizingTextArea\" rows=\"3\" min-rows=\"3\"></textarea>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
 /***/ },
-/* 28 */
+/* 26 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -1020,23 +972,23 @@
 	        require: {
 	            ngModel: '^ngModel'
 	        },
-	        templateUrl: __webpack_require__(29)
+	        templateUrl: __webpack_require__(27)
 	    })
 	], SearchBoxComponent);
 	exports.default = SearchBoxComponent;
 
 
 /***/ },
-/* 29 */
+/* 27 */
 /***/ function(module, exports) {
 
 	var path = 'components/search-box/search-box.component.html';
-	var html = "<div class=\"ias-search-box-content\">\r\n    <input type=\"text\"\r\n           autocomplete=\"false\"\r\n           ng-model=\"$ctrl.value\"\r\n           ng-attr-placeholder=\"{{$ctrl.placeholder}}\"\r\n           ng-keydown=\"$ctrl.onInputKeyDown($event)\" />\r\n    <ias-icon icon=\"search_thick\"></ias-icon>\r\n    <ias-button class=\"ias-icon-button\" ng-click=\"$ctrl.clearInput()\">\r\n        <ias-icon icon=\"close_thick\"></ias-icon>\r\n    </ias-button>\r\n</div>";
+	var html = "<ias-input-container class=\"ias-icon-input\">\r\n    <input type=\"text\"\r\n           autocomplete=\"false\"\r\n           ng-model=\"$ctrl.value\"\r\n           ng-attr-placeholder=\"{{$ctrl.placeholder}}\"\r\n           ng-keydown=\"$ctrl.onInputKeyDown($event)\" />\r\n    <ias-icon icon=\"search_thick\"></ias-icon>\r\n    <ias-button class=\"ias-icon-button\" ng-click=\"$ctrl.clearInput()\">\r\n        <ias-icon icon=\"close_thick\"></ias-icon>\r\n    </ias-button>\r\n</ias-input-container>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
 /***/ },
-/* 30 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -1076,7 +1028,7 @@
 	        bindings: {
 	            name: '@'
 	        },
-	        templateUrl: __webpack_require__(31),
+	        templateUrl: __webpack_require__(29),
 	        transclude: true
 	    })
 	], SideNavComponent);
@@ -1084,7 +1036,7 @@
 
 
 /***/ },
-/* 31 */
+/* 29 */
 /***/ function(module, exports) {
 
 	var path = 'components/side-nav/side-nav.component.html';
@@ -1093,7 +1045,7 @@
 	module.exports = path;
 
 /***/ },
-/* 32 */
+/* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -1114,7 +1066,7 @@
 	TileComponent.$inject = ['$element'];
 	TileComponent = __decorate([
 	    component_decorator_1.Component({
-	        templateUrl: __webpack_require__(33),
+	        templateUrl: __webpack_require__(31),
 	        transclude: true
 	    })
 	], TileComponent);
@@ -1122,7 +1074,7 @@
 
 
 /***/ },
-/* 33 */
+/* 31 */
 /***/ function(module, exports) {
 
 	var path = 'components/tile/tile.component.html';
@@ -1131,7 +1083,7 @@
 	module.exports = path;
 
 /***/ },
-/* 34 */
+/* 32 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -1161,7 +1113,7 @@
 
 
 /***/ },
-/* 35 */
+/* 33 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -1222,7 +1174,7 @@
 
 
 /***/ },
-/* 36 */
+/* 34 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -1240,7 +1192,7 @@
 
 
 /***/ },
-/* 37 */
+/* 35 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -1277,7 +1229,7 @@
 
 
 /***/ },
-/* 38 */
+/* 36 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -1296,7 +1248,7 @@
 	}());
 	PanelComponent = __decorate([
 	    component_decorator_1.Component({
-	        templateUrl: __webpack_require__(39),
+	        templateUrl: __webpack_require__(37),
 	        transclude: true
 	    })
 	], PanelComponent);
@@ -1304,7 +1256,7 @@
 
 
 /***/ },
-/* 39 */
+/* 37 */
 /***/ function(module, exports) {
 
 	var path = 'components/panel/panel.component.html';

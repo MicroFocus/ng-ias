@@ -1,100 +1,73 @@
 <h1 class="ias-page-title">Input</h1>
 
-<p class="ias-page-instructions">Input components cover the functionality and styling of text boxes,
-    password text boxes, text areas, select lists, radio buttons, checkboxes, and an integer only text box.</p>
+<p class="ias-page-instructions">
+    Input components cover the functionality and styling of text boxes,
+    password text boxes, text areas, select lists, radio buttons, checkboxes, and an integer-only text box.
+</p>
 
 <div class="demo-section">
-    <h4>w/ placeholder text</h4>
-
-    <div toggle-repeat-code="inner">
-        <ias-input-container>
-            <input type="text" placeholder="Text placeholder">
-        </ias-input-container>
-        <ias-input-container>
-            <input type="password" placeholder="Password placeholder">
-        </ias-input-container>
-    </div>
+    <h4>w/ placeholder</h4>
+    <ias-input-container toggle-repeat-code>
+        <input type="text" placeholder="Text placeholder">
+    </ias-input-container>
 </div>
 
 <div class="demo-section">
-    <h4>w/ labels</h4>
+    <h4>w/ label</h4>
 
-    <div toggle-repeat-code="inner">
-        <ias-input-container>
-            <label for="username1">Username</label>
-            <input id="username1" name="username1" type="text">
-        </ias-input-container>
-        <ias-input-container>
-            <label for="password1">Password</label>
-            <input id="password1" name="password1" type="password">
-        </ias-input-container>
-    </div>
+    <ias-input-container toggle-repeat-code>
+        <label for="username1">Username</label>
+        <input id="username1" name="username1" type="text">
+    </ias-input-container>
 </div>
 
 <div class="demo-section">
-    <h4>Disabled inputs</h4>
+    <h4>[disabled]</h4>
 
-    <div toggle-repeat-code="inner">
-        <ias-input-container>
-            <input type="text" placeholder="Disabled text field" disabled="disabled">
-        </ias-input-container>
-        <ias-input-container>
-            <label for="text1">Disabled text field with label</label>
-            <input id="text1" name="text1" type="text" disabled="disabled">
-        </ias-input-container>
-    </div>
+    <ias-input-container toggle-repeat-code>
+        <input type="text" placeholder="Disabled text field" disabled="disabled">
+    </ias-input-container>
 </div>
 
 <div class="demo-section">
-    <h4>Text field with icon</h4>
-    
+    <h4>w/ icons</h4>
+
     <p>
         Text fields with icons are popular for search fields and any other field which requires a pictorial
-        differentiator.  The icon field uses the same reference to the icon font as the ias-icon component.
+        differentiator. The icon field uses the same reference to the icon font as the ias-icon component.
     </p>
 
-    <div toggle-repeat-code="inner">
-        <ias-input-container>
-            <ias-search-box toggle-repeat-code ng-model="$ctrl.data.value"></ias-search-box>
-        </ias-input-container>
-    </div>
+    <ias-search-box ng-model="$ctrl.data.value" toggle-repeat-code></ias-search-box>
+
+    <ias-input-container class="ias-icon-input" toggle-repeat-code>
+        <input type="text" autocomplete="false" ng-model="$ctrl.value"/>
+        <ias-icon icon="password_thick"></ias-icon>
+    </ias-input-container>
 </div>
 
 <div class="demo-section">
-    <h4>Text fields with inline labels</h4>
+    <h4>w/ inline label</h4>
 
-    <div toggle-repeat-code="inner">
-        <ias-input-container class="ias-inline">
-            <label for="text2">Username</label>
-            <input id="text2" name="text2" type="text">
-        </ias-input-container>
-        <ias-input-container class="ias-inline">
-            <label for="password2">Password</label>
-            <input id="password2" name="password2" type="password">
-        </ias-input-container>
-    </div>
+    <ias-input-container class="ias-inline" toggle-repeat-code>
+        <label for="text2">Username</label>
+        <input id="text2" name="text2" type="text">
+    </ias-input-container>
 </div>
 
 <div class="demo-section">
     <h4>Text area</h4>
 
-    <div toggle-repeat-code="inner">
-        <ias-input-container>
-            <textarea placeholder="Text area with placeholder"></textarea>
-        </ias-input-container>
-        <ias-input-container>
-            <label for="textarea1">Text area with label</label>
-            <textarea id="textarea1" name="textarea1"></textarea>
-        </ias-input-container>
-    </div>
+    <ias-input-container toggle-repeat-code>
+        <textarea placeholder="Text area with placeholder"></textarea>
+    </ias-input-container>
 </div>
 
 <div class="demo-section">
     <h4>Resizing text area</h4>
-    
+
     <p>
-        Resizing text areas will grow and shrink based on the contents in the text area.  When you add more
-        contents the text area will grow to show all of the contents without scrolling.  When you remove some
+        Resizing text areas will grow and shrink based on the contents in the text area. When you add more
+        contents the text area will grow to show all of the contents without scrolling. When you remove some
         contents the text area will shrink down to the right size.
     </p>
 
@@ -108,21 +81,12 @@
 <div class="demo-section">
     <h4>Select list</h4>
 
-    <div toggle-repeat-code="inner">
-        <ias-input-container>
-            <select id="select1" name="select1"
-                    ng-options="selectedItem as selectedItem.name for selectedItem in $ctrl.selectListOptions"
-                    ng-model="$ctrl.selectListModel1">
-            </select>
-        </ias-input-container>
-        <ias-input-container>
-            <label for="select2">Select list with label</label>
-            <select id="select2" name="select2"
-                    ng-options="selectedItem as selectedItem.name for selectedItem in $ctrl.selectListOptions"
-                    ng-model="$ctrl.selectListModel2">
-            </select>
-        </ias-input-container>
-    </div>
+    <ias-input-container toggle-repeat-code>
+        <select id="select1" name="select1"
+                ng-options="selectedItem as selectedItem.name for selectedItem in $ctrl.selectListOptions"
+                ng-model="$ctrl.selectListModel1">
+        </select>
+    </ias-input-container>
 </div>
 
 <div class="demo-section">
@@ -169,21 +133,21 @@
 
 <div class="demo-section">
     <h4>Integer only input</h4>
-    
+
     <p>
-        Integer only input fields show an error style if the value isn't a valid number.  The input field
+        Integer only input fields show an error style if the value isn't a valid number. The input field
         also supports a <code>min</code> and <code>max</code> attribute to set the allowable minimum and
         maximum values.
     </p>
-    
+
     <div toggle-repeat-code="inner">
         <ias-input-container>
-            <label for="int1">An integer only text field</label>
+            <label for="int1">An integer-only text field</label>
             <ias-int-input id="int1"></ias-int-input>
         </ias-input-container>
-        
+
         <ias-input-container>
-            <label for="int2">An integer only text field which only allows values between 10 and 20</label>
+            <label for="int2">An integer-only text field which only allows values between 10 and 20</label>
             <ias-int-input id="int2" min="10" max="20" ng-model="$ctrl.myInt"></ias-int-input>
         </ias-input-container>
     </div>
