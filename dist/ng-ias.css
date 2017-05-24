@@ -990,7 +990,7 @@ ias-nav > .ias-nav-content {
   display: flex;
   -ms-flex-flow: row nowrap;
       flex-flow: row nowrap;
-  min-height: 34px;
+  min-height: 35px;
   overflow: hidden;
   padding: 0 20px;
 }
@@ -1035,7 +1035,7 @@ ias-nav > .ias-nav-content > .ias-button:not([disabled]):not(.ias-disabled):hove
 }
 
 ias-nav > .ias-nav-content > a {
-  line-height: 30px;
+  line-height: 31px;
   margin: 0;
 }
 
@@ -1049,13 +1049,13 @@ ias-nav > .ias-nav-content > a:not([disabled]):not(.ias-disabled).ias-active {
   border-bottom-color: #01a9e7;
   border-left-color: #dae1e1;
   border-right-color: #dae1e1;
-  color: #434c50;
+  color: #1f1f1f;
   font-weight: 500;
 }
 
 ias-nav > .ias-nav-content > span:not(.ias-fill) {
   line-height: normal;
-  margin: 8.5px 0;
+  margin: 9px 0;
   max-width: 700px;
 }
 
