@@ -58,3 +58,13 @@ ias-list-header {
   padding: 0;
   text-transform: $list-header-text-transform;
 }
+[dir="rtl"] {
+  ias-list-item {
+    >ias-icon, >ias-avatar {
+      &:first-child {
+        margin-right: 0;
+        margin-left: 10px;
+      }
+    }
+  }
+}
