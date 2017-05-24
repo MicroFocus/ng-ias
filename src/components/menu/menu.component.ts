@@ -39,7 +39,7 @@ export class MenuComponent implements IToggleable {
     name: string;
     open: boolean;
 
-    static $inject = ['$document', '$element', '$timeout', '$window', 'IasToggleService', 'MENU_MARGIN'];
+    static $inject = [ '$document', '$element', '$timeout', '$window', 'IasToggleService', 'MENU_MARGIN' ];
     constructor(private $document: IDocumentService,
                 private $element: IAugmentedJQuery,
                 private $timeout: ITimeoutService,
@@ -55,7 +55,7 @@ export class MenuComponent implements IToggleable {
         this.horizontalAlignment = HorizontalAlignment.start;
         this.verticalAlignment = VerticalAlignment.top;
 
-        // Hide the menu before navigation occurs. This prevents the menu
+        // Hide the menu before navigation occurs, so it still disappears when the destination is on the same page.
         // Using $timeout because $scope.$evalAsync executes before Angular processes child components.
         // (If you set a click listener on ias-button in $scope.$evalAsnyc, the listener will never be called.)
         $timeout(() => {

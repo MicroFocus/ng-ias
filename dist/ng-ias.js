@@ -675,19 +675,27 @@
 	    VerticalAlignment[VerticalAlignment["center"] = 1] = "center";
 	    VerticalAlignment[VerticalAlignment["bottom"] = 2] = "bottom";
 	})(VerticalAlignment = exports.VerticalAlignment || (exports.VerticalAlignment = {}));
+	var CLICKABLE_MENU_TAGS = ['a', 'button', 'ias-list-item'];
 	var MenuComponent = (function () {
-	    function MenuComponent($document, $element, $window, toggleService, MENU_MARGIN) {
+	    function MenuComponent($document, $element, $timeout, $window, toggleService, MENU_MARGIN) {
+	        var _this = this;
 	        this.$document = $document;
 	        this.$element = $element;
+	        this.$timeout = $timeout;
 	        this.$window = $window;
 	        this.toggleService = toggleService;
 	        this.MENU_MARGIN = MENU_MARGIN;
 	        this.open = false;
 	        $element.detach();
 	        angular_1.element($document.find('body')).append($element);
-	        $element.on('click', this.hide.bind(this));
+	        $element.on('click', this.clickMenuScrim.bind(this));
 	        this.horizontalAlignment = HorizontalAlignment.start;
 	        this.verticalAlignment = VerticalAlignment.top;
+	        $timeout(function () {
+	            CLICKABLE_MENU_TAGS.forEach(function (tag) {
+	                _this.$element.find(tag).on('click', _this.hide.bind(_this));
+	            });
+	        });
 	    }
 	    MenuComponent.prototype.$onDestroy = function () {
 	        this.$element.off('click');
@@ -701,6 +709,11 @@
 	            this.verticalAlignment = verticalAlignment || VerticalAlignment.top;
 	        }
 	        this.toggleService.register(this);
+	    };
+	    MenuComponent.prototype.clickMenuScrim = function (event) {
+	        if (event.target.tagName.toLowerCase() === 'ias-menu') {
+	            this.hide();
+	        }
 	    };
 	    MenuComponent.prototype.hide = function () {
 	        this.open = false;
@@ -795,7 +808,7 @@
 	    };
 	    return MenuComponent;
 	}());
-	MenuComponent.$inject = ['$document', '$element', '$window', 'IasToggleService', 'MENU_MARGIN'];
+	MenuComponent.$inject = ['$document', '$element', '$timeout', '$window', 'IasToggleService', 'MENU_MARGIN'];
 	MenuComponent = __decorate([
 	    component_decorator_1.Component({
 	        bindings: {
@@ -844,7 +857,7 @@
 /***/ function(module, exports) {
 
 	var path = 'components/menu/menu.component.html';
-	var html = "<ias-menu-content ng-transclude ng-click=\"$event.stopPropagation()\"></ias-menu-content>";
+	var html = "<ias-menu-content ng-transclude></ias-menu-content>";
 	window.angular.module('ng').run(['$templateCache', function(c) { c.put(path, html) }]);
 	module.exports = path;
 
