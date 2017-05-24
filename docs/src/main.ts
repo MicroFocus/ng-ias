@@ -22,7 +22,6 @@ import ListComponent from './components/docs/list/list.component';
 import MenuComponent from './components/docs/menu/menu.component';
 import NavComponent from './components/docs/nav/nav.component';
 import PanelComponent from './components/docs/panel/panel.component';
-import SearchBoxComponent from './components/docs/search-box/search-box.component';
 import SideNavComponent from './components/docs/side-nav/side-nav.component';
 import TableComponent from './components/docs/table/table.component';
 import TabsComponent from './components/docs/tabs/tabs.component';
@@ -64,7 +63,6 @@ module('app', [
     .component('menuDocumentation', MenuComponent)
     .component('navDocumentation', NavComponent)
     .component('panelDocumentation', PanelComponent)
-    .component('searchBoxDocumentation', SearchBoxComponent)
     .component('sideNavDocumentation', SideNavComponent)
     .component('tableDocumentation', TableComponent)
     .component('tabsDocumentation', TabsComponent)

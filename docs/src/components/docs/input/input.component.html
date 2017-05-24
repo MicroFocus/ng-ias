@@ -37,7 +37,11 @@
         differentiator. The icon field uses the same reference to the icon font as the ias-icon component.
     </p>
 
-    <ias-search-box ng-model="$ctrl.data.value" toggle-repeat-code></ias-search-box>
+    <div toggle-repeat-code="inner">
+        <ias-search-box ng-model="$ctrl.data.value"></ias-search-box>
+        <br>
+        <ias-search-box ng-model="$ctrl.data.value" placeholder="Custom Placeholder"></ias-search-box>
+    </div>
 
     <ias-input-container class="ias-icon-input" toggle-repeat-code>
         <input type="text" autocomplete="false" ng-model="$ctrl.value"/>
@@ -142,12 +146,12 @@
 
     <div toggle-repeat-code="inner">
         <ias-input-container>
-            <label for="int1">An integer-only text field</label>
+            <label for="int1">Integer-only text field</label>
             <ias-int-input id="int1"></ias-int-input>
         </ias-input-container>
 
         <ias-input-container>
-            <label for="int2">An integer-only text field which only allows values between 10 and 20</label>
+            <label for="int2">Integer-only text field (min: 10, max: 20)</label>
             <ias-int-input id="int2" min="10" max="20" ng-model="$ctrl.myInt"></ias-int-input>
         </ias-input-container>
     </div>
