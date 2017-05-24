@@ -59,3 +59,10 @@ ias-dialog-content {
     }
   }
 }
+[dir="rtl"] {
+  ias-dialog-content {
+    >.ias-dialog-header {
+      padding: 25px 25px 10px 50px;
+    }
+  }
+}
