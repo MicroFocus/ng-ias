@@ -57,11 +57,8 @@ ias-dialog-content {
       left: 10px;
       right: auto;
     }
-  }
-}
-[dir="rtl"] {
-  ias-dialog-content {
-    >.ias-dialog-header {
+
+    > .ias-dialog-header {
       padding: 25px 25px 10px 50px;
     }
   }

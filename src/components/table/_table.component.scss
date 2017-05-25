@@ -11,7 +11,7 @@ table {
       font-size: inherit;
       vertical-align: middle;
     }
-	  
+
   }
 
   > tbody {
@@ -27,11 +27,10 @@ table {
       }
     }
   }
- text-align: left; }
+
   td, th {
     padding: 0 $spacing;
-	font-weight: normal;
-
+    font-weight: normal;
 
     > a {
       &:not(.ias-disabled) {
@@ -58,7 +57,7 @@ table {
   .ias-icon-button {
     font-size: $table-icon-size;
   }
-
+}
 
 .ias-sortable {
   @include disable-text-selection;
@@ -67,9 +66,10 @@ table {
   font-weight: $font-weight-bold;
   cursor: pointer;
 }
+
 [dir="rtl"] {
   table {
-    td,th {
+    td, th {
       text-align: right;
     }
   }
