@@ -137,6 +137,7 @@ ias-tile {
   display: flex;
   flex-flow: row nowrap;
   height: 100%;
+  pointer-events: none;
 
   > ias-icon {
     flex-shrink: 0;

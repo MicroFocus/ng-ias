@@ -863,6 +863,7 @@ ias-list-item > span {
   display: inline-block;
   -ms-flex: 1 1;
       flex: 1 1;
+  pointer-events: none;
 }
 
 ias-list-item > ias-avatar {
@@ -1569,6 +1570,7 @@ ias-tile a:focus, ias-tile a:hover {
   -ms-flex-flow: row nowrap;
       flex-flow: row nowrap;
   height: 100%;
+  pointer-events: none;
 }
 
 .ias-tile-content > ias-icon {
