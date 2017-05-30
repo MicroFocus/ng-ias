@@ -28,7 +28,6 @@ function routes(
         .state('app.component.menu', { url: 'menu', component: 'menuDocumentation' })
         .state('app.component.nav', { url: 'nav', component: 'navDocumentation' })
         .state('app.component.panel', { url: 'panel', component: 'panelDocumentation' })
-        .state('app.component.searchBox', { url: 'searchBox', component: 'searchBoxDocumentation' })
         .state('app.component.sideNav', { url: 'side-nav', component: 'sideNavDocumentation' })
         .state('app.component.table', { url: 'table', component: 'tableDocumentation' })
         .state('app.component.tabs', { url: 'tabs', component: 'tabsDocumentation' })
