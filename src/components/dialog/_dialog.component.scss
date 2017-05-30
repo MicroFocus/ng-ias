@@ -57,5 +57,9 @@ ias-dialog-content {
       left: 10px;
       right: auto;
     }
+
+    > .ias-dialog-header {
+      padding: 25px 25px 10px 50px;
+    }
   }
 }

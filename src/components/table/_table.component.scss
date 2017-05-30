@@ -11,7 +11,7 @@ table {
       font-size: inherit;
       vertical-align: middle;
     }
-	  
+
   }
 
   > tbody {
@@ -30,7 +30,7 @@ table {
 
   td, th {
     padding: 0 $spacing;
-	font-weight: normal;
+    font-weight: normal;
 
     > a {
       &:not(.ias-disabled) {
@@ -65,4 +65,12 @@ table {
   color: $link-text-color;
   font-weight: $font-weight-bold;
   cursor: pointer;
+}
+
+[dir="rtl"] {
+  table {
+    td, th {
+      text-align: right;
+    }
+  }
 }

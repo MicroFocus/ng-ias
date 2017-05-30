@@ -549,6 +549,10 @@ ias-dialog-content input:focus {
   right: auto;
 }
 
+[dir="rtl"] ias-dialog-content > .ias-dialog-header {
+  padding: 25px 25px 10px 50px;
+}
+
 ias-header {
   -ms-flex-align: center;
       align-items: center;
@@ -885,6 +889,12 @@ ias-list-header {
   margin: 10px 0;
   padding: 0;
   text-transform: uppercase;
+}
+
+[dir="rtl"] ias-list-item > ias-avatar:first-child,
+[dir="rtl"] ias-list-item > ias-icon:first-child {
+  margin-right: 0;
+  margin-left: 10px;
 }
 
 ias-menu {
@@ -1327,6 +1337,10 @@ table .ias-icon-button {
   color: #0090da;
   font-weight: 700;
   cursor: pointer;
+}
+
+[dir="rtl"] table td, [dir="rtl"] table th {
+  text-align: right;
 }
 
 ul.nav-tabs {
