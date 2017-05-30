@@ -953,6 +953,7 @@
 	    };
 	    SearchBoxComponent.prototype.clearInput = function () {
 	        this.value = '';
+	        this.$element.find('input')[0].focus();
 	    };
 	    SearchBoxComponent.prototype.onInputKeyDown = function (event) {
 	        switch (event.which || event.keyCode) {

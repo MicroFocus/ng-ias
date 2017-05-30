@@ -96,12 +96,17 @@ $button-text-transform: none;
 
 $dialog-padding: 20px;
 
+$icon-input-color: $color-gray-4;
+$icon-input-icon-padding: 5px;
+$icon-input-size: 20px;
+$icon-input-total-padding: $icon-input-size + (2 * $icon-input-icon-padding);
+
 $icon-size-small: 25px;
 $icon-size-medium: 50px;
 $icon-size-large: 75px;
 $icon-size-xlarge: 100px;
 
-$input-bg-color: inherit;
+$input-bg-color: transparent; // 'inherit' doesn't work in IE: see https://stackoverflow.com/questions/17492956
 $input-border: 1px solid $color-gray-5;
 $input-inline-label-padding: 5px;
 $input-label-font-size: $font-size-small;
@@ -151,8 +156,6 @@ $nav-text-vertical-margin: ($nav-height - $nav-text-element-height) / 2;
 
 $panel-bg-color: $color-gray-6;
 
-$search-box-icon-padding: 5px;
-$search-box-icon-size: 20px;
 $search-box-max-width: 300px;
 
 $side-nav-header-font-size: 12px;

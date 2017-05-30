@@ -633,50 +633,35 @@ ias-icon.ias-medium {
 
 .ias-icon-input > ias-icon {
   left: 0;
-}
-
-.ias-icon-input > .ias-icon-button {
-  right: 0;
-  margin-right: 0;
-}
-
-.ias-icon-input > .ias-button.ias-icon-button:not([disabled]):focus, .ias-icon-input .ias-button.ias-icon-button:not([disabled]):hover {
-  background-color: transparent;
-  border-color: transparent;
-}
-
-.ias-icon-input > ias-icon,
-.ias-icon-input > .ias-icon-button {
-  position: absolute;
-  top: 2px;
-  color: #808080;
+  pointer-events: none;
 }
 
 .ias-icon-input > input {
-  border: 1px solid #6a6f71;
-  border-radius: 3px;
   max-width: 300px;
-  padding: 8px 30px;
+  padding-left: 30px;
 }
 
 .ias-icon-input > ias-icon,
 .ias-icon-input > .ias-icon-button {
+  color: #808080;
+  top: 2px;
+  position: absolute;
+}
+
+.ias-icon-input ias-icon {
+  box-sizing: content-box;
+  font-size: 20px;
   padding: 5px;
 }
 
-.ias-icon-input ias-icon,
-.ias-icon-input .ias-icon-button {
-  font-size: 20px;
-}
-
 input {
-  background-color: inherit;
+  background-color: transparent;
 }
 
 ias-input-container input,
 ias-input-container select,
 ias-input-container textarea {
-  background-color: inherit;
+  background-color: transparent;
   border: 1px solid #6a6f71;
   border-radius: 3px;
   color: inherit;
@@ -717,7 +702,7 @@ ias-input-container textarea.inputError:focus {
 }
 
 input:focus, select:focus, textarea:focus {
-  background-color: inherit;
+  background-color: transparent;
   border-color: #01a9e7;
   color: #434c50;
   outline: none;
@@ -1131,6 +1116,19 @@ ias-panel a:focus, ias-panel a:hover {
 
 ias-search-box {
   display: inline-block;
+}
+
+ias-search-box ias-input-container > input {
+  padding-right: 30px;
+}
+
+ias-search-box ias-input-container > .ias-button.ias-icon-button {
+  border: none;
+  right: 0;
+}
+
+ias-search-box ias-input-container > .ias-button.ias-icon-button:not([disabled]):focus, ias-search-box ias-input-container > .ias-button.ias-icon-button:not([disabled]):hover {
+  background-color: transparent;
 }
 
 ias-side-nav {

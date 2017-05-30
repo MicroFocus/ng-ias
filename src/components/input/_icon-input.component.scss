@@ -3,40 +3,26 @@
   position: relative;
 
   > ias-icon {
-    left: 0;
-  }
 
-  > .ias-icon-button {
-    right: 0;
-    margin-right: 0;
-  }
-	
-  >.ias-button.ias-icon-button:not([disabled]):focus, .ias-button.ias-icon-button:not([disabled]):hover {
-    background-color: transparent;
-    border-color: transparent;
-  }
-	
-  > ias-icon,
-  > .ias-icon-button {
-    position: absolute;
-    top: 2px;
-	  color: $color-gray-4;
+    left: 0;
+    pointer-events: none;
   }
 
   > input {
-    border: $input-border;
-    border-radius: $border-radius;
     max-width: $search-box-max-width;
-    padding: $input-padding ((2 * $search-box-icon-padding) + $search-box-icon-size);
+    padding-left: $icon-input-total-padding;
   }
 
   > ias-icon,
   > .ias-icon-button {
-    padding: $search-box-icon-padding;
+    color: $icon-input-color;
+    top: 2px;
+    position: absolute;
   }
 
-  ias-icon,
-  .ias-icon-button {
-    font-size: $search-box-icon-size;
+  ias-icon {
+    box-sizing: content-box;
+    font-size: $icon-input-size;
+    padding: $icon-input-icon-padding;
   }
 }
