@@ -1,4 +1,4 @@
-mf-tile {
+ias-tile {
   background-color: $panel-bg-color;
   border-radius: $border-radius;
   border: $tile-border-width solid transparent;
@@ -12,53 +12,50 @@ mf-tile {
   position: relative;
 
   // STATES
-  &:focus {
-    @include focus-state;
-  }
-
+  &:focus,
   &:hover {
     background-color: $tile-bg-color;
     border-color: $tile-border-color;
     color: $tile-text-color;
+    outline: none;
   }
 
   // SIZES
-  &.mf-tiny {
+  &.ias-tiny {
     height: $tile-height-tiny;
-    max-width: $tile-width-tiny;
     width: $tile-width-tiny;
 
-    > .mf-tile-content {
-      > mf-avatar {
+    > .ias-tile-content {
+      > ias-avatar {
         height: $tile-avatar-size-tiny;
         width: $tile-avatar-size-tiny;
       }
 
-      > mf-icon {
+      > ias-icon {
         font-size: $tile-avatar-size-tiny;
       }
 
-      > .mf-tile-body {
+      > .ias-tile-body {
         display: none;
       }
     }
   }
 
-  &.mf-small {
+  &.ias-small {
     height: $tile-height-small;
     width: $tile-width-small;
 
-    > .mf-tile-content {
-      > mf-avatar {
+    > .ias-tile-content {
+      > ias-avatar {
         height: $tile-avatar-size-small;
         width: $tile-avatar-size-small;
       }
 
-      > mf-icon {
+      > ias-icon {
         font-size: $tile-avatar-size-small;
       }
 
-      > .mf-tile-body {
+      > .ias-tile-body {
         margin-left: $tile-padding;
 
         > :not(h3) {
@@ -72,79 +69,92 @@ mf-tile {
     }
   }
 
-  &.mf-medium {
+  &.ias-medium {
     height: $tile-height-medium;
     width: $tile-width-medium;
 
-    > .mf-tile-content {
-      > mf-avatar {
+    > .ias-tile-content {
+      > ias-avatar {
         flex: 0 0 $tile-avatar-size-medium;
         height: $tile-avatar-size-medium;
         width: $tile-avatar-size-medium;
       }
 
-      > mf-icon {
+      > ias-icon {
         font-size: $tile-avatar-size-medium;
       }
 
-      > .mf-tile-body {
+      > .ias-tile-body {
         height: $tile-avatar-size-medium;
         margin-left: $tile-padding;
         overflow: hidden;
 
         > h3 {
           font-size: $tile-title-font-size-medium;
-          line-height: 1em;
         }
       }
     }
   }
 
-  &.mf-large {
+  &.ias-large {
     flex-flow: column nowrap;
     height: $tile-height-large;
-    max-width: $tile-width-large;
     text-align: center;
     width: $tile-width-large;
 
-    > .mf-tile-content {
+    > .ias-tile-content {
       flex-flow: column nowrap;
 
-      > mf-avatar {
+      > ias-avatar {
         flex: 0 0 $tile-avatar-size-large;
         height: $tile-avatar-size-large;
         width: $tile-avatar-size-large;
       }
 
-      > mf-icon {
+      > ias-icon {
         font-size: $tile-avatar-size-large;
       }
 
-      > .mf-tile-body {
+      > .ias-tile-body {
         margin-top: $tile-padding;
+        max-width: 100%;
         overflow: hidden;
 
         > h3 {
           font-size: $tile-title-font-size-large;
-          line-height: 1em;
         }
       }
     }
   }
+
+  a {
+    @include focus-hover-background($body-bg-color);
+  }
 }
 
-.mf-tile-content {
+.ias-tile-content {
   align-items: center;
   display: flex;
   flex-flow: row nowrap;
+  height: 100%;
+  pointer-events: none;
 
-  > .mf-tile-actions {
+  > ias-icon {
+    flex-shrink: 0;
+  }
+
+  > .ias-tile-actions {
     position: absolute;
     top: 0;
     right: 0;
   }
 
-  > .mf-tile-body {
+  > .ias-tile-body {
+    > h3 {
+      @include single-line;
+      line-height: normal;
+    }
+
     > h3,
     > p {
       margin: 0;
@@ -153,6 +163,27 @@ mf-tile {
 
     > p {
       margin-top: $tile-text-margin-top;
+    }
+  }
+}
+
+[dir="rtl"] {
+  ias-tile {
+    &.ias-small,
+    &.ias-medium {
+      > .ias-tile-content {
+        > .ias-tile-body {
+          margin-left: 0;
+          margin-right: $tile-padding;
+        }
+      }
+    }
+  }
+
+  .ias-tile-content {
+    > .ias-tile-actions {
+      left: 0;
+      right: auto;
     }
   }
 }

@@ -1,12 +1,21 @@
-mf-tile-grid {
+ias-tile-grid {
   display: flex;
   flex-flow: row wrap;
 
-  > mf-tile {
+  > ias-tile {
     flex-grow: 0;
     flex-shrink: 0;
     margin-right: $tile-margin;
     margin-bottom: $tile-margin;
     vertical-align: top;
+  }
+}
+
+[dir="rtl"] {
+  ias-tile-grid {
+    > ias-tile {
+      margin-left: $tile-margin;
+      margin-right: 0;
+    }
   }
 }

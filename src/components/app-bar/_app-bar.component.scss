@@ -1,105 +1,143 @@
-mf-app-bar {
+ias-app-bar {
   background: $app-bar-bg-fallback;
   background: $app-bar-bg;
   color: $app-bar-text-color;
   display: block;
   font-size: $app-bar-font-size;
 
-  > .mf-app-bar-content {
+  > .ias-app-bar-content {
     align-items: center;
     display: flex;
     flex-flow: row nowrap;
-    height: 100%;
+
     min-height: $app-bar-height-small;
-    padding-right: $body-spacing-small;
+    padding-right: $app-bar-padding;
     overflow: hidden;
 
-    > .mf-logo {
+    > .ias-logo {
       display: block;
       max-height: $app-bar-height-small;
     }
 
-    > .mf-title {
-      margin-left: $body-spacing-small;
+    > .ias-heading {
+      /* Add height and line-height for align-items bug in IE11 */
+      height: $app-bar-height-small;
+      line-height: $app-bar-height-small;
+      margin-left: $app-bar-padding;
     }
 
-    mf-button {
+    > span:not(.ias-fill) {
+      @include single-line;
+      flex-shrink: 10;
+      margin-left: $app-bar-text-spacing;
+
+      &:not(:last-child) {
+        margin-right: $app-bar-text-button-spacing;
+      }
+    }
+
+    > .ias-button {
       background-color: transparent;
       border: none;
       color: inherit;
+      flex-shrink: 0;
       font-size: inherit;
-      padding: 0;
+      margin-left: $app-bar-button-spacing;
+      margin-right: 0;
 
-      &:hover {
-        background-color: transparent;
-        color: inherit;
+      &.ias-icon-button {
+        padding: $app-bar-button-padding;
+
+        > ias-icon {
+          font-size: $app-bar-icon-size;
+        }
       }
-    }
 
-    mf-button {
-      &:not(:last-of-type) {
-        margin-right: $spacing;
+      &:not([disabled]) {
+        &:focus,
+        &:hover {
+          background-color: $app-bar-action-color;
+          color: inherit;
+        }
       }
-    }
 
-    .mf-icon-button {
-      font-size: $app-bar-icon-size;
+      &:not(.ias-icon-button) {
+        > ias-icon {
+          background-color: transparent;
+        }
+      }
     }
   }
 }
 
 [dir="rtl"] {
-  mf-app-bar {
-    > .mf-app-bar-content {
-      padding-left: $body-spacing-small;
-      padding-right: initial;
+  ias-app-bar {
+    background: $app-bar-bg-rtl;
 
-      > .mf-title {
-        margin-left: initial;
-        margin-right: $body-spacing-small;
+    > .ias-app-bar-content {
+      padding-left: $app-bar-padding;
+      padding-right: 0;
+
+      > .ias-heading {
+        margin-left: 0;
+        margin-right: $app-bar-padding;
       }
 
-      .mf-icon-button {
-        margin-left: initial;
-        margin-right: $spacing;
+      > .ias-button {
+        margin-left: 0;
+        margin-right: $app-bar-button-spacing;
+      }
+
+      > span:not(.ias-fill) {
+        @include single-line;
+        margin-left: 0;
+        margin-right: $app-bar-text-spacing;
+
+        &:not(:last-child) {
+          margin-left: $app-bar-text-button-spacing;
+        }
       }
     }
   }
 }
 
-@media (min-width: $large-display) {
-  mf-app-bar {
-    > .mf-app-bar-content {
-      padding: 0 $body-spacing-large 0 0;
+@media (min-width: $medium-display) {
+  ias-app-bar {
+    > .ias-app-bar-content {
 
-      > .mf-title {
-        margin-left: $body-spacing-large;
+      > .ias-logo {
+        max-height: $app-bar-height-large;
       }
 
-      > .mf-logo {
-        max-height: $app-bar-height-large;
+      > .ias-heading {
+        margin-left: $app-bar-padding-large;
       }
     }
 
-    &.mf-large {
-      height: $app-bar-height-large;
+    &.ias-large {
+      > .ias-app-bar-content {
+        height: $app-bar-height-large;
 
-      > .mf-app-bar-content {
-        .mf-icon-button {
-          font-size: $icon-size-small;
+        > .ias-button {
+          &.ias-icon-button {
+            > ias-icon {
+              font-size: $icon-size-small;
+            }
+          }
         }
       }
     }
   }
 
   [dir="rtl"] {
-    mf-app-bar {
-      padding: 0 0 0 $body-spacing-large;
+    ias-app-bar {
+      > .ias-app-bar-content {
+        padding-left: $app-bar-padding-large;
+        padding-right: 0;
 
-      > .mf-app-bar-content {
-        > .mf-title {
-          margin-left: initial;
-          margin-right: $body-spacing-large;
+        > .ias-heading {
+          margin-left: 0;
+          margin-right: $app-bar-padding-large;
         }
       }
     }

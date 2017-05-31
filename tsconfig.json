@@ -13,7 +13,7 @@
     ]
   },
   "files": [
-    "src/ng-mfux.module.ts"
+    "src/ng-ias.module.ts"
   ],
   "exclude": [
     "dist",

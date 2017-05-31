@@ -1,111 +1,173 @@
 import {
     element,
+    IAugmentedJQuery,
     ICompileService,
     IControllerService,
+    IDeferred,
     IDocumentService,
+    IHttpService,
     IPromise,
     IQService,
     IRootScopeService,
-    ITemplateCacheService } from 'angular';
+    IScope,
+    ITemplateCacheService
+} from 'angular';
+import DialogComponent from './dialog.component';
 
-interface DialogOptions {
+interface IDialogScope extends IScope {
+    $ctrl: DialogComponent;
+    cancel: () => void;
+    cancelText: string;
+    close: () => void;
+    okText: string;
+    prompt: boolean;
+    data: any;
+    textContent: string;
+    title: string;
+}
+
+interface IDialogOptions {
     cancel: string;
+    controller: any;
     ok: string;
     prompt: boolean;
     response: string;
+    scope: IScope;
+    template: string;
+    templateUrl: string;
     textContent: string;
     title: string;
 }
 
 export default class DialogService {
-    static $inject = [ '$compile', '$controller', '$document', '$q', '$rootScope', '$templateCache' ];
+    private compiledDialogElement: IAugmentedJQuery;
+    private dialogController: any;
+    private dialogDeferred: IDeferred<any>;
+
+    static $inject = [ '$compile', '$controller', '$document', '$http', '$q', '$rootScope', '$templateCache' ];
     constructor(private $compile: ICompileService,
                 private $controller: IControllerService,
                 private $document: IDocumentService,
+                private $http: IHttpService,
                 private $q: IQService,
                 private $rootScope: IRootScopeService,
                 private $templateCache: ITemplateCacheService) {
     }
 
-    alert(options: DialogOptions): IPromise<any> {
+    alert(options: IDialogOptions): IPromise<any> {
         options.cancel = null;
         options.ok = options.ok || 'OK';
 
         return this.open(options);
     }
 
-    confirm(options: DialogOptions): IPromise<any> {
+    cancel(response?: any): void {
+        this.dialogDeferred.reject(response);
+        this.destroy();
+    }
+
+    close(response?: any): void {
+        this.dialogDeferred.resolve(response);
+        this.destroy();
+    }
+
+    confirm(options: IDialogOptions): IPromise<any> {
         options.cancel = options.cancel || 'No';
         options.ok = options.ok || 'Yes';
 
         return this.open(options);
     }
 
-    open(options: DialogOptions): IPromise<any> {
-        let deferred = this.$q.defer();
-
-        // Create and compile element
-        let dialogHtml =
-            '<mf-dialog ng-click="onScrimClicked()">' +
-            '   <mf-dialog-content ng-click="$event.stopPropagation()">' +
-            '       <div class="mf-dialog-header">' +
-            '           <div ng-if="!!title" class="mf-title">{{title}}</div>' +
-            '       </div>' +
-            '       <div class="mf-dialog-body">' +
-            '           <div ng-if="!prompt">{{textContent}}</div>' +
-            '           <div ng-if="prompt">' +
-            '               <mf-input-container>' +
-            '                   <label for="response">{{textContent}}</label>' +
-            '                   <input id="response" name="response" type="text" ng-model="data.response">' +
-            '               </mf-input-container>' +
-            '           </div>' +
-            '       </div>' +
-            '       <div class="mf-actions">' +
-            '          <mf-button ng-if="!!okText" ng-click="confirm()">{{okText}}</mf-button>' +
-            '          <mf-button ng-if="!!cancelText" ng-click="cancel()">{{cancelText}}</mf-button>' +
-            '       </div>' +
-            '       <mf-button class="mf-icon-button mf-dialog-close-button" ng-click="cancel()">' +
-            '           <mf-icon icon="close_thick"></mf-icon>' +
-            '       </mf-button>' +
-            '   </mf-dialog-content>' +
-            '</mf-dialog>';
-
-        let scope = this.$rootScope.$new(true);
-
-        scope['cancel'] = () => {
-            deferred.reject();
-            compiledDialogElement.detach();
-        };
-        scope['confirm'] = () => {
-            let response = scope['data']['response'];
-
-            deferred.resolve(response);
-            compiledDialogElement.detach();
-        };
-        scope['deferred'] = deferred;
-        scope['cancelText'] = options.cancel;
-        scope['okText'] = options.ok;
-        scope['onScrimClicked'] = () => {
-            scope['cancel']();
-        };
-        scope['prompt'] = options.prompt;
-        scope['data'] = { response: options.response };
-        scope['textContent'] = options.textContent;
-        scope['title'] = options.title;
-
-        let compiledDialogElement = this.$compile(dialogHtml)(scope);
-
-        // Insert element into DOM
-        element(this.$document.find('body')).append(compiledDialogElement);
-
-        return deferred.promise;
+    private destroy() {
+        this.compiledDialogElement.detach();
+        this.dialogController = null;
+        this.dialogDeferred = null;
     }
 
-    prompt(options: DialogOptions): IPromise<any> {
+    open(options: IDialogOptions): IPromise<any> {
+        let self = this;
+
+        // Initialize scope
+        let scope = options.scope ? options.scope.$new(false) : <IDialogScope>(this.$rootScope.$new(true));
+        scope.cancel = () => { self.cancel(); };
+        scope.cancelText = options.cancel;
+        scope.close = () => { self.close(scope.data.response); };
+        scope.okText = options.ok;
+        scope.prompt = options.prompt;
+        scope.data = { response: options.response };
+        scope.textContent = options.textContent;
+        scope.title = options.title;
+
+        // Instantiate controller if provided
+        if (options.controller) {
+            this.dialogController = this.$controller(options.controller, { $scope: scope });
+        }
+
+        // Compile template
+        this.loadTemplate(options)
+            .then((template) => {
+                self.compiledDialogElement = self.$compile(template)(scope);
+
+                // Insert element into DOM
+                element(self.$document.find('body')).append(self.compiledDialogElement);
+            });
+
+        this.dialogDeferred = this.$q.defer();
+        return this.dialogDeferred.promise;
+    }
+
+    prompt(options: IDialogOptions): IPromise<any> {
         options.cancel = options.cancel || 'Cancel';
         options.ok = options.ok || 'OK';
         options.prompt = true;
 
         return this.open(options);
+    }
+
+    private loadTemplate(options: IDialogOptions): IPromise<string> {
+
+        if (options.template) {
+            return this.$q.resolve(options.template);
+        }
+
+        else if (options.templateUrl) {
+            let template: string = this.$templateCache.get<string>(options.templateUrl);
+
+            if (template) {
+                return this.$q.resolve(template);
+            }
+
+            return this.$http
+                .get(options.templateUrl, { cache: this.$templateCache })
+                .then((response) => {
+                    return response.data;
+                });
+        }
+
+        else {
+            return this.$q.resolve(
+                '<ias-dialog>' +
+                '   <div class="ias-dialog-header">' +
+                '       <div ng-if="!!title" class="ias-title">{{title}}</div>' +
+                '   </div>' +
+                '   <div class="ias-dialog-body">' +
+                '       <div ng-if="!prompt">{{textContent}}</div>' +
+                '       <div ng-if="prompt">' +
+                '           <ias-input-container>' +
+                '               <label for="response">{{textContent}}</label>' +
+                '               <input id="response" name="response" type="text" ng-model="data.response">' +
+                '           </ias-input-container>' +
+                '       </div>' +
+                '   </div>' +
+                '   <div class="ias-actions">' +
+                '      <ias-button ng-if="!!okText" ng-click="close()">{{okText}}</ias-button>' +
+                '      <ias-button ng-if="!!cancelText" ng-click="cancel()">{{cancelText}}</ias-button>' +
+                '   </div>' +
+                '   <ias-button class="ias-icon-button ias-dialog-close-button" ng-click="cancel()">' +
+                '       <ias-icon icon="close_thick"></ias-icon>' +
+                '   </ias-button>' +
+                '</ias-dialog>'
+            );
+        }
     }
 }

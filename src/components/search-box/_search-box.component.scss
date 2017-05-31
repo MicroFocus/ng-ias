@@ -1,41 +1,23 @@
-mf-search-box {
-  background-color: $input-bg-color;
+ias-search-box {
   display: inline-block;
-  height: 33px;
-}
 
-.mf-search-box-content {
-  height: 33px;
-  position: relative;
+  ias-input-container {
+    > input {
+      padding-right: $icon-input-total-padding;
+    }
 
-  > mf-icon {
-    left: 0;
-  }
+    > .ias-button {
+      &.ias-icon-button {
+        border: none;
+        right: 0;
 
-  > .mf-icon-button {
-    right: 0;
-  }
-
-  > mf-icon,
-  > .mf-icon-button {
-    position: absolute;
-    top: 1px;
-  }
-
-  > input {
-    border: $input-border;
-    border-radius: $border-radius;
-    max-width: $search-box-max-width;
-    padding: $input-padding ((2 * $search-box-icon-padding) + $search-box-icon-size);
-  }
-
-  > mf-icon,
-  > .mf-icon-button {
-    padding: $search-box-icon-padding;
-  }
-
-  mf-icon,
-  .mf-icon-button {
-    font-size: $search-box-icon-size;
+        &:not([disabled]) {
+          &:focus,
+          &:hover {
+            background-color: transparent;
+          }
+        }
+      }
+    }
   }
 }

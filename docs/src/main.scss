@@ -1,0 +1,35 @@
+@import './config';
+@import './components/application/application.component';
+@import './components/components/components.component';
+@import './components/docs/docs';
+
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+body > [ui-view] {
+    height: 100%;
+    width: 100%;
+}
+
+.demo-section {
+    margin-bottom: 12px;
+    width: 100%;
+}
+
+.ias-tile-actions { color: #007cd0; }
+.tiles ias-tile {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/*
+ We want to limit the width of paragraphs and list items so we can
+ improve readability on wide screens.
+*/
+p, li {
+    max-width: 50em;
+}

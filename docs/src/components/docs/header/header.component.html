@@ -1,36 +1,62 @@
-<h2>Headers</h2>
+<div class="ias-page-title"><span>Headers</span></div>
+<p class="ias-page-instructions">Headers are used within elements including pages, panels, and dialogs. The header element should be used as the starting point of the UI element that contains the header.</p>
 
 <div class="demo-section">
-    <mf-header repeat-as-code>
-        <div class="mf-header-title"><span>Header Title</span></div>
-        <div class="mf-header-sub-title"><span>Sub Title</span></div>
-    </mf-header>
+    <h4>ias-header</h4>
+    <ias-header toggle-repeat-code>
+        <div class="ias-header-title"><span>Header Title</span></div>
+    </ias-header>
+</div>
+
+   <div class="demo-section">
+    <h4>w/ .ias-header-sub-title</h4>
+    <ias-header toggle-repeat-code>
+        <div class="ias-header-title"><span>Header Title</span></div>
+        <div class="ias-header-sub-title"><span>Sub Title</span></div>
+    </ias-header>
 </div>
 
 <div class="demo-section">
-    <h4>w/ .mf-icon-button</h4>
+    <h4>w/ .ias-icon-button</h4>
 
-    <mf-header repeat-as-code>
-        <div class="mf-header-title"><span>Header Title</span></div>
-        <div class="mf-header-sub-title"><span>Sub Title</span></div>
-        <mf-button class="mf-icon-button">
-            <mf-icon icon="configure_thick"></mf-icon>
-        </mf-button>
-    </mf-header>
+    <ias-header toggle-repeat-code>
+        <div class="ias-header-title"><span>Header Title</span></div>
+        <ias-button class="ias-icon-button">
+            <ias-icon icon="configure_thick"></ias-icon>
+        </ias-button>
+    </ias-header>
 </div>
 
 <div class="demo-section">
-    <h4>w/ .mf-fill</h4>
+    <h4>w/ .ias-fill</h4>
 
-    <mf-header repeat-as-code>
-        <div class="mf-header-title"><span>Header Title</span></div>
-        <div class="mf-header-sub-title"><span>Sub Title</span></div>
-        <mf-button class="mf-icon-button">
-            <mf-icon icon="configure_thick"></mf-icon>
-        </mf-button>
-        <span class="mf-fill"></span>
-        <mf-button class="mf-icon-button">
-            <mf-icon icon="close_thick"></mf-icon>
-        </mf-button>
-    </mf-header>
+    <ias-header toggle-repeat-code>
+        <div class="ias-header-title"><span>Header Title</span></div>
+        <div class="ias-header-sub-title"><span>Sub Title</span></div>
+        <ias-button class="ias-icon-button">
+            <ias-icon icon="new_thick"></ias-icon>
+        </ias-button>
+        <ias-button class="ias-icon-button">
+            <ias-icon icon="configure_thick"></ias-icon>
+        </ias-button>
+        <span class="ias-fill"></span>
+        <ias-button class="ias-icon-button">
+            <ias-icon icon="close_thick"></ias-icon>
+        </ias-button>
+    </ias-header>
+</div>
+
+
+<div class="demo-section">
+    <h4>h1 (.ias-page-title)</h4>
+    <h1 toggle-repeat-code>Page Title</h1>
+</div>
+
+<div class="demo-section">
+    <h4>h2-h4 (.ias-page-heading-2 - .ias-page-heading-4)</h4>
+    <div toggle-repeat-code="inner">
+        <h2>Page Heading 2</h2>
+        <h3>Page Heading 3</h3>
+        <h4>Page Heading 4</h4>
+    </div>
 </div>

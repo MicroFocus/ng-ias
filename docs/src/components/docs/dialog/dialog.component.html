@@ -1,67 +1,131 @@
-<h2>Dialog</h2>
+<h1 class="ias-page-title">Dialog</h1>
+<p class="ias-page-instructions">
+    Modal dialogs help to focus a user's attention to a small task or message. The content of the page
+    is darkened to shift focus from the page content to the task.
+</p>
+<p class="ias-page-instructions">
+    There are pre-configured dialogs that can be quickly integrated into an application; they are alert, confirmation,
+    and prompt. For more fine-grained control, use a custom dialog (optionally with a controller).
+</p>
+<p class="ias-page-instructions">
+    Given the asynchronous nature of modal dialogs, Promises are used to determine the result of a modal dialog
+    interaction. The methods for showing a modal dialog through the DialogService return promises, which are resolved
+    on success or positive actions (i.e. click 'Ok', or 'Save') and are rejected on negative actions (i.e. click outside
+    dialog, click 'Cancel' button, etc.).
+</p>
+
+<h3>Examples</h3>
 
 <div class="demo-section">
     <h4>Alert Dialog</h4>
+    <p>Use alert dialogs to notify users of important information.</p>
 
-    <mf-button ng-click="$ctrl.openAlertDialog()" repeat-as-code>Click</mf-button>
+    <ias-button ng-click="$ctrl.openAlertDialog()" repeat-as-code prism-insert-id="code-01">View Alert Dialog</ias-button>
 
-
+	<toggleable-code id="code-01">
 		<pre><code highlight>
-		this.openAlertDialog = function () {
-			this.MfDialogService
-				.alert({
-				textContent: 'You opened an alert dialog.',
-				title: 'Alert!'
-			})
-				.then(function () {
-				alert('resolved');
-			}, function () {
-				alert('rejected');
-			});
-		};
-    </code></pre>
+            openAlertDialog = function () {
+                IasDialogService
+                    .alert({
+                        textContent: 'You opened an alert dialog.',
+                        title: 'Alert!'
+                    })
+                    .then(
+                        function () {
+                            alert('resolved');
+                        },
+                        function () {
+                            alert('rejected');
+                        });
+                };
+        </code></pre>
+	</toggleable-code>
 </div>
 
 <div class="demo-section">
     <h4>Confirmation Dialog</h4>
+    <p>Use confirmation dialogs to request confirmation of some action. If user confirms, promise is resolved.
+    If user cancels the dialog or declines the promise is rejected.</p>
 
-    <mf-button ng-click="$ctrl.openConfirmationDialog()" repeat-as-code>Click</mf-button>
+    <ias-button ng-click="$ctrl.openConfirmationDialog()" repeat-as-code prism-insert-id="code-02">View Confirmation Dialog</ias-button>
 
-    <pre><code highlight>
-		this.openConfirmationDialog = function () {
-			this.MfDialogService
-				.confirm({
-				textContent: 'Are you sure?',
-				title: 'Confirmation'
-			})
-				.then(function () {
-				alert('confirmed');
-			}, function () {
-				alert('declined');
-			});
-		};
-    </code></pre>
+	<toggleable-code id="code-02">
+        <pre><code highlight>
+            openConfirmationDialog = function () {
+                IasDialogService
+                    .confirm({
+                        textContent: 'Are you sure?',
+                        title: 'Confirmation'
+                    })
+                    .then(
+                        function () {
+                            alert('confirmed');
+                        },
+                        function () {
+                            alert('declined');
+                        });
+            };
+        </code></pre>
+	</toggleable-code>
 </div>
 
 <div class="demo-section">
     <h4>Prompt Dialog</h4>
 
-    <mf-button ng-click="$ctrl.openPromptDialog()" repeat-as-code>Click</mf-button>
+    <ias-button ng-click="$ctrl.openPromptDialog()" repeat-as-code prism-insert-id="code-03">View Prompt Dialog</ias-button>
 
-    <pre><code highlight>
-		this.openPromptDialog = function () {
-			this.MfDialogService
-				.prompt({
-				cancel: 'Cancel',
-				ok: 'OK',
-				textContent: 'What do you want to say?',
-				title: 'Prompt'
-			})
-				.then(function (result) {
-				alert(result);
-			}, function () {
-				alert('declined');
-			});
-		};
-    </code></pre>
+	<toggleable-code id="code-03">
+        <pre><code highlight>
+            openPromptDialog = function () {
+                IasDialogService
+                    .prompt({
+                        cancel: 'Cancel',
+                        ok: 'OK',
+                        textContent: 'What do you want to say?',
+                        title: 'Prompt'
+                    })
+                    .then(
+                        function (result) {
+                            alert(result);
+                        },
+                        function () {
+                            alert('declined');
+                        });
+            };
+        </code></pre>
+	</toggleable-code>
+</div>
+
+<div class="demo-section">
+    <h4>Custom Dialog</h4>
+
+    <ias-button ng-click="$ctrl.openCustomDialog()" repeat-as-code prism-insert-id="code-04">View Custom Dialog</ias-button>
+
+	<toggleable-code id="code-04">
+        <pre><code highlight>
+            openCustomDialog = function() {
+                IasDialogService
+                    .open({
+                        controller: function ($scope, IasDialogService) {
+                            $scope.title = 'Custom Template';
+                            $scope.close = function() {
+                                IasDialogService.close();
+                            };
+                        },
+                        template:
+                            '&lt;ias-dialog&gt;' +
+                            '   &lt;div class="ias-dialog-header"&gt;' +
+                            '       &lt;div class="ias-title"&gt;{{title}}&lt;/div&gt;' +
+                            '   &lt;/div&gt;' +
+                            '   &lt;div class="ias-dialog-body"&gt;' +
+                            '       &lt;p&gt;Add your content here&lt;/p&gt;' +
+                            '   &lt;/div&gt;' +
+                            '   &lt;div class="ias-actions"&gt;' +
+                            '      &lt;ias-button ng-click="close()"&gt;Got It!&lt;/ias-button&gt;' +
+                            '   &lt;/div&gt;' +
+                            '&lt;/ias-dialog&gt;'
+                    });
+            };
+        </code></pre>
+	</toggleable-code>
 </div>

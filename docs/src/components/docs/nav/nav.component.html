@@ -1,49 +1,81 @@
-<h2>Nav</h2>
+<h1 class="ias-page-title">Nav</h1>
 
 <div class="demo-section">
-    <mf-nav repeat-as-code="">
-        <a href="#">Link 1</a>
-        <a href="#">Link 2</a>
-    </mf-nav>
+    <ias-nav toggle-repeat-code>
+        <a ui-sref="app.component.nav">Link 1</a>
+        <a ui-sref="app.component.nav">Link 2</a>
+    </ias-nav>
 </div>
 
 <div class="demo-section">
-    <h4>.mf-disabled</h4>
+    <h4>.ias-active</h4>
 
-    <mf-nav repeat-as-code="">
-        <a href="#">Link 1</a>
-        <a class="mf-disabled">Link 2</a>
-    </mf-nav>
-</div>
-
-<div class="demo-section">
-    <h4>.mf-active</h4>
-
-    <mf-nav repeat-as-code="">
-        <a href="#">Link 1</a>
-        <a href="#" class="mf-active">Link 2</a>
-        <a href="#">Link 3</a>
-    </mf-nav>
+    <ias-nav toggle-repeat-code>
+        <a ui-sref="app.component.nav">Link 1</a>
+        <a ui-sref="app.component.nav" class="ias-active">Link 2</a>
+        <a ui-sref="app.component.nav">Link 3</a>
+    </ias-nav>
 </div>
 
 <div class="demo-section">
     <h4>Complex</h4>
 
-    <mf-nav repeat-as-code="">
-        <mf-button class="mf-icon-button">
-            <mf-icon icon="search_thick"></mf-icon>
-        </mf-button>
+    <ias-nav toggle-repeat-code>
+        <ias-button class="ias-icon-button">
+            <ias-icon icon="search_thick"></ias-icon>
+        </ias-button>
+        <a ui-sref="app.component.nav" class="ias-active">
+            <ias-icon icon="home_thick"></ias-icon>
+        </a>
+        <a ui-sref="app.component.nav">
+            <ias-icon icon="signout_thick"></ias-icon>
+        </a>
 
-        <a href="#">Link 1</a>
-        <a href="#" class="mf-active">Link 2</a>
-        <a class="mf-disabled">Link 3</a>
+        <span class="ias-fill"></span>
 
-        <span class="mf-fill"></span>
+        <ias-button class="ias-menu-toggle" ias-toggle="menu1">
+            Menu<ias-icon icon="down_thick"></ias-icon>
+        </ias-button>
+        <ias-menu name="menu1" ias-align="end" class="ias-menu-flat-top">
+            <ias-button>Button 1</ias-button>
+            <ias-button>Button 2</ias-button>
+        </ias-menu>
+    </ias-nav>
+</div>
 
-        <mf-button mf-toggle="menu1">Menu <mf-icon icon="down_thick"></mf-icon></mf-button>
-        <mf-menu name="menu1">
-            <mf-button>Button 1</mf-button>
-            <mf-button>Button 2</mf-button>
-        </mf-menu>
-    </mf-nav>
+<div class="demo-section">
+    <h4>Disabled</h4>
+
+    <ias-nav toggle-repeat-code>
+        <ias-button class="ias-icon-button" disabled="disabled">
+            <ias-icon icon="search_thick"></ias-icon>
+        </ias-button>
+        <a ui-sref="app.component.nav">Link 1</a>
+        <a class="ias-disabled">Link 2</a>
+        <a disabled="disabled">Link 3</a>
+    </ias-nav>
+</div>
+
+<div class="demo-section">
+    <h4>Text</h4>
+    <ias-nav toggle-repeat-code>
+        <a ui-sref="app.component.nav" class="ias-active">Link 1</a>
+        <span>Text</span>
+        <span class="ias-fill"></span>
+        <span><a href="/component/link">Hyperlink</a></span>
+    </ias-nav>
+</div>
+
+<div class="demo-section">
+    <h4>Header (non-navigation)</h4>
+    <ias-nav toggle-repeat-code>
+        <ias-button class="ias-icon-button">
+            <ias-icon icon="hamburger_menu_thick"></ias-icon>
+        </ias-button>
+        <span>Sign in to use available applications. This text wraps if necessary.</span>
+        <span class="ias-fill"></span>
+        <ias-button class="ias-icon-button">
+            <ias-icon icon="search_thick"></ias-icon>
+        </ias-button>
+    </ias-nav>
 </div>

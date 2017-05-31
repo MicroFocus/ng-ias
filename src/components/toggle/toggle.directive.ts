@@ -12,10 +12,10 @@ export interface IToggleable {
 export function ToggleDirective(toggleService: ToggleService): IDirective {
     return {
         link: (scope: IScope, element: IAugmentedJQuery, attrs: IAttributes) => {
-            element.on('click', () => { toggleService.toggleComponent(attrs['mfToggle'], element); });
+            element.on('click', () => { toggleService.toggleComponent(attrs['iasToggle'], element); });
         },
         restrict: 'A'
     };
 }
 
-ToggleDirective.$inject = [ 'MfToggleService' ];
+ToggleDirective.$inject = [ 'IasToggleService' ];

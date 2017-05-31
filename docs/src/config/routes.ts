@@ -18,6 +18,7 @@ function routes(
         .state('app.component.colors', { url: 'colors', component: 'colorsDocumentation' })
         .state('app.component.dialog', { url: 'dialog', component: 'dialogDocumentation' })
         .state('app.component.formField', { url: 'form-field', component: 'formFieldDocumentation' })
+        .state('app.component.formValidation', { url: 'form-validation', component: 'formValidationDocumentation' })
         .state('app.component.header', { url: 'header', component: 'headerDocumentation' })
         .state('app.component.icon', { url: 'icon', component: 'iconDocumentation' })
         .state('app.component.iconButton', { url: 'icon-button', component: 'iconButtonDocumentation' })
@@ -27,9 +28,9 @@ function routes(
         .state('app.component.menu', { url: 'menu', component: 'menuDocumentation' })
         .state('app.component.nav', { url: 'nav', component: 'navDocumentation' })
         .state('app.component.panel', { url: 'panel', component: 'panelDocumentation' })
-        .state('app.component.searchBox', { url: 'searchBox', component: 'searchBoxDocumentation' })
         .state('app.component.sideNav', { url: 'side-nav', component: 'sideNavDocumentation' })
         .state('app.component.table', { url: 'table', component: 'tableDocumentation' })
+        .state('app.component.tabs', { url: 'tabs', component: 'tabsDocumentation' })
         .state('app.component.tile', { url: 'tile', component: 'tileDocumentation' })
         .state('app.component.tileGrid', { url: 'tile-grid', component: 'tileGridDocumentation' });
 }

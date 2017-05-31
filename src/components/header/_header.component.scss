@@ -1,33 +1,33 @@
-mf-header {
+ias-header {
   align-items: center;
   display: flex;
   flex-flow: row wrap;
-  margin-bottom: $content-padding;
-  padding-top: $spacing;
+  margin-bottom: $body-spacing-large;
+  
+  > .ias-header-title {
+  	@include single-line;
 
-  > .mf-header-title {
-    font-size: 24px;
+    font-size: $font-size-xlarge;
+    padding-right: $spacing;
   }
 
-  > .mf-header-sub-title {
-    color: #808080;
+  > .ias-header-sub-title {
+    color: $color-gray-3;
     flex: 0 0 100%;
-    font-size: 15px;
+    font-size: $font-size-base;
     order: 1;
   }
 
-  > .mf-fill {
+  > .ias-fill {
     flex-grow: 1;
     flex-basis: 0;
   }
 
-  > .mf-icon-button {
+  > .ias-icon-button {
     margin-left: $spacing;
-  }
 
-  > mf-button {
-    &:not(:last-child) {
-      margin-right: 5px;
+    ias-icon {
+      font-size: $header-icon-size;
     }
   }
 }

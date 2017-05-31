@@ -1,1 +1,2 @@
-<i ng-class="['mf-icon', 'mf-icon-' + $ctrl.icon]"></i>
+<i ng-if="$ctrl.icon" ng-class="['ias-icon', 'ias-icon-' + $ctrl.icon]"></i>
+<img ng-if="!$ctrl.icon" class="svg-icon" ng-src="{{$ctrl.svgIcon}}" ng-attr-alt="{{$ctrl.svgIcon}}"/>

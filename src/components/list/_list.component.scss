@@ -1,27 +1,26 @@
-mf-list {
+ias-list {
   display: block;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-mf-list-item {
+ias-list-item {
+  box-sizing: content-box;
   display: flex;
   flex-flow: row nowrap;
   height: $list-item-height;
   line-height: $list-item-height;
-  padding: $spacing;
+  padding: $body-spacing-xsmall $spacing;
 
-  &:focus {
-    @include focus-state;
-  }
-
+  &:focus,
   &:hover {
     background-color: $list-item-bg-color-hover;
     color: inherit;
+    outline: none;
   }
 
-  &.mf-offset {
+  &.ias-offset {
     padding-left: (2 * $spacing) + $list-item-avatar-size;
   }
 
@@ -30,27 +29,28 @@ mf-list-item {
 
     display: inline-block;
     flex: 1 1;
+    pointer-events: none;
   }
 
-  > mf-avatar {
+  > ias-avatar {
     flex: 0 0 $list-item-avatar-size;
     height: $list-item-avatar-size;
     width: $list-item-avatar-size;
   }
 
-  > mf-icon {
+  > ias-icon {
     font-size: $list-item-avatar-size;
   }
 
-  > mf-icon,
-  > mf-avatar {
+  > ias-icon,
+  > ias-avatar {
     &:first-child {
       margin-right: $spacing;
     }
   }
 }
 
-mf-list-header {
+ias-list-header {
   color: $list-header-text-color;
   display: block;
   font-size: $list-header-font-size;
@@ -58,4 +58,16 @@ mf-list-header {
   margin: $list-header-margin;
   padding: 0;
   text-transform: $list-header-text-transform;
+}
+
+[dir="rtl"] {
+  ias-list-item {
+    > ias-avatar,
+    > ias-icon {
+      &:first-child {
+        margin-right: 0;
+        margin-left: 10px;
+      }
+    }
+  }
 }

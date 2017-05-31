@@ -38,9 +38,13 @@ jspm_packages
 
 dist/docs
 dist/**/*.gz
+dist/test-results.xml
 
 # WebStorm
 .idea
 
 #.DS_Store files that Macs add
 **/.DS_Store
+/.project
+/.settings
+/target/

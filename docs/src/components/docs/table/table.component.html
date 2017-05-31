@@ -1,50 +1,68 @@
-<h2>Table</h2>
+<h1 class="ias-page-title">Table</h1>
 
 <div class="demo-section">
-    <table repeat-as-code="">
+    <table toggle-repeat-code>
         <thead>
             <tr>
-                <th></th>
                 <th>Name</th>
                 <th>Title</th>
+                <th>Phone</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>
-                    <mf-button class="mf-icon-button">
-                        <mf-icon icon="search_thick"></mf-icon>
-                    </mf-button>
-                </td>
                 <td><a href="#">Lynn Christensen</a></td>
                 <td>UX Director</td>
+                <td>801-861-7000</td>
             </tr>
             <tr>
-                <td>
-                    <mf-button class="mf-icon-button">
-                        <mf-icon icon="search_thick"></mf-icon>
-                    </mf-button>
-                </td>
                 <td><a href="#">Joe Hawkins</a></td>
                 <td>Assistant to the UX Director</td>
+                <td>801-861-7000</td>
             </tr>
             <tr>
-                <td>
-                    <mf-button class="mf-icon-button">
-                        <mf-icon icon="search_thick"></mf-icon>
-                    </mf-button>
-                </td>
                 <td><a href="#">Joseph White</a></td>
                 <td>Secret assistant to the UX Director</td>
+                <td>801-861-7000</td>
             </tr>
         </tbody>
     </table>
 </div>
 
 <div class="demo-section">
-    <h4>Inline mf-icon</h4>
+    <h4>Sorting</h4>
 
-    <table repeat-as-code="">
+    <p>The ias-sort directive allows the user to specify a property to store the sort expression of the table.</p>
+    <p>The ias-sort-on allows the user to specify a sort expression for individual columns in the table. This
+    expression is stored in the property designated in ias-sort.</p>
+
+    <table ias-sort="$ctrl.sort" toggle-repeat-code
+           ng-init="$ctrl.people=[
+            {name: 'Lynn Christensen', title: 'UX Director'},
+            {name: 'Joseph White', title: 'Assistant to the UX Director'},
+            {name: 'Joe Hawkins', title: 'Secret assistant to the UX Director'}]">
+        <thead>
+            <tr>
+                <th ias-sort-on="'name'">Name</th>
+                <th ias-sort-on="'title'">Title</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="person in $ctrl.people | orderBy:$ctrl.sort">
+                <td>
+                    <ias-icon icon="favorite_outline_thin"></ias-icon>
+                    <a href="#" ng-bind="person.name"></a>
+                </td>
+                <td>{{person.title}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="demo-section">
+    <h4>Inline ias-icon</h4>
+
+    <table toggle-repeat-code>
         <thead>
             <tr>
                 <th>Name</th>
@@ -54,21 +72,21 @@
         <tbody>
             <tr>
                 <td>
-                    <mf-icon icon="favorite_outline_thin"></mf-icon>
+                    <ias-icon icon="favorite_outline_thin"></ias-icon>
                     <a href="#">Lynn Christensen</a>
                 </td>
                 <td>UX Director</td>
             </tr>
             <tr>
                 <td>
-                    <mf-icon icon="favorite_outline_thin"></mf-icon>
+                    <ias-icon icon="favorite_outline_thin"></ias-icon>
                     <a href="#">Joe Hawkins</a>
                 </td>
                 <td>Assistant to the UX Director</td>
             </tr>
             <tr>
                 <td>
-                    <mf-icon icon="favorite_outline_thin"></mf-icon>
+                    <ias-icon icon="favorite_outline_thin"></ias-icon>
                     <a href="#">Joseph White</a>
                 </td>
                 <td>Secret assistant to the UX Director</td>
@@ -78,26 +96,42 @@
 </div>
 
 <div class="demo-section">
-    <h4>Sorting</h4>
-
-    <table mf-sort="$ctrl.sort" repeat-as-code=""
-           ng-init="$ctrl.people=[
-            {name: 'Lynn Christensen', title: 'UX Director'},
-            {name: 'Joseph White', title: 'Assistant to the UX Director'},
-            {name: 'Joe Hawkins', title: 'Secret assistant to the UX Director'}]">
+    <h4>w/ ias-icon-button</h4>
+    <table toggle-repeat-code>
         <thead>
             <tr>
-                <th mf-sort-on="'name'">Name</th>
-                <th mf-sort-on="'title'">Title</th>
+                <th>Name</th>
+                <th>Action</th>
+                <th>Title</th>
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="person in $ctrl.people | orderBy:$ctrl.sort">
+            <tr>
+                <td><a href="#">Lynn Christensen</a></td>
                 <td>
-                    <mf-icon icon="favorite_outline_thin"></mf-icon>
-                    <a href="#">{{person.name}}</a>
+                    <ias-button class="ias-icon-button">
+                        <ias-icon icon="email_thin"></ias-icon>
+                    </ias-button>
                 </td>
-                <td>{{person.title}}</td>
+                <td>UX Director</td>
+            </tr>
+            <tr>
+                <td><a href="#">Joe Hawkins</a></td>
+                <td>
+                    <ias-button class="ias-icon-button">
+                        <ias-icon icon="email_thin"></ias-icon>
+                    </ias-button>
+                </td>
+                <td>Assistant to the UX Director</td>
+            </tr>
+            <tr>
+                <td><a href="#">Joseph White</a></td>
+                <td>
+                    <ias-button class="ias-icon-button">
+                        <ias-icon icon="email_thin"></ias-icon>
+                    </ias-button>
+                </td>
+                <td>Secret assistant to the UX Director</td>
             </tr>
         </tbody>
     </table>

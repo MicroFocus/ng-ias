@@ -1,0 +1,28 @@
+.ias-icon-input {
+  height: 33px;
+  position: relative;
+
+  > ias-icon {
+
+    left: 0;
+    pointer-events: none;
+  }
+
+  > input {
+    max-width: $search-box-max-width;
+    padding-left: $icon-input-total-padding;
+  }
+
+  > ias-icon,
+  > .ias-icon-button {
+    color: $icon-input-color;
+    top: 2px;
+    position: absolute;
+  }
+
+  ias-icon {
+    box-sizing: content-box;
+    font-size: $icon-input-size;
+    padding: $icon-input-icon-padding;
+  }
+}
