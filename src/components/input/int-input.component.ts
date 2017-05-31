@@ -1,5 +1,5 @@
-import { IAugmentedJQuery, ICompileService, IDirective, IScope, IAttributes } from 'angular';
-let templateUrl = require('components/input/int.input.component.html');
+import { IAugmentedJQuery, IDirective, IScope, IAttributes } from 'angular';
+let templateUrl = require('components/input/int-input.component.html');
 
 export class IntInputController {
     static $inject = ['$scope'];

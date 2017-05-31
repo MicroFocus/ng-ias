@@ -630,14 +630,42 @@ ias-icon.ias-medium {
   width: 100%;
 }
 
+.ias-icon-input {
+  height: 33px;
+  position: relative;
+}
+
+.ias-icon-input > ias-icon {
+  left: 0;
+  pointer-events: none;
+}
+
+.ias-icon-input > input {
+  max-width: 300px;
+  padding-left: 30px;
+}
+
+.ias-icon-input > ias-icon,
+.ias-icon-input > .ias-icon-button {
+  color: #808080;
+  top: 2px;
+  position: absolute;
+}
+
+.ias-icon-input ias-icon {
+  box-sizing: content-box;
+  font-size: 20px;
+  padding: 5px;
+}
+
 input {
-  background-color: inherit;
+  background-color: transparent;
 }
 
 ias-input-container input,
 ias-input-container select,
 ias-input-container textarea {
-  background-color: inherit;
+  background-color: transparent;
   border: 1px solid #dae1e1;
   border-radius: 3px;
   color: inherit;
@@ -664,24 +692,6 @@ ias-input-container textarea {
   padding: 8px;
 }
 
-ias-input-container > span.ias-icon-input-container {
-  position: relative;
-  border: 1px solid #dae1e1;
-  display: inline-block;
-}
-
-ias-input-container > span.ias-icon-input-container input {
-  border: none;
-  padding-left: 28px;
-}
-
-ias-input-container > span.ias-icon-input-container ias-icon {
-  position: absolute;
-  left: 0px;
-  top: 6px;
-  pointer-events: none;
-}
-
 ias-input-container input[type="text"],
 ias-input-container input[type="password"],
 ias-input-container textarea {
@@ -696,7 +706,7 @@ ias-input-container textarea.inputError:focus {
 }
 
 input:focus, select:focus, textarea:focus {
-  background-color: inherit;
+  background-color: transparent;
   border-color: #01a9e7;
   color: #434c50;
   outline: none;
@@ -740,17 +750,6 @@ ias-input-container.ias-inline label {
 [dir="rtl"] ias-input-container.ias-inline label {
   margin-right: auto;
   margin-left: 10px;
-}
-
-[dir="rtl"] ias-input-container > span.ias-icon-input-container ias-icon {
-  left: auto;
-  right: 0px;
-}
-
-[dir="rtl"] ias-input-container > span.ias-icon-input-container input {
-  border: none;
-  padding-left: none;
-  padding-right: 28px;
 }
 
 ias-input-container input.input-required-missing, ias-input-container input.ng-touched.ng-invalid {
@@ -864,6 +863,7 @@ ias-list-item > span {
   display: inline-block;
   -ms-flex: 1 1;
       flex: 1 1;
+  pointer-events: none;
 }
 
 ias-list-item > ias-avatar {
@@ -939,13 +939,16 @@ ias-menu-content {
   z-index: 1;
 }
 
-ias-menu-content .ias-button:not([disabled]):not(.ias-disabled):focus, ias-menu-content .ias-button:not([disabled]):not(.ias-disabled):hover,
+ias-menu-content a:not([disabled]):not(.ias-disabled):focus, ias-menu-content a:not([disabled]):not(.ias-disabled):hover,
+ias-menu-content .ias-button:not([disabled]):not(.ias-disabled):focus,
+ias-menu-content .ias-button:not([disabled]):not(.ias-disabled):hover,
 ias-menu-content ias-list-item:not([disabled]):not(.ias-disabled):focus,
 ias-menu-content ias-list-item:not([disabled]):not(.ias-disabled):hover {
   background-color: #6a6f71;
   color: inherit;
 }
 
+ias-menu-content a,
 ias-menu-content .ias-button {
   background-color: transparent;
   border: none;
@@ -953,6 +956,7 @@ ias-menu-content .ias-button {
   color: inherit;
   display: block;
   margin: 0;
+  padding: 0.45em 0.75em;
   text-align: inherit;
   width: 100%;
 }
@@ -980,6 +984,7 @@ ias-menu-content ias-list-header {
   text-transform: uppercase;
 }
 
+[dir="rtl"] ias-menu-content a,
 [dir="rtl"] ias-menu-content .ias-button {
   margin: 0;
 }
@@ -995,7 +1000,7 @@ ias-nav > .ias-nav-content {
   display: flex;
   -ms-flex-flow: row nowrap;
       flex-flow: row nowrap;
-  min-height: 34px;
+  min-height: 35px;
   overflow: hidden;
   padding: 0 20px;
 }
@@ -1040,13 +1045,13 @@ ias-nav > .ias-nav-content > .ias-button:not([disabled]):not(.ias-disabled):hove
 }
 
 ias-nav > .ias-nav-content > a {
-  line-height: 30px;
+  line-height: 31px;
   margin: 0;
 }
 
 ias-nav > .ias-nav-content > a > ias-icon {
   font-size: 25px;
-  margin-bottom: 2px;
+  margin-bottom: 3px;
   vertical-align: middle;
 }
 
@@ -1054,13 +1059,13 @@ ias-nav > .ias-nav-content > a:not([disabled]):not(.ias-disabled).ias-active {
   border-bottom-color: #01a9e7;
   border-left-color: #dae1e1;
   border-right-color: #dae1e1;
-  color: #434c50;
+  color: #1f1f1f;
   font-weight: 500;
 }
 
 ias-nav > .ias-nav-content > span:not(.ias-fill) {
   line-height: normal;
-  margin: 8.5px 0;
+  margin: 9px 0;
   max-width: 700px;
 }
 
@@ -1121,52 +1126,20 @@ ias-panel a:focus, ias-panel a:hover {
 }
 
 ias-search-box {
-  background-color: inherit;
   display: inline-block;
-  height: 33px;
 }
 
-.ias-search-box-content {
-  height: 33px;
-  position: relative;
+ias-search-box ias-input-container > input {
+  padding-right: 30px;
 }
 
-.ias-search-box-content > ias-icon {
-  left: 0;
-}
-
-.ias-search-box-content > .ias-icon-button {
+ias-search-box ias-input-container > .ias-button.ias-icon-button {
+  border: none;
   right: 0;
-  margin-right: 0;
 }
 
-.ias-search-box-content > .ias-button.ias-icon-button:not([disabled]):focus, .ias-search-box-content .ias-button.ias-icon-button:not([disabled]):hover {
+ias-search-box ias-input-container > .ias-button.ias-icon-button:not([disabled]):focus, ias-search-box ias-input-container > .ias-button.ias-icon-button:not([disabled]):hover {
   background-color: transparent;
-  border-color: transparent;
-}
-
-.ias-search-box-content > ias-icon,
-.ias-search-box-content > .ias-icon-button {
-  position: absolute;
-  top: 2px;
-  color: #808080;
-}
-
-.ias-search-box-content > input {
-  border: 1px solid #dae1e1;
-  border-radius: 3px;
-  max-width: 300px;
-  padding: 8px 30px;
-}
-
-.ias-search-box-content > ias-icon,
-.ias-search-box-content > .ias-icon-button {
-  padding: 5px;
-}
-
-.ias-search-box-content ias-icon,
-.ias-search-box-content .ias-icon-button {
-  font-size: 20px;
 }
 
 ias-side-nav {
@@ -1597,6 +1570,7 @@ ias-tile a:focus, ias-tile a:hover {
   -ms-flex-flow: row nowrap;
       flex-flow: row nowrap;
   height: 100%;
+  pointer-events: none;
 }
 
 .ias-tile-content > ias-icon {

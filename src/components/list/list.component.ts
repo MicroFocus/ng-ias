@@ -1,6 +1,8 @@
 import { Component } from '../../component.decorator';
 import { IAugmentedJQuery, ITranscludeFunction } from 'angular';
 
+// Note: <ias-list> and <ias-list-header> don't need any Angular functionality; therefore they have no implementation
+
 @Component({
     transclude: true
 })

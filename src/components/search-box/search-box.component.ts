@@ -35,11 +35,13 @@ export default class SearchBoxComponent {
             },
             (newValue: string) => {
                 self.ngModel.$setViewValue(newValue);
-            });
+            }
+        );
     }
 
     clearInput(): void {
         this.value = '';
+        this.$element.find('input')[0].focus();
     }
 
     onInputKeyDown(event: KeyboardEvent): void {

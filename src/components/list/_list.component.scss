@@ -29,6 +29,7 @@ ias-list-item {
 
     display: inline-block;
     flex: 1 1;
+    pointer-events: none;
   }
 
   > ias-avatar {

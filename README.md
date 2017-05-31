@@ -43,9 +43,9 @@ After this initial setup you can copy code/examples from the [docs app](#DocsApp
 
 `npm install -g gulp-cli`
 
-3. Install the [BitBucket server certificate](https://wiki.provo.microfocus.com:8443/download/attachments/32741329/secmgmtgit.provo.novell.com.pem.txt), if you have not done so already. Download it, then run the command below. More information can be found on the [company wiki](https://wiki.provo.microfocus.com:8443/display/ENG/Bitbucket+Server+-+Getting+Started). 
+3. Install the [Bitbucket server certificate](https://wiki.provo.microfocus.com:8443/download/attachments/32741329/secmgmtgit.provo.novell.com.pem.txt), if you have not done so already. Download it, then run the command below. More information can be found on the [company wiki](https://wiki.provo.microfocus.com:8443/display/ENG/Bitbucket+Server+-+Getting+Started). 
 
-`git config --global http."https://secmgmtgit.provo.novell.com:8443/".sslCAInfo path/to/cert.pem`
+`git config --global http."https://secmgmtgit.provo.novell.com:8443/".sslCAInfo absolute/path/to/cert.pem`
 
 4. Install the project dependencies:
 
