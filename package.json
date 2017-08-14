@@ -1,10 +1,14 @@
 {
   "name": "ng-ias",
   "version": "1.0.0-alpha",
-  "description": "",
-  "main": "index.js",
+  "description": "Angular implementation of Micro Focus Identity and Access Management Group UX guidelines",
+  "engines": {
+    "node": ">=6.2",
+    "npm": ">=3.9"
+  },
   "scripts": {
-    "test": "node node_modules/gulp/bin/gulp test"
+    "preversion": "gulp clean",
+    "version": "gulp build:production && git add -A dist"
   },
   "repository": {
     "type": "git",
@@ -12,9 +16,7 @@
   },
   "author": "Joe Hawkins <joe.hawkins@microfocus.com>",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/jedwardhawkins/ng-ias/issues"
-  },
+  "bugs": "https://github.com/jedwardhawkins/ng-ias/issues",
   "homepage": "https://github.com/jedwardhawkins/ng-ias#readme",
   "devDependencies": {
     "@types/angular": "1.6.0",
