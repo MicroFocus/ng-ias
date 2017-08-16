@@ -1,7 +1,3 @@
-# ng-ias
-
- These widgets provide a consistent look and feel across products as well as functionality that provides product consistency.  
-
 # Micro Focus ng-ias
 
 This project is the AngularJS implementation of Identity and Access UX Guidelines (ng-ias), the official CSS 

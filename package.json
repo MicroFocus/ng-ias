@@ -6,6 +6,7 @@
     "node": ">=6.2",
     "npm": ">=3.9"
   },
+  "engineStrict": true,
   "scripts": {
   },
   "repository": {
