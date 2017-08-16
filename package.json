@@ -7,14 +7,12 @@
     "npm": ">=3.9"
   },
   "scripts": {
-    "preversion": "gulp clean",
-    "version": "gulp build:production && git add -A dist"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jedwardhawkins/ng-ias.git"
   },
-  "author": "Joe Hawkins <joe.hawkins@microfocus.com>",
+  "author": "Joe Hawkins <joe.hawkins@microfocus.com> (https://github.com/jedwardhawkins)",
   "license": "MIT",
   "bugs": "https://github.com/jedwardhawkins/ng-ias/issues",
   "homepage": "https://github.com/jedwardhawkins/ng-ias#readme",
