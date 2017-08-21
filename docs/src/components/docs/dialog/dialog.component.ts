@@ -1,6 +1,8 @@
 import { Component } from '../../../component.decorator';
 import {IScope} from 'angular';
 
+let customDialogTemplateUrl = require('./custom-dialog.template.html');
+
 @Component({
     templateUrl: require('./dialog.component.html')
 })
@@ -77,5 +79,18 @@ export default class DialogComponent {
                 function() {
                     alert('declined');
                 });
+    }
+
+    openTemplateUrlCustomDialog(): void {
+        this.IasDialogService
+            .open({
+                controller: function ($scope, IasDialogService) {
+                    $scope.title = 'Custom Template';
+                    $scope.close = function() {
+                        IasDialogService.close();
+                    };
+                },
+                templateUrl: customDialogTemplateUrl
+            });
     }
 }

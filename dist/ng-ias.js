@@ -349,12 +349,14 @@
 	        }
 	        else if (options.templateUrl) {
 	            var template = this.$templateCache.get(options.templateUrl);
+	            var self_1 = this;
 	            if (template) {
 	                return this.$q.resolve(template);
 	            }
 	            return this.$http
-	                .get(options.templateUrl, { cache: this.$templateCache })
+	                .get(options.templateUrl)
 	                .then(function (response) {
+	                self_1.$templateCache.put(options.templateUrl, response.data);
 	                return response.data;
 	            });
 	        }
