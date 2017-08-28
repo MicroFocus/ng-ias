@@ -41,6 +41,8 @@ ngGulp(gulp, {
             path.resolve(__dirname, '../node_modules/ng-prism/dist/ng-prism.js'),
             path.resolve(__dirname, '../node_modules/ias-icons/dist/**/*'),
             path.resolve(__dirname, '../dist/ng-ias.js'),
+            exclude(path.resolve(__dirname, '../node_modules/ias-icons/dist/docs/**/*')),
+            exclude(path.resolve(__dirname, '../node_modules/ias-icons/dist/ias-icons.js')),
             exclude(path.resolve(__dirname, '../node_modules/ias-icons/dist/ias-icons.min.css'))
         ],
         vendorProduction: [
@@ -53,6 +55,8 @@ ngGulp(gulp, {
             path.resolve(__dirname, '../node_modules/ng-prism/dist/ng-prism.js'),
             path.resolve(__dirname, '../node_modules/ias-icons/dist/**/*'),
             path.resolve(__dirname, '../dist/ng-ias.js'),
+            exclude(path.resolve(__dirname, '../node_modules/ias-icons/dist/docs/**/*')),
+            exclude(path.resolve(__dirname, '../node_modules/ias-icons/dist/ias-icons.js')),
             exclude(path.resolve(__dirname, '../node_modules/ias-icons/dist/ias-icons.min.css'))
         ],
         vendorTest: [
