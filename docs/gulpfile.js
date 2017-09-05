@@ -17,7 +17,6 @@ ngGulp(gulp, {
             path.resolve(__dirname, '../dist/docs')
         ]
     },
-    devServerPort: 8081,
     directories: {
         nodeModules: path.resolve(__dirname, '../node_modules'),
         output: path.resolve(__dirname, '../dist/docs'),

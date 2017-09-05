@@ -36,9 +36,7 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 
-dist/docs
-dist/**/*.gz
-dist/test-results.xml
+dist
 
 # WebStorm
 .idea
