@@ -132,14 +132,16 @@ export default class DialogService {
 
         else if (options.templateUrl) {
             let template: string = this.$templateCache.get<string>(options.templateUrl);
+            let self = this;
 
             if (template) {
                 return this.$q.resolve(template);
             }
 
             return this.$http
-                .get(options.templateUrl, { cache: this.$templateCache })
+                .get(options.templateUrl)
                 .then((response) => {
+                    self.$templateCache.put(options.templateUrl, response.data);
                     return response.data;
                 });
         }

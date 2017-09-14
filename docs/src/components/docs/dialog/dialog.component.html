@@ -128,4 +128,27 @@
             };
         </code></pre>
 	</toggleable-code>
+
+    <h4>Custom Dialog using Template Url</h4>
+
+    <ias-button ng-click="$ctrl.openTemplateUrlCustomDialog()" repeat-as-code prism-insert-id="code-05">
+        View Template Url Custom Dialog
+    </ias-button>
+
+    <toggleable-code id="code-05">
+        <pre><code highlight>
+            openTemplateUrlCustomDialog = function() {
+                IasDialogService
+                    .open({
+                        controller: function ($scope, IasDialogService) {
+                            $scope.title = 'Custom Template';
+                            $scope.close = function() {
+                                IasDialogService.close();
+                            };
+                        },
+                        templateUrl: './custom-dialog.template.html'
+                    });
+            };
+        </code></pre>
+    </toggleable-code>
 </div>
