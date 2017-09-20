@@ -1,4 +1,4 @@
-import {module, bootstrap, ILocationProvider} from 'angular';
+import {module, bootstrap} from 'angular';
 // Config
 import config from './config/config';
 import routes from './config/routes';
@@ -68,15 +68,6 @@ module('app', [
     .component('tabsDocumentation', TabsComponent)
     .component('tileDocumentation', TileComponent)
     .component('tileGridDocumentation', TileGridComponent)
-
-    .config(['$locationProvider',
-        ($locationProvider: ILocationProvider) => {
-            $locationProvider.html5Mode({
-                enabled: true,
-                requireBase: false
-            });
-        }
-    ])
 
     .run(['$transitions', 'IasToggleService',
         ($transitions: {onStart: (Object, Function) => void},   // No definition in @types/angular-ui-router#v1.1.36
