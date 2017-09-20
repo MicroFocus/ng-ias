@@ -5,7 +5,7 @@ another builds and serves the documentation application.
 
 1. Clone the repository and install packages via NPM
 
-       git clone git@github.com:jedwardhawkins/ng-ias.git
+       git clone git@github.com:microfocus/ng-ias.git
        cd ng-ias
        npm install -g gulp-cli
        npm install
