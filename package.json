@@ -8,7 +8,8 @@
   },
   "engineStrict": true,
   "scripts": {
-    "prepublish": "gulp clean && gulp build:production"
+    "prepublish": "gulp clean && gulp build:production",
+    "test": "gulp test"
   },
   "repository": {
     "type": "git",
