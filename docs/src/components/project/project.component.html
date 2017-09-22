@@ -1,8 +1,13 @@
 <div class="ias-content-padding">
     <section id="introduction">
         <h1 ng-bind="$ctrl.projectName"></h1>
-        <p><span ng-bind="$ctrl.projectName"></span> is an official implementation of Micro Focus UX using AngularJS.
-            This documentation contains a reference implementation and exmaples.</p>
+        <p>
+            This project is the AngularJS UX library for Micro Focus Identity, Access, and Security products
+            (<span ng-bind="$ctrl.projectName"></span>), the official CSS/JS framework for AngularJS web applications
+            built by Micro Focus Identity, Access, and Security Group. These guidelines help establish a consistent
+            look and feel among common user interface elements throughout Identity, Access, and Security Group
+            products. This documentation contains several interactive components in addition to providing guidelines
+            about components, user experience (UX) patterns, and application layout.
     </section>
 
     <section id="installation">
@@ -10,14 +15,19 @@
 
         <section>
             <h3>Manual Installation</h3>
-            <p>Download <a href="../ng-ias.css" target="_blank">ng-ias.css</a>,
-                <a href="vendor/ng-ias/ias-icons.css" target="_blank">ias-icons.css</a> (NOTE: ias-icons.css requires the referenced
-                font files as well), and
-                <a href="../ng-ias.js" target="_blank">ng-ias.js</a> (NOTE: ias-icons.css requires the referenced
-                font files. Add the stylesheets to your .html file:</p>
+
+            <p>
+                Download <a href="./ng-ias.css" target="_blank">ng-ias.css</a>
+                and <a href="./ng-ias.js" target="_blank">ng-ias.js</a>.
+                If you are using <a href="https://github.com/microfocus/ias-icons" target="_blank">ias-icons</a>,
+                add <a href="https://microfocus.github.io/ias-icons/ias-icons.css" target="_blank">ias-icons.css</a>
+                and the ias-icons
+                <a href="https://github.com/microfocus/ias-icons/tree/gh-pages/fonts" target="_blank">fonts
+                    directory</a> as well. Add the stylesheets to your HTML page:
+            </p>
             <pre><code highlight="markup">
-                &lt;link rel="stylesheet" href="ias-icons.css" /&gt;
                 &lt;link rel="stylesheet" href="ng-ias.css" /&gt;
+                &lt;link rel="stylesheet" href="ias-icons.css" /&gt;
                 &lt;script src="ng-ias.js"&gt;&lt;/script&gt;
             </code></pre>
         </section>
@@ -25,7 +35,7 @@
         <section>
             <h3>NPM</h3>
             <pre><code highlight="clike">
-                npm install --save --save-exact git@github.com:jedwardhawkins/ng-ias
+                npm install --save --save-exact git@github.com:microfocus/ng-ias
             </code></pre>
         </section>
     </section>
