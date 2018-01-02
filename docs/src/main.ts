@@ -33,7 +33,6 @@ module('app', [
     'ng-ias',
     'ng-prism',
     'ui.router',
-    'ui.bootstrap'
 ])
     .config(routes)
     .config([

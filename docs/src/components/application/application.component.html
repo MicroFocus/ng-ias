@@ -1,29 +1,19 @@
 <header>
-    <ias-app-bar>
+    <div class="ias-app-bar">
         <h3 class="ias-heading" ng-bind="$ctrl.projectName"></h3>
-        <span class="ias-fill"></span>
-        <ias-button class="ias-icon-button"
-                   ng-click="$ctrl.toggleDisplayDirection()"
-                   title="Toggle display direction">
-            <ias-icon ng-if="$ctrl.displayDirection === 'ltr'" icon="back_left_thick"></ias-icon>
-            <ias-icon ng-if="$ctrl.displayDirection !== 'ltr'" icon="forward_right_thick"></ias-icon>
-        </ias-button>
-        <ias-button class="ias-icon-button"
-                   ng-click="$ctrl.toggleTheme()"
-                   title="Toggle theme">
-            <ias-icon ng-if="$ctrl.isDefaultTheme()" icon="favorite_outline_thin"></ias-icon>
-            <ias-icon ng-if="!$ctrl.isDefaultTheme()" icon="favorite_fill"></ias-icon>
-        </ias-button>
-    </ias-app-bar>
-    <ias-nav>
-        <ias-button id="componentsSideNavToggle" class="ias-icon-button" ng-if="$ctrl.isComponentsView()" ias-toggle="componentSideNav">
+    </div>
+    <div class="ias-nav">
+        <ias-button id="componentsSideNavToggle" class="ias-icon-button" ng-if="$ctrl.isComponentsView()"
+                    ias-toggle="componentSideNav">
             <ias-icon icon="hamburger_menu_thick"></ias-icon>
         </ias-button>
         <a ui-sref="app.project" ui-sref-active="ias-active">Project</a>
-        <a ui-sref="app.component" ui-sref-active="ias-active" ng-click="$ctrl.goToComponentsView($event)">Components</a>
+        <a ui-sref="app.component" ui-sref-active="ias-active" ng-click="$ctrl.goToComponentsView($event)">
+            Components
+        </a>
         <a ui-sref="app.layout" ui-sref-active="ias-active" class="ias-disabled" title="Coming soon">Layout</a>
         <a ui-sref="app.themes" ui-sref-active="ias-active" class="ias-disabled" title="Coming soon">Themes</a>
-    </ias-nav>
+    </div>
 </header>
 
 <main>

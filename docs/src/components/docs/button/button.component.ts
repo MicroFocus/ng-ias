@@ -4,10 +4,11 @@ import { Component } from '../../../component.decorator';
     templateUrl: require('./button.component.html')
 })
 export default class ButtonComponent {
+    simpleButton(): void {
+        alert('You pressed the simple button');
+    }
 
-    private alerts = [];
-
-    public simpleButton(): void {
-        this.alerts.push({msg: 'You pressed the simple button'});
+    iconButton(): void {
+        alert('You pressed an icon button');
     }
 }

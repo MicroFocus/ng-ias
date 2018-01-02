@@ -1,4 +1,26 @@
-<div class="ias-scrim" ng-click="$ctrl.hide()"></div>
-<div class="ias-side-nav-content">
-    <div class="ias-side-nav-body" ng-transclude></div>
+<div class="ias-side-nav" ng-class="{ 'ias-open' : $ctrl.open }">
+    <div class="ias-scrim" ng-click="$ctrl.hide()"></div>
+    <div class="ias-side-nav-content">
+        <div class="ias-side-nav-body" ng-transclude></div>
+    </div>
 </div>
+
+
+
+<!--<div class="ias-side-nav ias-open">-->
+<!--<div class="ias-scrim"></div>-->
+<!--<div class="ias-side-nav-content">-->
+<!--<div class="ias-side-nav-body">-->
+<!--<button type="button">View My Devices</button>-->
+<!--<button type="button">Help Me...(end-user)</button>-->
+<!--<button type="button">Request impersonate session...(HelpDesk)</button>-->
+<!--<button type="button">Button 4</button>-->
+<!--<button type="button">An Interesting Link</button>-->
+<!--<button type="button">Button 6</button>-->
+<!--<button type="button">Button 7</button>-->
+<!--<button type="button">IDM Prototype</button>-->
+<!--<button type="button">Add Users</button>-->
+<!--<button type="button">Button 13</button>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->

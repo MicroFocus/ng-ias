@@ -1,12 +1,7 @@
 <h1 class="ias-page-title">Button</h1>
 
-<p class="ias-page-instructions">These button types provide simple interaction and styling to a standard HTML button and icon button. Icon buttons show an icon without a border instead of a button.
-</p>
-<p class="ias-page-instructions"><strong>WARNING:</strong> The alert boxes (&lt;uib-alert&gt; directive) require
-    angular-ui-bootstrap to work.</p>
-
-<p ng-if="$ctrl.alerts.length > 0">
-    <div uib-alert ng-repeat="alert in $ctrl.alerts" ng-class="'alert-' + (alert.type || 'warning')" close="closeAlert($index)">{{alert.msg}}</div>
+<p class="ias-page-instructions">These button types provide simple interaction and styling to a standard HTML button and
+    icon button. Icon buttons show an icon without a border instead of a button.
 </p>
 
 <div class="demo-section">
@@ -14,27 +9,27 @@
     <div toggle-repeat-code="inner">
         <ias-button ng-click="$ctrl.simpleButton()">Simple button</ias-button>
 
-        <ias-button ng-click="$ctrl.simpleButton()" disabled="disabled">Disabled button</ias-button>
+        <ias-button ng-click="$ctrl.simpleButton()" ng-disabled="true">Disabled button</ias-button>
     </div>
 </div>
 
 <div class="demo-section">
     <h4 class="ias-page-heading-4">Icon button</h4>
-    
+
     <div toggle-repeat-code="inner">
-        <ias-button class="ias-icon-button" title="Help button">
+        <ias-button ng-click="$ctrl.iconButton()" class="ias-icon-button" title="Help button">
             <ias-icon icon="help_thick"></ias-icon>
         </ias-button>
-        
-        <ias-button class="ias-icon-button" title="Favorite button">
+
+        <ias-button ng-click="$ctrl.iconButton()" class="ias-icon-button" title="Favorite button">
             <ias-icon icon="favorite_outline_thin"></ias-icon>
         </ias-button>
 
-        <ias-button class="ias-icon-button" title="Search button">
+        <ias-button ng-click="$ctrl.iconButton()" class="ias-icon-button" title="Search button">
             <ias-icon icon="search_thick"></ias-icon>
         </ias-button>
 
-        <ias-button class="ias-icon-button" title="Close button">
+        <ias-button ng-click="$ctrl.iconButton()" class="ias-icon-button" title="Close button">
             <ias-icon icon="close_thick"></ias-icon>
         </ias-button>
     </div>

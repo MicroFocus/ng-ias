@@ -7,7 +7,7 @@ side-nav-documentation {
     position: relative;
   }
 
-  ias-side-nav {
+  .ias-side-nav {
     position: absolute;
 
     &.ias-open {
@@ -28,7 +28,7 @@ side-nav-documentation {
 
 @media (min-width: $medium-display) {
   side-nav-documentation {
-    ias-side-nav {
+    .ias-side-nav {
       display: none;
       height: auto;
       opacity: 0;

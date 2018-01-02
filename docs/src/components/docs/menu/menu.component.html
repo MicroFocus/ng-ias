@@ -15,58 +15,58 @@
 
     <div toggle-repeat-code="inner">
         <ias-button ias-toggle="complexMenu">View complex menu</ias-button>
-        <ias-menu name="complexMenu" class="ias-dynamic-menu">
+        <ias-menu name="complexMenu">
             <div class="ias-row ias-border-bottom">
                 <div class="ias-column ias-border-end">
                     <div class="ias-row ias-border-bottom">
                         <div class="ias-column">
-                            <ias-menu-header>First Section</ias-menu-header>
-                            <a ui-sref=".">View My Devices</a>
-                            <a ui-sref=".">Help Me...(end-user)</a>
-                            <a ui-sref=".">Request impersonate session...(HelpDesk)</a>
+                            <h3 class="ias-menu-header">First Section</h3>
+                            <button type="button" class="ias-button">View My Devices</button>
+                            <button type="button" class="ias-button">Help Me...(end-user)</button>
+                            <button type="button" class="ias-button">Request impersonate session...(HelpDesk)</button>
                         </div>
                     </div>
                     <div class="ias-row ias-border-bottom">
                         <div class="ias-column">
-                            <ias-menu-header class="ias-menu-header">Second Section</ias-menu-header>
-                            <a ui-sref=".">Button 4</a>
-                            <a ui-sref=".">An Interesting Link</a>
-                            <a ui-sref=".">Button 6</a>
-                            <a ui-sref=".">Button 7</a>
-                            <a ui-sref=".">Request Support</a>
-                            <a ui-sref=".">Button 9</a>
+                            <h3 class="ias-menu-header">Second Section</h3>
+                            <button type="button" class="ias-button">Button 4</button>
+                            <button type="button" class="ias-button">An Interesting Link</button>
+                            <button type="button" class="ias-button">Button 6</button>
+                            <button type="button" class="ias-button">Button 7</button>
+                            <button type="button" class="ias-button">Request Support</button>
+                            <button type="button" class="ias-button">Button 9</button>
                         </div>
                     </div>
                     <div class="ias-row">
                         <div class="ias-column">
-                            <a ui-sref=".">Button 10</a>
+                            <button type="button" class="ias-button">Button 10</button>
                         </div>
                     </div>
                 </div>
                 <div class="ias-column ias-align-end">
-                    <ias-menu-header class="ias-menu-header">User Section</ias-menu-header>
-                    <a ui-sref=".">Help</a>
-                    <a ui-sref=".">Settings</a>
-                    <a ui-sref=".">Log Out</a>
+                    <h3 class="ias-menu-header">User Section</h3>
+                    <button type="button" class="ias-button">Help</button>
+                    <button type="button" class="ias-button">Settings</button>
+                    <button type="button" class="ias-button">Log Out</button>
                 </div>
             </div>
             <div class="ias-row">
                 <div class="ias-column">
-                    <ias-menu-header class="ias-menu-header">Big Section</ias-menu-header>
-                    <a ui-sref=".">IDM Prototype</a>
-                    <a ui-sref=".">Add Users</a>
-                    <a ui-sref=".">Button 13</a>
-                    <a ui-sref=".">A Button That Extends Well Beyond the Column Immediately Above It</a>
-                    <a ui-sref=".">Button 15</a>
-                    <a ui-sref=".">Micro Focus Branded Sign</a>
+                    <h3 class="ias-menu-header">Big Section</h3>
+                    <button type="button" class="ias-button">IDM Prototype</button>
+                    <button type="button" class="ias-button">Add Users</button>
+                    <button type="button" class="ias-button">Button 13</button>
+                    <button type="button" class="ias-button">A Button That Extends Well Beyond the Column Immediately Above It</button>
+                    <button type="button" class="ias-button">Button 15</button>
+                    <button type="button" class="ias-button">Micro Focus Branded Sign</button>
                 </div>
             </div>
             <div class="ias-row ias-border-top">
                 <div class="ias-column">
-                    <ias-menu-footer class="ias-menu-footer">VERSION 2.0</ias-menu-footer>
+                    <h3 class="ias-menu-footer">VERSION 2.0</h3>
                 </div>
                 <div class="ias-column">
-                    <ias-menu-footer class="ias-menu-footer">BUILD 123456</ias-menu-footer>
+                    <h3 class="ias-menu-footer">BUILD 123456</h3>
                 </div>
             </div>
         </ias-menu>
@@ -78,26 +78,25 @@
 
     <div toggle-repeat-code="inner">
         <ias-button ias-toggle="listMenu">View menu with list</ias-button>
-        <ias-menu name="listMenu" class="ias-dynamic-menu">
-            <ias-list>
-                <ias-list-header>List</ias-list-header>
-                <ias-list-item>
-                    <ias-avatar src="'images/appmarks/mark_05.png'" title="Brand, Intl."></ias-avatar>
-                    <span>Brand, Intl.</span>
-                </ias-list-item>
-                <ias-list-item>
-                    <ias-avatar src="'images/appmarks/mark_06.png'" title="Yellow Future"></ias-avatar>
-                    <span>Yellow Future</span>
-                </ias-list-item>
-                <ias-list-item>
-                    <ias-avatar src="'images/appmarks/mark_01.png'" title="Green Business"></ias-avatar>
-                    <span>Green Business</span>
-                </ias-list-item>
-                <ias-list-item>
-                    <ias-avatar src="'images/appmarks/mark_08.png'" title="Orange Star, Inc."></ias-avatar>
-                    <span>Orange Star, Inc.</span>
-                </ias-list-item>
-            </ias-list>
+        <ias-menu name="listMenu">
+            <h3 class="ias-list-header">List Header</h3>
+            <ul class="ias-list">
+                <li tabindex="0">
+                    <i class="ias-icon ias-icon-check_thick"></i>
+                    <span>Jonathan Smithsonian</span>
+                </li>
+                <li tabindex="0" class="ias-offset">
+                    <span>Camelot Rinkus</span>
+                </li>
+                <li tabindex="0">
+                    <i class="ias-icon ias-icon-check_thick"></i>
+                    <span>Christian Pledger</span>
+                </li>
+                <li tabindex="0">
+                    <i class="ias-icon ias-icon-check_thick"></i>
+                    <span>Becky Babbitt</span>
+                </li>
+            </ul>
         </ias-menu>
     </div>
 </div>

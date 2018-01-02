@@ -88,7 +88,10 @@ export default class DialogService {
         let self = this;
 
         // Initialize scope
-        let scope = options.scope ? options.scope.$new(false) : <IDialogScope>(this.$rootScope.$new(true));
+        let scope = (options.scope ?
+            options.scope.$new(false) :
+            (this.$rootScope.$new(true))
+        ) as IDialogScope;
         scope.cancel = () => { self.cancel(); };
         scope.cancelText = options.cancel;
         scope.close = () => { self.close(scope.data.response); };
@@ -148,27 +151,29 @@ export default class DialogService {
 
         else {
             return this.$q.resolve(
-                '<ias-dialog>' +
-                '   <div class="ias-dialog-header">' +
-                '       <div ng-if="!!title" class="ias-title">{{title}}</div>' +
-                '   </div>' +
-                '   <div class="ias-dialog-body">' +
-                '       <div ng-if="!prompt">{{textContent}}</div>' +
-                '       <div ng-if="prompt">' +
-                '           <ias-input-container>' +
-                '               <label for="response">{{textContent}}</label>' +
-                '               <input id="response" name="response" type="text" ng-model="data.response">' +
-                '           </ias-input-container>' +
+                '<div class="ias-dialog">' +
+                '   <div class="ias-dialog-container">' +
+                '       <div class="ias-dialog-label">' +
+                '           <div ng-if="!!title" class="ias-title">{{title}}</div>' +
                 '       </div>' +
+                '       <div class="ias-dialog-content">' +
+                '           <div ng-if="!prompt">{{textContent}}</div>' +
+                '           <div ng-if="prompt">' +
+                '               <ias-input-container>' +
+                '                   <label for="response">{{textContent}}</label>' +
+                '                   <input id="response" name="response" type="text" ng-model="data.response">' +
+                '               </ias-input-container>' +
+                '           </div>' +
+                '       </div>' +
+                '       <div class="ias-actions">' +
+                '          <ias-button ng-if="!!okText" ng-click="close()">{{okText}}</ias-button>' +
+                '          <ias-button ng-if="!!cancelText" ng-click="cancel()">{{cancelText}}</ias-button>' +
+                '       </div>' +
+                '       <ias-button class="ias-icon-button ias-dialog-cancel-button" ng-click="cancel()">' +
+                '           <ias-icon icon="close_thick"></ias-icon>' +
+                '       </ias-button>' +
                 '   </div>' +
-                '   <div class="ias-actions">' +
-                '      <ias-button ng-if="!!okText" ng-click="close()">{{okText}}</ias-button>' +
-                '      <ias-button ng-if="!!cancelText" ng-click="cancel()">{{cancelText}}</ias-button>' +
-                '   </div>' +
-                '   <ias-button class="ias-icon-button ias-dialog-close-button" ng-click="cancel()">' +
-                '       <ias-icon icon="close_thick"></ias-icon>' +
-                '   </ias-button>' +
-                '</ias-dialog>'
+                '</div>'
             );
         }
     }

@@ -1,8 +1,8 @@
-import { Component } from '../../component.decorator';
 import ToggleService from '../toggle/toggle.service';
 import {
     element,
     IAugmentedJQuery,
+    IDirective,
     IDocumentService,
     ITimeoutService,
     ITranscludeFunction,
@@ -24,15 +24,7 @@ export enum VerticalAlignment {
 
 const CLICKABLE_MENU_TAGS = [ 'a', 'button', 'ias-list-item' ];
 
-@Component({
-    bindings: {
-        align: '@iasAlign',
-        name: '@'
-    },
-    templateUrl: require('./menu.component.html'),
-    transclude: true
-})
-export class MenuComponent implements IToggleable {
+class MenuController implements IToggleable {
     align: string;
     horizontalAlignment: HorizontalAlignment;
     verticalAlignment: VerticalAlignment;
@@ -86,7 +78,7 @@ export class MenuComponent implements IToggleable {
     clickMenuScrim(event: JQueryEventObject) {
         // Only hide the menu if the scrim was clicked rather than a child element on the menu itself.
         // (Don't call event.stopPropagation: calling it changes the behavior of some navigational elements.)
-        if (event.target.tagName.toLowerCase() === 'ias-menu') {
+        if (element(event.target).hasClass('ias-menu')) {
             this.hide();
         }
     }
@@ -114,7 +106,7 @@ export class MenuComponent implements IToggleable {
     }
 
     private showMenuContent(targetElement: HTMLElement) {
-        let menuContentElement = this.$element.find('ias-menu-content')[0];
+        let menuContentElement = <HTMLElement>this.$element[0].querySelector('.ias-menu-content');
 
         let isLtrLayout: boolean = this.getLayoutDirection() !== 'rtl';
 
@@ -216,26 +208,19 @@ export class MenuComponent implements IToggleable {
     }
 }
 
-@Component({
-    transclude: true
-})
-export class MenuFooterComponent {
-    static $inject = [ '$element', '$transclude' ];
-    constructor($element: IAugmentedJQuery, $transclude: ITranscludeFunction) {
-        $transclude((clone: IAugmentedJQuery) => {
-            $element.append(clone);
-        });
-    }
-}
-
-@Component({
-    transclude: true
-})
-export class MenuHeaderComponent {
-    static $inject = [ '$element', '$transclude' ];
-    constructor($element: IAugmentedJQuery, $transclude: ITranscludeFunction) {
-        $transclude((clone: IAugmentedJQuery) => {
-            $element.append(clone);
-        });
-    }
+export default function MenuDirective(): IDirective {
+    return {
+        bindToController: true,
+        controller: MenuController,
+        replace: true,
+        restrict: 'E',
+        scope: {
+            align: '@iasAlign',
+            name: '@'
+        },
+        template: '<div class="ias-menu">' +
+            '   <div class="ias-menu-content" ng-transclude></div>' +
+            '</div>',
+        transclude: true,
+    };
 }

@@ -1,6 +1,6 @@
 import * as angular from 'angular';
 import { element, IAugmentedJQuery, ICompileService, IComponentControllerService, mock } from 'angular';
-import { HorizontalAlignment, MenuComponent, VerticalAlignment } from './menu.component';
+import { HorizontalAlignment, MenuController, VerticalAlignment } from './menu.directive';
 import ToggleService from '../toggle/toggle.service';
 
 describe('MenuComponent', () => {

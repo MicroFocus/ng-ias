@@ -50,17 +50,19 @@ export default class DialogComponent {
                     };
                 },
                 template:
-                    '<ias-dialog>' +
-                    '   <div class="ias-dialog-header">' +
-                    '       <div class="ias-title">{{title}}</div>' +
+                    '<div class="ias-dialog">' +
+                    '<div class="ias-dialog-container">' +
+                    '       <div class="ias-dialog-label">' +
+                    '           <div class="ias-title">{{title}}</div>' +
+                    '       </div>' +
+                    '       <div class="ias-dialog-content">' +
+                    '           <p>Add your content here</p>' +
+                    '       </div>' +
+                    '       <div class="ias-actions">' +
+                    '          <ias-button ng-click="close()">Got It!</ias-button>' +
+                    '       </div>' +
                     '   </div>' +
-                    '   <div class="ias-dialog-body">' +
-                    '       <p>Add your content here</p>' +
-                    '   </div>' +
-                    '   <div class="ias-actions">' +
-                    '      <ias-button ng-click="close()">Got It!</ias-button>' +
-                    '   </div>' +
-                    '</ias-dialog>'
+                    '</div>'
             });
     }
 

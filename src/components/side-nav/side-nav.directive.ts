@@ -1,22 +1,16 @@
-import { Component } from '../../component.decorator';
-import { IAugmentedJQuery } from 'angular';
+import { IAugmentedJQuery, IDirective } from 'angular';
 import { IToggleable } from '../toggle/toggle.directive';
 import ToggleService from '../toggle/toggle.service';
+let templateUrl = require('components/side-nav/side-nav.component.html');
 
-@Component({
-    bindings: {
-        name: '@'
-    },
-    templateUrl: require('./side-nav.component.html'),
-    transclude: true
-})
-export default class SideNavComponent implements IToggleable {
+class SideNavController implements IToggleable {
     name: string;
     open: boolean;
 
     static $inject = ['$element', 'IasToggleService'];
     constructor(private $element: IAugmentedJQuery, private toggleService: ToggleService) {
         this.open = false;
+        // this.name = (this as any).$ctrl.name;
     }
 
     $onInit(): void {
@@ -36,4 +30,19 @@ export default class SideNavComponent implements IToggleable {
         this.$element.addClass('ias-open');
         this.open = true;
     }
+}
+
+export default function SideNavDirective(): IDirective {
+    return {
+        bindToController: true,
+        controller: SideNavController,
+        controllerAs: '$ctrl',
+        scope: {
+            name: '@'
+        },
+        restrict: 'E',
+        templateUrl: templateUrl,
+        transclude: true,
+        replace: true
+    };
 }
