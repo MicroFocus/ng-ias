@@ -1,0 +1,10 @@
+<h1 class="ias-page-title">Date Picker</h1>
+
+<div class="ias-input-container">
+    <label for="birthday">Date of Birth <span class="ias-required">*</span></label>
+    <input id="birthday" name="birthday" type="date" ng-model="$ctrl.birthday" novalidate>
+    <!--<ias-button class="ias-icon-button">-->
+        <!--<ias-icon icon="date_thick"></ias-icon>-->
+    <!--</ias-button>-->
+</div>
+<ias-date-picker ng-model="$ctrl.birthday" toggle-repeat-code></ias-date-picker>

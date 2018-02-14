@@ -1,44 +1,31 @@
 <h1 class="ias-page-title">Tabs</h1>
-<p class="ias-page-instructions">This example shows the basic styling for tab panels.</p>
-<p class="ias-page-instructions"><strong>WARNING:</strong> The &lt;uib-tabset&gt; and &lt;uib-tab&gt; directives require
-    angular-ui-bootstrap to work.</p>
 
 <div class="demo-section">
-    <div toggle-repeat-code="inner">
-    <uib-tabset class="ias-tabset">
-            <uib-tab class="ias-tab" index="0" heading="Tab 1">
-                <h4>This is tab 1</h4>
-            </uib-tab>
-            <uib-tab class="ias-tab" index="1" heading="Tab 2">
-                <h4>This is tab 2</h4>
-            </uib-tab>
-            <uib-tab class="ias-tab" index="2" heading="Tab 3">
-                <h4>This is tab 3</h4>
-            </uib-tab>
-            <uib-tab class="ias-tab" index="3" heading="Tab 4">
-                <h4>This is tab 4</h4>
-            </uib-tab>
-        </uib-tabset>
-    </div>
+    <ias-tabset toggle-repeat-code>
+        <ias-tab label="Tab 1">Tab 1 content</ias-tab>
+        <ias-tab label="Tab 2">Tab 2 content</ias-tab>
+        <ias-tab label="Tab 3">Tab 3 content</ias-tab>
+        <ias-tab label="Tab 4">Tab 4 content</ias-tab>
+    </ias-tabset>
 </div>
 
-<div class="demo-section">
-    <div toggle-repeat-code="inner">
-    <uib-tabset class="ias-tabset">
-            <uib-tab class="ias-tab" index="0" heading="Short Label">
-                <h4>This is tab 1</h4>
-            </uib-tab>
-            <uib-tab class="ias-tab" index="1" heading="A bit longer label">
-                <h4>This is tab 2</h4>
-            </uib-tab>
-            <uib-tab class="ias-tab" index="2" heading="A really long label to show width">
-                <h4>This is tab 3</h4>
-            </uib-tab>
-            <uib-tab class="ias-tab" index="3" heading="Tab 4">
-                <h4>This is tab 4</h4>
-            </uib-tab>
-    
-            <a ui-sref="." class="ias-tab-link">Action Link</a>
-        </uib-tabset>
-    </div>
-</div>
+<!--<div class="demo-section">-->
+    <!--<div toggle-repeat-code="inner">-->
+    <!--<uib-tabset class="ias-tabset">-->
+            <!--<uib-tab class="ias-tab" index="0" heading="Short Label">-->
+                <!--<h4>This is tab 1</h4>-->
+            <!--</uib-tab>-->
+            <!--<uib-tab class="ias-tab" index="1" heading="A bit longer label">-->
+                <!--<h4>This is tab 2</h4>-->
+            <!--</uib-tab>-->
+            <!--<uib-tab class="ias-tab" index="2" heading="A really long label to show width">-->
+                <!--<h4>This is tab 3</h4>-->
+            <!--</uib-tab>-->
+            <!--<uib-tab class="ias-tab" index="3" heading="Tab 4">-->
+                <!--<h4>This is tab 4</h4>-->
+            <!--</uib-tab>-->
+    <!---->
+            <!--<a ui-sref="." class="ias-tab-link">Action Link</a>-->
+        <!--</uib-tabset>-->
+    <!--</div>-->
+<!--</div>-->

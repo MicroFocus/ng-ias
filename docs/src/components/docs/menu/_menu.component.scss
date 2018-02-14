@@ -1,14 +1,14 @@
 .ias-menu {
   //background-color: transparent;
-  bottom: 0;
+  //bottom: 0;
   //color: inherit;
   //display: none;
   //font-size: inherit;
-  left: 0;
-  max-width: 100%;
-  position: fixed;
-  right: 0;
-  top: 0;
+  //left: 0;
+  //max-width: 100%;
+  //position: fixed;
+  //right: 0;
+  //top: 0;
 
   &.ias-open {
     //display: block;
@@ -32,13 +32,13 @@
   //border-radius: $border-radius;
   //box-sizing: border-box;
   //color: $menu-text-color;
-  display: block;
+  //display: block;
   //font-size: $menu-content-font-size;
-  overflow: hidden;
-  overflow-y: auto;
+  //overflow: hidden;
+  //overflow-y: auto;
   //padding: $spacing;
-  position: absolute;
-  z-index: 1;
+  //position: absolute;
+  //z-index: 1;
 
   a,
   .ias-button,

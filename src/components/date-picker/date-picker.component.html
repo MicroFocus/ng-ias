@@ -1,0 +1,59 @@
+<div class="ias-datepicker">
+    <div class="ias-actions">
+        <ias-button class="ias-icon-button" type="button" ng-click="$ctrl.prev()">
+            <ias-icon icon="prev_left_thin"></ias-icon>
+        </ias-button>
+        <span ng-bind="$ctrl.monthMode ? ($ctrl.visibleDate | date: 'MMMM yyyy') : $ctrl.currentYear" ng-click="$ctrl.toggleMonthMode()" tabindex="0"></span>
+        <ias-button class="ias-icon-button" type="button" ng-click="$ctrl.next()">
+            <ias-icon icon="next_right_thin"></ias-icon>
+        </ias-button>
+    </div>
+
+    <!-- MONTH MODE -->
+    <table ng-show="$ctrl.monthMode">
+        <thead>
+        <tr>
+            <th>S</th>
+            <th>M</th>
+            <th>T</th>
+            <th>W</th>
+            <th>T</th>
+            <th>F</th>
+            <th>S</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="week in $ctrl.currentWeeks">
+            <td
+                ng-repeat="day in week"
+                ng-class="$ctrl.getClass(day)"
+                ng-click="$ctrl.selectDate(day)"
+                ng-bind="day.getDate()"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!-- YEAR MODE -->
+    <table ng-hide="$ctrl.monthMode" class="ias-break">
+        <tbody>
+        <tr>
+            <td ng-click="$ctrl.goToMonth(0)">Jan</td>
+            <td ng-click="$ctrl.goToMonth(1)">Feb</td>
+            <td ng-click="$ctrl.goToMonth(2)">Mar</td>
+            <td ng-click="$ctrl.goToMonth(3)">Apr</td>
+        </tr>
+        <tr>
+            <td ng-click="$ctrl.goToMonth(4)">May</td>
+            <td ng-click="$ctrl.goToMonth(5)">Jun</td>
+            <td ng-click="$ctrl.goToMonth(6)">Jul</td>
+            <td ng-click="$ctrl.goToMonth(7)">Aug</td>
+        </tr>
+        <tr>
+            <td ng-click="$ctrl.goToMonth(8)">Sep</td>
+            <td ng-click="$ctrl.goToMonth(9)">Oct</td>
+            <td ng-click="$ctrl.goToMonth(10)">Nov</td>
+            <td ng-click="$ctrl.goToMonth(11)">Dec</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

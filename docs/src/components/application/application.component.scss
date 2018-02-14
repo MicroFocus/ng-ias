@@ -12,7 +12,7 @@ application {
 }
 
 @media (min-width: $medium-display) {
-  ias-nav #componentsSideNavToggle {
+  .ias-nav #componentsSideNavToggle {
     display: none;
   }
 }

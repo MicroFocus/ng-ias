@@ -1,11 +1,11 @@
-<ias-input-container class="ias-icon-input">
+<div class="ias-input-container ias-search">
     <input type="text"
-           autocomplete="false"
-           ng-model="$ctrl.value"
            ng-attr-placeholder="{{$ctrl.placeholder}}"
-           ng-keydown="$ctrl.onInputKeyDown($event)" />
-    <ias-icon icon="search_thick"></ias-icon>
-    <ias-button class="ias-icon-button" ng-click="$ctrl.clearInput()">
+           ng-keydown="$ctrl.onInputKeyDown($event)"
+           ng-model="$ctrl.ngModel"
+           ng-model-options="$ctrl.ngModelOptions">
+    <i class="ias-icon ias-icon-search_thick"></i>
+    <ias-button class="ias-icon-button" title="Clear search box" ng-click="$ctrl.clearInput()">
         <ias-icon icon="close_thick"></ias-icon>
     </ias-button>
-</ias-input-container>
+</div>

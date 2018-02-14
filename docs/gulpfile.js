@@ -23,6 +23,8 @@ ngGulp(gulp, {
         indexProduction: 'src/index.production.html',
         vendorDevelopment: [
             path.resolve(__dirname, '../node_modules/angular/angular.js'),
+            path.resolve(__dirname, '../node_modules/angular-aria/angular-aria.js'),
+            path.resolve(__dirname, '../node_modules/angular-messages/angular-messages.js'),
             path.resolve(__dirname, '../node_modules/angular-ui-router/release/angular-ui-router.js'),
             path.resolve(__dirname, '../node_modules/@microfocus/ias-icons/dist/font**/*'),
             path.resolve(__dirname, '../node_modules/@microfocus/ias-icons/dist/ias-icons.css'),
@@ -33,6 +35,8 @@ ngGulp(gulp, {
         ],
         vendorProduction: [
             path.resolve(__dirname, '../node_modules/angular/angular.js'),
+            path.resolve(__dirname, '../node_modules/angular-aria/angular-aria.js'),
+            path.resolve(__dirname, '../node_modules/angular-messages/angular-messages.js'),
             path.resolve(__dirname, '../node_modules/angular-ui-router/release/angular-ui-router.js'),
             path.resolve(__dirname, '../node_modules/@microfocus/ias-icons/dist/font**/*'),
             path.resolve(__dirname, '../node_modules/@microfocus/ias-icons/dist/ias-icons.css'),
@@ -43,6 +47,8 @@ ngGulp(gulp, {
         ],
         vendorTest: [
             path.resolve(__dirname, '../node_modules/angular/angular.js'),
+            path.resolve(__dirname, '../node_modules/angular-aria/angular-aria.js'),
+            path.resolve(__dirname, '../node_modules/angular-messages/angular-messages.js'),
             path.resolve(__dirname, '../node_modules/angular-mocks/angular-mocks.js'),
             path.resolve(__dirname, '../node_modules/angular-ui-router/release/angular-ui-router.js'),
             path.resolve(__dirname, '../node_modules/ng-prism/dist/ng-prism.js'),

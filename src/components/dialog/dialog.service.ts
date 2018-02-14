@@ -29,6 +29,7 @@ interface IDialogScope extends IScope {
 interface IDialogOptions {
     cancel: string;
     controller: any;
+    locals?: any;
     ok: string;
     prompt: boolean;
     response: string;
@@ -100,10 +101,12 @@ export default class DialogService {
         scope.data = { response: options.response };
         scope.textContent = options.textContent;
         scope.title = options.title;
+        let locals = options.locals || {};
+        locals.$scope = scope;
 
         // Instantiate controller if provided
         if (options.controller) {
-            this.dialogController = this.$controller(options.controller, { $scope: scope });
+            this.dialogController = this.$controller(options.controller, locals);
         }
 
         // Compile template
@@ -159,10 +162,10 @@ export default class DialogService {
                 '       <div class="ias-dialog-content">' +
                 '           <div ng-if="!prompt">{{textContent}}</div>' +
                 '           <div ng-if="prompt">' +
-                '               <ias-input-container>' +
+                '               <div class="ias-input-container">' +
                 '                   <label for="response">{{textContent}}</label>' +
                 '                   <input id="response" name="response" type="text" ng-model="data.response">' +
-                '               </ias-input-container>' +
+                '               </div>' +
                 '           </div>' +
                 '       </div>' +
                 '       <div class="ias-actions">' +

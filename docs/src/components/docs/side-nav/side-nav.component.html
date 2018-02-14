@@ -1,34 +1,28 @@
 <h1 class="ias-page-title">Side Nav</h1>
 
 <div class="demo-section">
-	<ias-nav>
-		<ias-button class="ias-icon-button" ias-toggle="sideNav1">
-			<ias-icon icon="hamburger_menu_thick"></ias-icon>
-		</ias-button>
-		<span>Select the menu icon to the left to show the navigation</span>
-		<span class="ias-fill"></span>
-		<ias-button class="ias-icon-button">
-			<ias-icon icon="search_thick"></ias-icon>
-		</ias-button>
-	</ias-nav>
-	<div class="side-nav-demo" toggle-repeat-code="inner">
+    <p>Click the menu icon below to show the navigation. Click the button again or click the darkened background to
+        close the side nav</p>
+    <ias-button class="ias-icon-button" ias-toggle="sideNav1">
+        <ias-icon icon="hamburger_menu_thick"></ias-icon>
+    </ias-button>
+
+    <div class="side-nav-demo" toggle-repeat-code="inner">
         <ias-side-nav name="sideNav1">
             <a ui-sref=".">Link 1</a>
             <a ui-sref=".">Link 2</a>
             <a ui-sref=".">Link 3</a>
             <a ui-sref=".">Link 4</a>
-            <a ui-sref=".">Link 5</a>
-            <a ui-sref=".">Link 6</a>
-            <a ui-sref=".">Link 7</a>
-            <a ui-sref=".">Link 8</a>
         </ias-side-nav>
-        <demo-content class="side-nav-demo-content ias-content-padding">
-        </demo-content>
+
+        <demo-content class="side-nav-demo-content ias-content-padding"></demo-content>
     </div>
 </div>
 
 <div class="demo-section">
-    <h4>.ias-locked (or larger displays)</h4>
+    <h4>.ias-locked</h4>
+    <p>The CSS class <code>.ias-locked</code> allows a side nav to be locked open. This is the default behavior on wide
+        layouts.</p>
 
     <div class="side-nav-demo" toggle-repeat-code="inner">
         <ias-side-nav name="sideNav2" class="ias-locked">
@@ -36,12 +30,8 @@
             <a ui-sref=".">Link 2</a>
             <a ui-sref=".">Link 3</a>
             <a ui-sref=".">Link 4</a>
-            <a ui-sref=".">Link 5</a>
-            <a ui-sref=".">Link 6</a>
-            <a ui-sref=".">Link 7</a>
-            <a ui-sref=".">Link 8</a>
         </ias-side-nav>
-        <demo-content class="side-nav-demo-content ias-content-padding">
-        </demo-content>
+
+        <demo-content class="side-nav-demo-content ias-content-padding"></demo-content>
     </div>
 </div>

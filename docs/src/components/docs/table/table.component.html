@@ -1,7 +1,7 @@
 <h1 class="ias-page-title">Table</h1>
 
 <div class="demo-section">
-    <table toggle-repeat-code>
+    <table class="ias-table" toggle-repeat-code>
         <thead>
             <tr>
                 <th>Name</th>
@@ -36,7 +36,7 @@
     <p>The ias-sort-on allows the user to specify a sort expression for individual columns in the table. This
     expression is stored in the property designated in ias-sort.</p>
 
-    <table ias-sort="$ctrl.sort" toggle-repeat-code
+    <table class="ias-table" ias-sort="$ctrl.sort" toggle-repeat-code
            ng-init="$ctrl.people=[
             {name: 'Antonio Barboni', title: 'UX Director'},
             {name: 'Christian Pledger', title: 'Assistant to the UX Director'},
@@ -62,7 +62,7 @@
 <div class="demo-section">
     <h4>Inline ias-icon</h4>
 
-    <table toggle-repeat-code>
+    <table class="ias-table" toggle-repeat-code>
         <thead>
             <tr>
                 <th>Name</th>
@@ -97,7 +97,8 @@
 
 <div class="demo-section">
     <h4>w/ ias-icon-button</h4>
-    <table toggle-repeat-code>
+
+    <table class="ias-table" toggle-repeat-code>
         <thead>
             <tr>
                 <th>Name</th>

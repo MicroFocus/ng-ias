@@ -1,11 +1,11 @@
-import { IAttributes, IAugmentedJQuery, ICompileService, IDirective, IScope } from 'angular';
+import { element, IAttributes, IAugmentedJQuery, ICompileService, IDirective, IScope } from 'angular';
 
 export class SortDirectiveController {
     sortBinding: string;
     sortExpression: string;
 
-    static $inject = ['$scope'];
-    constructor(private $scope: IScope) {
+    static $inject = ['$element', '$scope'];
+    constructor(private $element: IAugmentedJQuery, private $scope: IScope) {
     }
 
     sortOn(sortOnProperty: string) {
@@ -16,6 +16,7 @@ export class SortDirectiveController {
             this.sortExpression = sortOnProperty;
         }
 
+        element(this.$element[0].querySelectorAll('.ias-sorted')).removeClass('ias-sorted');
         this.$scope.$eval(this.sortBinding + '="' + this.sortExpression + '"');
     }
 }
@@ -55,8 +56,10 @@ export function SortOnDirective($compile: ICompileService): IDirective {
 
             // Add sort icons
             let iconHtml =
-                '<ias-icon icon="down_thick" ng-if="getSortExpression() == \'' + scope.sortOn + '\'"></ias-icon>' +
-                '<ias-icon icon="up_thick" ng-if="getSortExpression() == \'-' + scope.sortOn + '\'"></ias-icon>';
+                '<ias-icon icon="flow_goto_prev_thin" ng-if="getSortExpression() == \'' +
+                    scope.sortOn + '\'"></ias-icon>' +
+                '<ias-icon icon="flow_goto_next_thin" ng-if="getSortExpression() == \'-' +
+                    scope.sortOn + '\'"></ias-icon>';
             let iconElement = $compile(iconHtml)(scope);
             element.append(iconElement);
 
@@ -67,6 +70,7 @@ export function SortOnDirective($compile: ICompileService): IDirective {
             element.on('click', () => {
                 scope.$apply(() => {
                     controller.sortOn(scope['sortOn']);
+                    element.addClass('ias-sorted');
                 });
             });
         }

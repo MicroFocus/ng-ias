@@ -1,54 +1,46 @@
-import { IAugmentedJQuery, INgModelController, IScope } from 'angular';
-import { Component } from '../../component.decorator';
+import {IAugmentedJQuery, IDirective} from 'angular';
+let templateUrl = require('components/search-box/search-box.component.html');
 
-@Component({
-    bindings: {
-        placeholder: '@'
-    },
-    require: {
-        ngModel: '^ngModel'
-    },
-    templateUrl: require('./search-box.component.html')
-})
-export default class SearchBoxComponent {
-    ngModel: INgModelController;
+
+class SearchBoxController {
+    ngModel: any;
     placeholder: string;
-    value: string;
 
-    static $inject = [ '$element', '$scope' ];
-    constructor(private $element: IAugmentedJQuery, private $scope: IScope) {
+    static $inject = [ '$element' ];
+    constructor(private $element: IAugmentedJQuery) {
     }
 
     $onInit(): void {
         // Set defaults
         this.placeholder = this.placeholder || 'Search';
-
-        // Initialize ngModel
-        let self = this;
-        this.ngModel.$render = () => {
-            self.value = self.ngModel.$viewValue;
-        };
-
-        this.$scope.$watch(
-            (): string => {
-                return self.value;
-            },
-            (newValue: string) => {
-                self.ngModel.$setViewValue(newValue);
-            }
-        );
     }
 
     clearInput(): void {
-        this.value = '';
+        this.ngModel = '';
         this.$element.find('input')[0].focus();
     }
 
     onInputKeyDown(event: KeyboardEvent): void {
-        switch (event.which || event.keyCode) {
-            case 27: // ESCAPE
-                this.clearInput();
-                break;
+        if ((event.which || event.keyCode) == 27) {
+            this.clearInput();
         }
     }
 }
+
+
+export default function SearchBoxDirective(): IDirective {
+    return {
+        bindToController: true,
+        controller: SearchBoxController,
+        controllerAs: '$ctrl',
+        restrict: 'E',
+        scope: {
+            ngModel: '=',
+            ngModelOptions: '<',
+            placeholder: '@'
+        },
+        templateUrl: templateUrl,
+        replace: true
+    };
+}
+

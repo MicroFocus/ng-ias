@@ -29,8 +29,11 @@ section {
     width: 100%;
 }
 
-.ias-tile-actions { color: #007cd0; }
-.tiles ias-tile {
-    display: inline-block;
+.ias-tile > .ias-actions {
+    color: #007cd0;
+}
+
+.tiles .ias-tile {
+    display: inline-flex;
     vertical-align: middle;
 }

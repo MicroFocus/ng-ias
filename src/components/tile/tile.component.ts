@@ -1,13 +1,11 @@
-import { Component } from '../../component.decorator';
-import { IAugmentedJQuery } from 'angular';
+import {IAugmentedJQuery, IDirective, IScope} from 'angular';
+let templateUrl = require('components/tile/tile.component.html');
 
-@Component({
-    templateUrl: require('./tile.component.html'),
-    transclude: true
-})
-export default class TileComponent {
-    static $inject = [ '$element' ];
-    constructor($element: IAugmentedJQuery) {
-        $element.attr('tabindex', 0);
-    }
+export default function TileDirective(): IDirective {
+    return {
+        replace: true,
+        restrict: 'E',
+        templateUrl: templateUrl,
+        transclude: true
+    };
 }

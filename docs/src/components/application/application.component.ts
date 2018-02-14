@@ -20,7 +20,7 @@ export default class ApplicationComponent {
     goToComponentsView($event): void {
         $event.preventDefault();
 
-        this.$state.go('app.component.appBar');
+        this.$state.go('app.component.button');
     };
 
     isComponentsView(): boolean {
