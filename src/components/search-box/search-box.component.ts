@@ -1,18 +1,24 @@
-import {IAugmentedJQuery, IDirective} from 'angular';
+import {IAugmentedJQuery, IDirective, IScope} from 'angular';
 let templateUrl = require('components/search-box/search-box.component.html');
 
 
 class SearchBoxController {
     ngModel: any;
+    onChange: (args: any) => void;
     placeholder: string;
 
-    static $inject = [ '$element' ];
-    constructor(private $element: IAugmentedJQuery) {
+    static $inject = [ '$element', '$scope' ];
+    constructor(private $element: IAugmentedJQuery, private $scope: IScope) {
     }
 
-    $onInit(): void {
-        // Set defaults
-        this.placeholder = this.placeholder || 'Search';
+    $onInit() {
+        this.$scope.$watch(
+            '$ctrl.ngModel',
+            (newValue: string, oldValue: string) => {
+                if (newValue !== oldValue && this.onChange) {
+                    this.onChange({$text: newValue});
+                }
+            });
     }
 
     clearInput(): void {
@@ -22,6 +28,9 @@ class SearchBoxController {
 
     onInputKeyDown(event: KeyboardEvent): void {
         if ((event.which || event.keyCode) == 27) {
+            if (!!this.ngModel) {
+                event.preventDefault();
+            }
             this.clearInput();
         }
     }
@@ -37,6 +46,7 @@ export default function SearchBoxDirective(): IDirective {
         scope: {
             ngModel: '=',
             ngModelOptions: '<',
+            onChange: '&iasOnChange',
             placeholder: '@'
         },
         templateUrl: templateUrl,

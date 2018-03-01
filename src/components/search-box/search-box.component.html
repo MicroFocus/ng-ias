@@ -1,6 +1,6 @@
-<div class="ias-input-container ias-search">
+<div class="ias-search">
     <input type="text"
-           ng-attr-placeholder="{{$ctrl.placeholder}}"
+           ng-attr-placeholder="{{$ctrl.placeholder || 'Search'}}"
            ng-keydown="$ctrl.onInputKeyDown($event)"
            ng-model="$ctrl.ngModel"
            ng-model-options="$ctrl.ngModelOptions">

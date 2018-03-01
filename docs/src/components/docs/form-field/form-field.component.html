@@ -3,5 +3,73 @@
 <div class="demo-section">
     <h4>Search Box</h4>
 
-    <ias-search-box ng-model="$ctrl.search" ng-model-options="{debounce: 200}" toggle-repeat-code></ias-search-box>
+    <ias-search-box ng-model="$ctrl.query" ng-model-options="{debounce: 200}" toggle-repeat-code></ias-search-box>
+</div>
+
+<div class="demo-section">
+    <h4>Autocomplete (sync)</h4>
+
+    <ias-autocomplete placeholder="State"
+                      ias-items="state in $ctrl.search($query)"
+                      ias-on-item-selected="$ctrl.onAutocompleteItemSelected($item)"
+                      ias-search-text="$ctrl.searchText"
+                      repeat-as-code prism-insert-id="code01">
+    </ias-autocomplete>
+
+    <toggleable-code id="code01">
+        <pre><code highlight>
+        const STATES = [
+            'Alabama',
+            'Alaska',
+            ...
+            'Wisconsin',
+            'Wyoming'
+        ];
+
+        search(query: string): string[] {
+            return STATES
+                .filter((state) => state.match(new RegExp(query, 'i')))
+                .slice(0, 10);
+        }
+
+        onAutocompleteItemSelected($item): void {
+            this.searchText = $item.name;
+        }
+        </code></pre>
+    </toggleable-code>
+</div>
+
+<div class="demo-section">
+    <h4>Autocomplete (async)</h4>
+
+    <ias-autocomplete placeholder="State"
+                      ias-debounce="700"
+                      ias-items="state in $ctrl.searchAsync($query)"
+                      ias-on-item-selected="$ctrl.onAsyncAutocompleteItemSelected($item)"
+                      ias-search-text="$ctrl.asyncSearchText"
+                      repeat-as-code prism-insert-id="code02">
+        <template><span ng-bind="state.code + ' - ' + state.name"></span></template>
+    </ias-autocomplete>
+
+    <toggleable-code id="code02">
+        <pre><code highlight>
+        const STATES = [
+            {name: 'Alabama', code: 'AL'},
+            {name: 'Alaska', code: 'AK'},
+            ...
+            {name: 'Wisconsin', code: 'WI'},
+            {name: 'Wyoming', code: 'WY'}
+        ];
+
+        searchAsync(query: string): Promise&lt;any[]&gt; {
+            return this.$q.resolve(STATES
+                .filter((state) => state.name.match(new RegExp(query, 'i')))
+                .slice(0, 10));
+        }
+
+        onAsyncAutocompleteItemSelected($item): void {
+            this.asyncSearchText = $item.name;
+        }
+        </code></pre>
+    </toggleable-code>
 </div>

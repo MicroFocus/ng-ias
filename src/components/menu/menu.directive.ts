@@ -5,7 +5,6 @@ import {
     IDirective,
     IDocumentService,
     ITimeoutService,
-    ITranscludeFunction,
     IWindowService
 } from 'angular';
 

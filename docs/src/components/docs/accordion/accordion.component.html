@@ -1,23 +1,99 @@
 <h1 class="ias-page-title">Accordion</h1>
 
 <div class="demo-section">
-    <ias-accordion>
-        <ias-accordion-item>
-            <ias-accordion-header>Personal Information</ias-accordion-header>
+    <ias-accordion toggle-repeat-code>
+        <ias-accordion-item toggle-mutex-group="accordion1" name="acc1">
+            <ias-accordion-header ias-toggle="acc1" >Personal Information</ias-accordion-header>
             <div class="ias-accordion-content">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dignissimos facilis repellendus
-                voluptatibus? Ad aperiam cupiditate deleniti molestiae perspiciatis sapiente! Amet aspernatur deleniti
-                dignissimos doloremque fuga hic laborum sapiente voluptatem!
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dignissimos facilis repellendus
+                    voluptatibus? Ad aperiam cupiditate deleniti molestiae perspiciatis sapiente! Amet aspernatur
+                    deleniti dignissimos doloremque fuga hic laborum sapiente voluptatem!</p>
             </div>
         </ias-accordion-item>
-        <ias-accordion-item>
-            <ias-accordion-header>Account <ias-icon icon="message_error_thick" class="ias-error"></ias-icon></ias-accordion-header>
+        <ias-accordion-item toggle-mutex-group="accordion1" name="acc2">
+            <ias-accordion-header ias-toggle="acc2">Account <ias-icon icon="message_error_thick" class="ias-error"></ias-icon></ias-accordion-header>
             <div class="ias-accordion-content">
-                <div>Ab accusantium consequuntur dolor impedit natus nobis placeat rem sunt voluptates. Adipisci aperiam
+                <p>Ab accusantium consequuntur dolor impedit natus nobis placeat rem sunt voluptates. Adipisci aperiam
                     doloremque earum facere impedit laudantium ratione repellendus sunt voluptatem? Alias distinctio
-                    excepturi fuga id nobis quia tenetur.
-                </div>
+                    excepturi fuga id nobis quia tenetur.</p>
             </div>
         </ias-accordion-item>
     </ias-accordion>
+</div>
+
+<div class="demo-section">
+    <h3>Different start item</h3>
+    <p class="ias-page-instructions">By default, [toggle-mutex-groups] show the first component on start. Use the
+        [toggle-start-open] directive to toggle a specific item on start. If toggle-start-open is used on multiple
+        accordion items, the last one declared will be used.</p>
+
+    <ias-accordion toggle-repeat-code>
+        <ias-accordion-item toggle-mutex-group="accordion2" name="item1">
+            <ias-accordion-header ias-toggle="item1">Accordion Item 1</ias-accordion-header>
+            <div class="ias-accordion-content">
+                <p>Accordion Item 1 content</p>
+            </div>
+        </ias-accordion-item>
+        <ias-accordion-item toggle-mutex-group="accordion2" name="item2" toggle-start-open="true">
+            <ias-accordion-header ias-toggle="item2">Accordion Item 2</ias-accordion-header>
+            <div class="ias-accordion-content">
+                <p>Accordion Item 2 content</p>
+            </div>
+        </ias-accordion-item>
+    </ias-accordion>
+</div>
+
+<div class="demo-section">
+    <h3>[toggle-group]</h3>
+    <p class="ias-page-instructions">[toggle-mutex-groups require that one and only one component is showing at all
+        times and are the IAS preferred method for accordions. Use the [toggle-group] attribute instead of
+        [toggle-mutex-group] to allow multiple accordion items to show or collapse simultaneously.</p>
+
+    <ias-accordion toggle-repeat-code>
+        <ias-accordion-item toggle-group="accordion3" name="item3">
+            <ias-accordion-header ias-toggle="item3">Accordion Item 3</ias-accordion-header>
+            <div class="ias-accordion-content">
+                <p>Accordion Item 3 content</p>
+            </div>
+        </ias-accordion-item>
+        <ias-accordion-item toggle-group="accordion3" name="item4">
+            <ias-accordion-header ias-toggle="item4">Accordion Item 4</ias-accordion-header>
+            <div class="ias-accordion-content">
+                <p>Accordion Item 4 content</p>
+            </div>
+        </ias-accordion-item>
+    </ias-accordion>
+</div>
+
+<div class="demo-section">
+    <h3>Open/Close all</h3>
+    <p class="ias-page-instructions">When a [toggle-group] has many accordion items, it may be desirable to provide
+        a way to open or close all items simultaneously. The IasToggleService provides additional methods to facilitate
+        this interaction.</p>
+
+    <ias-accordion repeat-as-code prism-insert-id="accordionCode">
+        <div class="ias-accordion-link">
+            <a ng-click="$ctrl.toggleAll('accordion4')"
+               ng-bind="$ctrl.anyOpen('accordion4') ? 'Close All' : 'Open All'"></a>
+        </div>
+        <ias-accordion-item toggle-group="accordion4" name="{{'groupItem' + $index}}"
+                            ng-repeat="item in $ctrl.items track by $index">
+            <ias-accordion-header ias-toggle="{{'groupItem' + $index}}">Accordion Item {{$index}}</ias-accordion-header>
+            <div class="ias-accordion-content">
+                <p>Accordion Item {{$index}} content</p>
+            </div>
+        </ias-accordion-item>
+    </ias-accordion>
+
+    <toggleable-code id="accordionCode">
+        <pre><code highlight>
+            anyOpen(groupId): boolean {
+                return this.toggleService.anyOpen(groupId);
+            }
+
+            toggleAll(groupId): void {
+                this.toggleService.toggleGroup(groupId);
+            }
+        </code></pre>
+    </toggleable-code>
 </div>

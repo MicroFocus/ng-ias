@@ -1,59 +1,53 @@
-import {element, forEach, IAttributes, IAugmentedJQuery, IDirective, IScope} from 'angular';
+import {IAugmentedJQuery, IDirective} from 'angular';
+import {IToggleable} from '../toggle/toggle.directive';
+import ToggleService from '../toggle/toggle.service';
 
-interface ITabsetController {
-    activeTab: number;
-    activateTab(tabIndex: number): void;
-}
+class TabPaneController implements IToggleable {
+    name: string;
+    open: boolean;
+    toggleMutexGroup: string;
+    toggleStartOpen: boolean;
 
-export class TabsetController implements ITabsetController {
-    activeTab;
+    static $inject = ['$element', 'IasToggleService'];
+    constructor(private $element: IAugmentedJQuery, private toggleService: ToggleService) {
+        this.open = false;
+    }
 
-    activateTab(tabIndex): void {
-        this.activeTab = tabIndex;
-    };
-}
+    $onInit(): void {
+        this.toggleService.register(this);
 
-export default function TabsetDirective(): IDirective {
-    return {
-        scope: true,
-        restrict: 'E',
-        controller: TabsetController,
-        controllerAs: '$tabsetCtrl',
-        compile: (tElement: IAugmentedJQuery) => {
-            // Nest element contents inside a tabset
-            let tabset = element(`<div class="ias-tabset" role="tablist"></div>`);
-            forEach(tElement.contents(), (content: Element) => {
-                tabset.append(content);
-            });
-            tElement.append(tabset);
-
-            // Switch out 'ias-tab' elements for tabs and panes
-            let tabs = element(tabset).find('ias-tab');
-            let tab;
-
-            forEach(tabs, (tabElement: HTMLElement, index: number) => {
-                // Add tab
-                let label = tabElement.getAttribute('label');
-                tab = element(`<div ng-class="{'ias-tab': true, 'ias-active': $tabsetCtrl.activeTab === ${index}}"
-                                       ng-click="$tabsetCtrl.activateTab(${index})"
-                                       role="tab">${label}</div>`);
-                element(tabElement).replaceWith(tab);
-
-                // Add pane
-                let pane = element(`<div class="ias-tab-pane"
-                                         ng-if="$tabsetCtrl.activeTab === ${index}"></div>`);
-                pane.append(tabElement.innerHTML);
-                tElement.append(pane);
-            });
-
-            // Add tab base and fill after the last tab, before any right-aligned elements such as links
-            if (tab) {
-                tab.after(`<div class="ias-tab-base"></div><div class="ias-fill"></div>`);
-            }
-
-            return (scope: IScope, iElement: IAugmentedJQuery, iAttrs: IAttributes, tabsetCtrl: ITabsetController) => {
-                tabsetCtrl.activeTab = Number(iAttrs.iasActiveTab) || 0;
-            };
+        if (this.toggleStartOpen) {
+            this.toggleService.showComponent(this.name);
         }
+    }
+
+    hide(): void {
+        this.open = false;
+
+        this.$element.removeClass('ias-open');
+    }
+
+    show(element?: IAugmentedJQuery): void {
+        this.open = true;
+
+        this.$element.addClass('ias-open');
+    }
+}
+
+export default function TabPaneDirective(): IDirective {
+    return {
+        bindToController: true,
+        controller: TabPaneController,
+        replace: true,
+        restrict: 'E',
+        scope: {
+            toggleMutexGroup: '@toggleGroup',
+            toggleStartOpen: '<',
+            name: '@'
+        },
+        template: `
+            <div class="ias-tab-pane" ng-transclude></div>        
+        `,
+        transclude: true
     };
 }
