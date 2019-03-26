@@ -99,7 +99,9 @@
 <div class="demo-section">
     <h4>Custom Dialog</h4>
 
-    <ias-button ng-click="$ctrl.openCustomDialog()" repeat-as-code prism-insert-id="code-04">View Custom Dialog</ias-button>
+    <ias-button ng-click="$ctrl.openCustomDialog()" repeat-as-code prism-insert-id="code-04">
+        View Custom Dialog
+    </ias-button>
 
 	<toggleable-code id="code-04">
         <pre><code highlight>
@@ -113,16 +115,18 @@
                             };
                         },
                         template:
-                            '&lt;div class="ias-dialog"&gt;' +
-                            '   &lt;div class="ias-dialog-label"&gt;' +
-                            '       &lt;div class="ias-title"&gt;{{title}}&lt;/div&gt;' +
-                            '   &lt;/div&gt;' +
-                            '   &lt;div class="ias-dialog-content"&gt;' +
-                            '       &lt;p&gt;Add your content here&lt;/p&gt;' +
-                            '   &lt;/div&gt;' +
-                            '   &lt;div class="ias-actions"&gt;' +
-                            '      &lt;ias-button ng-click="close()"&gt;Got It!&lt;/ias-button&gt;' +
-                            '   &lt;/div&gt;' +
+                            '&lt;div class=&quot;ias-dialog&quot;&gt;' +
+                            '    &lt;div class=&quot;ias-dialog-container&quot;&gt;' +
+                            '        &lt;div class=&quot;ias-dialog-content&quot;&gt;' +
+                            '            &lt;div class=&quot;ias-dialog-label&quot;&gt;' +
+                            '                &lt;div class=&quot;ias-title&quot;&gt;{{title}}&lt;/div&gt;' +
+                            '            &lt;/div&gt;' +
+                            '            &lt;p&gt;Add your content here&lt;/p&gt;' +
+                            '            &lt;div class=&quot;ias-actions&quot;&gt;' +
+                            '               &lt;ias-button ng-click=&quot;close()&quot;&gt;Got It!&lt;/ias-button&gt;' +
+                            '            &lt;/div&gt;' +
+                            '        &lt;/div&gt;' +
+                            '    &lt;/div&gt;' +
                             '&lt;/div&gt;'
                     });
             };

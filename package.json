@@ -1,6 +1,6 @@
 {
   "name": "@microfocus/ng-ias",
-  "version": "1.0.0-alpha.2",
+  "version": "1.0.0-rc",
   "description": "Angular UX library for Micro Focus Identity, Access, and Security products",
   "engines": {
     "node": ">=6.2",
@@ -8,7 +8,7 @@
   },
   "engineStrict": true,
   "scripts": {
-    "prepublish": "gulp clean && gulp build:production"
+    "prepublishOnly": "gulp clean && gulp build:production"
   },
   "repository": {
     "type": "git",
@@ -19,8 +19,8 @@
   "bugs": "https://github.com/microfocus/ng-ias/issues",
   "homepage": "https://github.com/microfocus/ng-ias#readme",
   "devDependencies": {
-    "@microfocus/ias-icons": "1.0.0-alpha",
-    "@microfocus/ux-ias": "1.0.0-alpha",
+    "@microfocus/ias-icons": "1.0.2",
+    "@microfocus/ux-ias": "1.1.0",
     "@types/angular": "1.6.32",
     "@types/angular-mocks": "1.5.11",
     "@types/angular-ui-router": "1.1.36",
