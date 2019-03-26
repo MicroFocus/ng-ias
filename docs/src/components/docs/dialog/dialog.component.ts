@@ -43,12 +43,12 @@ export default class DialogComponent {
     openCustomDialog(): void {
         this.IasDialogService
             .open({
-                controller: function ($scope, IasDialogService) {
+                controller: [ '$scope', 'IasDialogService', function ($scope, IasDialogService) {
                     $scope.title = 'Custom Template';
                     $scope.close = function() {
                         IasDialogService.close();
                     };
-                },
+                }],
                 template:
                     '<div class="ias-dialog">' +
                     '    <div class="ias-dialog-container">' +
@@ -86,12 +86,12 @@ export default class DialogComponent {
     openTemplateUrlCustomDialog(): void {
         this.IasDialogService
             .open({
-                controller: function ($scope, IasDialogService) {
+                controller: [ '$scope', 'IasDialogService', function ($scope, IasDialogService) {
                     $scope.title = 'Custom Template';
                     $scope.close = function() {
                         IasDialogService.close();
                     };
-                },
+                }],
                 templateUrl: customDialogTemplateUrl
             });
     }
