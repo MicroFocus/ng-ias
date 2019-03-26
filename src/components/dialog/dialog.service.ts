@@ -155,27 +155,27 @@ export default class DialogService {
         else {
             return this.$q.resolve(
                 '<div class="ias-dialog">' +
-                '   <div class="ias-dialog-container">' +
-                '       <div class="ias-dialog-label">' +
-                '           <div ng-if="!!title" class="ias-title">{{title}}</div>' +
-                '       </div>' +
-                '       <div class="ias-dialog-content">' +
-                '           <div ng-if="!prompt">{{textContent}}</div>' +
-                '           <div ng-if="prompt">' +
-                '               <div class="ias-input-container">' +
-                '                   <label for="response">{{textContent}}</label>' +
-                '                   <input id="response" name="response" type="text" ng-model="data.response">' +
-                '               </div>' +
-                '           </div>' +
-                '       </div>' +
-                '       <div class="ias-actions">' +
-                '          <ias-button ng-if="!!okText" ng-click="close()">{{okText}}</ias-button>' +
-                '          <ias-button ng-if="!!cancelText" ng-click="cancel()">{{cancelText}}</ias-button>' +
-                '       </div>' +
-                '       <ias-button class="ias-icon-button ias-dialog-cancel-button" ng-click="cancel()">' +
-                '           <ias-icon icon="close_thick"></ias-icon>' +
-                '       </ias-button>' +
-                '   </div>' +
+                '    <div class="ias-dialog-container">' +
+                '        <div class="ias-dialog-content">' +
+                '            <div class="ias-dialog-label">' +
+                '                <div ng-if="!!title" class="ias-title">{{title}}</div>' +
+                '            </div>' +
+                '            <div ng-if="!prompt">{{textContent}}</div>' +
+                '            <div ng-if="prompt">' +
+                '                <div class="ias-input-container">' +
+                '                    <label for="response">{{textContent}}</label>' +
+                '                    <input id="response" name="response" type="text" ng-model="data.response">' +
+                '                </div>' +
+                '            </div>' +
+                '            <div class="ias-actions">' +
+                '                <ias-button ng-if="!!okText" ng-click="close()">{{okText}}</ias-button>' +
+                '                <ias-button ng-if="!!cancelText" ng-click="cancel()">{{cancelText}}</ias-button>' +
+                '            </div>' +
+                '            <ias-button class="ias-icon-button ias-dialog-cancel-button" ng-click="cancel()">' +
+                '                <ias-icon icon="close_thick"></ias-icon>' +
+                '            </ias-button>' +
+                '        </div>' +
+                '    </div>' +
                 '</div>'
             );
         }
