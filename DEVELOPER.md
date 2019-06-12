@@ -28,7 +28,7 @@ another builds and serves the documentation application.
 ## ng-gulp
 
 This project uses [Gulp](https://gulpjs.com/) and 
-[ng-gulp](https://github.com/jedwardhawkins/ng-gulp) to build the project, watch the source for changes, and start
+[ng-gulp](https://github.com/MicroFocus/ng-gulp) to build the project, watch the source for changes, and start
 a local server which hosts the application.
 
 ### Useful ng-gulp commands
