@@ -29,7 +29,7 @@
     "@types/angular-mocks": "1.5.11",
     "@types/angular-ui-router": "1.1.36",
     "@types/node": "6.0.45",
-    "angular": "1.6.0",
+    "angular": "1.8.0",
     "angular-aria": "1.6.0",
     "angular-messages": "1.6.0",
     "angular-mocks": "1.6.0",
